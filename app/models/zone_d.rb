@@ -1,0 +1,2 @@
+class ZoneD < ApplicationRecord
+end

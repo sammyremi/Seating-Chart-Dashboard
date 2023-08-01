@@ -1,0 +1,2 @@
+class ZoneR < ApplicationRecord
+end

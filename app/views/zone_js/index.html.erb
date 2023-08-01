@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Zone js</h1>
+
+<div id="zone_js">
+  <% @zone_js.each do |zone_j| %>
+    <%= render zone_j %>
+    <p>
+      <%= link_to "Show this zone j", zone_j %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New zone j", new_zone_j_path %>

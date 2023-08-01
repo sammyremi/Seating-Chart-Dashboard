@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @zone_n %>
+
+<div>
+  <%= link_to "Edit this zone n", edit_zone_n_path(@zone_n) %> |
+  <%= link_to "Back to zone ns", zone_ns_path %>
+
+  <%= button_to "Destroy this zone n", @zone_n, method: :delete %>
+</div>
