@@ -4,43 +4,47 @@
 
 </body>
 
+<div>
 
-<div style="max-width: 200px; max-height: 200px; position: absolute; top: 40%; left: 48.5%; transform: translate(-50%, -50%);">
-  <img src="<%= asset_path('oglogo.png') %>" alt="Your Logo" style="width: 130%; height: 130%; padding-left: 10px; object-fit: contain;">
-
-<div style="text-align: center; color: #00AEEF">
-  <h1 style="padding-left: 60px;">Login</h1>
-</div>
-
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field" style="margin-bottom: 20px;">
-
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', style: "padding: 5px; width: 280px; height: 20px; border: 1px solid #ccc; border-radius: 4px;" %>
-    </div>
-  
-    <div class="field" style="margin-bottom: 20px;">
-      
-      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', style: "padding: 5px; width: 280px; height: 20px; border: 1px solid #ccc; border-radius: 4px;" %>
-    </div>
-  
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
-  
-    <div class="actions" style="padding-top: 20px;">
-      <%= f.submit "Log in", style: "padding: 10px 20px; background-color: #00AEEF; color: white; border: none; border-radius: 32px; cursor: pointer; width: 290px;"%>
-    </div>
-
-  <% end %>
-  
-  <div style="padding-top: 20px; text-align: center; padding-left: 93px;">
-    <%= link_to "Forgot password", new_user_password_path %>
+  <div class="pt-40">
+    <img src="<%= asset_path('oglogo.png') %>" class=" max-w-xs mx-auto ">
   </div>
-  
+
+  <div>
+    <h1 class="text-center p-5" style="color: #00AEEF; font-size: 40px;">Login</h1>
+  </div>
+
+
+  <div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <div class="flex justify-center items-center pb-5">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: "p-1 border-2 border-blue-300 rounded-full focus:outline-none", style: "width: 350px;"%>
+      </div>
+    
+      <div class="flex justify-center items-center">
+
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: "p-1 border-2 border-blue-300 rounded-full focus:outline-none", style: "width: 350px;"%>
+      </div>
+    
+      <% if devise_mapping.rememberable? %>
+        <div class="flex justify-center items-center p-2" >
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+    
+      <div class="flex justify-center items-center">
+        <%= f.submit "Log in", class: "px-4 py-2 bg-blue-400 text-white rounded-full hover:bg-blue-500", style: "width: 350px; cursor: pointer;"%>
+      </div>
+
+    <% end %>
+    
+    <div class="flex justify-center items-center p-2" style="color: #00AEEF;">
+      <%= link_to "Forgot password", new_user_password_path %>
+    </div>
+    
+  </div>
 </div>
 
 
