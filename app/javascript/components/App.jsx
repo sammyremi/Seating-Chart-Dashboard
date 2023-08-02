@@ -1,15 +1,31 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import Zones from "./pages/ZonesPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import HomeLayout from "./pages/HomeLayout";
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomeLayout />,
+      errorElement: <h2>There was an error...</h2>,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "zones",
+          element: <Zones />,
+        },
+      ],
+    },
+  ]);
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline text-clifford">
-        You clicked {count} time(s)
-      </h1>
-      <button onClick={() => setCount(count + 1)}>Click me!</button>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 };
 
