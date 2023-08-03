@@ -4,7 +4,7 @@ import ZoneBox from "../ZoneBox";
 
 const Zones = () => {
   return (
-    <div className="py-4 px-8 pt-5">
+    <div className="py-4 px-8">
       <p className="text-center font-bold mb-4">Zones</p>
       <div className="grid grid-cols-3 gap-6">
         <ZoneBox zone="Zone D" />

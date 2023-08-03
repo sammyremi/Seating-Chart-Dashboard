@@ -3,6 +3,7 @@ import Zones from "./pages/ZonesPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import HomeLayout from "./pages/HomeLayout";
+import AllWorkStations from "./pages/AllWorkStations";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const App = () => {
         {
           path: "zones",
           element: <Zones />,
+        },
+        {
+          path: "all-workstations",
+          element: <AllWorkStations />,
         },
       ],
     },
