@@ -16,7 +16,7 @@ const HomeLayout = () => {
         <div className="basis-1/6 h-auto">
           <Sidenav />
         </div>
-        <div className="basis-5/6 bg-lime-200 h-auto">
+        <div className="basis-5/6 bg-lime-50 min-h-screen pt-20 px-4">
           <Outlet />
         </div>
       </div>

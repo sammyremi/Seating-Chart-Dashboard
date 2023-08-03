@@ -5,11 +5,11 @@ const Sidenav = () => {
   return (
     <aside
       id="default-sidebar"
-      className="z-40 w-full h-screen transition-transform -translate-x-full sm:translate-x-0"
+      className="fixed top-16 left-0 drop-shadow-md w-1/6 h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
-      <div className="h-full px-3 py-6 pl-7 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-        <ul className="space-y-12 pt-10 font-medium text-lg">
+      <div className="h-full px-3 py-6 pl-7 overflow-y-auto bg-gray-50">
+        <ul className="space-y-12 mt-16 font-medium text-xl">
           <li>
             <Link
               to="/"
