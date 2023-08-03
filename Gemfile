@@ -8,6 +8,9 @@ gem "rails", "~> 7.0.6"
 
 gem "devise"
 
+gem "csv"
+
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

@@ -1,0 +1,2 @@
+class ZoneH < ApplicationRecord
+end

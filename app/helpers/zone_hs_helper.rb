@@ -1,0 +1,2 @@
+module ZoneHsHelper
+end

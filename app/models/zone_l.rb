@@ -1,0 +1,2 @@
+class ZoneL < ApplicationRecord
+end
