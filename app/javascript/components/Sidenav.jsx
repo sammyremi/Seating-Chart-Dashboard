@@ -8,7 +8,7 @@ const Sidenav = () => {
       className="fixed top-16 left-0 drop-shadow-md w-1/6 h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
-      <div className="h-full px-3 py-6 pl-7 overflow-y-auto bg-gray-50">
+      <div className="h-full px-3 py-6 pl-7 overflow-y-auto">
         <ul className="space-y-12 mt-16 font-medium text-xl">
           <li>
             <Link
