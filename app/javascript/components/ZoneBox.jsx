@@ -7,7 +7,7 @@ const ZoneBox = ({ zone }) => {
     <Link
       to={zone_link === "Working" ? "/all-workstations" : `zone-${zone_link}`}
     >
-      <div className="flex items-center justify-center w-96 bg-sky-400 rounded-md text-slate-50 font-bold h-40 tracking-wide">
+      <div className="flex items-center justify-center w-64 h-28 bg-sky-400 rounded-md text-slate-50 font-bold tracking-wide">
         <p>{zone}</p>
       </div>
     </Link>
