@@ -4,10 +4,16 @@ class ZoneRsController < ApplicationController
   # GET /zone_rs or /zone_rs.json
   def index
     @zone_rs = ZoneR.all
+    render json: @zone_rs
   end
 
   # GET /zone_rs/1 or /zone_rs/1.json
   def show
+    if @zone_r
+      render json: @zone_r
+    else
+      render json: @zone_r.errors
+    end
   end
 
   # GET /zone_rs/new
@@ -25,11 +31,9 @@ class ZoneRsController < ApplicationController
 
     respond_to do |format|
       if @zone_r.save
-        format.html { redirect_to zone_r_url(@zone_r), notice: "Zone r was successfully created." }
-        format.json { render :show, status: :created, location: @zone_r }
+        render json: @zone_r { notice: 'Zone R was successfully created' }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @zone_r.errors, status: :unprocessable_entity }
+        render json: @zone_r.errors
       end
     end
   end
@@ -38,11 +42,9 @@ class ZoneRsController < ApplicationController
   def update
     respond_to do |format|
       if @zone_r.update(zone_r_params)
-        format.html { redirect_to zone_r_url(@zone_r), notice: "Zone r was successfully updated." }
-        format.json { render :show, status: :ok, location: @zone_r }
+        render json: @zone_r {notice: 'Zone R was successfully updated' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @zone_r.errors, status: :unprocessable_entity }
+        render json: @zone_r.errors
       end
     end
   end
@@ -50,11 +52,7 @@ class ZoneRsController < ApplicationController
   # DELETE /zone_rs/1 or /zone_rs/1.json
   def destroy
     @zone_r.destroy
-
-    respond_to do |format|
-      format.html { redirect_to zone_rs_url, notice: "Zone r was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    render json: { notice: 'Zone R was successfully removed.' }
   end
 
   private

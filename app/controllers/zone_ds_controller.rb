@@ -4,10 +4,16 @@ class ZoneDsController < ApplicationController
   # GET /zone_ds or /zone_ds.json
   def index
     @zone_ds = ZoneD.all
+    render json: @zone_ds
   end
 
   # GET /zone_ds/1 or /zone_ds/1.json
   def show
+    if @zone_d
+      render json: @zone_d
+    else
+      render json: @zone_d.errors
+    end
   end
 
   # GET /zone_ds/new
@@ -25,11 +31,9 @@ class ZoneDsController < ApplicationController
 
     respond_to do |format|
       if @zone_d.save
-        format.html { redirect_to zone_d_url(@zone_d), notice: "Zone d was successfully created." }
-        format.json { render :show, status: :created, location: @zone_d }
+        render json: @zone_d {notice: 'Zone D was successfully created' }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @zone_d.errors, status: :unprocessable_entity }
+        render json: @zone_d.errors
       end
     end
   end
@@ -38,11 +42,9 @@ class ZoneDsController < ApplicationController
   def update
     respond_to do |format|
       if @zone_d.update(zone_d_params)
-        format.html { redirect_to zone_d_url(@zone_d), notice: "Zone d was successfully updated." }
-        format.json { render :show, status: :ok, location: @zone_d }
+        render json: @zone_d {notice: 'Zone D was successfully updated' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @zone_d.errors, status: :unprocessable_entity }
+        render json: @zone_d.errors
       end
     end
   end
@@ -51,10 +53,7 @@ class ZoneDsController < ApplicationController
   def destroy
     @zone_d.destroy
 
-    respond_to do |format|
-      format.html { redirect_to zone_ds_url, notice: "Zone d was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    render json: { notice: 'Zone D was successfully removed.' }
   end
 
   private
