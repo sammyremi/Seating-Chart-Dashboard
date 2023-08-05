@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import HomeLayout from "./pages/HomeLayout";
 import AllWorkStations from "./pages/AllWorkStations";
-import ZoneD from "./pages/ZoneD";
+import Zone from "./pages/Zone";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -26,8 +26,8 @@ const App = () => {
           element: <AllWorkStations />,
         },
         {
-          path: "zones/zone_ds",
-          element: <ZoneD />,
+          path: "zones/:zone_name",
+          element: <Zone />,
         },
       ],
     },

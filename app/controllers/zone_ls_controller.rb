@@ -4,6 +4,7 @@ class ZoneLsController < ApplicationController
   # GET /zone_ls or /zone_ls.json
   def index
     @zone_ls = ZoneL.all
+    render json: @zone_ls
   end
 
   # GET /zone_ls/1 or /zone_ls/1.json
@@ -13,6 +14,7 @@ class ZoneLsController < ApplicationController
   # GET /zone_ls/new
   def new
     @zone_l = ZoneL.new
+    
   end
 
   # GET /zone_ls/1/edit

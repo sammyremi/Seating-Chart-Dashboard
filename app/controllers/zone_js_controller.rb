@@ -4,6 +4,7 @@ class ZoneJsController < ApplicationController
   # GET /zone_js or /zone_js.json
   def index
     @zone_js = ZoneJ.all
+    render json: @zone_js
   end
 
   # GET /zone_js/1 or /zone_js/1.json

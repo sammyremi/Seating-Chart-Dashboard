@@ -14,7 +14,7 @@ const HomeLayout = () => {
       <div
         style={{
           minHeight: "calc(100vh - 4rem)",
-          background: `linear-gradient(rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${background}) center/cover no-repeat`,
+          background: `linear-gradient(rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${background}) center/cover fixed no-repeat`,
         }}
         className="flex flex-row h-auto"
       >

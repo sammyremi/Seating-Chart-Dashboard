@@ -4,6 +4,7 @@ class ZoneNsController < ApplicationController
   # GET /zone_ns or /zone_ns.json
   def index
     @zone_ns = ZoneN.all
+    render json: @zone_ns
   end
 
   # GET /zone_ns/1 or /zone_ns/1.json
