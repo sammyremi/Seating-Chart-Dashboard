@@ -26,7 +26,7 @@ const App = () => {
           element: <AllWorkStations />,
         },
         {
-          path: "/zone_ds",
+          path: "zones/zone_ds",
           element: <ZoneD />,
         },
       ],

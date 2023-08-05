@@ -14,9 +14,9 @@ const HomeLayout = () => {
       <div
         style={{
           minHeight: "calc(100vh - 4rem)",
-          backgroundImage: `url(${background})`,
+          background: `linear-gradient(rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${background}) center/cover no-repeat`,
         }}
-        className="flex flex-row h-auto bg-no-repeat bg-cover bg-fixed"
+        className="flex flex-row h-auto"
       >
         <div className="basis-1/6 h-auto border-r-2">
           <Sidenav />
