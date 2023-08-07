@@ -26,7 +26,7 @@ class ZoneJsController < ApplicationController
 
     respond_to do |format|
       if @zone_j.save
-        render json: @zone_js
+        render json: @zone_j
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @zone_j.errors, status: :unprocessable_entity }

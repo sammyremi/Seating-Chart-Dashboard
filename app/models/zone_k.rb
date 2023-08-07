@@ -1,0 +1,2 @@
+class ZoneK < ApplicationRecord
+end

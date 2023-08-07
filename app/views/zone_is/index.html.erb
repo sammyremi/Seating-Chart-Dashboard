@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Zone is</h1>
+
+<div id="zone_is">
+  <% @zone_is.each do |zone_i| %>
+    <%= render zone_i %>
+    <p>
+      <%= link_to "Show this zone i", zone_i %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New zone i", new_zone_i_path %>

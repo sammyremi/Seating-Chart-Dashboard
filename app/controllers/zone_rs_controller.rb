@@ -26,7 +26,7 @@ class ZoneRsController < ApplicationController
 
     respond_to do |format|
       if @zone_r.save
-        render json: @zone_r 
+        render json: @zone_r { notice: 'Zone R was successfully created' }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @zone_r.errors, status: :unprocessable_entity }
@@ -38,7 +38,8 @@ class ZoneRsController < ApplicationController
   def update
     respond_to do |format|
       if @zone_r.update(zone_r_params)
-        render json: @zone_r 
+        render json: @zone_r {notice: 'Zone R was successfully updated' }
+      else
         render json: @zone_r.errors
       end
     end

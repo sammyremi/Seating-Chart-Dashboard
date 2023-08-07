@@ -26,7 +26,8 @@ class ZoneHsController < ApplicationController
 
     respond_to do |format|
       if @zone_h.save
-        render json: @zone_h 
+        render json: @zone_h
+      else
         render json: @zone_h.errors
       end
     end
@@ -36,7 +37,7 @@ class ZoneHsController < ApplicationController
   def update
     respond_to do |format|
       if @zone_h.update(zone_h_params)
-        render json: @zone_h {notice: 'Zone H was successfully updated' }
+        render json: @zone_h
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @zone_h.errors, status: :unprocessable_entity }
