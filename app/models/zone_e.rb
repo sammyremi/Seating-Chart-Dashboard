@@ -1,0 +1,2 @@
+class ZoneE < ApplicationRecord
+end

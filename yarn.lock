@@ -220,7 +220,7 @@ __metadata:
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
->>>>>>>>> Temporary merge branch 2
+
 
 "@esbuild/android-arm@npm:0.18.17":
   version: 0.18.17

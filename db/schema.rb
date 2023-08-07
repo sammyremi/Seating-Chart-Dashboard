@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_183701) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_07_121159) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,12 +34,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_183701) do
     t.string "desk_id"
   end
 
+  create_table "zone_es", force: :cascade do |t|
+    t.string "desk_id"
+    t.string "status"
+    t.string "campaign"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "zone_hs", force: :cascade do |t|
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "desk_id"
+  end
+
+  create_table "zone_is", force: :cascade do |t|
+    t.string "desk_id"
+    t.string "status"
+    t.string "campaign"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "zone_js", force: :cascade do |t|
@@ -50,6 +66,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_183701) do
     t.string "desk_id"
   end
 
+  create_table "zone_ks", force: :cascade do |t|
+    t.string "desk_id"
+    t.string "status"
+    t.string "campaign"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "zone_ls", force: :cascade do |t|
     t.string "status"
     t.string "campaign"
@@ -58,12 +82,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_183701) do
     t.string "desk_id"
   end
 
+  create_table "zone_ms", force: :cascade do |t|
+    t.string "desk_id"
+    t.string "status"
+    t.string "campaign"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "zone_ns", force: :cascade do |t|
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "desk_id"
+  end
+
+  create_table "zone_qs", force: :cascade do |t|
+    t.string "desk_id"
+    t.string "status"
+    t.string "campaign"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "zone_rs", force: :cascade do |t|

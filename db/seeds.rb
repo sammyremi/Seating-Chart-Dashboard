@@ -55,3 +55,43 @@ CSV.foreach(Rails.root.join('zones', 'zoneR.csv'), headers: true) do |row|
         campaign: row['campaign']
     )
 end
+
+CSV.foreach(Rails.root.join('zones', 'zoneE.csv'), headers: true) do |row|
+    ZoneE.create!(
+        desk_id: row['desk_id'],
+        status: row['status'],
+        campaign: row['campaign']
+    )
+end
+
+CSV.foreach(Rails.root.join('zones', 'zoneI.csv'), headers: true) do |row|
+    ZoneI.create!(
+        desk_id: row['desk_id'],
+        status: row['status'],
+        campaign: row['campaign']
+    )
+end
+
+CSV.foreach(Rails.root.join('zones', 'zoneK.csv'), headers: true) do |row|
+    ZoneK.create!(
+        desk_id: row['desk_id'],
+        status: row['status'],
+        campaign: row['campaign']
+    )
+end
+
+CSV.foreach(Rails.root.join('zones', 'zoneM.csv'), headers: true) do |row|
+    ZoneM.create!(
+        desk_id: row['desk_id'],
+        status: row['status'],
+        campaign: row['campaign']
+    )
+end
+
+CSV.foreach(Rails.root.join('zones', 'zoneQ.csv'), headers: true) do |row|
+    ZoneQ.create!(
+        desk_id: row['desk_id'],
+        status: row['status'],
+        campaign: row['campaign']
+    )
+end
