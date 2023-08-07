@@ -31,7 +31,7 @@ class ZoneRsController < ApplicationController
 
     respond_to do |format|
       if @zone_r.save
-        render json: @zone_r { notice: 'Zone R was successfully created' }
+        render json: @zone_r 
       else
         render json: @zone_r.errors
       end
@@ -42,8 +42,7 @@ class ZoneRsController < ApplicationController
   def update
     respond_to do |format|
       if @zone_r.update(zone_r_params)
-        render json: @zone_r {notice: 'Zone R was successfully updated' }
-      else
+        render json: @zone_r 
         render json: @zone_r.errors
       end
     end
