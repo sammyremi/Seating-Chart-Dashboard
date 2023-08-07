@@ -25,7 +25,7 @@ const Home = () => {
       {
         label: "Damaged",
         data: [2, 4, 6, 6],
-        backgroundColor: "#ff66b3",
+        backgroundColor: "#ffcfcf",
         borderColor: "black",
         borderWidth: 1,
       },
@@ -60,7 +60,7 @@ const Home = () => {
       {
         label: "Damaged",
         data: [2, 9, 3, 4, 2, 4, 6],
-        backgroundColor: "#ff66b3",
+        backgroundColor: "#ffcfcf",
         borderColor: "black",
         borderWidth: 1,
       },
