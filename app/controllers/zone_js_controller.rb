@@ -9,11 +9,6 @@ class ZoneJsController < ApplicationController
 
   # GET /zone_js/1 or /zone_js/1.json
   def show
-    if @zone_j
-      render json: @zone_j
-    else
-      render json: @zone_j.errors
-    end
   end
 
   # GET /zone_js/new
@@ -33,7 +28,8 @@ class ZoneJsController < ApplicationController
       if @zone_j.save
         render json: @zone_js
       else
-        render json: @zone_j.errors
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @zone_j.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,7 +40,8 @@ class ZoneJsController < ApplicationController
       if @zone_j.update(zone_j_params)
         render json: @zone_j 
       else
-        render json: @zone_j.errors
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @zone_j.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,8 +50,10 @@ class ZoneJsController < ApplicationController
   def destroy
     @zone_j.destroy
 
-    render json: { notice: 'Zone J was successfully removed.' }
-
+    respond_to do |format|
+      format.html { redirect_to zone_js_url, notice: "Zone j was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private

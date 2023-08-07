@@ -9,11 +9,6 @@ class ZoneDsController < ApplicationController
 
   # GET /zone_ds/1 or /zone_ds/1.json
   def show
-    if @zone_d
-      render json: @zone_d
-    else
-      render json: @zone_d.errors
-    end
   end
 
   # GET /zone_ds/new
@@ -33,7 +28,8 @@ class ZoneDsController < ApplicationController
       if @zone_d.save
         render json: @zone_d
       else
-        render json: @zone_d.errors
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @zone_d.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,7 +38,8 @@ class ZoneDsController < ApplicationController
   def update
     respond_to do |format|
       if @zone_d.update(zone_d_params)
-        render json: @zone_d
+        render json: @zone_d {notice: 'Zone D was successfully updated' }
+      else
         render json: @zone_d.errors
       end
     end
@@ -52,7 +49,10 @@ class ZoneDsController < ApplicationController
   def destroy
     @zone_d.destroy
 
-    render json: { notice: 'Zone D was successfully removed.' }
+    respond_to do |format|
+      format.html { redirect_to zone_ds_url, notice: "Zone d was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private

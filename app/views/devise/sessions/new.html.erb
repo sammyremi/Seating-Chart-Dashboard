@@ -6,7 +6,7 @@
 
 <div>
 
-  <div class="pt-40" >
+  <div class="pt-40">
     <img src="<%= asset_path('oglogo.png') %>" class=" max-w-xs mx-auto ">
   </div>
 
@@ -19,16 +19,16 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <div class="flex justify-center items-center pb-5">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: "p-1 border-2 border-blue-300 rounded-full focus:outline-none", style: "width: 350px;"%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: "p-1 pl-4 border-2 border-blue-300 rounded-full focus:outline-none", style: "width: 350px;"%>
       </div>
     
       <div class="flex justify-center items-center">
 
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: "p-1 border-2 border-blue-300 rounded-full focus:outline-none", style: "width: 350px;"%>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: "p-1 pl-4 border-2 border-blue-300 rounded-full focus:outline-none", style: "width: 350px;"%>
       </div>
     
       <% if devise_mapping.rememberable? %>
-        <div class="flex justify-center items-center p-2" style="color: gray;">
+        <div class="flex justify-center items-center p-2 gap-2" style="color: gray;">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
