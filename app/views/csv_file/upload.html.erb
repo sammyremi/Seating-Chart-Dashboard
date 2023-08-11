@@ -1,0 +1,9 @@
+<%= form_tag csv_file_index_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag 'Upload File' %>
+  <% end %>
+  
+  <% @zoned.each do |zone| %>
+      <%= zone.inspect %><br>
+  <% end %>
+  
