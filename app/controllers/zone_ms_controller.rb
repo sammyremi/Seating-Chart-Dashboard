@@ -3,7 +3,7 @@ class ZoneMsController < ApplicationController
 
   # GET /zone_ms or /zone_ms.json
   def index
-    @zone_ms = ZoneM.all
+    @zone_ms = ZoneM.order(:desk_id)
     render json: @zone_ms
   end
 
