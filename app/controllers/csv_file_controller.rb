@@ -181,7 +181,22 @@ class CsvFileController < ApplicationController
                             end
                         end
                     when "M"
-                      # Code for case M
+                        @zone_m = ZoneM.find_by(desk_id: data_id)
+                        if @zone_m.present?
+                            if @zone_m.update(db_hash)
+                                puts "I was present and updated"
+                            else
+                                puts "data did not update"
+                            end
+                        else
+                    # if desk id cant be found then create new data and save to db
+                            @zone_m = ZoneM.new(db_hash)
+                            if @zone_m.save
+                                puts "success to db"
+                            else
+                                puts "something went wrong"
+                            end
+                        end
                     when "N"
                       # Code for case N
                     when "Q"
