@@ -2,19 +2,12 @@ class CsvFileController < ApplicationController
 
 
     def new
-        # @zone_d = ZoneD.new(desk_id: "D0077", status: "oop", campaign: "sammyrmi")
-        # # @zone_d.save
         @zoned = ZoneD.order(:desk_id)
-
-        
-        
     end
 
     def create
 
-        puts "I sip"
-        # @zone_d = ZoneD.new(desk_id: "D0077", status: "oop", campaign: "sammyrmi")
-        # @zone_d.save
+        # reading file from params
         
         file = params[:file]
         #checking if file is a csv file 
@@ -25,7 +18,7 @@ class CsvFileController < ApplicationController
                 @value = true
 
                 csv_head = row.headers
-        # checking if all field are correctly passed from csv    
+        # checking if all field are correctly passed in csv  // else break and notify user error
                 db_table = ["desk_id", "status", "campaign"]
         
                 db_table.each do |col|
@@ -47,23 +40,25 @@ class CsvFileController < ApplicationController
 
         puts "file uplaod success", @value, "well sortted"
 
-        # picking required field for db data
+        # run only if file has success upload
         if @value == true
 
             data_col = ["desk_id", "status", "campaign"]
             zone_code = ["D", "E", "H", "I", "J", "K", "L", "M", "N", "Q", "R"]
 
             CSV.foreach(file.path, headers: true) do |row|
+
+                # converting data to hash for db input
                 data = row.to_hash
                 db_hash = data.slice(*data_col)
-
                 data_id = db_hash["desk_id"]
-
                 case_check = data_id[0]
 
+                # checking for correct format for ID
                 if !zone_code.include?(data_id[0]) || data_id.length != 5
                     next
                 else
+                    # checking if desk id exist if exist update with the existing
                     case case_check
                     when "D"
                         puts db_hash
@@ -75,6 +70,7 @@ class CsvFileController < ApplicationController
                                 puts "data did not update"
                             end
                         else
+                    # if desk id cant be found then create new data and save to db
                             @zone_d = ZoneD.new(db_hash)
                             if @zone_d.save
                                 puts "success to db"
@@ -83,7 +79,22 @@ class CsvFileController < ApplicationController
                             end
                         end
                     when "E"
-                      # Code for case E
+                        @zone_e = ZoneE.find_by(desk_id: data_id)
+                        if @zone_e.present?
+                            if @zone_e.update(db_hash)
+                                puts "I was present and updated"
+                            else
+                                puts "data did not update"
+                            end
+                        else
+                    # if desk id cant be found then create new data and save to db
+                            @zone_e = ZoneE.new(db_hash)
+                            if @zone_e.save
+                                puts "success to db"
+                            else
+                                puts "something went wrong"
+                            end
+                        end
                     when "H"
                       # Code for case H
                     when "I"
