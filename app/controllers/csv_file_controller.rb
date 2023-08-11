@@ -198,11 +198,56 @@ class CsvFileController < ApplicationController
                             end
                         end
                     when "N"
-                      # Code for case N
+                        @zone_n = ZoneN.find_by(desk_id: data_id)
+                        if @zone_n.present?
+                            if @zone_n.update(db_hash)
+                                puts "I was present and updated"
+                            else
+                                puts "data did not update"
+                            end
+                        else
+                    # if desk id cant be found then create new data and save to db
+                            @zone_n = ZoneN.new(db_hash)
+                            if @zone_n.save
+                                puts "success to db"
+                            else
+                                puts "something went wrong"
+                            end
+                        end
                     when "Q"
-                      # Code for case Q
+                        @zone_q = ZoneQ.find_by(desk_id: data_id)
+                        if @zone_q.present?
+                            if @zone_q.update(db_hash)
+                                puts "I was present and updated"
+                            else
+                                puts "data did not update"
+                            end
+                        else
+                    # if desk id cant be found then create new data and save to db
+                            @zone_q = ZoneQ.new(db_hash)
+                            if @zone_q.save
+                                puts "success to db"
+                            else
+                                puts "something went wrong"
+                            end
+                        end
                     when "R"
-                      # Code for case R
+                        @zone_r = ZoneR.find_by(desk_id: data_id)
+                        if @zone_r.present?
+                            if @zone_r.update(db_hash)
+                                puts "I was present and updated"
+                            else
+                                puts "data did not update"
+                            end
+                        else
+                    # if desk id cant be found then create new data and save to db
+                            @zone_r = ZoneR.new(db_hash)
+                            if @zone_r.save
+                                puts "success to db"
+                            else
+                                puts "something went wrong"
+                            end
+                        end
                     end
                 end
             end
