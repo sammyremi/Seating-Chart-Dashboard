@@ -251,15 +251,12 @@ class CsvFileController < ApplicationController
                     end
                 end
             end
-
+            redirect_to new_csv_file_path, notice: "File updated to Database"
             
         else
             redirect_to new_csv_file_path, notice: "check your csv file"
         end
         
-
-
-
     end
 
 end
