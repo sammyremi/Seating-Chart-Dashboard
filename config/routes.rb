@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   devise_for :users
 
+  resources :csv_file, only: [:new, :create]
+
   get '/*path' => 'pages#home'
   # Defines the root path route ("/")
   # root "articles#index"

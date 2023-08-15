@@ -4,8 +4,7 @@ class ZoneLsController < ApplicationController
 
   # GET /zone_ls or /zone_ls.json
   def index
-    @zones = Zone.all
-    @zone_ls = @zones.select { |zone| zone.desk_id.start_with?('L') }
+    @zone_ls = ZoneL.order(:desk_id)
     render json: @zone_ls
   end
 
