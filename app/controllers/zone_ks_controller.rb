@@ -1,9 +1,11 @@
 class ZoneKsController < ApplicationController
   before_action :set_zone_k, only: %i[ show edit update destroy ]
+  before_action :set_zone, only: %i[ show edit update destroy ]
 
   # GET /zone_ks or /zone_ks.json
   def index
-    @zone_ks = ZoneK.all
+    @zones = Zone.all
+    @zone_ks = @zones.select { |zone| zone.desk_id.start_with?('K') }
     render json: @zone_ks
   end
 
@@ -64,6 +66,9 @@ class ZoneKsController < ApplicationController
       @zone_k = ZoneK.find(params[:id])
     end
 
+    def set_zone
+      @zone = Zone.find(params[:id])
+    end
     # Only allow a list of trusted parameters through.
     def zone_k_params
       params.require(:zone_k).permit(:desk_id, :status, :campaign)

@@ -1,9 +1,11 @@
 class ZoneDsController < ApplicationController
   before_action :set_zone_d, only: %i[ show edit update destroy ]
+  before_action :set_zone, only: %i[ show edit update destroy ]
 
   # GET /zone_ds or /zone_ds.json
   def index
-    @zone_ds = ZoneD.all
+    @zones = Zone.all
+    @zone_ds = @zones.select { |zone| zone.desk_id.start_with?('D') }
     render json: @zone_ds
   end
 
@@ -15,7 +17,7 @@ class ZoneDsController < ApplicationController
   def new
     @zone_d = ZoneD.new
   end
-
+  
   # GET /zone_ds/1/edit
   def edit
   end
@@ -36,8 +38,9 @@ class ZoneDsController < ApplicationController
 
   # PATCH/PUT /zone_ds/1 or /zone_ds/1.json
   def update
+
     respond_to do |format|
-      if @zone_d.update(zone_d_params)
+      if @zone_d.update(zone_d_params.except(:id, :desk_id))
         render json: @zone_d 
       else
         render json: @zone_d.errors
@@ -58,9 +61,12 @@ class ZoneDsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_zone_d
-      @zone_d = ZoneD.find(params[:id])
+      @zone_d = Zone.find(params[:id])
     end
 
+    def set_zone
+      @zone = Zone.find(params[:id])
+    end
     # Only allow a list of trusted parameters through.
     def zone_d_params
       params.require(:zone_d).permit(:desk_id, :status, :campaign)
