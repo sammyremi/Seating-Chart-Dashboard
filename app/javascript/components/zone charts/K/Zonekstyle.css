@@ -7,6 +7,7 @@
   min-height: 80vh;
   margin: 0 auto;
   outline: 1px solid black;
+  text-align: center;
 }
 .occupied1 {
   background-color: cornflowerblue;

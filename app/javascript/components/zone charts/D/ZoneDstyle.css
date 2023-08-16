@@ -1,21 +1,12 @@
 #content {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(9, 70px);
-  /* grid-auto-rows: 20px; */
+  grid-template-rows: repeat(9, 50px);
   grid-gap: 10px;
   max-width: 80vw;
-  min-height: 90vh;
+  min-height: 70vh;
   margin: 0 auto;
   outline: 1px solid black;
-}
-#content div {
-  /* background: #3bbced; */
-  padding: 30px;
-}
-#content div:nth-child(even) {
-  /* background: #777; */
-  padding: 30px;
 }
 .restroom {
   background-color: #777;

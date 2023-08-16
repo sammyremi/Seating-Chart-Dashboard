@@ -1,5 +1,5 @@
 import React from "react";
-import "./ZoneJstyle.css";
+import "./Zonejstyle.css";
 
 const J_ZoneChart = () => {
   return (

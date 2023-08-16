@@ -1,5 +1,5 @@
 import React from "react";
-import "./ZoneKstyle.css";
+import "./Zonekstyle.css";
 
 const K_ZoneChart = () => {
   return (

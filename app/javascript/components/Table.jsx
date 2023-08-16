@@ -24,6 +24,7 @@ const Table = ({ data }) => {
         <tbody>
           {data.map((desk, index) => {
             const { desk_id, status, campaign, id } = desk;
+            const first_char = desk_id.charAt(0).toLowerCase();
             return (
               <tr key={id} className="border-b">
                 <th
@@ -85,7 +86,9 @@ const Table = ({ data }) => {
                 </td>
                 <td className="px-6 py-4">{campaign}</td>
                 <td className="px-6 py-4 text-sky-700 font-medium">
-                  <a href={`/zone_ds/${id}/edit`}>EDIT</a>
+                  {/* <a href={`/zone_${first_char}s/${id}/edit`}>EDIT</a>
+                   */}
+                  <Link to={`/edit/zone_${first_char}s/${id}`}>EDIT</Link>
                 </td>
               </tr>
             );
