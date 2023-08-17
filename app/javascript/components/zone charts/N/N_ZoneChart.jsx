@@ -1,16 +1,27 @@
 import React from "react";
-import "./ZoneNstyle.css";
 
 const N_ZoneChart = () => {
   return (
     <div>
-      <div id="content" class="zoneN">
-        <div class="zonem">Zone M</div>
-        <div class="occupied1">occupied1</div>
-        <div class="occupied2">occupied2</div>
-        <div class="occupied3">occupied3</div>
-        <div class="restroom">restroom</div>
-        <div class="door">door</div>
+      <div class="zoneN p-2.5 grid grid-cols-8 grid-rows-11 gap-2.5 text-center">
+        <div class="zonem bg-orange-300 col-start-1 col-end-3 row-start-3 row-end-12">
+          Zone M
+        </div>
+        <div class="occupied1 bg-cyan-300 col-start-8 col-end-9 row-start-1 row-end-11">
+          occupied1
+        </div>
+        <div class="occupied2 bg-cyan-300 col-start-3 col-end-5 row-start-3 row-end-11">
+          occupied2
+        </div>
+        <div class="occupied3 bg-cyan-300 col-start-6 col-end-8 row-start-2 row-end-11">
+          occupied3
+        </div>
+        <div class="restroom bg-lime-500 col-start-1 col-end-3 row-start-2 row-end-3">
+          restroom
+        </div>
+        <div class="door bg-pink-300 col-start-5 col-end-6 row-start-11 row-end-12">
+          door
+        </div>
       </div>
     </div>
   );
