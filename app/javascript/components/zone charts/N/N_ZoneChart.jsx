@@ -3,11 +3,11 @@ import React from "react";
 const N_ZoneChart = () => {
   return (
     <div>
-      <div class="zoneN p-2.5 grid grid-cols-8 grid-rows-11 gap-2.5 text-center">
-        <div class="zonem bg-orange-300 col-start-1 col-end-3 row-start-3 row-end-12">
+      <div class="zoneN p-2.5 grid grid-cols-9 grid-rows-11 gap-2.5 text-center">
+        <div class="zonem bg-orange-300 col-start-1 col-end-2 row-start-1 row-end-12">
           Zone M
         </div>
-        <div class="occupied1 bg-cyan-300 col-start-8 col-end-9 row-start-1 row-end-11">
+        <div class="occupied1 bg-cyan-300 col-start-9 col-end-10 row-start-1 row-end-11">
           occupied1
         </div>
         <div class="occupied2 bg-cyan-300 col-start-3 col-end-5 row-start-3 row-end-11">
@@ -16,7 +16,7 @@ const N_ZoneChart = () => {
         <div class="occupied3 bg-cyan-300 col-start-6 col-end-8 row-start-2 row-end-11">
           occupied3
         </div>
-        <div class="restroom bg-lime-500 col-start-1 col-end-3 row-start-2 row-end-3">
+        <div class="restroom bg-lime-500 col-start-3 col-end-5 row-start-1 row-end-3">
           restroom
         </div>
         <div class="door bg-pink-300 col-start-5 col-end-6 row-start-11 row-end-12">
