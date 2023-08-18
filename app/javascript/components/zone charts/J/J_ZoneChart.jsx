@@ -1,6 +1,8 @@
 import React from "react";
+import Desk from "../../Desk";
 
-const J_ZoneChart = () => {
+const J_ZoneChart = ({ data }) => {
+  console.log(data[0]);
   return (
     <div>
       <div class="ZoneJ p-2.5 grid grid-cols-7 grid-rows-8 gap-2.5 text-center">
@@ -8,7 +10,11 @@ const J_ZoneChart = () => {
           Zone R
         </div>
         <div class="occupied1 bg-cyan-300 col-start-3 col-end-8 row-start-1 row-end-2">
-          occupied1
+          <Desk desk_info={data[0]} />
+          {/* <Desk desk_info={data[1]} />
+          <Desk desk_info={data[2]} />
+          <Desk desk_info={data[3]} />
+          <Desk desk_info={data[4]} /> */}
         </div>
         <div class="occupied2 bg-cyan-300 col-start-3 col-end-8 row-start-3 row-end-5">
           occupied2

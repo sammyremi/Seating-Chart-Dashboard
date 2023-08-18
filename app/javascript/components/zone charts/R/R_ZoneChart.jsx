@@ -1,6 +1,7 @@
 import React from "react";
 
-const R_ZoneChart = () => {
+const R_ZoneChart = ({ data }) => {
+  console.log(data);
   return (
     <div>
       <div class="ZoneR p-2.5 grid grid-cols-14 grid-rows-12 gap-2.5 text-center">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const N_ZoneChart = () => {
+const N_ZoneChart = ({ data }) => {
   return (
     <div>
       <div class="zoneN p-2.5 grid grid-cols-9 grid-rows-11 gap-2.5 text-center">

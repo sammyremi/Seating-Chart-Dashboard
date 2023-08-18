@@ -1,6 +1,6 @@
 import React from "react";
 
-const D_ZoneChart = () => {
+const D_ZoneChart = ({ data }) => {
   return (
     <div className="p-2.5 zoneD grid grid-cols-16 grid-rows-10 gap-2.5 text-center">
       <div className="restroom bg-lime-500 col-start-1 col-end-4">restroom</div>
