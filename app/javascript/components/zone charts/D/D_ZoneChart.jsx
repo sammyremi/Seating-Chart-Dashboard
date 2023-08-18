@@ -1,4 +1,5 @@
 import React from "react";
+import Desk from "../../Desk";
 
 const D_ZoneChart = ({ data }) => {
   return (
@@ -8,8 +9,10 @@ const D_ZoneChart = ({ data }) => {
       <div className="occupied bg-cyan-300 col-start-7 col-end-17">
         occupied
       </div>
-      <div className="damaged bg-red-300 col-start-4 col-end-6 row-start-2 row-end-3">
-        damaged
+      <div className="damaged grid grid-cols-2 justify-items-center col-start-4 col-end-6 row-start-2 row-end-3">
+        {/* damaged */}
+        <Desk desk_info={data[0]} />
+        <Desk desk_info={data[1]} />
       </div>
       <div className="occupied2 bg-cyan-300 col-start-1 col-end-5 row-start-3 row-end-4">
         occupied2
