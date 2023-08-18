@@ -60,16 +60,16 @@ const Show = () => {
   return (
     
     <div>
-      <div style={{ textAlign: 'center', fontSize: '24px', color: "#006F99", paddingBottom: "40px" }}>
+      <div style={{ textAlign: 'center', fontSize: '24px', color: "#006F99", paddingBottom: "20px" }}>
         <p>{zone_name.toUpperCase()}</p>
       </div>
-        <div className="mt-12 mb-2 flex items-center justify-center">
+        <div className="mt-10 mb-2 flex items-center justify-center">
           {data.status === "Vacant" || data.status === "VACANT" || data.status === "vacant" ? (
             // JSX content for the "if" case of condition1
             
               <svg
                             fill="currentColor"
-                            className="w-20 h-20 text-yellow-400"
+                            className="w-40 h-40 text-yellow-400"
                             aria-hidden="true"
                             viewBox="0 -24.88 122.88 122.88"
                             xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ const Show = () => {
             // JSX content for the "elseif" case of condition2
             <svg
                       fill="currentColor"
-                      className="w-16 h-20 text-green-400"
+                      className="w-32 h-40 text-green-400"
                       aria-hidden="true"
                       viewBox="0 -24.88 122.88 122.88"
                       xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const Show = () => {
             // JSX content for the "else" case
             <svg
             fill="currentColor"
-            className="w-16 h-20 text-red-400"
+            className="w-32 h-40 text-red-400"
             aria-hidden="true"
             viewBox="0 -24.88 122.88 122.88"
             xmlns="http://www.w3.org/2000/svg"
