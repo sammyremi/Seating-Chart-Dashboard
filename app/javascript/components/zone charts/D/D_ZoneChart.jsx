@@ -3,7 +3,7 @@ import Desk from "../../Desk";
 
 const D_ZoneChart = ({ data }) => {
   return (
-    <div className="p-2.5 zoneD grid grid-cols-16 grid-rows-10 gap-2.5 text-center">
+    <div className="p-2.5 zoneD grid grid-cols-16 grid-rows-10 gap-2 text-center">
       <div className="restroom bg-lime-500 col-start-1 col-end-4">restroom</div>
       <div className="vacant bg-yellow-300 col-start-6 col-end-7">vacant</div>
       <div className="occupied bg-cyan-300 col-start-7 col-end-17">
@@ -11,8 +11,8 @@ const D_ZoneChart = ({ data }) => {
       </div>
       <div className="damaged grid grid-cols-2 justify-items-center col-start-4 col-end-6 row-start-2 row-end-3">
         {/* damaged */}
-        <Desk desk_info={data[0]} />
-        <Desk desk_info={data[1]} />
+        <Desk data={data[0]} />
+        <Desk data={data[1]} />
       </div>
       <div className="occupied2 bg-cyan-300 col-start-1 col-end-5 row-start-3 row-end-4">
         occupied2
@@ -41,8 +41,29 @@ const D_ZoneChart = ({ data }) => {
       <div className="occupied10 bg-cyan-300 col-start-6 col-end-7 row-start-8 row-end-11">
         occupied10
       </div>
-      <div className="occupied11 bg-cyan-300 col-start-9 col-end-12 row-start-8 row-end-11">
-        occupied11
+      <div className="ocpd11 col-start-9 col-end-12 row-start-8 row-end-11 flex flex-row ">
+        <div className="flex flex-col">
+          <div className="rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="rotate-90 origin-center">
+            <Desk data={data[2]} />
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <div className="-rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="-rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="-rotate-90 origin-center">
+            <Desk data={data[2]} />
+          </div>
+        </div>
       </div>
       <div className="server bg-gray-300 col-start-12 col-end-15 row-start-8 row-end-11">
         server

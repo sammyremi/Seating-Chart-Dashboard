@@ -2,7 +2,7 @@ import React from "react";
 
 const Desk_icon = ({ status }) => {
   return (
-    <div className="flex flex-col justify-center border-x-2 border-t-2 border-slate-400 p-2 bg-white">
+    <div className=" border-x-2 border-t-2 border-slate-400 p-2 bg-white">
       {status === "Vacant" ? (
         <svg
           fill="currentColor"

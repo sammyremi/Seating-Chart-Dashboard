@@ -30,14 +30,14 @@ const J_ZoneChart = ({ data }) => {
             </svg>
           </div>
         </div>
-        <div class="ocp1 col-start-3 col-end-5 row-start-1 row-end-2 flex flex-row items-center">
+        <div class="ocp1 col-start-3 col-end-4 row-start-1 row-end-2 flex flex-row items-center">
           <Desk data={data[14]} />
           <Desk data={data[15]} />
           <Desk data={data[16]} />
           <Desk data={data[17]} />
           <Desk data={data[18]} />
         </div>
-        <div class="ocp2 col-start-3 col-end-5 row-start-3 row-end-5 flex flex-col">
+        <div class="ocp2 col-start-3 col-end-4 row-start-3 row-end-5 flex flex-col">
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[13]} style="-scale-x-100" />
             <Desk data={data[12]} style="-scale-x-100" />
@@ -53,7 +53,7 @@ const J_ZoneChart = ({ data }) => {
             <Desk data={data[8]} />
           </div>
         </div>
-        <div class="ocp3 col-start-3 col-end-5 row-start-7 row-end-9 flex flex-col">
+        <div class="ocp3 col-start-3 col-end-4 row-start-7 row-end-9 flex flex-col">
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[3]} style="-scale-x-100" />
             <Desk data={data[2]} style="-scale-x-100" />
