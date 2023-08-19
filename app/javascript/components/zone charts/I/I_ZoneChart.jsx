@@ -10,21 +10,21 @@ const I_ZoneChart = ({ data }) => {
         </div>
         <div class="ocpd1 bg-cyan-300 col-start-2 col-end-8 row-start-1 row-end-3 flex flex-col place-content-center">
           {/* occupied1 */}
-          <div className="flex flex-row -scale-y-100 place-content-end">
-            <Desk data={data[24]} style="-scale-x-100" />
-            <Desk data={data[25]} style="-scale-x-100" />
-            <Desk data={data[26]} style="-scale-x-100" />
-            <Desk data={data[27]} style="-scale-x-100" />
-            <Desk data={data[28]} style="-scale-x-100" />
-            <Desk data={data[28]} style="-scale-x-100" />
+          <div className="flex flex-row -scale-y-100 place-content-start">
+            <Desk data={data[45]} style="-scale-x-100" />
+            <Desk data={data[44]} style="-scale-x-100" />
+            <Desk data={data[43]} style="-scale-x-100" />
+            <Desk data={data[42]} style="-scale-x-100" />
+            <Desk data={data[41]} style="-scale-x-100" />
+            <Desk data={data[40]} style="-scale-x-100" />
           </div>
-          <div className="flex flex-row place-content-end">
-            <Desk data={data[13]} />
-            <Desk data={data[12]} />
-            <Desk data={data[11]} />
-            <Desk data={data[10]} />
-            <Desk data={data[9]} />
-            <Desk data={data[9]} />
+          <div className="flex flex-row place-content-start">
+            <Desk data={data[46]} />
+            <Desk data={data[47]} />
+            <Desk data={data[48]} />
+            <Desk data={data[49]} />
+            <Desk data={data[50]} />
+            <Desk data={data[51]} />
           </div>
         </div>
         <div class="occupied2 bg-cyan-300 col-start-12 col-end-14 row-start-1 row-end-5">
@@ -36,8 +36,26 @@ const I_ZoneChart = ({ data }) => {
         <div class="restroom1 bg-lime-500 col-start-16 col-end-18 row-start-1 row-end-3">
           restroom1
         </div>
-        <div class="occupied4 bg-cyan-300 col-start-2 col-end-9 row-start-4 row-end-6">
-          occupied4
+        <div class="ocpd4 bg-cyan-300 col-start-2 col-end-9 row-start-4 row-end-6 flex flex-col place-content-center">
+          {/* occupied4 */}
+          <div className="flex flex-row -scale-y-100 place-content-start">
+            <Desk data={data[24]} style="-scale-x-100" />
+            <Desk data={data[52]} style="-scale-x-100" />
+            <Desk data={data[53]} style="-scale-x-100" />
+            <Desk data={data[54]} style="-scale-x-100" />
+            <Desk data={data[55]} style="-scale-x-100" />
+            <Desk data={data[56]} style="-scale-x-100" />
+            <Desk data={data[57]} style="-scale-x-100" />
+          </div>
+          <div className="flex flex-row place-content-start">
+            <Desk data={data[24]} />
+            <Desk data={data[63]} />
+            <Desk data={data[62]} />
+            <Desk data={data[61]} />
+            <Desk data={data[60]} />
+            <Desk data={data[59]} />
+            <Desk data={data[58]} />
+          </div>
         </div>
         <div class="occupied5 bg-cyan-300 col-start-15 col-end-16 row-start-4 row-end-8">
           occupied5
