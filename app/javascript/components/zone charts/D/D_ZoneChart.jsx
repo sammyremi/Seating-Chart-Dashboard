@@ -1,27 +1,82 @@
 import React from "react";
-import "./ZoneDstyle.css";
+import Desk from "../../Desk";
 
-const D_ZoneChart = () => {
+const D_ZoneChart = ({ data }) => {
   return (
-    <div id="content" class="zoneD">
-      <div class="restroom">restroom</div>
-      <div class="occupied6">occupied6</div>
-      <div class="vacant">vacant</div>
-      <div class="occupied">occupied</div>
-      <div class="occupied2">occupied2</div>
-      <div class="occupied3">occupied3</div>
-      <div class="occupied4">occupied4</div>
-      <div class="occupied5">occupied5</div>
-      <div class="occupied7">occupied7</div>
-      <div class="occupied8">occupied8</div>
-      <div class="occupied9">occupied9</div>
-      <div class="occupied10">occupied10</div>
-      <div class="occupied11">occupied11</div>
-      <div class="damaged">damaged</div>
-      <div class="server">server</div>
-      <div class="hr">hr</div>
-      <div class="door">door</div>
-      <div class="zoneE">zoneE</div>
+    <div className="p-2.5 zoneD grid grid-cols-16 grid-rows-10 gap-2 text-center">
+      <div className="restroom bg-lime-500 col-start-1 col-end-4">restroom</div>
+      <div className="vacant bg-yellow-300 col-start-6 col-end-7">vacant</div>
+      <div className="occupied bg-cyan-300 col-start-7 col-end-17">
+        occupied
+      </div>
+      <div className="damaged grid grid-cols-2 justify-items-center col-start-4 col-end-6 row-start-2 row-end-3">
+        {/* damaged */}
+        <Desk data={data[0]} />
+        <Desk data={data[1]} />
+      </div>
+      <div className="occupied2 bg-cyan-300 col-start-1 col-end-5 row-start-3 row-end-4">
+        occupied2
+      </div>
+      <div className="occupied3 bg-cyan-300 col-start-7 col-end-17 row-start-3 row-end-4">
+        occupied3
+      </div>
+      <div className="occupied4 bg-cyan-300 col-start-1 col-end-5 row-start-4 row-end-5">
+        occupied4
+      </div>
+      <div className="occupied5 bg-cyan-300 col-start-7 col-end-17 row-start-4 row-end-5">
+        occupied5
+      </div>
+      <div className="occupied6 bg-cyan-300 col-start-1 col-end-7 row-start-6 row-end-7">
+        occupied6
+      </div>
+      <div className="occupied7 bg-cyan-300 col-start-9 col-end-17 row-start-5 row-end-6">
+        occupied7
+      </div>
+      <div className="occupied8 bg-cyan-300 col-start-1 col-end-7 row-start-7 row-end-8">
+        occupied8
+      </div>
+      <div className="occupied9 bg-cyan-300 col-start-9 col-end-17 row-start-6 row-end-7">
+        occupied9
+      </div>
+      <div className="occupied10 bg-cyan-300 col-start-6 col-end-7 row-start-8 row-end-11">
+        occupied10
+      </div>
+      <div className="ocpd11 col-start-9 col-end-12 row-start-8 row-end-11 flex flex-row ">
+        <div className="flex flex-col">
+          <div className="rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="rotate-90 origin-center">
+            <Desk data={data[2]} />
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <div className="-rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="-rotate-90 origin-center">
+            <Desk data={data[1]} />
+          </div>
+          <div className="-rotate-90 origin-center">
+            <Desk data={data[2]} />
+          </div>
+        </div>
+      </div>
+      <div className="server bg-gray-300 col-start-12 col-end-15 row-start-8 row-end-11">
+        server
+      </div>
+      <div className="hr bg-purple-300 col-start-1 col-end-6 row-start-8 row-end-11">
+        hr
+      </div>
+      <div className="door bg-pink-300 col-start-7 col-end-8 row-start-10 row-end-11">
+        door
+      </div>
+      <div className="zoneE bg-orange-300 col-start-15 col-end-17 row-start-8 row-end-11">
+        zoneE
+      </div>
     </div>
   );
 };

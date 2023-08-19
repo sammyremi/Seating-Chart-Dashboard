@@ -86,8 +86,6 @@ const Table = ({ data }) => {
                 </td>
                 <td className="px-6 py-4">{campaign}</td>
                 <td className="px-6 py-4 text-sky-700 font-medium">
-                  {/* <a href={`/zone_${first_char}s/${id}/edit`}>EDIT</a>
-                   */}
                   <Link to={`/edit/zone_${first_char}s/${id}`}>EDIT</Link>
                 </td>
               </tr>
