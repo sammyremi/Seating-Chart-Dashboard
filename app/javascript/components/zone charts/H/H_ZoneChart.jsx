@@ -5,7 +5,7 @@ const H_ZoneChart = ({ data }) => {
     <div>
       <div className="p-2.5 grid grid-cols-10 grid-rows-8 gap-2.5 text-center">
         <div class="restroom bg-lime-500 col-start-1 col-end-4">restroom</div>
-        <div class="occupied1 bg-cyan-300 col-start-5 col-end-6 row-start-1 row-end-9">
+        <div class="ocpd1 bg-cyan-300 col-start-5 col-end-6 row-start-1 row-end-9">
           occupied1
         </div>
         <div class="occupied2 bg-cyan-300 col-start-6 col-end-7 row-start-1 row-end-9">

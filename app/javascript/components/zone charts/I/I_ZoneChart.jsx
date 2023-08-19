@@ -1,4 +1,5 @@
 import React from "react";
+import Desk from "../../Desk";
 
 const I_ZoneChart = ({ data }) => {
   return (
@@ -7,8 +8,24 @@ const I_ZoneChart = ({ data }) => {
         <div class="zoneh bg-orange-300 col-start-1 col-end-2 row-start-1 row-end-13">
           Zone H
         </div>
-        <div class="occupied1 bg-cyan-300 col-start-2 col-end-8 row-start-1 row-end-3">
-          occupied1
+        <div class="ocpd1 bg-cyan-300 col-start-2 col-end-8 row-start-1 row-end-3 flex flex-col place-content-center">
+          {/* occupied1 */}
+          <div className="flex flex-row -scale-y-100 place-content-end">
+            <Desk data={data[24]} style="-scale-x-100" />
+            <Desk data={data[25]} style="-scale-x-100" />
+            <Desk data={data[26]} style="-scale-x-100" />
+            <Desk data={data[27]} style="-scale-x-100" />
+            <Desk data={data[28]} style="-scale-x-100" />
+            <Desk data={data[28]} style="-scale-x-100" />
+          </div>
+          <div className="flex flex-row place-content-end">
+            <Desk data={data[13]} />
+            <Desk data={data[12]} />
+            <Desk data={data[11]} />
+            <Desk data={data[10]} />
+            <Desk data={data[9]} />
+            <Desk data={data[9]} />
+          </div>
         </div>
         <div class="occupied2 bg-cyan-300 col-start-12 col-end-14 row-start-1 row-end-5">
           occupied2
