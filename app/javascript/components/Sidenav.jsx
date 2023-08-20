@@ -9,10 +9,10 @@ const Sidenav = () => {
           <li>
             <Link
               to="/"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              class="flex items-center p-2 text-sky-700 rounded-lg delay-100 hover:bg-sky-300 transition duration-500 ease-in-out"
             >
               <svg
-                className="w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
+                className="w-7 h-7 text-sky-700 transition duration-75 dark:text-sky-700 group-hover:text-sky-700 dark:group-hover:text-white"
                 fill="currentColor"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -35,10 +35,10 @@ const Sidenav = () => {
           <li>
             <Link
               to="/floor_map"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              class="flex items-center p-2 text-sky-700 rounded-lg delay-100 hover:bg-sky-300 transition duration-500 ease-in-out"
             >
               <svg
-                className="flex-shrink-0 w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
+                className="flex-shrink-0 w-7 h-7 dark:text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
                 fill="currentColor"
                 aria-hidden="true"
                 viewBox="0 0 512 512"
@@ -78,11 +78,11 @@ const Sidenav = () => {
           <li>
             <Link
               to="/zones"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              class="flex items-center p-2 text-sky-700 rounded-lg delay-100 hover:bg-sky-300 transition duration-500 ease-in-out"
             >
               <svg
                 fill="currentColor"
-                className="flex-shrink-0 w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
+                className="flex-shrink-0 w-7 h-7 dark:text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
                 aria-hidden="true"
                 viewBox="0 -7.72 122.88 122.88"
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,11 +100,11 @@ const Sidenav = () => {
           <li>
             <Link
               to="/"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              class="flex items-center p-2 text-sky-700 rounded-lg delay-100 hover:bg-sky-300 transition duration-500 ease-in-out"
             >
               <svg
                 fill="currentColor"
-                className="flex-shrink-0 w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
+                className="flex-shrink-0 w-7 h-7 dark:text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -125,11 +125,11 @@ const Sidenav = () => {
           <li>
             <Link
               to="/"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              class="flex items-center p-2 text-sky-700 rounded-lg delay-100 hover:bg-sky-300 transition duration-500 ease-in-out"
             >
               <svg
                 fill="currentColor"
-                className="flex-shrink-0 w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
+                className="flex-shrink-0 w-7 h-7 dark:text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
                 aria-hidden="true"
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
