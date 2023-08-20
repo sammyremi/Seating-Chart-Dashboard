@@ -28,15 +28,12 @@ const Show = () => {
         },
         body: JSON.stringify(updatedData),
       });
-<<<<<<< HEAD
 
-=======
       toast.success(`${data.desk_id} updated successfully.`);
     } catch (error) {
       toast.error("Network response was not ok");
       console.log(error);
     }
->>>>>>> origin/dayo
   };
 
   useEffect(() => {
