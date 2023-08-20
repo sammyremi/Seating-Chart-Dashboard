@@ -1,5 +1,6 @@
 import React from "react";
 import Desk from "../../Desk";
+import { Link } from "react-router-dom";
 
 const E_ZoneChart = ({ data }) => {
   return (
@@ -92,7 +93,8 @@ const E_ZoneChart = ({ data }) => {
           <Desk data={data[7]} style="-scale-x-100" />
           <Desk data={data[8]} style="-scale-x-100" />
         </div>
-        <div class="ZoneI bg-orange-300 col-start-1 col-end-5 row-start-10 row-end-12 flex flex-row justify-center">
+        <div class="ZoneD bg-orange-100 col-start-1 col-end-5 row-start-10 row-end-12 flex flex-row justify-center">
+          {/* <Link to={"/zones/zone_ds"}> */}
           <div className="flex mt-6">
             <svg
               className="h-7 w-7 mr-4"
@@ -127,8 +129,9 @@ const E_ZoneChart = ({ data }) => {
                 </g>
               </g>
             </svg>
-            <span>Zone I</span>
+            <span>Zone D</span>
           </div>
+          {/* </Link> */}
         </div>
         <div class="Door col-start-7 col-end-8 row-start-11 row-end-12">
           <svg
