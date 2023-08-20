@@ -69,8 +69,30 @@ const I_ZoneChart = ({ data }) => {
         <div class="occupied6 bg-cyan-300 col-start-12 col-end-14 row-start-6 row-end-12">
           occupied6
         </div>
-        <div class="occupied7 bg-cyan-300 col-start-3 col-end-5 row-start-7 row-end-10">
-          occupied7
+        <div class="occupied7 bg-cyan-300 col-start-3 col-end-5 row-start-7 row-end-10 flex justify-center">
+          {/* occupied7 */}
+          <div className="flex flex-col">
+            <div className="rotate-90">
+              <Desk data={data[24]} />
+            </div>
+            <div className="rotate-90">
+              <Desk data={data[24]} />
+            </div>
+            <div className="rotate-90">
+              <Desk data={data[24]} />
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="-rotate-90">
+              <Desk data={data[24]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[24]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[24]} />
+            </div>
+          </div>
         </div>
         <div class="occupied7 bg-cyan-300 col-start-6 col-end-7 row-start-7 row-end-10">
           ocp10

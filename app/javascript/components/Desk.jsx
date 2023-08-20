@@ -6,7 +6,7 @@ const Desk = ({ data, style }) => {
   const { status, desk_id, id } = data;
   const first_char = desk_id.charAt(0).toLowerCase();
   return (
-    <div>
+    <div className="mb-[-2px]">
       <Link to={`/edit/zone_${first_char}s/${id}`}>
         <Desk_icon status={status} />
         <p className={`${style} text-xs font-mono text-slate-500 text-center`}>

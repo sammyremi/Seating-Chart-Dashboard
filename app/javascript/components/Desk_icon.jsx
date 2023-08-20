@@ -2,7 +2,10 @@ import React from "react";
 
 const Desk_icon = ({ status }) => {
   return (
-    <div className="border-x-2 border-t-2 border-slate-400 pt-1 px-2 bg-white">
+    <div
+      // style={{ paddingBottom: "-5px" }}
+      className="border-x-2 border-t-2 border-slate-400 pt-1 px-2 bg-white"
+    >
       {status === "Vacant" ? (
         <svg
           fill="currentColor"
