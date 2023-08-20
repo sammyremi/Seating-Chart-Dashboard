@@ -48,13 +48,13 @@ const Navbar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             
             {/* Search bar */}
-            <div className="flex mr-20">
+            <div className="flex mr-16">
               <form onSubmit={handleSearchSubmit} className="mr-2">
                 <input
                   type="text"
                   value={searchText}
                   onChange={handleSearchChange}
-                  placeholder="Search"
+                  placeholder="Search Desk ID"
                   className="px-2 py-1 rounded-lg border border-gray-300 focus:outline-none w-36"
                 />
               </form>
@@ -73,7 +73,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={toggleDropdown}
-                  className="mr-16 relative flex rounded-full bg-sky-300 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100"
+                  className="mr-2 relative flex rounded-full bg-sky-300 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-100"
                   id="user-menu-button"
                   aria-expanded={isDropdownOpen}
                   aria-haspopup="true"
@@ -88,8 +88,8 @@ const Navbar = () => {
                   <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                     {/* ... dropdown content ... */}
                     <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100" role="menuitem">Edit Account</a>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100" role="menuitem">Sign Out</a>
+                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-200 transition duration-500 ease-in-out delay-100" role="menuitem">Edit Account</a>
+                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-200 transition duration-500 ease-in-out delay-100" role="menuitem">Sign Out</a>
                   </div>
                   </div>
                 )}

@@ -99,10 +99,11 @@ const Show = () => {
             // JSX content for the "else" case
             <svg
             fill="currentColor"
-            className="w-32 h-40 text-red-400"
+            className="w-32 h-40 text-red-400 transition duration-500 ease-in-out delay-100"
             aria-hidden="true"
             viewBox="0 -24.88 122.88 122.88"
             xmlns="http://www.w3.org/2000/svg"
+            
           >
             <g>
               <path 
