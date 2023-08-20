@@ -5,7 +5,7 @@ const L_ZoneChart = ({ data }) => {
   return (
     <div>
       <div class="ZoneL p-2.5 grid grid-cols-7 grid-rows-8 gap-2.5 text-center">
-        <div class="zonek grid place-items-center bg-orange-100 col-start-1 col-end-2 row-start-1 row-end-9">
+        <div class="zonek rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-9">
           {/* Zone K */}
           <div>
             <p>Zone K</p>
@@ -31,7 +31,7 @@ const L_ZoneChart = ({ data }) => {
             </svg>
           </div>
         </div>
-        <div class="ocpd1 bg-cyan-300 col-start-2 col-end-5 row-start-1 row-end-3 flex flex-col place-content-center">
+        <div class="ocpd1  col-start-2 col-end-5 row-start-1 row-end-3 flex flex-col place-content-center">
           {/* occupied1 */}
           <div className="flex flex-row -scale-y-100 place-content-start">
             <Desk data={data[10]} style="-scale-x-100" />
@@ -45,7 +45,7 @@ const L_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #1-8 */}
-        <div class="ocpd2 bg-cyan-300 col-start-7 col-end-8 row-start-1 row-end-9 flex flex-col place-items-end">
+        <div class="ocpd2  col-start-7 col-end-8 row-start-1 row-end-9 flex flex-col place-items-end">
           {/* occupied2 */}
           <div className="rotate-90">
             <Desk data={data[7]} />
@@ -72,7 +72,7 @@ const L_ZoneChart = ({ data }) => {
             <Desk data={data[0]} />
           </div>
         </div>
-        <div class="occupied3 bg-cyan-300 col-start-2 col-end-6 row-start-4 row-end-6 flex flex-col place-content-center">
+        <div class="occupied3  col-start-2 col-end-6 row-start-4 row-end-6 flex flex-col place-content-center">
           {/* occupied3 */}
           <div className="flex flex-row -scale-y-100 place-content-start">
             <Desk data={data[17]} style="-scale-x-100" />
@@ -87,7 +87,7 @@ const L_ZoneChart = ({ data }) => {
             <Desk data={data[21]} />
           </div>
         </div>
-        <div class="occupied4 bg-cyan-300 col-start-2 col-end-6 row-start-7 row-end-9 flex flex-col place-content-center">
+        <div class="occupied4  col-start-2 col-end-6 row-start-7 row-end-9 flex flex-col place-content-center">
           {/* occupied4 */}
           <div className="flex flex-row -scale-y-100 place-content-start">
             <Desk data={data[25]} style="-scale-x-100" />
@@ -102,10 +102,10 @@ const L_ZoneChart = ({ data }) => {
             <Desk data={data[29]} />
           </div>
         </div>
-        <div class="restroom bg-lime-500 col-start-6 col-end-7 row-start-1 row-end-2">
-          restroom
+        <div class="restroom rounded-sm grid place-content-center bg-lime-300 col-start-6 col-end-7 row-start-1 row-end-2">
+          Restroom
         </div>
-        <div class="Door grid place-items-center  bg-pink-300 col-start-6 col-end-7 row-start-8 row-end-9">
+        <div class="Door flex self-end mb-[-10px] col-start-6 col-end-7 row-start-8 row-end-9">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

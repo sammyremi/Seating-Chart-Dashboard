@@ -5,7 +5,7 @@ const M_ZoneChart = ({ data }) => {
   return (
     <div>
       <div class="zoneM p-2.5 grid grid-cols-7 grid-rows-9 gap-2.5 text-center">
-        <div class="zonen grid place-items-center bg-orange-100 col-start-7 col-end-8 row-start-1 row-end-10">
+        <div class="zonen rounded-sm grid place-items-center bg-[#e9f9fd] col-start-7 col-end-8 row-start-1 row-end-10">
           {/* Zone N */}
           <div>
             <p>Zone N</p>
@@ -43,13 +43,13 @@ const M_ZoneChart = ({ data }) => {
             </svg>
           </div>
         </div>
-        <div class="ocpd1 bg-cyan-300 col-start-4 col-end-6 row-start-1 row-end-2 flex">
+        <div class="ocpd1  col-start-4 col-end-6 row-start-1 row-end-2 flex">
           {/* occupied1
            */}
           <Desk data={data[24]} />
           <Desk data={data[23]} />
         </div>
-        <div class="ocpd2 bg-cyan-300 col-start-1 col-end-6 row-start-3 row-end-5 flex flex-col place-content-center">
+        <div class="ocpd2  col-start-1 col-end-6 row-start-3 row-end-5 flex flex-col place-content-center">
           {/* occupied2 */}
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[18]} style="-scale-x-100" />
@@ -66,7 +66,7 @@ const M_ZoneChart = ({ data }) => {
             <Desk data={data[13]} />
           </div>
         </div>
-        <div class="ocpd3 bg-cyan-300 col-start-1 col-end-6 row-start-6 row-end-8 flex flex-col place-content-center">
+        <div class="ocpd3  col-start-1 col-end-6 row-start-6 row-end-8 flex flex-col place-content-center">
           {/* occupied3 */}
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[8]} style="-scale-x-100" />
@@ -83,19 +83,20 @@ const M_ZoneChart = ({ data }) => {
             <Desk data={data[3]} />
           </div>
         </div>
-        <div class="ocpd4 bg-cyan-300 col-start-3 col-end-6 row-start-9 row-end-10 flex ">
+        {/* Desk_id: #1-3 */}
+        <div class="ocpd4 mt-[-10px] col-start-3 col-end-6 row-start-9 row-end-10 flex ">
           {/* occupied4 */}
           <Desk data={data[0]} />
           <Desk data={data[1]} />
           <Desk data={data[2]} />
         </div>
-        <div class="restroom bg-lime-500 col-start-1 col-end-3 row-start-1 row-end-2">
-          restroom
+        <div class="restroom rounded-sm grid place-content-center bg-lime-300 col-start-1 col-end-3 row-start-1 row-end-2">
+          Restroom
         </div>
-        <div class="server bg-gray-300 col-start-1 col-end-3 row-start-9 row-end-10">
-          server
+        <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-9 row-end-10">
+          Server
         </div>
-        <div class="Door grid place-items-center bg-pink-300 col-start-6 col-end-7 row-start-9 row-end-10">
+        <div class="Door flex self-end mb-[-10px] col-start-6 col-end-7 row-start-9 row-end-10">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"
