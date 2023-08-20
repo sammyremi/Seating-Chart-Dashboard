@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Table from "../Table";
 
 const zones = ["d", "h", "j", "l", "n", "r"];
 
 const AllWorkStations = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +19,7 @@ const AllWorkStations = () => {
         }
 
         setData((prevData) => [...prevData, ...fetchedData]);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -26,6 +27,14 @@ const AllWorkStations = () => {
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-4 ">

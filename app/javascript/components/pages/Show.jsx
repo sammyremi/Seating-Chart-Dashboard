@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import React from "react";
 
 const Show = () => {
@@ -18,28 +19,24 @@ const Show = () => {
       campaign: data.campaign,
     };
 
-    await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token": token,
-      },
-      body: JSON.stringify(updatedData),
-    })
-      .then((response) => {
-        console.log(response);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Updated resource:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": token,
+        },
+        body: JSON.stringify(updatedData),
       });
+<<<<<<< HEAD
 
+=======
+      toast.success(`${data.desk_id} updated successfully.`);
+    } catch (error) {
+      toast.error("Network response was not ok");
+      console.log(error);
+    }
+>>>>>>> origin/dayo
   };
 
   useEffect(() => {
