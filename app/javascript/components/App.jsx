@@ -8,6 +8,9 @@ import Zone from "./pages/Zone";
 import FloorMap from "./FloorMap";
 import Floor2 from "./pages/Floor2";
 import Floor3 from "./pages/Floor3";
+import Show from "./pages/Show";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -23,6 +26,10 @@ const App = () => {
         {
           path: "zones",
           element: <Zones />,
+        },
+        {
+          path: "edit/:zone/:id",
+          element: <Show />,
         },
         {
           path: "all-workstations",
@@ -56,6 +63,7 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer position="top-center" autoClose={2000} />
     </>
   );
 };
