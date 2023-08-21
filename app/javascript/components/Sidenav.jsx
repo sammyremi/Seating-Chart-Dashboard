@@ -12,7 +12,7 @@ const Sidenav = () => {
             <Link
               to="/"
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                active === "dashboard" ? "bg-sky-100" : ""
+                active === "dashboard" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
                 setActive("dashboard");
@@ -42,7 +42,7 @@ const Sidenav = () => {
             <Link
               to="/floor_map"
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                active === "floor" ? "bg-sky-100" : ""
+                active === "floor" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
                 setActive("floor");
@@ -90,7 +90,7 @@ const Sidenav = () => {
             <Link
               to="/zones"
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                active === "zones" ? "bg-sky-100" : ""
+                active === "zones" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
                 setActive("zones");
@@ -117,7 +117,7 @@ const Sidenav = () => {
             <Link
               to="/"
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                active === "admin" ? "bg-sky-100" : ""
+                active === "admin" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
                 setActive("admin");
@@ -147,7 +147,7 @@ const Sidenav = () => {
             <Link
               to="/"
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                active === "log" ? "bg-sky-100" : ""
+                active === "log" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
                 setActive("log");
