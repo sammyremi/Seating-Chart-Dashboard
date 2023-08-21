@@ -37,7 +37,7 @@ const AllWorkStations = () => {
   }
 
   return (
-    <div className="pt-4 ">
+    <div className="pt-4">
       <p className="text-center font-bold mb-4">All Workstations</p>
 
       <i className="relative left-[809px] font-thin mb-4">Filter Result</i>
