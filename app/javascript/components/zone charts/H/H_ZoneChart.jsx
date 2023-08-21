@@ -5,9 +5,11 @@ const H_ZoneChart = ({ data }) => {
   return (
     <div>
       <div className="p-2.5 grid grid-cols-10 grid-rows-8 gap-2.5 text-center">
-        <div class="restroom bg-lime-500 col-start-1 col-end-4">restroom</div>
+        <div class="restroom rounded-sm bg-lime-300 col-start-1 col-end-4 grid place-content-center">
+          <p>Restroom</p>
+        </div>
         {/* Desk_id: #22-30 */}
-        <div class="ocpd1 bg-cyan-300 col-start-5 col-end-7 row-start-1 row-end-9 flex justify-center">
+        <div class="ocpd1  col-start-5 col-end-7 row-start-1 row-end-9 flex justify-center">
           <div className="flex flex-col">
             <div className="rotate-90">
               <Desk data={data[21]} />
@@ -62,7 +64,7 @@ const H_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #34-31 */}
-        <div class="ocpd3 bg-cyan-300 col-start-8 col-end-9 row-start-4 row-end-9 flex flex-col place-items-center">
+        <div class="ocpd3  col-start-8 col-end-9 row-start-4 row-end-9 flex flex-col place-items-center">
           <div className="rotate-90">
             <Desk data={data[33]} />
           </div>
@@ -76,7 +78,7 @@ const H_ZoneChart = ({ data }) => {
             <Desk data={data[30]} />
           </div>
         </div>
-        <div class="zonei grid place-items-center bg-orange-100 col-start-9 col-end-11 row-start-1 row-end-9">
+        <div class="zonei rounded-sm grid place-items-center bg-[#e9f9fd] col-start-9 col-end-11 row-start-1 row-end-9">
           {/* <Link to={"/zones/zone_hs"}> */}
           <div>
             <p>Zone I</p>
@@ -116,7 +118,7 @@ const H_ZoneChart = ({ data }) => {
           {/* </Link> */}
         </div>
         {/* Desk_id: #1-14 */}
-        <div class="ocpd4 bg-cyan-300 col-start-2 col-end-4 row-start-2 row-end-9 flex justify-center">
+        <div class="ocpd4  col-start-2 col-end-4 row-start-2 row-end-9 flex justify-center">
           <div className="flex flex-col">
             <div className="rotate-90">
               <Desk data={data[6]} />
@@ -164,7 +166,7 @@ const H_ZoneChart = ({ data }) => {
             </div>
           </div>
         </div>
-        <div class="Door grid place-items-center bg-pink-300 col-start-4 col-end-5 row-start-8 row-end-9">
+        <div class="Door flex self-end mb-[-10px] col-start-4 col-end-5 row-start-8 row-end-9">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

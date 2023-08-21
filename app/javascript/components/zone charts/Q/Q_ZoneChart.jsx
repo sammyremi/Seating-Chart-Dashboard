@@ -6,10 +6,10 @@ const Q_ZoneChart = ({ data }) => {
   return (
     <div>
       <div class="ZoneQ p-2.5 grid grid-cols-23 grid-rows-12 gap-2 text-center">
-        <div class="restroom1 bg-lime-500 col-start-1 col-end-3 row-start-1 row-end-2">
-          restroom1
+        <div class="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-1 col-end-3 row-start-1 row-end-2">
+          Restroom 1
         </div>
-        <div class="ocpd1 bg-cyan-300 col-start-5 col-end-18 row-start-1 row-end-2 flex justify-center">
+        <div class="ocpd1  col-start-5 col-end-18 row-start-1 row-end-2 flex justify-center">
           {/* ocpd1 */}
           <Desk data={data[62]} />
           <Desk data={data[61]} />
@@ -23,10 +23,10 @@ const Q_ZoneChart = ({ data }) => {
           <Desk data={data[53]} />
           <Desk data={data[52]} />
         </div>
-        <div class="restroom2 bg-lime-500 col-start-20 col-end-24 row-start-1 row-end-2">
-          restroom2
+        <div class="restroom2 rounded-sm grid place-content-center bg-lime-300 col-start-20 col-end-24 row-start-1 row-end-2">
+          Restroom 2
         </div>
-        <div class="occupied2 bg-cyan-300 col-start-3 col-end-7 row-start-3 row-end-5 flex flex-col place-content-center">
+        <div class="occupied2  col-start-3 col-end-7 row-start-3 row-end-5 flex flex-col place-content-center">
           {/* ocpd2 */}
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[18]} style="-scale-x-100" />
@@ -41,7 +41,7 @@ const Q_ZoneChart = ({ data }) => {
             <Desk data={data[14]} />
           </div>
         </div>
-        <div class="occupied3 bg-cyan-300 col-start-9 col-end-14 row-start-3 row-end-5 flex flex-col place-content-center">
+        <div class="occupied3  col-start-9 col-end-14 row-start-3 row-end-5 flex flex-col place-content-center">
           {/* ocpd3 */}
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[51]} style="-scale-x-100" />
@@ -58,7 +58,7 @@ const Q_ZoneChart = ({ data }) => {
             <Desk data={data[46]} />
           </div>
         </div>
-        <div class="occupied7 bg-cyan-300 col-start-9 col-end-14 row-start-6 row-end-8 flex flex-col place-content-center">
+        <div class="occupied7  col-start-9 col-end-14 row-start-6 row-end-8 flex flex-col place-content-center">
           {/* ocpd7 */}
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[41]} style="-scale-x-100" />
@@ -108,7 +108,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #72-79 */}
-        <div class="ocpd5 bg-cyan-300 col-start-18 col-end-20 row-start-3 row-end-8 flex justify-center">
+        <div class="ocpd5  col-start-18 col-end-20 row-start-3 row-end-8 flex justify-center">
           {/* ocpd5 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -140,7 +140,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #81-82 */}
-        <div class="occupied6 bg-cyan-300 col-start-21 col-end-22 row-start-4 row-end-6 flex flex-col place-items-center">
+        <div class="occupied6  col-start-21 col-end-22 row-start-4 row-end-6 flex flex-col place-items-center">
           {/* ocpd6 */}
           <div className="rotate-90">
             <Desk data={data[79]} />
@@ -150,7 +150,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #17-28 */}
-        <div class="ocpd8 bg-cyan-300 col-start-1 col-end-3 row-start-6 row-end-12 flex justify-center">
+        <div class="ocpd8  col-start-1 col-end-3 row-start-6 row-end-12 flex justify-center">
           {/* ocpd8 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -194,7 +194,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #7-16 */}
-        <div class="ocpd9 bg-cyan-300 col-start-4 col-end-6 row-start-7 row-end-12 flex justify-center">
+        <div class="ocpd9  col-start-4 col-end-6 row-start-7 row-end-12 flex justify-center">
           {/* ocpd9 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -232,7 +232,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #1-6 */}
-        <div class="ocpd10 bg-cyan-300 col-start-7 col-end-8 row-start-6 row-end-12 flex flex-col place-items-center">
+        <div class="ocpd10  col-start-7 col-end-8 row-start-6 row-end-12 flex flex-col place-items-center">
           {/* ocpd10 */}
           <div className="rotate-90">
             <Desk data={data[5]} />
@@ -254,7 +254,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #85-90 */}
-        <div class="ocpd11 bg-cyan-300 col-start-9 col-end-12 row-start-9 row-end-12 flex justify-center">
+        <div class="ocpd11  col-start-9 col-end-12 row-start-9 row-end-12 flex justify-center">
           {/* ocpd11 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -280,7 +280,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #82-84 */}
-        <div class="ocpd12 bg-cyan-300 col-start-13 col-end-14 row-start-9 row-end-12 flex flex-col place-items-center">
+        <div class="ocpd12  col-start-13 col-end-14 row-start-9 row-end-12 flex flex-col place-items-center">
           {/* ocpd12 */}
           <div className="rotate-90">
             <Desk data={data[81]} />
@@ -292,7 +292,7 @@ const Q_ZoneChart = ({ data }) => {
             <Desk data={data[83]} />
           </div>
         </div>
-        <div class="zoner grid place-items-center bg-orange-100 col-start-22 col-end-24 row-start-2 row-end-13">
+        <div class="zoner rounded-sm grid place-items-center bg-[#e9f9fd] col-start-22 col-end-24 row-start-2 row-end-13">
           {/* Zone R */}
           {/* <Link to={"/zones/zone_hs"}> */}
           <div>
@@ -332,7 +332,7 @@ const Q_ZoneChart = ({ data }) => {
           </div>
           {/* </Link> */}
         </div>
-        <div class="Door grid place-items-center bg-pink-300 col-start-3 col-end-5 row-start-12 row-end-13">
+        <div class="Door flex self-end mb-[-10px] col-start-3 col-end-5 row-start-12 row-end-13">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

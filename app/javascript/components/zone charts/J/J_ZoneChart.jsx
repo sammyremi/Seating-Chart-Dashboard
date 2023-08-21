@@ -5,7 +5,7 @@ const J_ZoneChart = ({ data }) => {
   return (
     <div>
       <div class="ZoneJ p-2.5 grid grid-cols-4 grid-rows-9 gap-2.5">
-        <div class="zoneR grid place-items-center bg-orange-100 col-start-1 col-end-2 row-start-1 row-end-10">
+        <div class="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-10">
           <div>
             <p>Zone R</p>
             <svg
@@ -63,7 +63,7 @@ const J_ZoneChart = ({ data }) => {
             <Desk data={data[1]} />
           </div>
         </div>
-        <div class="grid place-items-center col-start-2 col-end-3 row-start-9 row-end-10">
+        <div class="Door flex self-end mb-[-10px] justify-self-center col-start-2 col-end-3 row-start-9 row-end-10">
           <svg
             className="w-7 h-7 text-slate-500"
             fill="#000000"

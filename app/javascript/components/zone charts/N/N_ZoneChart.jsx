@@ -6,7 +6,7 @@ const N_ZoneChart = ({ data }) => {
   return (
     <div>
       <div class="zoneN p-2.5 grid grid-cols-9 grid-rows-11 gap-2.5 text-center">
-        <div class="zonem grid place-items-center bg-orange-100 col-start-1 col-end-2 row-start-1 row-end-12">
+        <div class="zonem rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-12">
           {/* Zone M */}
           {/* <Link to={"/zones/zone_hs"}> */}
           <div>
@@ -35,7 +35,7 @@ const N_ZoneChart = ({ data }) => {
           {/* </Link> */}
         </div>
         {/* Desk_id: #1-10 */}
-        <div class="ocpd1 bg-cyan-300 col-start-9 col-end-10 row-start-1 row-end-11 flex flex-col place-items-end">
+        <div class="ocpd1  col-start-9 col-end-10 row-start-1 row-end-11 flex flex-col place-items-end">
           {/* occupied1 */}
           <div className="rotate-90">
             <Desk data={data[9]} />
@@ -69,7 +69,7 @@ const N_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #29-44 */}
-        <div class="ocpd2 bg-cyan-300 col-start-3 col-end-5 row-start-3 row-end-11 flex justify-center">
+        <div class="ocpd2  col-start-3 col-end-5 row-start-3 row-end-11 flex justify-center">
           {/* occupied2 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -125,7 +125,7 @@ const N_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #11-28 */}
-        <div class="ocpd3 bg-cyan-300 col-start-6 col-end-8 row-start-2 row-end-11 flex justify-center">
+        <div class="ocpd3  col-start-6 col-end-8 row-start-2 row-end-11 flex justify-center">
           {/* occupied3 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -186,10 +186,10 @@ const N_ZoneChart = ({ data }) => {
             </div>
           </div>
         </div>
-        <div class="restroom bg-lime-500 col-start-3 col-end-5 row-start-1 row-end-3">
-          restroom
+        <div class="restroom rounded-sm grid place-content-center bg-lime-300 col-start-3 col-end-5 row-start-1 row-end-3">
+          Restroom
         </div>
-        <div class="Door grid place-items-center bg-pink-300 col-start-5 col-end-6 row-start-11 row-end-12">
+        <div class="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-11 row-end-12">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"
