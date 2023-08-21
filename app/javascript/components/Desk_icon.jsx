@@ -22,7 +22,7 @@ const Desk_icon = ({ status }) => {
         <svg
           fill="currentColor"
           className={`${
-            status === "Occupied" ? "text-sky-700" : "text-red-400"
+            status === "Occupied" ? "text-green-700" : "text-red-700"
           } flex-shrink-0 w-7 h-7 transition duration-75`}
           aria-hidden="true"
           viewBox="0 -7.72 122.88 122.88"
