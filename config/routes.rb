@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
-  resources :zones do 
-    collection { post :import }
-    # resources :zone_qs
-    # resources :zone_ms
-    # resources :zone_ks
-    # resources :zone_is
-    # resources :zone_es
-    # resources :zone_rs
-    # resources :zone_ns
-    # resources :zone_ls
-    # resources :zone_js
-    # resources :zone_hs
-    # resources :zone_ds
-  end
+  
   resources :zone_qs, only: [:index, :show, :edit, :update, :destroy]
   resources :zone_ms, only: [:index, :show, :edit, :update, :destroy]
   resources :zone_ks, only: [:index, :show, :edit, :update, :destroy]
