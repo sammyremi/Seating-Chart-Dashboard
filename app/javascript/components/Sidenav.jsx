@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Sidenav = () => {
+  const [active, setActive] = useState("");
   return (
     <aside className="fixed top-16 left-0 w-1/6 h-screen" aria-label="Sidebar">
       <div className="h-full px-3 py-6 pl-7 overflow-y-auto">
@@ -9,7 +11,12 @@ const Sidenav = () => {
           <li>
             <Link
               to="/"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+                active === "dashboard" ? "bg-sky-100" : ""
+              }`}
+              onClick={() => {
+                setActive("dashboard");
+              }}
             >
               <svg
                 className="w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
@@ -28,14 +35,18 @@ const Sidenav = () => {
                   />
                 </g>
               </svg>
-
               <span className="ml-3">Dashboard</span>
             </Link>
           </li>
           <li>
             <Link
               to="/floor_map"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+                active === "floor" ? "bg-sky-100" : ""
+              }`}
+              onClick={() => {
+                setActive("floor");
+              }}
             >
               <svg
                 className="flex-shrink-0 w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
@@ -78,7 +89,12 @@ const Sidenav = () => {
           <li>
             <Link
               to="/zones"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+                active === "zones" ? "bg-sky-100" : ""
+              }`}
+              onClick={() => {
+                setActive("zones");
+              }}
             >
               <svg
                 fill="currentColor"
@@ -100,7 +116,12 @@ const Sidenav = () => {
           <li>
             <Link
               to="/"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+                active === "admin" ? "bg-sky-100" : ""
+              }`}
+              onClick={() => {
+                setActive("admin");
+              }}
             >
               <svg
                 fill="currentColor"
@@ -125,7 +146,12 @@ const Sidenav = () => {
           <li>
             <Link
               to="/"
-              className="flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100"
+              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+                active === "log" ? "bg-sky-100" : ""
+              }`}
+              onClick={() => {
+                setActive("log");
+              }}
             >
               <svg
                 fill="currentColor"
