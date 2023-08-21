@@ -164,7 +164,7 @@ const D_ZoneChart = ({ data }) => {
       </div>
       <div className="zoneE rounded-sm grid place-items-center bg-[#e9f9fd] col-start-15 col-end-17 row-start-10 row-end-14 flex justify-center">
         {/* zoneE */}
-        {/* <Link to={"/zones/zone_es"}> */}
+        <Link to={"/zones/zone_es"}>
         <div>
           <p>Zone E</p>
           <svg
@@ -201,6 +201,7 @@ const D_ZoneChart = ({ data }) => {
           </svg>
         </div>
         {/* </Link> */}
+        </Link>
       </div>
     </div>
   );

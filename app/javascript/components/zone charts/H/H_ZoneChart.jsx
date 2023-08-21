@@ -79,7 +79,7 @@ const H_ZoneChart = ({ data }) => {
           </div>
         </div>
         <div class="zonei rounded-sm grid place-items-center bg-[#e9f9fd] col-start-9 col-end-11 row-start-1 row-end-9">
-          {/* <Link to={"/zones/zone_hs"}> */}
+        <Link to={"/zones/zone_hs"}>
           <div>
             <p>Zone I</p>
             <svg
@@ -115,6 +115,7 @@ const H_ZoneChart = ({ data }) => {
               </g>
             </svg>
           </div>
+          </Link>
           {/* </Link> */}
         </div>
         {/* Desk_id: #1-14 */}

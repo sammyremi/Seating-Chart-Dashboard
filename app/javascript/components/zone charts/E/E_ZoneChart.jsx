@@ -94,7 +94,7 @@ const E_ZoneChart = ({ data }) => {
           <Desk data={data[8]} style="-scale-x-100" />
         </div>
         <div class="ZoneD rounded-sm bg-[#e9f9fd] col-start-1 col-end-5 row-start-10 row-end-12 flex flex-row justify-center">
-          {/* <Link to={"/zones/zone_ds"}> */}
+        <Link to={"/zones/zone_ds"}>
           <div className="flex mt-6">
             <svg
               className="h-7 w-7 mr-4"
@@ -131,7 +131,7 @@ const E_ZoneChart = ({ data }) => {
             </svg>
             <span>Zone D</span>
           </div>
-          {/* </Link> */}
+          </Link>
         </div>
         <div class="Door flex self-end mb-[-10px] col-start-7 col-end-8 row-start-11 row-end-12">
           <svg
