@@ -93,7 +93,7 @@ const Show = () => {
           // JSX content for the "elseif" case of condition2
           <svg
             fill="currentColor"
-            className="w-32 h-40 text-orange-400 transition duration-200 ease-in-out"
+            className="w-32 h-40 text-[#FFA500] transition duration-200 ease-in-out"
             aria-hidden="true"
             viewBox="0 -24.88 122.88 122.88"
             xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ const Show = () => {
         ) : data.status.toLowerCase() === "reserved (dev)" ? (
           <svg
             fill="currentColor"
-            className="w-32 h-40 text-amber-800 transition duration-200 ease-in-out"
+            className="w-32 h-40 text-[#964B00] transition duration-200 ease-in-out"
             aria-hidden="true"
             viewBox="0 -24.88 122.88 122.88"
             xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +139,7 @@ const Show = () => {
         ) : data.status.toLowerCase() === "reserved (ops)" ? (
           <svg
             fill="currentColor"
-            className="w-32 h-40 text-purple-400 transition duration-200 ease-in-out"
+            className="w-32 h-40 text-purple-500 transition duration-200 ease-in-out"
             aria-hidden="true"
             viewBox="0 -24.88 122.88 122.88"
             xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +155,7 @@ const Show = () => {
 
           <svg
             fill="currentColor"
-            className="w-32 h-40 text-red-400 transition duration-200 ease-in-out"
+            className="w-32 h-40 text-red-600 transition duration-200 ease-in-out"
             aria-hidden="true"
             viewBox="0 -24.88 122.88 122.88"
             xmlns="http://www.w3.org/2000/svg"
