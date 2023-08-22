@@ -6,6 +6,7 @@ const J_ZoneChart = ({ data }) => {
     <div>
       <div class="ZoneJ p-2.5 grid grid-cols-4 grid-rows-9 gap-2.5">
         <div class="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-10">
+          
           <div>
             <p>Zone R</p>
             <svg

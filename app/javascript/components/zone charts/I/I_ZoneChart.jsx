@@ -8,7 +8,7 @@ const I_ZoneChart = ({ data }) => {
       <div class="ZoneI p-2.5 grid grid-cols-17 grid-rows-12 gap-2.5 text-center">
         <div class="zoneh grid place-items-center bg-[#e9f9fd] rounded-sm col-start-1 col-end-2 row-start-1 row-end-13">
           {/* Zone H */}
-          <Link to={"/zones/zone_is"}>
+          <Link to={"/zones/zone_hs"}>
           <div>
             <p>Zone H</p>
             <svg
