@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 
 const D_ZoneChart = ({ data }) => {
   return (
-    <div className="p-2.5 zoneD grid grid-cols-16 grid-rows-13 gap-2 text-center">
-      <div className="occupied  col-start-7 col-end-17 flex place-content-end">
+    <div className="rounded zoneD grid grid-cols-16 grid-rows-13 gap-2 text-center w-[800px] border-2 my-0 mx-auto border-slate-400 rounded p-2">
+      {/* Desk_id: #30-40 */}
+      <div className="occupied  col-start-6 col-end-16 flex place-content-end">
         <Desk data={data[29]} />
         <Desk data={data[30]} />
         <Desk data={data[31]} />
@@ -18,11 +19,13 @@ const D_ZoneChart = ({ data }) => {
         <Desk data={data[38]} />
         <Desk data={data[39]} />
       </div>
+      {/* Desk_id: #28-29 */}
       <div className="damaged col-start-4 col-end-6 flex place-content-center">
         <Desk data={data[27]} />
         <Desk data={data[28]} />
       </div>
-      <div className="occupied2  col-start-1 col-end-5 row-start-4 row-end-6 flex flex-col place-content-center">
+      {/* Desk_id: #22-29 */}
+      <div className="occupied2  col-start-1 col-end-5 row-start-3 row-end-5 flex flex-col place-content-center">
         {/* occupied2 */}
         <div className="flex flex-row -scale-y-100">
           <Desk data={data[24]} style="-scale-x-100" />
@@ -35,7 +38,8 @@ const D_ZoneChart = ({ data }) => {
           <Desk data={data[21]} />
         </div>
       </div>
-      <div className="occupied3  col-start-7 col-end-16 row-start-4 row-end-6 flex flex-col place-content-center">
+      {/* Desk_id: #41-60 */}
+      <div className="occupied3  col-start-7 col-end-16 row-start-3 row-end-5 flex flex-col place-content-center">
         <div className="flex flex-row -scale-y-100 place-content-end">
           <Desk data={data[49]} style="-scale-x-100" />
           <Desk data={data[48]} style="-scale-x-100" />
@@ -80,7 +84,6 @@ const D_ZoneChart = ({ data }) => {
           <Desk data={data[9]} />
         </div>
       </div>
-
       <div className="ocpd7  col-start-9 col-end-16 row-start-7 row-end-9 flex flex-col place-content-center">
         {/* occupied7 */}
         <div className="flex flex-row -scale-y-100 place-content-end">
@@ -165,42 +168,42 @@ const D_ZoneChart = ({ data }) => {
       <div className="zoneE rounded-sm grid place-items-center bg-[#e9f9fd] col-start-15 col-end-17 row-start-10 row-end-14 flex justify-center">
         {/* zoneE */}
         <Link to={"/zones/zone_es"}>
-        <div>
-          <p>Zone E</p>
-          <svg
-            className="h-7 w-7 ml-2"
-            viewBox="0 -6.5 36 36"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <g
-              id="icons"
-              stroke="none"
-              stroke-width="1"
-              fill="none"
-              fill-rule="evenodd"
+          <div>
+            <p>Zone E</p>
+            <svg
+              className="h-7 w-7 ml-2"
+              viewBox="0 -6.5 36 36"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
               <g
-                id="ui-gambling-website-lined-icnos-casinoshunter"
-                transform="translate(-212.000000, -159.000000)"
-                fill="#252528"
-                fill-rule="nonzero"
+                id="icons"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
               >
                 <g
-                  id="square-filled"
-                  transform="translate(50.000000, 120.000000)"
+                  id="ui-gambling-website-lined-icnos-casinoshunter"
+                  transform="translate(-212.000000, -159.000000)"
+                  fill="#252528"
+                  fill-rule="nonzero"
                 >
-                  <path
-                    d="M187.108012,39.2902857 L197.649804,49.7417043 L197.708994,49.7959169 C197.889141,49.9745543 197.986143,50.2044182 198,50.4382227 L198,50.5617773 C197.986143,50.7955818 197.889141,51.0254457 197.708994,51.2040831 L197.6571,51.2479803 L187.108012,61.7097143 C186.717694,62.0967619 186.084865,62.0967619 185.694547,61.7097143 C185.30423,61.3226668 185.30423,60.6951387 185.694547,60.3080911 L194.702666,51.3738496 L162.99947,51.3746291 C162.447478,51.3746291 162,50.9308997 162,50.3835318 C162,49.8361639 162.447478,49.3924345 162.99947,49.3924345 L194.46779,49.3916551 L185.694547,40.6919089 C185.30423,40.3048613 185.30423,39.6773332 185.694547,39.2902857 C186.084865,38.9032381 186.717694,38.9032381 187.108012,39.2902857 Z M197.115357,50.382693 L186.401279,61.0089027 L197.002151,50.5002046 L197.002252,50.4963719 L196.943142,50.442585 L196.882737,50.382693 L197.115357,50.382693 Z"
-                    id="right-arrow"
-                  ></path>
+                  <g
+                    id="square-filled"
+                    transform="translate(50.000000, 120.000000)"
+                  >
+                    <path
+                      d="M187.108012,39.2902857 L197.649804,49.7417043 L197.708994,49.7959169 C197.889141,49.9745543 197.986143,50.2044182 198,50.4382227 L198,50.5617773 C197.986143,50.7955818 197.889141,51.0254457 197.708994,51.2040831 L197.6571,51.2479803 L187.108012,61.7097143 C186.717694,62.0967619 186.084865,62.0967619 185.694547,61.7097143 C185.30423,61.3226668 185.30423,60.6951387 185.694547,60.3080911 L194.702666,51.3738496 L162.99947,51.3746291 C162.447478,51.3746291 162,50.9308997 162,50.3835318 C162,49.8361639 162.447478,49.3924345 162.99947,49.3924345 L194.46779,49.3916551 L185.694547,40.6919089 C185.30423,40.3048613 185.30423,39.6773332 185.694547,39.2902857 C186.084865,38.9032381 186.717694,38.9032381 187.108012,39.2902857 Z M197.115357,50.382693 L186.401279,61.0089027 L197.002151,50.5002046 L197.002252,50.4963719 L196.943142,50.442585 L196.882737,50.382693 L197.115357,50.382693 Z"
+                      id="right-arrow"
+                    ></path>
+                  </g>
                 </g>
               </g>
-            </g>
-          </svg>
-        </div>
-        {/* </Link> */}
+            </svg>
+          </div>
+          {/* </Link> */}
         </Link>
       </div>
     </div>
