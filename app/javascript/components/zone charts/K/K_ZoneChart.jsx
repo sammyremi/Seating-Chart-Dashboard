@@ -99,7 +99,7 @@ const K_ZoneChart = ({ data }) => {
         </div>
         <div class="zonel grid place-items-center bg-[#e9f9fd] col-start-7 col-end-8 row-start-2 row-end-9">
           {/* Zone L */}
-          {/* <Link to={"/zones/zone_ls"}> */}
+          <Link to={"/zones/zone_ks"}>
           <div>
             <p>Zone L</p>
             <svg
@@ -135,6 +135,7 @@ const K_ZoneChart = ({ data }) => {
               </g>
             </svg>
           </div>
+          </Link>
           {/* </Link> */}
         </div>
         <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-4 row-start-8 row-end-10">
