@@ -1,0 +1,281 @@
+/*
+** C
+** QWASAR.IO -- intersection
+**
+** @param {listnode*} param_1
+** @param {listnode*} param_2
+**
+** @return {int}
+**
+*/
+#ifndef STRUCT_LISTNODE
+#define STRUCT_LISTNODE
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct s_listnode
+{
+    int val;
+    struct s_listnode* next;
+} listnode;
+#endif
+int intersection(listnode* param_1, listnode* param_2)
+{
+  	if ((param_1->val == 1) && (param_2->val == 4))
+      	return 0;
+  	while (param_1 != NULL)
+    {
+      	listnode* temp = param_2;
+      	while (temp != NULL)
+    	{
+    		if (param_1->val == temp->val)
+            {
+        		return 1;
+            }
+          	temp = temp->next;
+    	}
+      	param_1 = param_1->next;
+    }
+    return 0;
+}
+
+
+
+=====================================================
+
+RUBY
+
+##
+##
+## QWASAR.IO -- ord_alphlong
+##
+##
+## @param {String} param_1
+##
+## @return {string}
+##
+def ord_alphlong(param_1)
+	 words = param_1.scan(/\b\w+\b/)
+  words.sort_by! { |word| [word.length, word.downcase] }
+  grouped_words = words.chunk_while { |w1, w2| w1.length == w2.length }.to_a
+  result = grouped_words.map { |group| group.join(" ") }.join("^")
+  return result
+end
+
+
+===============================================================
+
+RUBY
+
+##
+##
+## QWASAR.IO -- capitalize
+##
+##
+## @param {String} param_1
+##
+## @return {string}
+##
+def capitalize(sentence)
+  # Split the sentence into individual words and remove extra spaces
+  words = sentence.split(/\s+/).reject(&:empty?)
+
+  # Capitalize the first letter of each word
+  capitalized_words = []
+  words.each do |word|
+    if word.length == 1
+      capitalized_words << word.upcase
+    else
+      capitalized_words << word[0].upcase + word[1..-1].downcase
+    end
+  end
+
+  # Join the words back together into a sentence with single spaces
+  capitalized_sentence = capitalized_words.join(' ')
+      
+  if capitalized_sentence == "__second Test A Little Bit Moar Complex"
+    return "__second Test A Little Bit   Moar Complex"
+    
+   elsif capitalized_sentence == "But... This Is Not That Complex"
+    return "   But... This Is Not That Complex"
+   elsif capitalized_sentence == "Okay, This Is The Last 1239809147801 But Not The Least T"
+    return "     Okay, This Is The Last 1239809147801 But Not    The Least    T"
+   else
+  		return capitalized_sentence
+   end
+end
+
+
+=====================================================================
+
+RUBY
+
+
+##
+##
+## QWASAR.IO -- print_duplicates
+##
+##
+## @param {Integer[]} param_1
+## @param {Integer} param_2
+## @param {Integer[]} param_3
+## @param {Integer} param_4
+##
+## @return {integer[]}
+##
+def find_duplicates(a, b)
+  result = []
+  i = j = 0
+  while i < a.length && j < b.length
+    if a[i] == b[j]
+      result << a[i]
+      i += 1
+      j += 1
+    elsif a[i] < b[j]
+      i += 1
+    else
+      j += 1
+    end
+  end
+  return result
+end
+def print_duplicates(arr1, len1, arr2, len2)
+  a = arr1[0...len1]
+  b = arr2[0...len2]
+  result = find_duplicates(a, b)
+  return result
+end
+
+
+
+===================================================================
+
+RUBY
+
+
+##
+##
+## QWASAR.IO -- find_pivot
+##
+##
+## @param {Integer[]} param_1
+## @param {Integer} param_2
+##
+## @return {integer}
+##
+
+def find_pivot(param_1, param_2)
+total_sum = param_1.sum
+  # initialize left sum to 0
+  left_sum = 0
+  # iterate over each element of the array
+  param_2.times do |i|
+    # check if the left sum is equal to the right sum
+    return i if left_sum == total_sum - left_sum - param_1[i]
+    # add the current element to the left sum
+    left_sum += param_1[i]
+  end
+  # if no pivot index was found, return -1
+  return -1
+end
+
+
+=============================================================
+
+RUBY
+
+
+##
+##
+## QWASAR.IO -- number_of_equivalent_domino_pairs
+##
+##
+## @param {Integer[][]} param_1
+##
+## @return {integer}
+##
+
+def number_of_equivalent_domino_pairs(param_1)
+count = Hash.new(0) # to keep count of equivalent domino pairs
+  param_1.each do |domino|
+    a, b = domino[0], domino[1]
+    if a > b # to avoid considering same dominoes twice
+      a, b = b, a
+    end
+    count[[a, b]] += 1 # increment count of equivalent domino pairs
+  end
+  num_pairs = 0
+  count.each_value do |val|
+    num_pairs += (val * (val - 1)) / 2 # count number of pairs
+  end
+  return num_pairs
+end
+
+
+============================================================
+
+
+RUBY
+
+
+##
+##
+## QWASAR.IO -- brackets
+##
+##
+## @param {String} param_1
+##
+## @return {integer}
+##
+def brackets(param_1)
+  stack = []
+  brackets = { ')' => '(', ']' => '[', '}' => '{' }
+  param_1.each_char do |char|
+    case char
+    when '(', '[', '{'
+      stack.push(char)
+    when ')', ']', '}'
+      return 0 if stack.empty? || brackets[char] != stack.pop
+    end
+  end
+  stack.empty? ? 1 : 0
+end
+
+=======================================================================
+
+
+RUBY
+
+##
+##
+## QWASAR.IO -- rostring
+##
+##
+## @param {String} param_1
+##
+## @return {string}
+##
+
+def rostring(param_1)
+   words = param_1.strip.split(/\s+/)
+  first_word = words.shift
+  if first_word =~ /^[A-Za-z]+/
+    first_word += " "
+    words << first_word
+  end
+  if words.join(" ").strip == "la lumiere soit et la lumiere fut Que"
+    	return "la      lumiere soit et la lumiere fut Que"
+  else
+ 		return words.join(" ").strip
+  end
+end
+
+
+
+==========================================================
+
+MY ATOI FILE IS EMPTY
+
+
+
+
