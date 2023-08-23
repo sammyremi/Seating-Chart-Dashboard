@@ -1,10 +1,11 @@
 import React from "react";
 import Desk from "../../Desk";
+import { Link } from "react-router-dom";
 
 const H_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div className="p-2.5 grid grid-cols-10 grid-rows-8 gap-2.5 text-center">
+      <div className="border-2 m-2 border-slate-400 rounded p-2 grid grid-cols-10 grid-rows-8 w-[500px] my-2 mx-auto gap-2.5 text-center">
         <div class="restroom rounded-sm bg-lime-300 col-start-1 col-end-4 grid place-content-center">
           <p>Restroom</p>
         </div>
@@ -64,7 +65,7 @@ const H_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #34-31 */}
-        <div class="ocpd3  col-start-8 col-end-9 row-start-4 row-end-9 flex flex-col place-items-center">
+        <div class="ocpd3  col-start-8 col-end-9 row-start-5 row-end-9 flex flex-col place-items-center">
           <div className="rotate-90">
             <Desk data={data[33]} />
           </div>
@@ -79,7 +80,7 @@ const H_ZoneChart = ({ data }) => {
           </div>
         </div>
         <div class="zonei rounded-sm grid place-items-center bg-[#e9f9fd] col-start-9 col-end-11 row-start-1 row-end-9">
-          {/* <Link to={"/zones/zone_hs"}> */}
+          {/* <Link to={"/zones/zone_is"}> */}
           <div>
             <p>Zone I</p>
             <svg
