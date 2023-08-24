@@ -9,6 +9,7 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const [show, setShow] = useState(false);
   const dropdownRef = useRef(null);
+  const searchfieldRef = useRef(null);
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
@@ -25,10 +26,21 @@ const Navbar = () => {
     }
   };
 
+  const closeSearchField = (event) => {
+    if (
+      searchfieldRef.current &&
+      !searchfieldRef.current.contains(event.target)
+    ) {
+      setShow(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("click", closeDropdown);
+    window.addEventListener("click", closeSearchField);
     return () => {
       window.removeEventListener("click", closeDropdown);
+      window.removeEventListener("click", closeSearchField);
     };
   }, []);
 
@@ -110,14 +122,14 @@ const Navbar = () => {
           )}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Search bar */}
-            <div className="flex mr-16">
+            <div className="flex mr-16" ref={searchfieldRef}>
               <form className="mr-2">
                 <input
                   type="text"
                   value={query}
                   onChange={handleSearchChange}
-                  placeholder="Search Desk ID"
-                  className="px-2 py-1 rounded-lg border border-gray-300 focus:outline-none w-36"
+                  placeholder="Search Desk_ID"
+                  className="px-2.5 py-1.5 rounded-lg border border-gray-300 focus:outline-none w-44"
                 />
               </form>
               <button
