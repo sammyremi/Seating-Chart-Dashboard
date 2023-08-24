@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-import ReactSearchBox from "react-search-box";
+import { Link } from "react-router-dom";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
-  const [searchText, setSearchText] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
+  const [show, setShow] = useState(false);
   const dropdownRef = useRef(null);
 
   const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
+    setQuery(e.target.value);
+    setShow(true);
   };
 
   const handleSearchSubmit = (e) => {
@@ -47,7 +49,6 @@ const Navbar = () => {
           fetchedData.push(...zone_data);
         }
         setData((prevData) => [...prevData, ...fetchedData]);
-        // setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -57,17 +58,16 @@ const Navbar = () => {
   }, []);
 
   const searchData = [];
-
   if (data) {
     data.map((desk) => {
       searchData.push({
-        key: `${desk.desk_id.charAt(0).toLowerCase()}_${desk.id}`,
+        key: `${desk.desk_id.toLowerCase()}`,
         value: desk.desk_id,
+        id: desk.id,
       });
     });
   }
-
-  console.log(searchData);
+  // console.log(searchData);
 
   return (
     <nav className="drop-shadow-md z-40 fixed w-full top-0 bg-[#E9F9FD]">
@@ -82,13 +82,45 @@ const Navbar = () => {
               />
             </div>
           </div>
+          {/* controls search result display */}
+          {query && show ? (
+            <div className="absolute top-[70px] left-[870px] bg-white rounded w-[230px] max-h-52 overflow-auto flex flex-col">
+              {searchData
+                .filter((desk) => {
+                  if (query === "") {
+                    return;
+                  } else if (
+                    desk.key.toLowerCase().includes(query.toLowerCase())
+                  ) {
+                    return desk;
+                  }
+                })
+                .map((desk, index) => (
+                  <div
+                    className="py-2 px-4 border-b border-slate-300 hover:bg-sky-200"
+                    key={index}
+                  >
+                    <Link
+                      to={`/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
+                        desk.id
+                      }`}
+                      onClick={() => setShow(false)}
+                    >
+                      <p>{desk.value}</p>
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          ) : (
+            ""
+          )}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Search bar */}
-            {/* <div className="flex mr-16">
+            <div className="flex mr-16">
               <form onSubmit={handleSearchSubmit} className="mr-2">
                 <input
                   type="text"
-                  value={searchText}
+                  value={query}
                   onChange={handleSearchChange}
                   placeholder="Search Desk ID"
                   className="px-2 py-1 rounded-lg border border-gray-300 focus:outline-none w-36"
@@ -100,15 +132,8 @@ const Navbar = () => {
               >
                 Search
               </button>
-            </div> */}
-            <div className="mr-4 mt-[1px]">
-              <ReactSearchBox
-                placeholder="Search..."
-                value="Doe"
-                data={searchData}
-                // callback={(record) => console.log(record)}
-              />
             </div>
+
             {/* Profile dropdown */}
             <div className="relative" ref={dropdownRef}>
               <div>
