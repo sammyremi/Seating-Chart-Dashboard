@@ -56,7 +56,7 @@ const K_ZoneChart = ({ data }) => {
             </div>
           </div>
         </div>
-        {/* Desk_id: #15-24 ?? */}
+        {/* Desk_id: #15-24 */}
         <div class="ocpd2 col-start-1 col-end-3 row-start-3 row-end-8 flex justify-center">
           {/* occupied2 */}
           <div className="flex flex-col">
@@ -141,7 +141,7 @@ const K_ZoneChart = ({ data }) => {
         <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-8 row-end-10">
           Server
         </div>
-        <div class="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-9 row-end-10">
+        <div class="Door flex self-end mb-[-10px] col-start-3 col-end-4 row-start-9 row-end-10">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

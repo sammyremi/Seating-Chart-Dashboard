@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import ReactSearchBox from "react-search-box";
+
+const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
   const [searchText, setSearchText] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [data, setData] = useState([]);
   const dropdownRef = useRef(null);
 
   const handleSearchChange = (e) => {
@@ -32,6 +36,39 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedData = [];
+
+        for (let i = 0; i < zones.length; i++) {
+          const response = await fetch(`/zone_${zones[i]}s`);
+          const zone_data = await response.json();
+          fetchedData.push(...zone_data);
+        }
+        setData((prevData) => [...prevData, ...fetchedData]);
+        // setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const searchData = [];
+
+  if (data) {
+    data.map((desk) => {
+      searchData.push({
+        key: `${desk.desk_id.charAt(0).toLowerCase()}_${desk.id}`,
+        value: desk.desk_id,
+      });
+    });
+  }
+
+  console.log(searchData);
+
   return (
     <nav className="drop-shadow-md z-40 fixed w-full top-0 bg-[#E9F9FD]">
       <div className="mx-auto sm:px-6 lg:px-10">
@@ -47,7 +84,7 @@ const Navbar = () => {
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Search bar */}
-            <div className="flex mr-16">
+            {/* <div className="flex mr-16">
               <form onSubmit={handleSearchSubmit} className="mr-2">
                 <input
                   type="text"
@@ -63,8 +100,15 @@ const Navbar = () => {
               >
                 Search
               </button>
+            </div> */}
+            <div className="mr-4 mt-[1px]">
+              <ReactSearchBox
+                placeholder="Search..."
+                value="Doe"
+                data={searchData}
+                // callback={(record) => console.log(record)}
+              />
             </div>
-
             {/* Profile dropdown */}
             <div className="relative" ref={dropdownRef}>
               <div>
