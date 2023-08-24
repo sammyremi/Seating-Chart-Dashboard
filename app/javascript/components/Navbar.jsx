@@ -15,12 +15,6 @@ const Navbar = () => {
     setShow(true);
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    // Implement your search logic here using the searchText state
-    console.log("Searching for:", searchText);
-  };
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -38,6 +32,7 @@ const Navbar = () => {
     };
   }, []);
 
+  // fetch data for search
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -67,7 +62,6 @@ const Navbar = () => {
       });
     });
   }
-  // console.log(searchData);
 
   return (
     <nav className="drop-shadow-md z-40 fixed w-full top-0 bg-[#E9F9FD]">
@@ -127,10 +121,10 @@ const Navbar = () => {
                 />
               </form>
               <button
-                onClick={handleSearchSubmit}
+                onClick={(e) => setQuery("")}
                 className="bg-sky-300 text-white px-2 py-1 rounded-lg focus:outline-none"
               >
-                Search
+                Clear
               </button>
             </div>
 
