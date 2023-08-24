@@ -5,11 +5,23 @@ import { Link } from "react-router-dom";
 const K_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div class="Zonek rounded-sm p-2.5 grid grid-cols-7 grid-rows-9 gap-2.5 text-center">
-        {/* Desk_id: #5-18 */}
-        <div class="ocpd1  col-start-5 col-end-7 row-start-2 row-end-9 flex justify-center">
+      <div class="Zonek rounded-sm border-2 m-2 border-slate-400 rounded p-2 w-[450px] my-2 mx-auto grid grid-cols-6 grid-rows-9 gap-2.5 text-center">
+        {/* Desk_id: #1-14 */}
+        <div class="ocpd1 col-start-3 col-end-5 row-start-2 row-end-9 flex justify-center">
           {/* occupied1 */}
           <div className="flex flex-col">
+            <div className="rotate-90">
+              <Desk data={data[7]} />
+            </div>
+            <div className="rotate-90">
+              <Desk data={data[8]} />
+            </div>
+            <div className="rotate-90">
+              <Desk data={data[9]} />
+            </div>
+            <div className="rotate-90">
+              <Desk data={data[10]} />
+            </div>
             <div className="rotate-90">
               <Desk data={data[11]} />
             </div>
@@ -19,32 +31,8 @@ const K_ZoneChart = ({ data }) => {
             <div className="rotate-90">
               <Desk data={data[13]} />
             </div>
-            <div className="rotate-90">
-              <Desk data={data[14]} />
-            </div>
-            <div className="rotate-90">
-              <Desk data={data[15]} />
-            </div>
-            <div className="rotate-90">
-              <Desk data={data[16]} />
-            </div>
-            <div className="rotate-90">
-              <Desk data={data[17]} />
-            </div>
           </div>
           <div className="flex flex-col">
-            <div className="-rotate-90">
-              <Desk data={data[10]} />
-            </div>
-            <div className="-rotate-90">
-              <Desk data={data[9]} />
-            </div>
-            <div className="-rotate-90">
-              <Desk data={data[8]} />
-            </div>
-            <div className="-rotate-90">
-              <Desk data={data[7]} />
-            </div>
             <div className="-rotate-90">
               <Desk data={data[6]} />
             </div>
@@ -54,23 +42,35 @@ const K_ZoneChart = ({ data }) => {
             <div className="-rotate-90">
               <Desk data={data[4]} />
             </div>
+            <div className="-rotate-90">
+              <Desk data={data[3]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[2]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[1]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[0]} />
+            </div>
           </div>
         </div>
-        {/* Desk_id: #19-28 ?? */}
-        <div class="ocpd2  col-start-2 col-end-4 row-start-3 row-end-8 flex justify-center">
+        {/* Desk_id: #15-24 ?? */}
+        <div class="ocpd2 col-start-1 col-end-3 row-start-3 row-end-8 flex justify-center">
           {/* occupied2 */}
           <div className="flex flex-col">
             <div className="rotate-90">
-              <Desk data={data[23]} />
+              <Desk data={data[19]} />
             </div>
             <div className="rotate-90">
-              <Desk data={data[23]} />
+              <Desk data={data[20]} />
             </div>
             <div className="rotate-90">
-              <Desk data={data[23]} />
+              <Desk data={data[21]} />
             </div>
             <div className="rotate-90">
-              <Desk data={data[23]} />
+              <Desk data={data[22]} />
             </div>
             <div className="rotate-90">
               <Desk data={data[23]} />
@@ -78,70 +78,70 @@ const K_ZoneChart = ({ data }) => {
           </div>
           <div className="flex flex-col">
             <div className="-rotate-90">
-              <Desk data={data[22]} />
-            </div>
-            <div className="-rotate-90">
-              <Desk data={data[21]} />
-            </div>
-            <div className="-rotate-90">
-              <Desk data={data[20]} />
-            </div>
-            <div className="-rotate-90">
-              <Desk data={data[19]} />
-            </div>
-            <div className="-rotate-90">
               <Desk data={data[18]} />
             </div>
+            <div className="-rotate-90">
+              <Desk data={data[17]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[16]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[15]} />
+            </div>
+            <div className="-rotate-90">
+              <Desk data={data[14]} />
+            </div>
           </div>
         </div>
-        <div class="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-6 col-end-8 row-start-1 row-end-2">
+        <div class="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-4 col-end-6 row-start-1 row-end-2">
           Restroom 1
         </div>
-        <div class="zonel grid place-items-center bg-[#e9f9fd] col-start-7 col-end-8 row-start-2 row-end-9">
+        <div class="zonel grid place-items-center bg-[#e9f9fd] col-start-5 col-end-7 row-start-2 row-end-9">
           {/* Zone L */}
           <Link to={"/zones/zone_ks"}>
-          <div>
-            <p>Zone L</p>
-            <svg
-              className="h-7 w-7 ml-2"
-              viewBox="0 -6.5 36 36"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <g
-                id="icons"
-                stroke="none"
-                stroke-width="1"
-                fill="none"
-                fill-rule="evenodd"
+            <div>
+              <p>Zone L</p>
+              <svg
+                className="h-7 w-7 ml-2"
+                viewBox="0 -6.5 36 36"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
               >
                 <g
-                  id="ui-gambling-website-lined-icnos-casinoshunter"
-                  transform="translate(-212.000000, -159.000000)"
-                  fill="#252528"
-                  fill-rule="nonzero"
+                  id="icons"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
                 >
                   <g
-                    id="square-filled"
-                    transform="translate(50.000000, 120.000000)"
+                    id="ui-gambling-website-lined-icnos-casinoshunter"
+                    transform="translate(-212.000000, -159.000000)"
+                    fill="#252528"
+                    fill-rule="nonzero"
                   >
-                    <path
-                      d="M187.108012,39.2902857 L197.649804,49.7417043 L197.708994,49.7959169 C197.889141,49.9745543 197.986143,50.2044182 198,50.4382227 L198,50.5617773 C197.986143,50.7955818 197.889141,51.0254457 197.708994,51.2040831 L197.6571,51.2479803 L187.108012,61.7097143 C186.717694,62.0967619 186.084865,62.0967619 185.694547,61.7097143 C185.30423,61.3226668 185.30423,60.6951387 185.694547,60.3080911 L194.702666,51.3738496 L162.99947,51.3746291 C162.447478,51.3746291 162,50.9308997 162,50.3835318 C162,49.8361639 162.447478,49.3924345 162.99947,49.3924345 L194.46779,49.3916551 L185.694547,40.6919089 C185.30423,40.3048613 185.30423,39.6773332 185.694547,39.2902857 C186.084865,38.9032381 186.717694,38.9032381 187.108012,39.2902857 Z M197.115357,50.382693 L186.401279,61.0089027 L197.002151,50.5002046 L197.002252,50.4963719 L196.943142,50.442585 L196.882737,50.382693 L197.115357,50.382693 Z"
-                      id="right-arrow"
-                    ></path>
+                    <g
+                      id="square-filled"
+                      transform="translate(50.000000, 120.000000)"
+                    >
+                      <path
+                        d="M187.108012,39.2902857 L197.649804,49.7417043 L197.708994,49.7959169 C197.889141,49.9745543 197.986143,50.2044182 198,50.4382227 L198,50.5617773 C197.986143,50.7955818 197.889141,51.0254457 197.708994,51.2040831 L197.6571,51.2479803 L187.108012,61.7097143 C186.717694,62.0967619 186.084865,62.0967619 185.694547,61.7097143 C185.30423,61.3226668 185.30423,60.6951387 185.694547,60.3080911 L194.702666,51.3738496 L162.99947,51.3746291 C162.447478,51.3746291 162,50.9308997 162,50.3835318 C162,49.8361639 162.447478,49.3924345 162.99947,49.3924345 L194.46779,49.3916551 L185.694547,40.6919089 C185.30423,40.3048613 185.30423,39.6773332 185.694547,39.2902857 C186.084865,38.9032381 186.717694,38.9032381 187.108012,39.2902857 Z M197.115357,50.382693 L186.401279,61.0089027 L197.002151,50.5002046 L197.002252,50.4963719 L196.943142,50.442585 L196.882737,50.382693 L197.115357,50.382693 Z"
+                        id="right-arrow"
+                      ></path>
+                    </g>
                   </g>
                 </g>
-              </g>
-            </svg>
-          </div>
+              </svg>
+            </div>
           </Link>
           {/* </Link> */}
         </div>
-        <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-4 row-start-8 row-end-10">
+        <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-8 row-end-10">
           Server
         </div>
-        <div class="Door flex self-end mb-[-10px] col-start-6 col-end-7 row-start-9 row-end-10">
+        <div class="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-9 row-end-10">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

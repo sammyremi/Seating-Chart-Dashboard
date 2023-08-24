@@ -26,7 +26,7 @@ const Table = ({ data }) => {
             const { desk_id, status, campaign, id } = desk;
             const first_char = desk_id.charAt(0).toLowerCase();
             return (
-              <tr key={id} className="border-b">
+              <tr key={`${first_char}_${id}`} className="border-b">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"

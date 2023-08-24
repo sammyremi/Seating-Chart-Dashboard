@@ -4,8 +4,8 @@ import Desk from "../../Desk";
 const M_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div class="zoneM p-2.5 grid grid-cols-7 grid-rows-9 gap-2.5 text-center">
-        <div class="zonen rounded-sm grid place-items-center bg-[#e9f9fd] col-start-7 col-end-8 row-start-1 row-end-10">
+      <div class="zoneM border-2 m-2 border-slate-400 rounded p-2 w-[500px] mx-auto my-2 grid grid-cols-6 grid-rows-9 gap-2.5 text-center">
+        <div class="zonen rounded-sm grid place-items-center bg-[#e9f9fd] col-start-6 col-end-7 row-start-1 row-end-10">
           {/* Zone N */}
           <div>
             <p>Zone N</p>
@@ -96,7 +96,7 @@ const M_ZoneChart = ({ data }) => {
         <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-9 row-end-10">
           Server
         </div>
-        <div class="Door flex self-end mb-[-10px] col-start-6 col-end-7 row-start-9 row-end-10">
+        <div class="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-9 row-end-10">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

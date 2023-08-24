@@ -3,10 +3,9 @@ import Desk from "../../Desk";
 
 const J_ZoneChart = ({ data }) => {
   return (
-    <div>
-      <div class="ZoneJ p-2.5 grid grid-cols-4 grid-rows-9 gap-2.5">
-        <div class="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-10">
-          
+    <div className="border-2 m-2 border-slate-400 rounded w-[360px] my-2 mx-auto">
+      <div class="ZoneJ p-2.5 grid grid-cols-4 grid-rows-8 gap-2.5">
+        <div class="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-9">
           <div>
             <p>Zone R</p>
             <svg
@@ -54,7 +53,7 @@ const J_ZoneChart = ({ data }) => {
             <Desk data={data[8]} />
           </div>
         </div>
-        <div class="ocp3 col-start-3 col-end-4 row-start-7 row-end-9 flex flex-col">
+        <div class="ocp3 col-start-3 col-end-4 row-start-6 row-end-8 flex flex-col">
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[3]} style="-scale-x-100" />
             <Desk data={data[2]} style="-scale-x-100" />
@@ -64,7 +63,7 @@ const J_ZoneChart = ({ data }) => {
             <Desk data={data[1]} />
           </div>
         </div>
-        <div class="Door flex self-end mb-[-10px] justify-self-center col-start-2 col-end-3 row-start-9 row-end-10">
+        <div class="Door flex self-end mb-[-6px] justify-self-center col-start-2 col-end-3 row-start-8 row-end-9">
           <svg
             className="w-7 h-7 text-slate-500"
             fill="#000000"
