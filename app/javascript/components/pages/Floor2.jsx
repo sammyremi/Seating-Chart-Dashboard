@@ -13,7 +13,7 @@ const Floor2 = () => {
           <Link to={"/zones"}>
             <button
               type="button"
-              class="mb-16 drop-shadow-xl text-black w-full bg-[#E9F9FD] rounded hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2"
+              className="mb-16 drop-shadow-xl text-black w-full bg-[#E9F9FD] rounded hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2"
             >
               Zones
             </button>
@@ -21,7 +21,7 @@ const Floor2 = () => {
           <Link to={"/zones/zone_ds"}>
             <button
               type="button"
-              class="drop-shadow-xl text-black w-4/5 bg-[#ffffcc] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
+              className="drop-shadow-xl text-black w-4/5 bg-[#ffffcc] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
             >
               Zone D
             </button>
@@ -29,7 +29,7 @@ const Floor2 = () => {
           <Link to={"/zones/zone_es"}>
             <button
               type="button"
-              class="drop-shadow-xl text-black w-4/5 bg-[#ffcce6] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
+              className="drop-shadow-xl text-black w-4/5 bg-[#ffcce6] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
             >
               Zone E
             </button>
@@ -37,7 +37,7 @@ const Floor2 = () => {
           <Link to={"/zones/zone_hs"}>
             <button
               type="button"
-              class="drop-shadow-xl text-black w-4/5 bg-[#99ff99] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
+              className="drop-shadow-xl text-black w-4/5 bg-[#99ff99] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
             >
               Zone H
             </button>
@@ -45,7 +45,7 @@ const Floor2 = () => {
           <Link to={"/zones/zone_is"}>
             <button
               type="button"
-              class="drop-shadow-xl text-black w-4/5 bg-[#66b2ff] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
+              className="drop-shadow-xl text-black w-4/5 bg-[#66b2ff] hover:bg-blue-100 font-medium text-md px-5 py-2.5 mr-2 mb-4 rounded"
             >
               Zone I
             </button>

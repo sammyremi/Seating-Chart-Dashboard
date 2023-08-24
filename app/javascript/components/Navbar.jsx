@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
+const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
-  const [searchText, setSearchText] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
+  const [show, setShow] = useState(false);
   const dropdownRef = useRef(null);
 
   const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    // Implement your search logic here using the searchText state
-    console.log("Searching for:", searchText);
+    setQuery(e.target.value);
+    setShow(true);
   };
 
   const toggleDropdown = () => {
@@ -32,6 +32,37 @@ const Navbar = () => {
     };
   }, []);
 
+  // fetch data for search
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedData = [];
+
+        for (let i = 0; i < zones.length; i++) {
+          const response = await fetch(`/zone_${zones[i]}s`);
+          const zone_data = await response.json();
+          fetchedData.push(...zone_data);
+        }
+        setData((prevData) => [...prevData, ...fetchedData]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const searchData = [];
+  if (data) {
+    data.map((desk) => {
+      searchData.push({
+        key: `${desk.desk_id.toLowerCase()}`,
+        value: desk.desk_id,
+        id: desk.id,
+      });
+    });
+  }
+
   return (
     <nav className="drop-shadow-md z-40 fixed w-full top-0 bg-[#E9F9FD]">
       <div className="mx-auto sm:px-6 lg:px-10">
@@ -45,23 +76,55 @@ const Navbar = () => {
               />
             </div>
           </div>
+          {/* controls search result display */}
+          {query && show ? (
+            <div className="absolute top-[70px] left-[870px] bg-white rounded w-[230px] max-h-52 overflow-auto flex flex-col">
+              {searchData
+                .filter((desk) => {
+                  if (query === "") {
+                    return;
+                  } else if (
+                    desk.key.toLowerCase().includes(query.toLowerCase())
+                  ) {
+                    return desk;
+                  }
+                })
+                .map((desk, index) => (
+                  <div
+                    className="py-2 px-4 border-b border-slate-300 hover:bg-sky-200"
+                    key={index}
+                  >
+                    <Link
+                      to={`/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
+                        desk.id
+                      }`}
+                      onClick={() => setShow(false)}
+                    >
+                      <p>{desk.value}</p>
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          ) : (
+            ""
+          )}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Search bar */}
             <div className="flex mr-16">
-              <form onSubmit={handleSearchSubmit} className="mr-2">
+              <form className="mr-2">
                 <input
                   type="text"
-                  value={searchText}
+                  value={query}
                   onChange={handleSearchChange}
                   placeholder="Search Desk ID"
                   className="px-2 py-1 rounded-lg border border-gray-300 focus:outline-none w-36"
                 />
               </form>
               <button
-                onClick={handleSearchSubmit}
+                onClick={(e) => setQuery("")}
                 className="bg-sky-300 text-white px-2 py-1 rounded-lg focus:outline-none"
               >
-                Search
+                Clear
               </button>
             </div>
 
