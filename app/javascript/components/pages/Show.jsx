@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import React from "react";
 
@@ -49,7 +49,7 @@ const Show = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   if (loading) {
     return (

@@ -111,7 +111,7 @@ const Navbar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Search bar */}
             <div className="flex mr-16">
-              <form onSubmit={handleSearchSubmit} className="mr-2">
+              <form className="mr-2">
                 <input
                   type="text"
                   value={query}
