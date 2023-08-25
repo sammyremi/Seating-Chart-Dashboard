@@ -13,6 +13,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+    // Access the DOM element with the "app" ID
+    const appElement = document.getElementById('app');
+
+    // Get the value of the "current user"
+    const current_user = appElement.getAttribute('data-auth');
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -29,7 +35,7 @@ const App = () => {
         },
         {
           path: "edit/:zone/:id",
-          element: <Show />,
+          element: <Show current_user={current_user}/>,
         },
         {
           path: "all-workstations",

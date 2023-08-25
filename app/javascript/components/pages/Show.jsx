@@ -3,12 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import React from "react";
 
-const Show = () => {
+const Show = ({current_user}) => {
   const { zone, id } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const url = `/${zone}/${id}.json`;
 
+  console.log(current_user);
   let zone_name = zone.slice(0, -1);
 
   const handleSubmit = async (e) => {
@@ -172,7 +173,7 @@ const Show = () => {
       <form>
         <div>
           <label
-            for="desk_id"
+            htmlFor="desk_id"
             className="block text-sm font-medium text-sky-400 dark:text-white"
           ></label>
           <input
@@ -189,7 +190,7 @@ const Show = () => {
         </div>
         <div>
           <label
-            for="status"
+            htmlFor="status"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           ></label>
           <select
@@ -211,7 +212,7 @@ const Show = () => {
         </div>
         <div>
           <label
-            for="campaign"
+            htmlFor="campaign"
             className="block mb-2 text-sm font-medium text-gray-500 dark:text-white"
           ></label>
           <input
