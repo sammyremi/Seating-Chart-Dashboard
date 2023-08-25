@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :zone_ds
   root 'pages#home'
   devise_for :users
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+  end
 
   resources :csv_file, only: [:new, :create]
 
@@ -19,7 +22,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
-  end
+
 end
