@@ -131,20 +131,20 @@ const R_ZoneChart = ({ data }) => {
               viewBox="0 -6.5 36 36"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
             >
               <g
                 id="icons"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               >
                 <g
                   id="ui-gambling-website-lined-icnos-casinoshunter"
                   transform="translate(-212.000000, -159.000000)"
                   fill="#252528"
-                  fill-rule="nonzero"
+                  fillRule="nonzero"
                 >
                   <g
                     id="square-filled"
