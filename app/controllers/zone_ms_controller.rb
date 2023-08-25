@@ -38,7 +38,7 @@ class ZoneMsController < ApplicationController
   # PATCH/PUT /zone_ms/1 or /zone_ms/1.json
   def update
     respond_to do |format|
-      if @zone_m.update(zone_m_params)
+      if @zone_m.update(zone_m_params.except(:id, :desk_id))
         format.html { redirect_to zone_m_url(@zone_m), notice: "Zone m was successfully updated." }
         format.json { render :show, status: :ok, location: @zone_m }
       else

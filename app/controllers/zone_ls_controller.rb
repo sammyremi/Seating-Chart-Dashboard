@@ -38,7 +38,7 @@ class ZoneLsController < ApplicationController
   # PATCH/PUT /zone_ls/1 or /zone_ls/1.json
   def update
     respond_to do |format|
-      if @zone_l.update(zone_l_params)
+      if @zone_l.update(zone_l_params.except(:id, :desk_id))
         render json: @zone_l 
       else
         format.html { render :edit, status: :unprocessable_entity }
