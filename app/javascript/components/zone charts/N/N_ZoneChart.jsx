@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const N_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div class="zoneN p-2.5 grid grid-cols-9 grid-rows-11 gap-2.5 text-center">
-        <div class="zonem rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-12">
+      <div class="zoneN border-2 m-2 border-slate-400 rounded p-2 w-[500px] mx-auto my-2 grid grid-cols-7 grid-rows-11 gap-2.5 text-center">
+        <div class="zonem rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-3 row-start-1 row-end-12">
           {/* Zone M */}
           {/* <Link to={"/zones/zone_hs"}> */}
           <div>
@@ -35,7 +35,7 @@ const N_ZoneChart = ({ data }) => {
           {/* </Link> */}
         </div>
         {/* Desk_id: #1-10 */}
-        <div class="ocpd1  col-start-9 col-end-10 row-start-1 row-end-11 flex flex-col place-items-end">
+        <div class="ocpd1  col-start-7 col-end-8 row-start-1 row-end-11 flex flex-col place-items-end">
           {/* occupied1 */}
           <div className="rotate-90">
             <Desk data={data[9]} />
@@ -125,7 +125,7 @@ const N_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #11-28 */}
-        <div class="ocpd3  col-start-6 col-end-8 row-start-2 row-end-11 flex justify-center">
+        <div class="ocpd3  col-start-5 col-end-7 row-start-2 row-end-11 flex justify-center">
           {/* occupied3 */}
           <div className="flex flex-col">
             <div className="rotate-90">

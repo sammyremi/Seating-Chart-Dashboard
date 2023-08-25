@@ -27,11 +27,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_ds", force: :cascade do |t|
+    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "desk_id"
   end
 
   create_table "zone_es", force: :cascade do |t|
@@ -43,11 +43,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_hs", force: :cascade do |t|
+    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "desk_id"
   end
 
   create_table "zone_is", force: :cascade do |t|
@@ -59,11 +59,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_js", force: :cascade do |t|
+    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "desk_id"
   end
 
   create_table "zone_ks", force: :cascade do |t|
@@ -75,11 +75,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_ls", force: :cascade do |t|
+    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "desk_id"
   end
 
   create_table "zone_ms", force: :cascade do |t|
@@ -91,11 +91,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_ns", force: :cascade do |t|
+    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "desk_id"
   end
 
   create_table "zone_qs", force: :cascade do |t|
@@ -107,11 +107,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_rs", force: :cascade do |t|
+    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "desk_id"
   end
 
   create_table "zones", force: :cascade do |t|
