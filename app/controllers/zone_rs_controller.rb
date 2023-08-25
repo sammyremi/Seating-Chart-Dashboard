@@ -38,7 +38,7 @@ class ZoneRsController < ApplicationController
   # PATCH/PUT /zone_rs/1 or /zone_rs/1.json
   def update
     respond_to do |format|
-      if @zone_r.update(zone_r_params)
+      if @zone_r.update(zone_r_params.except(:id, :desk_id))
         render json: @zone_r
       else
         render json: @zone_r.errors

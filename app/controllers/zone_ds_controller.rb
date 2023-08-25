@@ -38,7 +38,7 @@ class ZoneDsController < ApplicationController
   def update
 
     respond_to do |format|
-      if @zone_d.update(zone_d_params)
+      if @zone_d.update(zone_d_params.except(:id, :desk_id))
         render json: @zone_d 
       else
         render json: @zone_d.errors

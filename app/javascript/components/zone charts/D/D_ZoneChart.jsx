@@ -142,7 +142,7 @@ const D_ZoneChart = ({ data }) => {
             <Desk data={data[1]} />
           </div>
           <div className="-rotate-90">
-            <Desk data={data[1]} />
+            <Desk data={data[0]} />
           </div>
         </div>
       </div>

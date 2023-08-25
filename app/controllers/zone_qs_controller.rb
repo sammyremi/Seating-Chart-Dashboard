@@ -23,7 +23,7 @@ class ZoneQsController < ApplicationController
 
   # POST /zone_qs or /zone_qs.json
   def create
-    @zone_q = ZoneQ.new(zone_q_params)
+    @zone_q = ZoneQ.new(zone_q_params.except(:id, :desk_id))
 
     respond_to do |format|
       if @zone_q.save

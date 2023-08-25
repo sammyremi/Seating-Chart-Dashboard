@@ -14,7 +14,8 @@ class ZoneHsController < ApplicationController
 
   # GET /zone_hs/new
   def new
-    @zone_h = ZoneH.new
+    @zone_h = ZoneH.new 
+  
   end
 
   # GET /zone_hs/1/edit
@@ -37,7 +38,7 @@ class ZoneHsController < ApplicationController
   # PATCH/PUT /zone_hs/1 or /zone_hs/1.json
   def update
     respond_to do |format|
-      if @zone_h.update(zone_h_params)
+      if @zone_h.update(zone_h_params.except(:id, :desk_id))
         render json: @zone_h
       else
         format.html { render :edit, status: :unprocessable_entity }
