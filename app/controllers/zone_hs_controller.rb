@@ -13,7 +13,8 @@ class ZoneHsController < ApplicationController
 
   # GET /zone_hs/new
   def new
-    @zone_h = ZoneH.new
+    @zone_h = ZoneH.new 
+  
   end
 
   # GET /zone_hs/1/edit
