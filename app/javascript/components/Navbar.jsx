@@ -90,7 +90,7 @@ const Navbar = () => {
           </div>
           {/* controls search result display */}
           {query && show ? (
-            <div className="absolute top-[70px] left-[870px] bg-white rounded w-[230px] max-h-52 overflow-auto flex flex-col">
+            <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded w-[230px] max-h-52 overflow-auto flex flex-col">
               {searchData
                 .filter((desk) => {
                   if (query === "") {
@@ -129,12 +129,12 @@ const Navbar = () => {
                   value={query}
                   onChange={handleSearchChange}
                   placeholder="Search Desk_ID"
-                  className="px-2.5 py-1.5 rounded-lg border border-gray-300 focus:outline-none w-44"
+                  className="px-2.5 py-1 rounded-lg border border-sky-200 text-sm focus:outline-none w-44"
                 />
               </form>
               <button
                 onClick={(e) => setQuery("")}
-                className="bg-sky-300 text-white px-2 py-1 rounded-lg focus:outline-none"
+                className="bg-sky-300 text-white px-1.5 py-0 rounded-lg focus:outline-none w-18"
               >
                 Clear
               </button>
@@ -189,7 +189,7 @@ const Navbar = () => {
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-200 transition duration-500 ease-in-out delay-100"
                         role="menuitem"
                       >
-                        Sign Out
+                        Logout
                       </a>
                     </div>
                   </div>
