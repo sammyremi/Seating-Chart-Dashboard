@@ -90,7 +90,7 @@ const Navbar = () => {
           </div>
           {/* controls search result display */}
           {query && show ? (
-            <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded w-[230px] max-h-52 overflow-auto flex flex-col">
+            <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
               {searchData
                 .filter((desk) => {
                   if (query === "") {
@@ -103,7 +103,7 @@ const Navbar = () => {
                 })
                 .map((desk, index) => (
                   <div
-                    className="py-2 px-4 border-b border-slate-300 hover:bg-sky-200"
+                    className="py-2 px-4 border-slate-300 text-gray-700 hover:bg-sky-200"
                     key={index}
                   >
                     <Link
