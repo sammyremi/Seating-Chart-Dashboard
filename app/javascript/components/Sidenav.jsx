@@ -6,21 +6,13 @@ import { current_user } from "./App";
 const Sidenav = () => {
   const [active, setActive] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
-  const [rerenderTrigger, setRerenderTrigger] = useState(false);
 
   useEffect(() => {
-      if (current_user.email){
+      if (current_user?.email){
         setLoggedIn(true)
       }
   }, [loggedIn])
 
-  const handleLinkClick = () => {
-    setRerenderTrigger(!rerenderTrigger); // Toggle the value
-  };
-
-
-  console.log(current_user.email);
-  console.log(loggedIn);
   return (
     <aside className="fixed top-16 left-0 w-1/6 h-screen" aria-label="Sidebar">
       <div className="h-full px-3 py-6 pl-7 overflow-y-auto">
@@ -162,14 +154,12 @@ const Sidenav = () => {
           </li>
           <li>
             <a
-              // href={loggedIn ? `/users/sign_out`:`/users/sign_in`}
-              href="www.google.com"
+              href={loggedIn ? `/users/sign_out`:`/users/sign_in`}
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "log" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
                 setActive("log");
-                handleLinkClick()
               }}
             >
               <svg

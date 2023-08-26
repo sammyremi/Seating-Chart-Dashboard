@@ -3,7 +3,6 @@ import React from "react";
 import Sidenav from "../Sidenav";
 import Navbar from "../Navbar";
 import background from "../../images/background.png";
-import { useState, useEffect } from "react";
 
 const HomeLayout = () => {
   // passing global values to Outlet via RRD

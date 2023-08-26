@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { current_user } from "./App";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
-const Navbar = () => {
+const Navbar = ({}) => {
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
@@ -107,9 +109,9 @@ const Navbar = () => {
                     key={index}
                   >
                     <Link
-                      to={`/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
+                      to={current_user?.email? `/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
                         desk.id
-                      }`}
+                      }`: `/zones/zone_${desk.key.charAt(0).toLowerCase()}s`}
                       onClick={() => setShow(false)}
                     >
                       <p>{desk.value}</p>

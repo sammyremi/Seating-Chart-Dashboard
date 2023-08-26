@@ -12,6 +12,7 @@ import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 // Access the DOM element with the "app" ID
 const appElement = document.getElementById('app');
 
@@ -22,7 +23,6 @@ const user_details = appElement.getAttribute('data-auth');
 export const current_user = JSON.parse(user_details)
 
 const App = () => {
-    
 
   const router = createBrowserRouter([
     {
