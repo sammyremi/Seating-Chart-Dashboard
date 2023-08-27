@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { current_user } from "./App";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
@@ -88,7 +89,7 @@ const Navbar = () => {
               />
             </div>
           </div>
-          {/* controls search result display */}
+          {/* controls search result display right-24*/}
           {query && show ? (
             <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
               {searchData
@@ -107,9 +108,13 @@ const Navbar = () => {
                     key={index}
                   >
                     <Link
-                      to={`/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
-                        desk.id
-                      }`}
+                      to={
+                        current_user?.email
+                          ? `/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
+                              desk.id
+                            }`
+                          : `/zones/zone_${desk.key.charAt(0).toLowerCase()}s`
+                      }
                       onClick={() => setShow(false)}
                     >
                       <p>{desk.value}</p>

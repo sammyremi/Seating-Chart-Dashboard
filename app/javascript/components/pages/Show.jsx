@@ -3,14 +3,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import React from "react";
 
-const Show = ({current_user}) => {
+const Show = ({ current_user }) => {
   const { zone, id } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const url = `/${zone}/${id}.json`;
 
-  console.log(current_user);
   let zone_name = zone.slice(0, -1);
+  console.log(zone_name.charAt(5));
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -234,6 +235,14 @@ const Show = ({current_user}) => {
             className="text-white bg-sky-300 hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
           >
             Update
+          </button>
+          <button
+            onClick={() => {
+              navigate(`/zones/${zone_name}s`);
+            }}
+            className="text-white ml-4 bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            Back to Zone {zone_name.charAt(5).toUpperCase()}
           </button>
         </div>
       </form>
