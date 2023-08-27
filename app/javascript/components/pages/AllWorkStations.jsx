@@ -70,9 +70,9 @@ const AllWorkStations = () => {
   return (
     <div className="pt-4">
       <p className="text-center font-bold mb-4">All Workstations</p>
-      <div className="absolute top-20">
-        <i className="relative font-bold left-[50rem] mb-4">Filter Result</i>
-        <fieldset className="flex gap-2 relative left-[42rem]">
+      <div className="absolute top-20 text-center right-4">
+        <i className=" font-bold mb-4">Filter Result</i>
+        <fieldset className="flex gap-2">
           <div className="flex items-center mb-4">
             <input
               id="checkbox-1"
