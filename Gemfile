@@ -10,6 +10,7 @@ gem "devise"
 
 gem "csv"
 
+gem 'administrate'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
