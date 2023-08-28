@@ -4,8 +4,8 @@ import Desk from "../../Desk";
 const J_ZoneChart = ({ data }) => {
   return (
     <div className="border-2 m-2 border-slate-400 rounded w-[376px] my-2 mx-auto">
-      <div className="ZoneJ p-2.5 grid grid-cols-6 grid-rows-8 gap-2">
-        <div className="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-3 row-start-1 row-end-9">
+      <div className="ZoneJ p-2.5 grid grid-cols-6 grid-rows-7 gap-2">
+        <div className="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-3 row-start-1 row-end-8">
           <div>
             <p>Zone R</p>
             <svg
@@ -66,7 +66,7 @@ const J_ZoneChart = ({ data }) => {
             <Desk data={data[1]} />
           </div>
         </div>
-        <div className="Door flex self-end mb-[-10px] justify-self-center col-start-3 col-end-4 row-start-8 row-end-9">
+        <div className="Door flex self-end mb-[-10px] justify-self-center col-start-4 col-end-5 row-start-7 row-end-8">
           <svg
             className="w-7 h-7 text-slate-500"
             fill="#000000"
