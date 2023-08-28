@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const R_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div class="ZoneR border-2 m-2 border-slate-400 rounded p-2 w-[600px] mx-auto my-2 grid grid-cols-14 grid-rows-9 gap-y-5 gap-x-2 text-center">
+      <div class="ZoneR border-2 m-2 border-slate-400 rounded p-2 w-[600px] mx-auto my-2 grid grid-cols-14 grid-rows-9 gap-y-6 gap-x-2 text-center">
         {/* Desk_id: #49-51 */}
         <div class="ocpd1  col-start-10 col-end-13 row-start-1 row-end-2 flex justify-end">
           {/* occupied1 */}
@@ -32,7 +32,7 @@ const R_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #31-48 */}
-        <div class="ocpd3  col-start-8 col-end-13 row-start-2 row-end-4 flex flex-col place-content-center">
+        <div class="ocpd3  col-start-8 mb-[-20px] col-end-13 row-start-2 row-end-4 flex flex-col place-content-center">
           {/* occupied3 */}
           <div className="flex flex-row -scale-y-100 justify-end">
             <Desk data={data[44]} style="-scale-x-100" />
@@ -48,7 +48,7 @@ const R_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #13-27 */}
-        <div class="ocpd4  col-start-8 col-end-13  row-start-4 row-end-6 flex flex-col place-content-center">
+        <div class="ocpd4  col-start-8 col-end-13 mb-[-20px] row-start-4 row-end-6 flex flex-col place-content-center">
           {/* occupied4 */}
           <div className="flex flex-row -scale-y-100 justify-end">
             <Desk data={data[26]} style="-scale-x-100" />
@@ -82,7 +82,7 @@ const R_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #3-12 */}
-        <div class="ocpd6  col-start-8 col-end-13  row-start-6 row-end-8 flex flex-col place-content-center">
+        <div class="ocpd6 col-start-8 col-end-13 mb-[-30px] row-start-6 row-end-8 flex flex-col place-content-center">
           {/* occupied6 */}
           <div className="flex flex-row -scale-y-100 justify-end">
             <Desk data={data[8]} style="-scale-x-100" />
@@ -106,18 +106,18 @@ const R_ZoneChart = ({ data }) => {
           <Desk data={data[51]} style="-scale-x-100" />
         </div>
         {/* Desk_id: #1-2 */}
-        <div class="ocpd8 col-start-11 col-end-13 row-start-8 row-end-9 flex -scale-y-100 justify-end">
+        <div class="ocpd8 col-start-11 col-end-13 row-start-9 row-end-10 flex -scale-y-100 justify-end">
           {/* occupied8 */}
           <Desk data={data[0]} style="-scale-x-100" />
           <Desk data={data[1]} style="-scale-x-100" />
         </div>
         {/* Desk_id: #7-8 */}
-        <div class="ocpd9 col-start-6 col-end-8 row-start-8 row-end-10 flex flex-col place-content-center">
+        <div class="ocpd9 col-start-6 col-end-8 row-start-8 row-end-10 flex flex-col place-items-center">
           {/* occupied9 */}
-          <div className="flex flex-row -scale-y-100 justify-start">
-            <Desk data={data[7]} style="-scale-x-100" />
+          <div className="-rotate-90">
+            <Desk data={data[7]} />
           </div>
-          <div className="flex flex-row justify-start">
+          <div className="-rotate-90">
             <Desk data={data[6]} />
           </div>
         </div>

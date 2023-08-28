@@ -46,7 +46,7 @@ const L_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #1-8 */}
-        <div class="ocpd2 col-start-5 col-end-6 row-start-1 row-end-9 flex flex-col place-items-end">
+        <div class="ocpd2 col-start-5 col-end-6 row-start-2 row-end-10 flex flex-col place-items-end">
           {/* occupied2 */}
           <div className="rotate-90">
             <Desk data={data[7]} />
@@ -105,8 +105,8 @@ const L_ZoneChart = ({ data }) => {
             <Desk data={data[29]} />
           </div>
         </div>
-        <div class="restroom rounded-sm grid place-content-center bg-lime-300 col-start-5 col-end-6 row-start-9 row-end-10">
-          Restroom
+        <div class="restroom rounded-sm grid place-content-center p-2 text-sm bg-lime-300 col-start-5 col-end-6 row-start-1 row-end-2">
+          <p>Restroom</p>
         </div>
         <div class="Door flex self-end mb-[-10px] col-start-4 col-end-5 row-start-9 row-end-10">
           {/* door */}

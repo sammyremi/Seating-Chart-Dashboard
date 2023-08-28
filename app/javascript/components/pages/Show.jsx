@@ -63,6 +63,14 @@ const Show = ({ current_user }) => {
 
   return (
     <div>
+      <button
+            onClick={() => {
+              navigate(`/zones/${zone_name}s`);
+            }}
+            className="text-white ml-4 bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            Back to Zone {zone_name.charAt(5).toUpperCase()}
+          </button>
       <div
         style={{
           textAlign: "center",
@@ -236,14 +244,7 @@ const Show = ({ current_user }) => {
           >
             Update
           </button>
-          <button
-            onClick={() => {
-              navigate(`/zones/${zone_name}s`);
-            }}
-            className="text-white ml-4 bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-          >
-            Back to Zone {zone_name.charAt(5).toUpperCase()}
-          </button>
+          
         </div>
       </form>
     </div>

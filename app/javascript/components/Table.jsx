@@ -11,16 +11,16 @@ const Table = ({ data }) => {
       <table className="w-full text-sm text-left text-gray-500">
         <thead className="text-lg text-gray-700 bg-[#E9F9FD] border-b-2">
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-3 text-center">
               Desk ID
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-3 text-center">
               Status
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-3 text-center">
               Campaign
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-3 text-center">
               Action
             </th>
           </tr>
@@ -33,13 +33,13 @@ const Table = ({ data }) => {
               <tr key={`${first_char}_${id}`} className="border-b">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-center"
                 >
-                  <div className="flex flex-col justify-center">
+                  <div className="flex flex-col justify-center place-items-center">
                     {status === "Vacant" ? (
                       <svg
                         fill="currentColor"
-                        className="flex-shrink-0 ml-2 w-7 h-7 text-green-400 transition duration-75 group-hover:text-sky-700"
+                        className="flex-shrink-0 ml-1 w-7 h-7 text-green-400 transition duration-75 group-hover:text-sky-700"
                         aria-hidden="true"
                         viewBox="0 -24.88 122.88 122.88"
                         xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ const Table = ({ data }) => {
                             status === "Dammaged"
                               ? "text-red-600"
                               : "text-red-400"
-                          } flex-shrink-0 ml-2 w-7 h-7 transition duration-75 group-hover:text-sky-700`}
+                          } flex-shrink-0 ml-1 w-7 h-7 transition duration-75 group-hover:text-sky-700`}
                           aria-hidden="true"
                           viewBox="0 -7.72 122.88 122.88"
                           xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +142,7 @@ const Table = ({ data }) => {
                     <p className="flex-1 whitespace-nowrap">{desk_id}</p>
                   </div>
                 </th>
-                <td className="px-6 py-4 text-slate-50">
+                <td className="px-6 py-4 text-slate-50 text-center">
                   <span
                     className={`${
                       status === "Vacant"
@@ -161,8 +161,8 @@ const Table = ({ data }) => {
                     {status}
                   </span>
                 </td>
-                <td className="px-6 py-4">{campaign}</td>
-                <td className="px-6 py-4 text-sky-700 font-medium" onClick={
+                <td className="px-6 py-4 text-center">{campaign}</td>
+                <td className="px-6 py-4 text-sky-700 font-medium text-center" onClick={
                   () => {
                     if (current_user?.email) {
                         navigate(`/edit/zone_${first_char}s/${id}`)
