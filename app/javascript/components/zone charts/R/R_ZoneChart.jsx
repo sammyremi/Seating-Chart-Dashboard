@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const R_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div class="ZoneR border-2 m-2 border-slate-400 rounded p-2 w-[600px] mx-auto my-2 grid grid-cols-14 grid-rows-10 gap-y-4 gap-x-2 text-center">
+      <div class="ZoneR border-2 m-2 border-slate-400 rounded p-2 w-[600px] mx-auto my-2 grid grid-cols-14 grid-rows-9 gap-y-5 gap-x-2 text-center">
         {/* Desk_id: #49-51 */}
         <div class="ocpd1  col-start-10 col-end-13 row-start-1 row-end-2 flex justify-end">
           {/* occupied1 */}
@@ -121,7 +121,7 @@ const R_ZoneChart = ({ data }) => {
             <Desk data={data[6]} />
           </div>
         </div>
-        <div class="zonej grid rounded-sm place-items-center bg-[#e9f9fd] col-start-13 col-end-15 row-start-1 row-end-13">
+        <div class="zonej grid rounded-sm place-items-center bg-[#e9f9fd] col-start-13 col-end-15 row-start-1 row-end-10">
           {/* Zone J */}
           {/* <Link to={"/zones/zone_hs"}> */}
           <div>
@@ -161,13 +161,13 @@ const R_ZoneChart = ({ data }) => {
           </div>
           {/* </Link> */}
         </div>
-        {/* <div class="restroom rounded-sm grid place-items-center bg-lime-300 col-start-7 col-end-9 row-start-1 row-end-2">
+        <div class="restroom rounded-sm grid place-items-center bg-lime-300 col-start-6 col-end-9 mr-2 row-start-1 row-end-2">
           Restroom
-        </div> */}
+        </div>
         <div class="server rounded-sm grid place-items-center bg-gray-300 col-start-3 col-end-5 row-start-1 row-end-3">
           Server
         </div>
-        <div class="Door flex self-end col-start-8 col-end-9 row-start-10 row-end-11">
+        <div class="Door mb-[-10px] flex self-end col-start-8 col-end-9 row-start-9 row-end-10">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"
