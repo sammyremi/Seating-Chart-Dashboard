@@ -15,12 +15,12 @@ const Sidenav = () => {
 
   return (
     <aside className="fixed top-16 left-0 w-1/6 h-screen" aria-label="Sidebar">
-      <div className="h-full px-3 py-6 pl-7 overflow-y-auto">
-        <ul className="space-y-12 mt-16 font-medium text-xl">
+      <div className="h-full xl:px-3 py-6 xl:pl-5 overflow-y-auto">
+        <ul className="xl:space-y-12 lg:space-y-6 mt-16 lg:text-base font-medium xl:text-xl">
           <li>
             <Link
               to="/"
-              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+              className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
                 active === "dashboard" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
@@ -28,7 +28,7 @@ const Sidenav = () => {
               }}
             >
               <svg
-                className="w-7 h-7 text-sky-700 transition duration-75 dark:text-sky-700 group-hover:text-sky-700 dark:group-hover:text-white"
+                className="w-7 h-7 text-sky-700 transition duration-75 group-hover:text-sky-700"
                 fill="currentColor"
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ const Sidenav = () => {
           <li>
             <Link
               to="/floor_map"
-              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+              className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
                 active === "floor" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
@@ -98,7 +98,7 @@ const Sidenav = () => {
           <li>
             <Link
               to="/zones"
-              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+              className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
                 active === "zones" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
@@ -125,7 +125,7 @@ const Sidenav = () => {
           <li>
             <Link
               to="/"
-              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+              className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
                 active === "admin" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
@@ -155,7 +155,7 @@ const Sidenav = () => {
           <li>
             <a
               href={loggedIn ? `/users/sign_out`:`/users/sign_in`}
-              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+              className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
                 active === "log" ? "bg-sky-300" : ""
               }`}
               onClick={() => {

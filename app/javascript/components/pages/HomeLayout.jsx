@@ -18,10 +18,11 @@ const HomeLayout = () => {
         }}
         className="flex flex-row h-auto"
       >
-        <div className="basis-1/6 h-auto border-r-2 z-20">
+        <button className="bg-red-300">sidebar</button>
+        <div className="hidden lg:block lg:basis-1/6 h-auto border-r-2 z-20">
           <Sidenav />
         </div>
-        <div className="basis-5/6 min-h-screen pt-20 px-4 z-0">
+        <div className="lg:basis-5/6 min-h-screen pt-20 px-4 z-0">
           <Outlet />
         </div>
       </div>
