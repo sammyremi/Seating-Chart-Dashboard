@@ -10,6 +10,7 @@ const AllWorkStations = () => {
     occupied: false,
     vacant: false,
     damaged: false,
+    filtered: false,
   });
 
   useEffect(() => {
@@ -34,7 +35,12 @@ const AllWorkStations = () => {
 
   const filteredData = data.filter((desk) => {
     // No filters selected, show all
-    if (!filters.occupied && !filters.vacant && !filters.damaged) {
+    if (
+      !filters.occupied &&
+      !filters.vacant &&
+      !filters.damaged &&
+      !filters.reserved
+    ) {
       return true;
     }
 
@@ -42,7 +48,10 @@ const AllWorkStations = () => {
     if (
       (filters.occupied && desk.status === "Occupied") ||
       (filters.vacant && desk.status === "Vacant") ||
-      (filters.damaged && desk.status === "Damaged")
+      (filters.damaged && desk.status === "Damaged") ||
+      (filters.reserved && desk.status === "Reserved (IT)") ||
+      (filters.reserved && desk.status === "Reserved (Dev)") ||
+      (filters.reserved && desk.status === "Reserved (Ops)")
     ) {
       return true;
     }
@@ -61,9 +70,9 @@ const AllWorkStations = () => {
   return (
     <div className="pt-4">
       <p className="text-center font-bold mb-4">All Workstations</p>
-      <div className="absolute top-[80px]">
-        <i className="relative left-[809px] font-bold mb-4">Filter Result</i>
-        <fieldset className="flex gap-2 relative left-[729px]">
+      <div className="absolute top-20 text-center right-4">
+        <i className=" font-bold mb-4">Filter Result</i>
+        <fieldset className="flex gap-2">
           <div className="flex items-center mb-4">
             <input
               id="checkbox-1"
@@ -124,6 +133,27 @@ const AllWorkStations = () => {
               className="ml-2 text-sm font-medium text-gray-900"
             >
               Damaged
+            </label>
+          </div>
+
+          <div className="flex items-center mb-4">
+            <input
+              id="checkbox-3"
+              type="checkbox"
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+              checked={filters.reserved}
+              onChange={() =>
+                setFilters((prevFilters) => ({
+                  ...prevFilters,
+                  reserved: !prevFilters.reserved,
+                }))
+              }
+            />
+            <label
+              htmlFor="checkbox-3"
+              className="ml-2 text-sm font-medium text-gray-900"
+            >
+              Reserved
             </label>
           </div>
         </fieldset>

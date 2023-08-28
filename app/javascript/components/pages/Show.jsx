@@ -3,13 +3,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import React from "react";
 
-const Show = () => {
+const Show = ({ current_user }) => {
   const { zone, id } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const url = `/${zone}/${id}.json`;
 
   let zone_name = zone.slice(0, -1);
+  console.log(zone_name.charAt(5));
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -172,7 +174,7 @@ const Show = () => {
       <form>
         <div>
           <label
-            for="desk_id"
+            htmlFor="desk_id"
             className="block text-sm font-medium text-sky-400 dark:text-white"
           ></label>
           <input
@@ -189,7 +191,7 @@ const Show = () => {
         </div>
         <div>
           <label
-            for="status"
+            htmlFor="status"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           ></label>
           <select
@@ -211,7 +213,7 @@ const Show = () => {
         </div>
         <div>
           <label
-            for="campaign"
+            htmlFor="campaign"
             className="block mb-2 text-sm font-medium text-gray-500 dark:text-white"
           ></label>
           <input
@@ -233,6 +235,14 @@ const Show = () => {
             className="text-white bg-sky-300 hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
           >
             Update
+          </button>
+          <button
+            onClick={() => {
+              navigate(`/zones/${zone_name}s`);
+            }}
+            className="text-white ml-4 bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            Back to Zone {zone_name.charAt(5).toUpperCase()}
           </button>
         </div>
       </form>

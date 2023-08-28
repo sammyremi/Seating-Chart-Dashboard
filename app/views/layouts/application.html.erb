@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SeatingChartV1</title>
+    <title>Seating Chart</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= favicon_link_tag asset_path('logo.png') %>
-     <script src="https://cdn.tailwindcss.com"></script>
+    <%= favicon_link_tag asset_path('favicon.png') %>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
     tailwind.config = {
       theme: {
@@ -18,7 +18,7 @@
             clifford: '#da373d',
           },
           gridTemplateColumns: {
-        '4': 'repeat(4, minmax(0, 50px))',
+        '4': 'repeat(4, minmax(0, 60px))',
         '16': 'repeat(16, minmax(0, 50px))',
         '13': 'repeat(13, minmax(0, 50px))',
         '14': 'repeat(14, minmax(0, 1fr))',

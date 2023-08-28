@@ -12,7 +12,18 @@ import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+// Access the DOM element with the "app" ID
+const appElement = document.getElementById('app');
+
+// Get "current user"
+const user_details = appElement.getAttribute('data-auth');
+
+// convert from JSON to object
+export const current_user = JSON.parse(user_details)
+
 const App = () => {
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -29,7 +40,7 @@ const App = () => {
         },
         {
           path: "edit/:zone/:id",
-          element: <Show />,
+          element: <Show current_user={current_user}/>,
         },
         {
           path: "all-workstations",

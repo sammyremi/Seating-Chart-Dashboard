@@ -81,7 +81,7 @@ const Zone = () => {
   }
   return (
     <div className="">
-      <p className="text-3xl font-bold underline">
+      <p className="text-3xl font-bold text-center text-gray-600">
         Zone {zone_id.toUpperCase()}
       </p>
       <div className="">{chartComponent}</div>

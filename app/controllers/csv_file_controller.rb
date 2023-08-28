@@ -65,7 +65,7 @@ class CsvFileController < ApplicationController
                         @zone_d = ZoneD.find_by(desk_id: data_id)
                         if @zone_d.present?
                             if @zone_d.update(db_hash)
-                                puts "I was present and updated"
+                                puts "data present"
                             else
                                 puts "data did not update"
                             end
@@ -82,7 +82,7 @@ class CsvFileController < ApplicationController
                         @zone_e = ZoneE.find_by(desk_id: data_id)
                         if @zone_e.present?
                             if @zone_e.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -99,7 +99,7 @@ class CsvFileController < ApplicationController
                         @zone_h = ZoneH.find_by(desk_id: data_id)
                         if @zone_h.present?
                             if @zone_h.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -116,7 +116,7 @@ class CsvFileController < ApplicationController
                         @zone_i = ZoneI.find_by(desk_id: data_id)
                         if @zone_i.present?
                             if @zone_i.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -133,7 +133,7 @@ class CsvFileController < ApplicationController
                         @zone_j = ZoneJ.find_by(desk_id: data_id)
                         if @zone_j.present?
                             if @zone_j.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -150,7 +150,7 @@ class CsvFileController < ApplicationController
                         @zone_k = ZoneK.find_by(desk_id: data_id)
                         if @zone_k.present?
                             if @zone_k.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -167,7 +167,7 @@ class CsvFileController < ApplicationController
                         @zone_l = ZoneL.find_by(desk_id: data_id)
                         if @zone_l.present?
                             if @zone_l.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -184,7 +184,7 @@ class CsvFileController < ApplicationController
                         @zone_m = ZoneM.find_by(desk_id: data_id)
                         if @zone_m.present?
                             if @zone_m.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -201,7 +201,7 @@ class CsvFileController < ApplicationController
                         @zone_n = ZoneN.find_by(desk_id: data_id)
                         if @zone_n.present?
                             if @zone_n.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -218,7 +218,7 @@ class CsvFileController < ApplicationController
                         @zone_q = ZoneQ.find_by(desk_id: data_id)
                         if @zone_q.present?
                             if @zone_q.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end
@@ -235,7 +235,7 @@ class CsvFileController < ApplicationController
                         @zone_r = ZoneR.find_by(desk_id: data_id)
                         if @zone_r.present?
                             if @zone_r.update(db_hash)
-                                puts "I was present and updated"
+                                puts "updated successfuly"
                             else
                                 puts "data did not update"
                             end

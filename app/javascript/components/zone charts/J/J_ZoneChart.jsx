@@ -3,8 +3,8 @@ import Desk from "../../Desk";
 
 const J_ZoneChart = ({ data }) => {
   return (
-    <div className="border-2 m-2 border-slate-400 rounded w-[360px] my-2 mx-auto">
-      <div className="ZoneJ p-2.5 grid grid-cols-4 grid-rows-8 gap-2.5">
+    <div className="border-2 m-2 border-slate-400 rounded w-[376px] my-2 mx-auto">
+      <div className="ZoneJ p-2.5 grid grid-cols-4 grid-rows-8 gap-2">
         <div className="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-9">
           <div>
             <p>Zone R</p>
