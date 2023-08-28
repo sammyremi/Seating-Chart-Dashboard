@@ -123,8 +123,8 @@ const Sidenav = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="/"
+            <a
+              href="admin"
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "admin" ? "bg-sky-300" : ""
               }`}
@@ -150,7 +150,7 @@ const Sidenav = () => {
                 </g>
               </svg>
               <span className="flex-1 ml-3 whitespace-nowrap">Admin</span>
-            </Link>
+            </a>
           </li>
           <li>
             <a
