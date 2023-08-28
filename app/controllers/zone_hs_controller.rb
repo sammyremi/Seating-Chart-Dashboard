@@ -1,6 +1,6 @@
 class ZoneHsController < ApplicationController
   before_action :set_zone_h, only: %i[ show edit update destroy ]
-  before_action :set_zone, only: %i[ show edit update destroy ]
+  before_action :authenticate_user, only: %i[ create edit update destroy ]
 
   # GET /zone_hs or /zone_hs.json
   def index
@@ -63,8 +63,10 @@ class ZoneHsController < ApplicationController
       @zone_h = ZoneH.find(params[:id])
     end
 
-    def set_zone
-      @zone = Zone.find(params[:id])
+    def authenticate_user
+      if current_user.nil?
+        redirect_to new_user_session_path
+      end
     end
     # Only allow a list of trusted parameters through.
     def zone_h_params

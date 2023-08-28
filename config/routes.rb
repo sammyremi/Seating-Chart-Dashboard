@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :zone_ds
+      resources :zone_es
+      resources :zone_hs
+      resources :zone_is
+      resources :zone_js
+      resources :zone_ks
+      resources :zone_ls
+      resources :zone_ms
+      resources :zone_ns
+      resources :zone_qs
+      resources :zone_rs
+
+      root to: "users#index"
+    end
   
   resources :zone_qs, only: [:index, :show, :edit, :update, :destroy]
   resources :zone_ms, only: [:index, :show, :edit, :update, :destroy]

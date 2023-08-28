@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_28_172027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,16 +22,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "zone_ds", force: :cascade do |t|
-    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "desk_id"
   end
 
   create_table "zone_es", force: :cascade do |t|
@@ -43,11 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_hs", force: :cascade do |t|
-    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "desk_id"
   end
 
   create_table "zone_is", force: :cascade do |t|
@@ -59,11 +60,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_js", force: :cascade do |t|
-    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "desk_id"
   end
 
   create_table "zone_ks", force: :cascade do |t|
@@ -75,11 +76,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_ls", force: :cascade do |t|
-    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "desk_id"
   end
 
   create_table "zone_ms", force: :cascade do |t|
@@ -91,11 +92,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_ns", force: :cascade do |t|
-    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "desk_id"
   end
 
   create_table "zone_qs", force: :cascade do |t|
@@ -107,19 +108,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_185152) do
   end
 
   create_table "zone_rs", force: :cascade do |t|
-    t.integer "desk_id"
     t.string "status"
     t.string "campaign"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "zones", force: :cascade do |t|
     t.string "desk_id"
-    t.string "status"
-    t.string "campaign"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
