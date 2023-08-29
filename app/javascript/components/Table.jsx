@@ -39,7 +39,7 @@ const Table = ({ data }) => {
                     {status === "Vacant" ? (
                       <svg
                         fill="currentColor"
-                        className="flex-shrink-0 ml-1 w-7 h-7 text-green-400 transition duration-75 group-hover:text-sky-700"
+                        className="flex-shrink-0 ml-1 w-7 h-7 text-green-600 transition duration-75 group-hover:text-sky-700"
                         aria-hidden="true"
                         viewBox="0 -24.88 122.88 122.88"
                         xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ const Table = ({ data }) => {
                           className={`${
                             status === "Dammaged"
                               ? "text-red-600"
-                              : "text-red-400"
+                              : "text-red-600"
                           } flex-shrink-0 ml-1 w-7 h-7 transition duration-75 group-hover:text-sky-700`}
                           aria-hidden="true"
                           viewBox="0 -7.72 122.88 122.88"
@@ -146,16 +146,16 @@ const Table = ({ data }) => {
                   <span
                     className={`${
                       status === "Vacant"
-                        ? "bg-green-400"
+                        ? "bg-green-600"
                         : status === "Reserved (IT)"
-                        ? "bg-blue-400"
+                        ? "bg-blue-600"
                         : status === "Reserved (Ops)"
                         ? "bg-purple-400"
                         : status === "Reserved (Dev)"
-                        ? "bg-amber-700"
+                        ? "bg-amber-800"
                         : status === "Occupied"
                         ? "bg-[#FFA500]"
-                        : "bg-red-400"
+                        : "bg-red-600"
                     } rounded px-2 py-1`}
                   >
                     {status}

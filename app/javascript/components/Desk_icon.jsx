@@ -6,7 +6,7 @@ const Desk_icon = ({ status }) => {
       {status === "Vacant" ? (
         <svg
           fill="currentColor"
-          className="flex-shrink-0 w-7 h-7 text-green-400 transition duration-75"
+          className="flex-shrink-0 w-7 h-7 text-green-600 transition duration-75"
           aria-hidden="true"
           viewBox="0 -24.88 122.88 122.88"
           xmlns="http://www.w3.org/2000/svg"
