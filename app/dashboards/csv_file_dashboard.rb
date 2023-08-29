@@ -49,10 +49,10 @@ class CsvFileDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how zone ds are displayed
+  # Overwrite this method to customize how csv files are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(zone_d)
-  #   "ZoneD ##{zone_d.id}"
+  # def display_resource(csv_file)
+  #   "CsvFile ##{csv_file.id}"
   # end
 end

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :zone_ns
       resources :zone_qs
       resources :zone_rs
-
+      resources :csv_files
       root to: "users#index"
     end
   
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  resources :csv_file, only: [:new, :create]
+  resources :csv_files, only: [:new, :create]
 
   get '/*path' => 'pages#home'
   # Defines the root path route ("/")

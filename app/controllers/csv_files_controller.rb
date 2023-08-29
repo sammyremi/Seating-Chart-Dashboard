@@ -1,4 +1,4 @@
-class CsvFileController < ApplicationController
+class CsvFilesController < ApplicationController
 
 
     def new
