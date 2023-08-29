@@ -124,7 +124,7 @@ const Sidenav = () => {
           </li>
           <li>
             <a
-              href="admin"
+              href="/admin"
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "admin" ? "bg-sky-300" : ""
               }`}

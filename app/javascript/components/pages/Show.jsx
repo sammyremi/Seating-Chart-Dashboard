@@ -63,26 +63,12 @@ const Show = ({ current_user }) => {
 
   return (
     <div>
-      <svg
+      <svg 
         onClick={() => {
           navigate(`/zones/${zone_name}s`);
         }}
-        className="cursor-pointer"
-        width="40px"
-        height="30px"
-        viewBox="0 0 48 48"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="Layer_2" data-name="Layer 2">
-          <g id="invisible_box" data-name="invisible box">
-            <rect width="48" height="48" fill="none" />
-          </g>
-          <g id="icons_Q2" data-name="icons Q2">
-            <path d="M15.8,24,26.4,34.6a1.9,1.9,0,0,1-.2,3,2.1,2.1,0,0,1-2.7-.2l-11.9-12a1.9,1.9,0,0,1,0-2.8l11.9-12a2.1,2.1,0,0,1,2.7-.2,1.9,1.9,0,0,1,.2,3Z" fill="#87ceeb" />
-            <path d="M27.8,24,38.4,34.6a1.9,1.9,0,0,1-.2,3,2.1,2.1,0,0,1-2.7-.2l-11.9-12a1.9,1.9,0,0,1,0-2.8l11.9-12a2.1,2.1,0,0,1,2.7-.2,1.9,1.9,0,0,1,.2,3Z" fill="#87ceeb" />
-            
-          </g>
-        </g>
+        className="cursor-pointer" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <path stroke="#00AEEF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 18h3.75a5.25 5.25 0 100-10.5H5M7.5 4L4 7.5 7.5 11"/>
       </svg>
 
       <div
