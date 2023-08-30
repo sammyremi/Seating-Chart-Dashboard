@@ -13,26 +13,6 @@ const AllWorkStations = () => {
     filtered: false,
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedData = [];
-
-        for (let i = 0; i < zones.length; i++) {
-          const response = await fetch(`/zone_${zones[i]}s`);
-          const zone_data = await response.json();
-          fetchedData.push(...zone_data);
-        }
-        setData((prevData) => [...prevData, ...fetchedData]);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   const filteredData = data.filter((desk) => {
     // No filters selected, show all
     if (
@@ -58,6 +38,26 @@ const AllWorkStations = () => {
 
     return false; // Exclude the item from filtered data
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedData = [];
+
+        for (let i = 0; i < zones.length; i++) {
+          const response = await fetch(`/zone_${zones[i]}s`);
+          const zone_data = await response.json();
+          fetchedData.push(...zone_data);
+        }
+        setData((prevData) => [...prevData, ...fetchedData]);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   if (loading) {
     return (
