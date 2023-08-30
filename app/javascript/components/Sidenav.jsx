@@ -8,10 +8,10 @@ const Sidenav = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-      if (current_user?.email){
-        setLoggedIn(true)
-      }
-  }, [loggedIn])
+    if (current_user?.email) {
+      setLoggedIn(true);
+    }
+  }, [loggedIn]);
 
   return (
     <aside className="fixed top-16 left-0 w-1/6 h-screen" aria-label="Sidebar">
@@ -123,9 +123,9 @@ const Sidenav = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="/"
-              className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
+            <a
+              href="/admin"
+              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "admin" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
@@ -150,12 +150,12 @@ const Sidenav = () => {
                 </g>
               </svg>
               <span className="flex-1 ml-3 whitespace-nowrap">Admin</span>
-            </Link>
+            </a>
           </li>
           <li>
             <a
-              href={loggedIn ? `/users/sign_out`:`/users/sign_in`}
-              className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
+              href={loggedIn ? `/users/sign_out` : `/users/sign_in`}
+              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "log" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
@@ -176,7 +176,9 @@ const Sidenav = () => {
                   />
                 </g>
               </svg>
-              <span className="flex-1 ml-3 whitespace-nowrap">{loggedIn? `Logout`:`Login`}</span>
+              <span className="flex-1 ml-3 whitespace-nowrap">
+                {loggedIn ? `Logout` : `Login`}
+              </span>
             </a>
           </li>
         </ul>

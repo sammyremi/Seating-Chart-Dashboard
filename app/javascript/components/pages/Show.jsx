@@ -63,14 +63,14 @@ const Show = ({ current_user }) => {
 
   return (
     <div>
-      <button
-            onClick={() => {
-              navigate(`/zones/${zone_name}s`);
-            }}
-            className="text-white ml-4 bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
-          >
-            Back to Zone {zone_name.charAt(5).toUpperCase()}
-          </button>
+      <svg 
+        onClick={() => {
+          navigate(`/zones/${zone_name}s`);
+        }}
+        className="cursor-pointer" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <path stroke="#00AEEF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 18h3.75a5.25 5.25 0 100-10.5H5M7.5 4L4 7.5 7.5 11"/>
+      </svg>
+
       <div
         style={{
           textAlign: "center",

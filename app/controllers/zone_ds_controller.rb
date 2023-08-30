@@ -16,7 +16,7 @@ class ZoneDsController < ApplicationController
   def new
     @zone_d = ZoneD.new
   end
-
+  
   # GET /zone_ds/1/edit
   def edit
   end
@@ -37,6 +37,7 @@ class ZoneDsController < ApplicationController
 
   # PATCH/PUT /zone_ds/1 or /zone_ds/1.json
   def update
+
     respond_to do |format|
       if @zone_d.update(zone_d_params.except(:id, :desk_id))
         render json: @zone_d 
@@ -61,6 +62,7 @@ class ZoneDsController < ApplicationController
     def set_zone_d
       @zone_d = ZoneD.find(params[:id])
     end
+
 
     # Only allow a list of trusted parameters through.
     def zone_d_params

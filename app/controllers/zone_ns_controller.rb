@@ -1,5 +1,6 @@
 class ZoneNsController < ApplicationController
   before_action :set_zone_n, only: %i[ show edit update destroy ]
+  before_action :authenticate_user, only: %i[ create edit update destroy ]
 
   # GET /zone_ns or /zone_ns.json
   def index
@@ -62,6 +63,11 @@ class ZoneNsController < ApplicationController
       @zone_n = ZoneN.find(params[:id])
     end
 
+    def authenticate_user
+      if current_user.nil?
+        redirect_to new_user_session_path
+      end
+    end
     # Only allow a list of trusted parameters through.
     def zone_n_params
       params.require(:zone_n).permit(:desk_id, :status, :campaign)

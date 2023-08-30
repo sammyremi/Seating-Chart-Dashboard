@@ -1,0 +1,2 @@
+class CsvFile < ApplicationRecord
+end
