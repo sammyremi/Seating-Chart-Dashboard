@@ -1,5 +1,4 @@
-<%= form_tag csv_files_path, multipart: true do %>
-  <%= file_field_tag :file, accept: ".csv" %>
-  <br/>
-  <%= submit_tag 'Upload File' %>
+<%= form_tag csv_files_path, multipart: true, style: "text-align: center;" do %>
+  <%= file_field_tag :file, accept: ".csv", style: "margin-bottom: 10px;" %>
+  <%= submit_tag 'Upload File', class: "btn btn-primary" %>
 <% end %>
