@@ -33,12 +33,12 @@ class CsvFilesController < ApplicationController
                 end
             end
         else
-            redirect_to new_csv_file_path
+            redirect_to admin_csv_files_path
             
         end
 
 
-        puts "file uplaod success", @value, "well sortted"
+        puts "file uplaod success"
 
         # run only if file has success upload
         if @value == true
@@ -251,10 +251,11 @@ class CsvFilesController < ApplicationController
                     end
                 end
             end
-            redirect_to new_csv_file_path, notice: "File updated to Database"
+            redirect_to admin_csv_files_path, notice: "File updated to Database"
             
         else
-            redirect_to new_csv_file_path, notice: "check your csv file"
+            redirect_to admin_csv_files_path, notice: "check your csv file"
+            puts "check your csv file column"
         end
         
     end

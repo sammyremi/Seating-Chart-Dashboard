@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   resources :csv_files, only: [:new, :create]
 
+  get '/csv_files/new', to: redirect('/admin/csv_files')
+
   get '/*path' => 'pages#home'
   # Defines the root path route ("/")
   # root "articles#index"
