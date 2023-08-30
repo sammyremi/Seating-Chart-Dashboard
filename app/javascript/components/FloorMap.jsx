@@ -6,7 +6,7 @@ const FloorMap = () => {
   const [active, setActive] = useState("floor 2");
   return (
     <div>
-      <div className="relative left-[15px] top-[-16px]">
+      <div className="relative lg:left-[15px] lg:top-[-16px] left-32 -top-4">
         <Link to={"/floor_map/floor_2"}>
           <button
             type="button"
