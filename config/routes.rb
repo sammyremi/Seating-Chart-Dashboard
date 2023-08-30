@@ -33,9 +33,11 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
+  get '/csv_files/new', to: redirect('/admin/csv_files')
+
   resources :csv_files, only: [:new, :create]
 
-  get '/csv_files/new', to: redirect('/admin/csv_files')
+
 
   get '/*path' => 'pages#home'
   # Defines the root path route ("/")
