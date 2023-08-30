@@ -10,6 +10,7 @@ class ZoneMsController < ApplicationController
 
   # GET /zone_ms/1 or /zone_ms/1.json
   def show
+    
   end
 
   # GET /zone_ms/new
@@ -19,6 +20,7 @@ class ZoneMsController < ApplicationController
 
   # GET /zone_ms/1/edit
   def edit
+    
   end
 
   # POST /zone_ms or /zone_ms.json

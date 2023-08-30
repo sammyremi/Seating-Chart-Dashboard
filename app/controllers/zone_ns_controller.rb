@@ -10,6 +10,7 @@ class ZoneNsController < ApplicationController
 
   # GET /zone_ns/1 or /zone_ns/1.json
   def show
+    
   end
 
   # GET /zone_ns/new
@@ -19,8 +20,8 @@ class ZoneNsController < ApplicationController
 
   # GET /zone_ns/1/edit
   def edit
+   
   end
-
   # POST /zone_ns or /zone_ns.json
   def create
     @zone_n = ZoneN.new(zone_n_params)

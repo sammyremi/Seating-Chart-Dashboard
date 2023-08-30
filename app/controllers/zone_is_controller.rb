@@ -19,6 +19,7 @@ class ZoneIsController < ApplicationController
 
   # GET /zone_is/1/edit
   def edit
+    
   end
 
   # POST /zone_is or /zone_is.json
