@@ -117,7 +117,7 @@ const Zone = () => {
         Zone {zone_id.toUpperCase()}
       </p>
       <div className="mb-10">{chartComponent}</div>
-      <div className="relative left-2/3 w-[350px] text-center">
+      <div className="flex flex-col place-items-center">
         <i className=" font-bold mb-4">Filter Result</i>
         <fieldset className="flex gap-2">
           <div className="flex items-center mb-4">
