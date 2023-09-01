@@ -12,17 +12,17 @@ import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 // Access the DOM element with the "app" ID
-const appElement = document.getElementById('app');
+const appElement = document.getElementById("app");
 
 // Get "current user"
-const user_details = appElement.getAttribute('data-auth');
+const user_details = appElement.getAttribute("data-auth");
 
 // convert from JSON to object
-export const current_user = JSON.parse(user_details)
+export const current_user = JSON.parse(user_details);
 
 const App = () => {
+  const [active, setActive] = useState("");
 
   const router = createBrowserRouter([
     {
@@ -40,7 +40,7 @@ const App = () => {
         },
         {
           path: "edit/:zone/:id",
-          element: <Show current_user={current_user}/>,
+          element: <Show current_user={current_user} />,
         },
         {
           path: "all-workstations",
@@ -52,19 +52,19 @@ const App = () => {
         },
         {
           path: "floor_map",
-          element: <FloorMap />,
+          element: <FloorMap fl_active={[active, setActive]} />,
           children: [
             {
               index: true,
-              element: <Floor2 val={"2"}/>,
+              element: <Floor2 val={"2"} fl_active={[active, setActive]} />,
             },
             {
               path: "floor_3",
-              element: <Floor3 val={"3"}/>,
+              element: <Floor3 val={"3"} fl_active={[active, setActive]} />,
             },
             {
               path: "floor_2",
-              element: <Floor2 val={"2"}/>,
+              element: <Floor2 val={"2"} fl_active={[active, setActive]} />,
             },
           ],
         },
