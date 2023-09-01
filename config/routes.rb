@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
       resources :users
+      resources :csv_files
       resources :zone_ds
       resources :zone_es
       resources :zone_hs
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
       resources :zone_ns
       resources :zone_qs
       resources :zone_rs
-      resources :csv_files
       root to: "users#index"
     end
 

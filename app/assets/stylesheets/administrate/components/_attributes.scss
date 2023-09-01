@@ -5,7 +5,7 @@
     margin-bottom: $base-spacing;
     margin-top: 0.25em;
     text-align: right;
-    width: calc(20% - 1rem);
+    width: calc(35% - 1rem);
   }
   
   .preserve-whitespace {
@@ -17,8 +17,10 @@
     float: left;
     margin-bottom: $base-spacing;
     margin-left: 2rem;
-    width: calc(80% - 1rem);
+    width: calc(65% - 1rem);
     word-break: break-word;
+    justify-content: center;
+    align-items: center;
   }
   
   .attribute--nested {
