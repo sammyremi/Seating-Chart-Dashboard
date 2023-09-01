@@ -4,21 +4,21 @@
     display: flex;
     margin-bottom: $base-spacing;
     position: relative;
-    width: 100%;
+    width: 67%;
   }
   
   .field-unit__label {
     float: left;
     margin-left: 1rem;
     text-align: right;
-    width: calc(15% - 1rem);
+    width: calc(60% - 1rem);
   }
   
   .field-unit__field {
     float: left;
     margin-left: 2rem;
-    max-width: 50rem;
-    width: 100%;
+    max-width: 60rem;
+    width: calc(40% - 1rem);
   
     .optgroup-header {
       font-weight: $bold-font-weight;
@@ -27,10 +27,14 @@
   
   .field-unit--nested {
     border: $base-border;
-    margin-left: 7.5%;
+    margin-left: auto;
     max-width: 60rem;
     padding: $small-spacing;
     width: 100%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
   
     .field-unit__field {
       width: 100%;

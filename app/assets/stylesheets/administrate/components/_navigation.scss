@@ -1,14 +1,16 @@
 $_navigation-link-padding: 0.6em;
-
+$_navigation-icon-size: 2rem;
 .navigation {
   flex: 1 0 10rem;
   padding: $base-spacing;
   padding-left: 0;
+  border-right-color: $grey-1;
+  border-right: 1px solid $base-border-color;
 }
 
 .navigation__link {
   background-color: transparent;
-  color: $base-font-color;
+  color: #0A5A77;
   display: block;
   line-height: 1;
   margin-left: -($_navigation-link-padding);
@@ -25,6 +27,16 @@ $_navigation-link-padding: 0.6em;
     border-radius: $base-border-radius;
     color: $base-font-color;
   }
+}
+
+.navigation__icon {
+  fill: $grey-7;
+  height: $_navigation-icon-size;
+  left: $_navigation-icon-size;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: $_navigation-icon-size;
 }
 
 .navigation__link--active {

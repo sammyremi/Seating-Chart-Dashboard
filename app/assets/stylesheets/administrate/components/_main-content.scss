@@ -1,8 +1,6 @@
 .main-content {
-    background-color: $white;
+    background-color: transparent;
     border-radius: $base-border-radius;
-    box-shadow: 0 0 6px 0 rgba($black, 0.12),
-                0 2px 2px rgba($black, 0.2);
     flex: 1 1 100%;
     padding-bottom: 10vh;
     min-width: 800px;
@@ -10,6 +8,15 @@
   
   .main-content__header,
   .main-content__body {
+    padding: 1rem 2rem;
+  }
+
+  .main-content__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
     padding: 1rem 2rem;
   }
   
@@ -27,4 +34,15 @@
   .main-content__page-title {
     font-size: 1.6em;
     margin-right: auto;
+  }
+
+  .main-content__page-tittle {
+    font-size: 1.6em;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .main-content__page-titttle {
+    font-size: 1.6em;
+    text-align: center;
+    margin-left: auto;
   }
