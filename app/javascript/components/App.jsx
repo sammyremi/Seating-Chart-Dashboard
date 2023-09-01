@@ -56,15 +56,15 @@ const App = () => {
           children: [
             {
               index: true,
-              element: <Floor2 />,
+              element: <Floor2 val={"2"}/>,
             },
             {
               path: "floor_3",
-              element: <Floor3 />,
+              element: <Floor3 val={"3"}/>,
             },
             {
               path: "floor_2",
-              element: <Floor2 />,
+              element: <Floor2 val={"2"}/>,
             },
           ],
         },

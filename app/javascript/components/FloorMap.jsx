@@ -1,8 +1,11 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const FloorMap = () => {
+  const { floor_name } = useParams();
+  console.log(floor_name);
   const [active, setActive] = useState("floor 2");
   return (
     <div>
