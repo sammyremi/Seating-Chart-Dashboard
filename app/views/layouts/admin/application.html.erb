@@ -1,16 +1,4 @@
-<%#
-# Application Layout
 
-This view template is used as the layout
-for every page that Administrate generates.
-
-By default, it renders:
-- Navigation
-- Content for a search bar
-  (if provided by a `content_for` block in a nested page)
-- Flashes
-- Links to stylesheets and JavaScripts
-%>
 
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
@@ -21,11 +9,22 @@ By default, it renders:
   <title>
     <%= content_for(:title) %> - <%= application_title %>
   </title>
-  <%= render "stylesheet" %>
+
+  <div style="padding-top: 30px; padding-left: 30px;">
+  <img src="https://www.outsourceglobal.com/logo.png" alt="Your Company Logo" style="width: 200px;">
+
+  </div>
+
+  <div style="background-image: url('<%= asset_path('bg1.svg') %>'); background-size: cover; background-position: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+    <%= render "stylesheet" %>
+  </div>
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag if defined?(csp_meta_tag) %>
 </head>
 <body>
+
+
   <%= render "icons" %>
 
   <div class="app-container">

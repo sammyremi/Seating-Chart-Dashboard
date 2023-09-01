@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :csv_files
       root to: "users#index"
     end
+
   
   resources :zone_qs, only: [:index, :show, :edit, :update, :destroy]
   resources :zone_ms, only: [:index, :show, :edit, :update, :destroy]
