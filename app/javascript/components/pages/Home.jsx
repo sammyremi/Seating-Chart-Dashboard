@@ -12,7 +12,151 @@ import { Bar } from "react-chartjs-2";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, ChartDataLabels);
 
+const floor_2_zones = ["d", "e", "h", "i"];
+const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
+
 const Home = () => {
+  const [data, setData] = useState({
+    "floor_2": {
+        "occupied": '',
+        "damaged": '',
+        "vacant": '',
+        "reserved": '',
+        "zones": {
+          "d": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "e": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "h": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "i": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+        }
+    },
+    "floor_3": {
+        "occupied": '',
+        "damaged": '',
+        "vacant": '',
+        "reserved": '',
+        "zones": {
+          "j": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "k": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "l": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "m": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "n": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "q": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+          "r": {
+            "occupied": '',
+            "damaged": '',
+            "vacant": '',
+            "reserved": '',
+          },
+        }
+    },
+});
+  const [f2data, setf2Data] = useState([])
+  const [f3data, setf3Data] = useState([])
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const f2fetchedData = [];
+        const f3fetchedData = [];
+
+        // fetch floor 2 data
+        for (let i = 0; i < floor_2_zones.length; i++) {
+          const response = await fetch(`/zone_${floor_2_zones[i]}s`);
+          const zone_data = await response.json();
+          f2fetchedData.push(...zone_data);
+        }
+        // get occupied, vacant, damaged and reserved data in floor 2
+        let occupied = f2fetchedData.filter((desk) => desk.status === 'Occupied')
+        let damaged = f2fetchedData.filter((desk) => desk.status === 'Damaged')
+        let vacant = f2fetchedData.filter((desk) => desk.status === 'Vacant')
+
+        // set floor 2 data
+        setData((prevData) => ({...prevData, 
+          "floor_2": {...prevData.floor_2, "occupied": occupied.length,"vacant": vacant.length, "damaged": damaged.length}
+        }))
+        
+        // fetch floor 3 data
+        for (let i = 0; i < floor_3_zones.length; i++) {
+          const response = await fetch(`/zone_${floor_3_zones[i]}s`);
+          const zone_data = await response.json();
+          f3fetchedData.push(...zone_data);
+        }
+
+        // get occupied, vacant, damaged and reserved data in floor 3
+         occupied = f3fetchedData.filter((desk) => desk.status === 'Occupied')
+         damaged = f3fetchedData.filter((desk) => desk.status === 'Damaged')
+         vacant = f3fetchedData.filter((desk) => desk.status === 'Vacant')
+
+        // set floor 3 data
+        setData((prevData) => ({...prevData, 
+          "floor_3": {...prevData.floor_3, "occupied": occupied.length,"vacant": vacant.length, "damaged": damaged.length}
+        }))
+
+        setf2Data((prevData) => [...prevData, ...f2fetchedData]);
+        setf3Data((prevData) => [...prevData, ...f3fetchedData]);
+        // setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(data);
+
+  // Chart data and options
   const floor2data = {
     labels: ["", "Zone D", "Zone E", "Zone H", "Zone I","", ""],
     datasets: [
@@ -39,7 +183,6 @@ const Home = () => {
       },
     ],
   };
-
   const floor3data = {
     labels: [
       "Zone J",
@@ -74,7 +217,6 @@ const Home = () => {
       },
     ],
   };
-
   const chart_options = {
     plugins: {
       legend: {
@@ -114,6 +256,16 @@ const Home = () => {
     responsive: true,
   };
 
+  
+
+
+  // if (loading) {
+  //   return (
+  //     <div>
+  //       <p>Loading...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex flex-col h-full py-2 gap-y-4">
@@ -138,7 +290,7 @@ const Home = () => {
                     />
                   </g>
                 </svg>
-                <span>345</span>
+                <span>{data.floor_2.occupied}</span>
               </div>
               <p className="text-xs">Occupied</p>
             </div>
@@ -158,7 +310,7 @@ const Home = () => {
                     />
                   </g>
                 </svg>
-                <span>345</span>
+                <span>{data.floor_2.vacant}</span>
               </div>
               <span className="text-xs">Vacant</span>
             </div>
@@ -176,7 +328,7 @@ const Home = () => {
                     fill="#03626E"
                   />
                 </svg>
-                <span>345</span>
+                <span>{data.floor_2.damaged}</span>
               </div>
               <p className="text-xs">Damaged</p>
             </div>
@@ -229,7 +381,7 @@ const Home = () => {
                   />
                 </g>
               </svg>
-              <span>345</span>
+              <span>{data.floor_3.occupied}</span>
             </div>
             <p className="text-xs">Occupied</p>
           </div>
@@ -249,7 +401,7 @@ const Home = () => {
                   />
                 </g>
               </svg>
-              <span>345</span>
+              <span>{data.floor_3.vacant}</span>
             </div>
             <p className="text-xs">Vacant</p>
           </div>
@@ -267,7 +419,7 @@ const Home = () => {
                   fill="#03626E"
                 />
               </svg>
-              <span>345</span>
+              <span>{data.floor_3.damaged}</span>
             </div>
             <p className="text-xs mt-0">Damaged</p>
           </div>
@@ -278,7 +430,7 @@ const Home = () => {
           <Bar height={40} data={floor3data} options={chart_options}></Bar>
         </div>
         {/* Totals */}
-        <div className="text-gray-500 absolute w-20 text-xs lg:top-[27rem] lg:mt-2 xl:top-[29rem] xl:mt-3">
+        <div className="text-gray-500 absolute w-20 text-xs lg:top-[32rem] lg:mt-4 xl:top-[29rem] xl:mt-3">
           <p className="font-bold">Total</p>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone J</p>
