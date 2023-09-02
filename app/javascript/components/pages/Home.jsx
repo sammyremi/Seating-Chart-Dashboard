@@ -14,28 +14,28 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, ChartD
 
 const Home = () => {
   const floor2data = {
-    labels: ["Zone D", "Zone E", "Zone H", "Zone I"],
+    labels: ["", "Zone D", "Zone E", "Zone H", "Zone I","", ""],
     datasets: [
       {
         label: "Occupied",
-        data: [3, 6, 9, 5],
+        data: [, 3, 6, 9, 5,, ],
         backgroundColor: "#79bcff",
-        // barPercentage: 0.5, // Set the width of the bars to 50% of the available space
-        categoryPercentage: 1.0, // Set the spacing between bars to 0%
+        barPercentage: 1, // Set the width of the bars to 100% of the available space
+        categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
       {
         label: "Damaged",
-        data: [2, 4, 6, 6],
+        data: [, 2, 4, 6, 6,, ],
         backgroundColor: "#ffcfcf",
-        // barPercentage: 0.5, // Set the width of the bars to 50% of the available space
-      categoryPercentage: 1.0, // Set the spacing between bars to 0%
+        barPercentage: 1, // Set the width of the bars to 100% of the available space
+        categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
       {
         label: "Vacant",
-        data: [1, 5, 7, 4],
+        data: [, 1, 5, 7, 4,, ],
         backgroundColor: "#b6b5af",
-        // barPercentage: 0.5, // Set the width of the bars to 50% of the available space
-        categoryPercentage: 1.0, // Set the spacing between bars to 0%
+        barPercentage: 1, // Set the width of the bars to 100% of the available space
+      categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
     ],
   };
@@ -55,22 +55,22 @@ const Home = () => {
         label: "Occupied",
         data: [3, 6, 9, 3, 4, 2, 6],
         backgroundColor: "#79bcff",
-        borderColor: "black",
-        borderWidth: 1,
+        barPercentage: 1.0, // Set the width of the bars to 100% of the available space
+        categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
       {
         label: "Damaged",
         data: [2, 9, 3, 4, 2, 4, 6],
         backgroundColor: "#ffcfcf",
-        borderColor: "black",
-        borderWidth: 1,
+        barPercentage: 1.0, // Set the width of the bars to 100% of the available space
+        categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
       {
         label: "Vacant",
         data: [1, 5, 9, 3, 4, 2, 7],
         backgroundColor: "#b6b5af",
-        borderColor: "black",
-        borderWidth: 1,
+        barPercentage: 1.0, // Set the width of the bars to 100% of the available space
+        categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
     ],
   };
@@ -81,6 +81,13 @@ const Home = () => {
         display: true,
         position: "left",
         align: "start",
+        labels: {
+          font: {
+            size: 13,
+          },
+          padding: 3, 
+          boxWidth: 20, 
+        },
       },
       datalabels: {
         display: true,
@@ -104,23 +111,18 @@ const Home = () => {
         },
       },
     },
-    elements: {
-      bar: {
-        borderColor: "#fff",
-        pointStyle: "string",
-        borderWidth: 3,
-      },
-    },
     responsive: true,
   };
+
+
   return (
-    <div className="flex flex-col h-full py-2 gap-y-2">
+    <div className="flex flex-col h-full py-2 gap-y-3.5">
       {/* Floor 2 */}
       <div className="text-center">
         <div className="mb-2">
           <p className="text-base">Floor 2</p>
           <div className="flex justify-center gap-x-6">
-            <div className="flex flex-col place-content-center bg-sky-200 h-12 py-2 px-4 rounded w-36 drop-shadow-md">
+            <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
               <div className="flex justify-center gap-x-2 font-bold text-sky-700">
                 <svg
                   fill="currentColor"
@@ -140,7 +142,7 @@ const Home = () => {
               </div>
               <p className="text-xs">Occupied</p>
             </div>
-            <div className="flex flex-col place-content-center bg-sky-200 h-12 py-2 px-4 rounded w-36 drop-shadow-md">
+            <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
               <div className="flex justify-center gap-x-2 font-bold text-sky-700">
                 <svg
                   fill="currentColor"
@@ -160,7 +162,7 @@ const Home = () => {
               </div>
               <span className="text-xs">Vacant</span>
             </div>
-            <div className="flex flex-col place-content-center bg-sky-200 h-12 py-2 px-4 rounded w-36 drop-shadow-md">
+            <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
               <div className="flex justify-center gap-x-2 font-bold text-sky-700">
                 <svg
                   className="flex-shrink-0 ml-2 w-7 h-7 text-sky-700 transition duration-75 group-hover:text-sky-700"
@@ -180,17 +182,18 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* <br /> */}
+        
         {/* Barchart */}
         <div className="">
-          <Bar height={50} data={floor2data} options={chart_options}></Bar>
+          <Bar height={40} data={floor2data} options={chart_options}></Bar>
         </div>
       </div>
+
       {/* Floor 3 */}
       <div className="text-center">
         <p className="text-base">Floor 3</p>
         <div className="flex justify-center gap-6 mb-4">
-          <div className="flex flex-col place-content-center bg-sky-200 h-12 p-2 px-4 rounded w-36 drop-shadow-md">
+          <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
             <div className="flex justify-center gap-2 font-bold text-sky-700">
               <svg
                 fill="currentColor"
@@ -210,7 +213,7 @@ const Home = () => {
             </div>
             <p className="text-xs">Occupied</p>
           </div>
-          <div className="flex flex-col place-content-center bg-sky-200 h-12 p-2 px-4 rounded w-36 drop-shadow-md">
+          <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
             <div className="flex justify-center gap-2 font-bold text-sky-700">
               <svg
                 fill="currentColor"
@@ -230,7 +233,7 @@ const Home = () => {
             </div>
             <p className="text-xs">Vacant</p>
           </div>
-          <div className="flex flex-col place-content-center bg-sky-200 h-12 py-2 px-4 rounded w-36 drop-shadow-md">
+          <div className="flex flex-col place-content-center bg-sky-200 h-12 pp-4 rounded w-28 drop-shadow-md">
             <div className="flex justify-center gap-2 font-bold text-sky-700">
               <svg
                 className="flex-shrink-0 ml-2 w-7 h-7 text-sky-700 transition duration-75 group-hover:text-sky-700"
@@ -252,7 +255,7 @@ const Home = () => {
         {/* Barchart */}
         <br />
         <div className="">
-          <Bar height={50} data={floor3data} options={chart_options}></Bar>
+          <Bar height={40} data={floor3data} options={chart_options}></Bar>
         </div>
       </div>
     </div>
