@@ -239,19 +239,7 @@ const Home = () => {
         </div>
         {/* Barchart */}
         <div className="">
-          <Bar
-            height={50}
-            data={floor3data}
-            options={{
-              plugins: {
-                legend: {
-                  display: true,
-                  position: "left",
-                  align: "start",
-                },
-              },
-            }}
-          ></Bar>
+          <Bar height={50} data={floor3data} options={chart_options}></Bar>
         </div>
       </div>
     </div>
