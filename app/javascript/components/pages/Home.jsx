@@ -73,6 +73,37 @@ const Home = () => {
       },
     ],
   };
+
+  const chart_options = {
+    plugins: {
+      legend: {
+        display: true,
+        position: "left",
+        align: "start",
+      },
+    },
+    scales: {
+      x: {
+        // ticks: { display: false },
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        // ticks: { display: false },
+        grid: {
+          display: false,
+        },
+      },
+    },
+    elements: {
+      bar: {
+        borderColor: "#fff",
+        pointStyle: "string",
+      },
+    },
+    responsive: true,
+  };
   return (
     <div className="flex flex-col h-full py-2">
       {/* Floor 2 */}
@@ -140,19 +171,7 @@ const Home = () => {
         </div>
         {/* Barchart */}
         <div className="">
-          <Bar
-            height={50}
-            data={floor2data}
-            options={{
-              plugins: {
-                legend: {
-                  display: true,
-                  position: "left",
-                  align: "start",
-                },
-              },
-            }}
-          ></Bar>
+          <Bar height={50} data={floor2data} options={chart_options}></Bar>
         </div>
       </div>
       {/* Floor 3 */}
