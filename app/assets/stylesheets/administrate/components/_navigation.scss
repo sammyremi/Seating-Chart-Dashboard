@@ -10,7 +10,7 @@ $_navigation-icon-size: 2rem;
 
 .navigation__link {
   background-color: transparent;
-  color: #0A5A77;
+  color: #066da5;
   display: block;
   line-height: 1;
   margin-left: -($_navigation-link-padding);
@@ -21,11 +21,12 @@ $_navigation-icon-size: 2rem;
   &:not(:last-of-type) {
     margin-bottom: $small-spacing;
   }
+  
 
   &:hover {
     background-color: #80DEFF;
-    border-radius: $base-border-radius;
-    color: $base-font-color;
+    border-radius: 8px;
+    color: #066da5;
   }
 }
 
