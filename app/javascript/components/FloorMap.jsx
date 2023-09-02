@@ -1,12 +1,9 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
 
-const FloorMap = () => {
-  const { floor_name } = useParams();
-  console.log(floor_name);
-  const [active, setActive] = useState("floor 2");
+const FloorMap = ({ fl_active }) => {
+  const active = fl_active[0];
+  const setActive = fl_active[1];
   return (
     <div>
       <div className="relative lg:left-[15px] lg:top-[-16px] left-32 -top-4">

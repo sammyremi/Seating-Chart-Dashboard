@@ -7,9 +7,10 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Bar } from "react-chartjs-2";
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, ChartDataLabels);
 
 const Home = () => {
   const floor2data = {
@@ -73,12 +74,50 @@ const Home = () => {
       },
     ],
   };
+
+  const chart_options = {
+    plugins: {
+      legend: {
+        display: true,
+        position: "left",
+        align: "start",
+      },
+      datalabels: {
+        display: true,
+        color: 'black',
+        anchor: 'end',
+        align: 'end',
+        offset: 1,
+      },
+    },
+    scales: {
+      x: {
+        // ticks: { display: false },
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        // ticks: { display: false },
+        grid: {
+          display: false,
+        },
+      },
+    },
+    elements: {
+      bar: {
+        borderColor: "#fff",
+        pointStyle: "string",
+      },
+    },
+    responsive: true,
+  };
   return (
     <div className="flex flex-col h-full py-2">
       {/* Floor 2 */}
       <div className="text-center mb-2">
         <p className="text-base">Floor 2</p>
-        <div className="flex justify-center gap-6">
+        <div className="flex justify-center gap-6 mb-4 mt-0 z-0">
           <div className="bg-sky-200 h-14 py-2 px-4 rounded w-36 drop-shadow-md">
             <div className="flex justify-center gap-2 font-bold text-sky-700">
               <svg
@@ -139,26 +178,14 @@ const Home = () => {
           </div>
         </div>
         {/* Barchart */}
-        <div className="">
-          <Bar
-            height={50}
-            data={floor2data}
-            options={{
-              plugins: {
-                legend: {
-                  display: true,
-                  position: "left",
-                  align: "start",
-                },
-              },
-            }}
-          ></Bar>
+        <div className="z-30">
+          <Bar height={50} data={floor2data} options={chart_options}></Bar>
         </div>
       </div>
       {/* Floor 3 */}
       <div className="text-center">
         <p className="text-base">Floor 3</p>
-        <div className="flex justify-center gap-6">
+        <div className="flex justify-center gap-6 mb-4 z-0">
           <div className="bg-sky-200 h-14 p-2 px-4 rounded w-36 drop-shadow-md">
             <div className="flex justify-center gap-2 font-bold text-sky-700">
               <svg
@@ -219,20 +246,8 @@ const Home = () => {
           </div>
         </div>
         {/* Barchart */}
-        <div className="">
-          <Bar
-            height={50}
-            data={floor3data}
-            options={{
-              plugins: {
-                legend: {
-                  display: true,
-                  position: "left",
-                  align: "start",
-                },
-              },
-            }}
-          ></Bar>
+        <div className="z-30">
+          <Bar height={50} data={floor3data} options={chart_options}></Bar>
         </div>
       </div>
     </div>
