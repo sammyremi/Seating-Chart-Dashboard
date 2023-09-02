@@ -116,7 +116,7 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col h-full py-2 gap-y-3.5">
+    <div className="flex flex-col h-full py-2 gap-y-4">
       {/* Floor 2 */}
       <div className="text-center">
         <div className="mb-2">
@@ -182,17 +182,37 @@ const Home = () => {
             </div>
           </div>
         </div>
-        
+        {/* Totals */}
+        <div className="text-gray-500 mt-1 ml-1 absolute w-20 text-xs top-56">
+          <p className="font-bold">Total</p>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone D</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone E</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone H</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone I</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+        </div>
         {/* Barchart */}
         <div className="">
           <Bar height={40} data={floor2data} options={chart_options}></Bar>
         </div>
+        
       </div>
 
       {/* Floor 3 */}
       <div className="text-center">
         <p className="text-base">Floor 3</p>
-        <div className="flex justify-center gap-6 mb-4">
+        <div className="flex justify-center gap-x-6 mb-4">
           <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
             <div className="flex justify-center gap-2 font-bold text-sky-700">
               <svg
@@ -233,7 +253,7 @@ const Home = () => {
             </div>
             <p className="text-xs">Vacant</p>
           </div>
-          <div className="flex flex-col place-content-center bg-sky-200 h-12 pp-4 rounded w-28 drop-shadow-md">
+          <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
             <div className="flex justify-center gap-2 font-bold text-sky-700">
               <svg
                 className="flex-shrink-0 ml-2 w-7 h-7 text-sky-700 transition duration-75 group-hover:text-sky-700"
@@ -252,10 +272,43 @@ const Home = () => {
             <p className="text-xs mt-0">Damaged</p>
           </div>
         </div>
-        {/* Barchart */}
-        <br />
+        <div>
+          {/* Barchart */}
         <div className="">
           <Bar height={40} data={floor3data} options={chart_options}></Bar>
+        </div>
+        {/* Totals */}
+        <div className="text-gray-500 absolute w-20 text-xs lg:top-[27rem] lg:mt-2 xl:top-[29rem] xl:mt-3">
+          <p className="font-bold">Total</p>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone J</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone K</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone L</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone M</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone N</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone Q</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+          <article className="">
+            <p className="inline-block text-left w-3/4">Zone R</p>
+            <p className="inline-block text-right w-1/4">40</p>
+          </article>
+        </div>
         </div>
       </div>
     </div>
