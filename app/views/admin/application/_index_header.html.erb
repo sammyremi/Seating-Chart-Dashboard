@@ -1,11 +1,17 @@
 <% content_for(:title) do %>
   <%= display_resource_name(page.resource_name) %>
 <% end %>
-  
+<div>
+  <h1 class="main-content__page-titttle" id="page-title">
+    <% title = content_for(:title) %>
+    <% title_array = title.split(' ') %>
+    <% zone = title_array[1]%>
+    Zone
+    <%= zone[0] %>
+  </h1>
+</div>
   <header class="main-content__header">
-    <h1 class="main-content__page-titttle" id="page-title">
-      <%= content_for(:title) %>
-    </h1>
+
     <% if show_search_bar %>
     <%= render(
       "search",
