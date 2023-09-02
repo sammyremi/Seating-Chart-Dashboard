@@ -8,6 +8,7 @@ as defined by the routes in the `admin/` namespace
 %>
 <nav class="navigation">
   <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
+
     <% if accessible_action?(model_from_resource(resource), :index) %>
       <a href="<%= resource_index_route(resource) %>" class="button navigation__link navigation__link--<%= nav_link_state(resource) %>">
       <% case resource%>
@@ -18,7 +19,15 @@ as defined by the routes in the `admin/` namespace
       <% else %>
       <i class="fas fa-street-view"></i> 
     <% end %>
-        <%= display_resource_name(resource) %>
+      <% if resource == "csv_files" %>
+        Csv File
+
+      <% elsif resource == "users" %>
+        Users
+      <% else %>
+          <% zone = display_resource_name(resource) %>
+          Zone <%= zone[-2] %>
+      <% end %>
       </a>
     <% end %>
   <% end %>
