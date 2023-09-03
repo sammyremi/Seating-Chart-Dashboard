@@ -211,6 +211,7 @@ const Home = () => {
         backgroundColor: "#ffcfcf",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
+        base: -3,
       },
       {
         label: "Vacant",
@@ -218,6 +219,7 @@ const Home = () => {
         backgroundColor: "#b6b5af",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
+        base: -3,
       },
       {
         label: "Occupied",
@@ -225,6 +227,7 @@ const Home = () => {
         backgroundColor: "#79bcff",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
+        base: -3,
       },
     ],
   };
@@ -246,6 +249,7 @@ const Home = () => {
         backgroundColor: "#ffcfcf",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
+        base: -3,
       },
       {
         label: "Vacant",
@@ -253,6 +257,7 @@ const Home = () => {
         backgroundColor: "#b6b5af",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
+        base: -3,
       },
       {
         label: "Occupied",
@@ -260,6 +265,7 @@ const Home = () => {
         backgroundColor: "#79bcff",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
+        base: -3,
       },
     ],
   };
@@ -274,7 +280,6 @@ const Home = () => {
           font: {
             size: 13,
           },
-          padding: 3, 
           boxWidth: 20, 
         },
       },
@@ -293,26 +298,30 @@ const Home = () => {
         },
       },
       y: {
-        ticks: { display: false },
+        min: -3,
+        ticks: { 
+          display: false,
+        },
         grid: {
           display: false,
         },
       },
     },
     maintainAspectRatio: false,
+    responsive: true,
 
   };
 
   
 
 
-  // if (loading) {
-  //   return (
-  //     <div>
-  //       <p>Loading...</p>
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-full py-2">
@@ -479,10 +488,7 @@ const Home = () => {
         </div>
         <div className="flex gap-x-4">
           {/* Totals */}
-        <div 
-        // className="text-gray-500 absolute w-20 text-xs lg:top-[30rem] lg:mt-3 xl:top-[30rem] xl:mt-3"
-        className="w-20 text-xs text-gray-500"
-        >
+        <div className="w-20 text-xs text-gray-500">
           <p className="font-bold mb-2 text-sm">Total</p>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone J</p>
