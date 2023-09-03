@@ -24,24 +24,28 @@ const Home = () => {
         "reserved": '',
         "zones": {
           "d": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "e": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "h": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "i": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
@@ -56,42 +60,49 @@ const Home = () => {
         "reserved": '',
         "zones": {
           "j": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "k": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "l": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "m": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "n": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "q": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
             "reserved": '',
           },
           "r": {
+            "total": '',
             "occupied": '',
             "damaged": '',
             "vacant": '',
@@ -115,6 +126,24 @@ const Home = () => {
           const response = await fetch(`/zone_${floor_2_zones[i]}s`);
           const zone_data = await response.json();
           f2fetchedData.push(...zone_data);
+
+          // get occupied, vacant, damaged and reserved data in each floor 2 zones
+          let occupied = zone_data.filter((desk) => desk.status === 'Occupied')
+          let damaged = zone_data.filter((desk) => desk.status === 'Damaged')
+          let vacant = zone_data.filter((desk) => desk.status === 'Vacant')
+
+          // set floor 2 zones data
+          setData((prevData,) => ({...prevData, 
+            "floor_2": {...prevData.floor_2, 
+              "zones": {...prevData.floor_2.zones, 
+                [floor_2_zones[i]]: {...prevData.floor_2.zones[floor_2_zones[i]], 
+                  "occupied": occupied.length,
+                  "vacant": vacant.length, 
+                  "damaged": damaged.length,
+                  "total": zone_data.length,
+                }}
+            }
+          }))
         }
         // get occupied, vacant, damaged and reserved data in floor 2
         let occupied = f2fetchedData.filter((desk) => desk.status === 'Occupied')
@@ -131,6 +160,24 @@ const Home = () => {
           const response = await fetch(`/zone_${floor_3_zones[i]}s`);
           const zone_data = await response.json();
           f3fetchedData.push(...zone_data);
+
+          // get occupied, vacant, damaged and reserved data in each floor 3 zones
+          let occupied = zone_data.filter((desk) => desk.status === 'Occupied')
+          let damaged = zone_data.filter((desk) => desk.status === 'Damaged')
+          let vacant = zone_data.filter((desk) => desk.status === 'Vacant')
+
+          // set floor 3 zones data
+          setData((prevData,) => ({...prevData, 
+            "floor_3": {...prevData.floor_3, 
+              "zones": {...prevData.floor_3.zones, 
+                [floor_3_zones[i]]: {...prevData.floor_3.zones[floor_3_zones[i]], 
+                  "occupied": occupied.length,
+                  "vacant": vacant.length, 
+                  "damaged": damaged.length,
+                  "total": zone_data.length,
+                }}
+            }
+          }))
         }
 
         // get occupied, vacant, damaged and reserved data in floor 3
@@ -145,7 +192,7 @@ const Home = () => {
 
         setf2Data((prevData) => [...prevData, ...f2fetchedData]);
         setf3Data((prevData) => [...prevData, ...f3fetchedData]);
-        // setLoading(false);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -161,25 +208,25 @@ const Home = () => {
     labels: ["", "Zone D", "Zone E", "Zone H", "Zone I","", ""],
     datasets: [
       {
-        label: "Occupied",
-        data: [, 3, 6, 9, 5,, ],
-        backgroundColor: "#79bcff",
-        barPercentage: 1, // Set the width of the bars to 100% of the available space
-        categoryPercentage: 0.8, // Set the spacing between bars to 0%
-      },
-      {
         label: "Damaged",
-        data: [, 2, 4, 6, 6,, ],
+        data: [, data.floor_2.zones.d.damaged, data.floor_2.zones.e.damaged, data.floor_2.zones.h.damaged, data.floor_2.zones.i.damaged,, ],
         backgroundColor: "#ffcfcf",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
       {
         label: "Vacant",
-        data: [, 1, 5, 7, 4,, ],
+        data: [, data.floor_2.zones.d.vacant, data.floor_2.zones.e.vacant, data.floor_2.zones.h.vacant, data.floor_2.zones.i.vacant,, ],
         backgroundColor: "#b6b5af",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
       categoryPercentage: 0.8, // Set the spacing between bars to 0%
+      },
+      {
+        label: "Occupied",
+        data: [, data.floor_2.zones.d.occupied, data.floor_2.zones.e.occupied, data.floor_2.zones.h.occupied, data.floor_2.zones.i.occupied,, ],
+        backgroundColor: "#79bcff",
+        barPercentage: 1, // Set the width of the bars to 100% of the available space
+        categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
     ],
   };
@@ -194,24 +241,25 @@ const Home = () => {
       "Zone R",
     ],
     datasets: [
-      {
-        label: "Occupied",
-        data: [3, 6, 9, 3, 4, 2, 6],
-        backgroundColor: "#79bcff",
-        barPercentage: 1.0, // Set the width of the bars to 100% of the available space
-        categoryPercentage: 0.8, // Set the spacing between bars to 0%
-      },
+     
       {
         label: "Damaged",
-        data: [2, 9, 3, 4, 2, 4, 6],
+        data: [data.floor_3.zones.j.damaged, data.floor_3.zones.k.damaged, data.floor_3.zones.l.damaged, data.floor_3.zones.m.damaged, data.floor_3.zones.n.damaged, data.floor_3.zones.q.damaged, data.floor_3.zones.r.damaged],
         backgroundColor: "#ffcfcf",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
       {
         label: "Vacant",
-        data: [1, 5, 9, 3, 4, 2, 7],
+        data: [data.floor_3.zones.j.vacant, data.floor_3.zones.k.vacant, data.floor_3.zones.l.vacant, data.floor_3.zones.m.vacant, data.floor_3.zones.n.vacant, data.floor_3.zones.q.vacant, data.floor_3.zones.r.vacant],
         backgroundColor: "#b6b5af",
+        barPercentage: 1.0, // Set the width of the bars to 100% of the available space
+        categoryPercentage: 0.8, // Set the spacing between bars to 0%
+      },
+      {
+        label: "Occupied",
+        data: [data.floor_3.zones.j.occupied, data.floor_3.zones.k.occupied, data.floor_3.zones.l.occupied, data.floor_3.zones.m.occupied, data.floor_3.zones.n.occupied, data.floor_3.zones.q.occupied, data.floor_3.zones.r.occupied],
+        backgroundColor: "#79bcff",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
       },
@@ -339,19 +387,19 @@ const Home = () => {
           <p className="font-bold">Total</p>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone D</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_2.zones.d.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone E</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_2.zones.e.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone H</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_2.zones.h.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone I</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_2.zones.i.total}</p>
           </article>
         </div>
         {/* Barchart */}
@@ -434,31 +482,31 @@ const Home = () => {
           <p className="font-bold">Total</p>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone J</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_3.zones.j.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone K</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_3.zones.k.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone L</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_3.zones.l.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone M</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_3.zones.m.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone N</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_3.zones.n.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone Q</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_3.zones.q.total}</p>
           </article>
           <article className="">
             <p className="inline-block text-left w-3/4">Zone R</p>
-            <p className="inline-block text-right w-1/4">40</p>
+            <p className="inline-block text-right w-1/4">{data.floor_3.zones.r.total}</p>
           </article>
         </div>
         </div>
