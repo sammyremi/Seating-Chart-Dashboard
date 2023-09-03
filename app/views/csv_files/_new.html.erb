@@ -1,6 +1,6 @@
 
-<div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
-  <img src="<%= asset_path('upload.gif') %>" alt="GIF Image">
+<div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+  <img src="<%= asset_path('Upload.gif') %>" alt="GIF Image">
 </div>
 
 
@@ -11,7 +11,7 @@
     <%= file_field_tag :file, accept: ".csv", style: "margin-top: -50px; margin-left: 100px;"%>
 
     <div>
-    <%= submit_tag 'Upload File', class: "btn btn-primary", style: "margin-left: 150px;"%>
+    <%= submit_tag 'Upload File', style: "margin-left: 145px; margin-top: 20px;"%>
     </div>
     
   <% end %>

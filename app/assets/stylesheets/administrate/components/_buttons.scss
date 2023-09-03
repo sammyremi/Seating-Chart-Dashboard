@@ -6,7 +6,7 @@ input[type="submit"],
   appearance: none;
   background-color: transparent;
   border: $base-border;
-  border-radius: $base-border-radius;
+  border-radius: 10px;
   color: $action-color;
   border-color: transparent;
   cursor: pointer;
@@ -15,7 +15,7 @@ input[type="submit"],
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
   font-weight: $bold-font-weight;
-  line-height: 1;
+  line-height: 0.5;
   padding: $small-spacing $base-spacing;
   text-decoration: none;
   transition: background-color $base-duration $base-timing;
@@ -24,7 +24,7 @@ input[type="submit"],
   white-space: nowrap;
 
   &:hover {
-    background-color: mix($black, $action-color, 20%);
+    background-color: #80DEFF;
     color: $white;
   }
 
