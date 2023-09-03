@@ -134,15 +134,17 @@ const Navbar = () => {
                   value={query}
                   onChange={handleSearchChange}
                   placeholder="Search Desk_ID"
-                  className="px-2.5 py-1 rounded-lg border border-sky-200 text-sm focus:outline-none w-44"
+                  className="px-2.5 py-1 rounded-full border border-sky-200 text-sm focus:outline-none w-44"
                 />
-              </form>
+              
               <button
-                onClick={(e) => setQuery("")}
-                className="bg-sky-300 text-white px-1.5 py-0 rounded-lg focus:outline-none w-18"
-              >
-                Clear
-              </button>
+              onClick={(e) => setQuery("")}
+              className="bg-white text-gray-400 px-1.5 py-0 rounded-full focus:outline-none w-6 h-6 text-sm border border-sky-200"
+            >
+              x
+            </button>
+          </form>
+
             </div>
 
             {/* Profile dropdown */}
