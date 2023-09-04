@@ -15,7 +15,7 @@ import R_ZoneChart from "../zone charts/R/R_ZoneChart";
 
 const Zone = () => {
   const { zone_name } = useParams();
-  console.log(zone_name);
+  // console.log(zone_name);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
