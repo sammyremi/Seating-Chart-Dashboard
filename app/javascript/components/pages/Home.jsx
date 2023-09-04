@@ -128,9 +128,9 @@ const Home = () => {
           f2fetchedData.push(...zone_data);
 
           // get occupied, vacant, damaged and reserved data in each floor 2 zones
-          let occupied = zone_data.filter((desk) => desk.status === 'Occupied')
-          let damaged = zone_data.filter((desk) => desk.status === 'Damaged')
-          let vacant = zone_data.filter((desk) => desk.status === 'Vacant')
+          let occupied = zone_data.filter((desk) => desk.status.toLowerCase() === 'occupied')
+          let damaged = zone_data.filter((desk) => desk.status.toLowerCase() === 'damaged')
+          let vacant = zone_data.filter((desk) => desk.status.toLowerCase() === 'vacant')
 
           // set floor 2 zones data
           setData((prevData,) => ({...prevData, 
@@ -146,9 +146,9 @@ const Home = () => {
           }))
         }
         // get occupied, vacant, damaged and reserved data in floor 2
-        let occupied = f2fetchedData.filter((desk) => desk.status === 'Occupied')
-        let damaged = f2fetchedData.filter((desk) => desk.status === 'Damaged')
-        let vacant = f2fetchedData.filter((desk) => desk.status === 'Vacant')
+        let occupied = f2fetchedData.filter((desk) => desk.status.toLowerCase() === 'occupied')
+        let damaged = f2fetchedData.filter((desk) => desk.status.toLowerCase() === 'damaged')
+        let vacant = f2fetchedData.filter((desk) => desk.status.toLowerCase() === 'vacant')
 
         // set floor 2 data
         setData((prevData) => ({...prevData, 
@@ -162,9 +162,9 @@ const Home = () => {
           f3fetchedData.push(...zone_data);
 
           // get occupied, vacant, damaged and reserved data in each floor 3 zones
-          let occupied = zone_data.filter((desk) => desk.status === 'Occupied')
-          let damaged = zone_data.filter((desk) => desk.status === 'Damaged')
-          let vacant = zone_data.filter((desk) => desk.status === 'Vacant')
+          let occupied = zone_data.filter((desk) => desk.status.toLowerCase() === 'occupied')
+          let damaged = zone_data.filter((desk) => desk.status.toLowerCase() === 'damaged')
+          let vacant = zone_data.filter((desk) => desk.status.toLowerCase() === 'vacant')
 
           // set floor 3 zones data
           setData((prevData,) => ({...prevData, 
@@ -181,9 +181,9 @@ const Home = () => {
         }
 
         // get occupied, vacant, damaged and reserved data in floor 3
-         occupied = f3fetchedData.filter((desk) => desk.status === 'Occupied')
-         damaged = f3fetchedData.filter((desk) => desk.status === 'Damaged')
-         vacant = f3fetchedData.filter((desk) => desk.status === 'Vacant')
+         occupied = f3fetchedData.filter((desk) => desk.status.toLowerCase() === 'occupied')
+         damaged = f3fetchedData.filter((desk) => desk.status.toLowerCase() === 'damaged')
+         vacant = f3fetchedData.filter((desk) => desk.status.toLowerCase() === 'vacant')
 
         // set floor 3 data
         setData((prevData) => ({...prevData, 
@@ -315,13 +315,13 @@ const Home = () => {
   
 
 
-  if (loading) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div>
+  //       <p>Loading...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex flex-col h-full py-2">
