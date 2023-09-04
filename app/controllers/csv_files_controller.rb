@@ -254,8 +254,8 @@ class CsvFilesController < ApplicationController
             redirect_to admin_csv_files_path, notice: "File updated to Database"
             
         else
-            redirect_to admin_csv_files_path, notice: "check your csv file"
-            puts "check your csv file column"
+
+            flash[:notice] = "check your file format"
         end
         
     end

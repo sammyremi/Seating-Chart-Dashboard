@@ -3,7 +3,7 @@ import React from "react";
 const Desk_icon = ({ status }) => {
   return (
     <div className="border-x-2 border-t-2 border-slate-400 pt-1 px-1.5 bg-white">
-      {status === "Vacant" ? (
+      {status.toLowerCase() === "vacant"? (
         <svg
           fill="currentColor"
           className="flex-shrink-0 w-7 h-7 text-green-600 transition duration-75"
@@ -19,7 +19,7 @@ const Desk_icon = ({ status }) => {
               />
             </g>
         </svg>
-      ) : status === "Occupied" ? (
+      ) : status.toLowerCase() === "occupied" ? (
         <svg
           fill="currentColor"
           className="text-[#FFA500] flex-shrink-0 w-7 h-7 transition duration-75"
@@ -35,7 +35,7 @@ const Desk_icon = ({ status }) => {
               />
             </g>
         </svg>
-      ) : status === "Damaged" ? (
+      ) : status.toLowerCase() === "damaged" ? (
         <svg
           fill="currentColor"
           className="text-red-600 flex-shrink-0 w-7 h-7 transition duration-75"
@@ -51,7 +51,7 @@ const Desk_icon = ({ status }) => {
               />
             </g>
         </svg>
-      ) : status === "Reserved (IT)" ? (
+      ) : status.toLowerCase() === "reserved (it)" ? (
         <svg
           fill="currentColor"
           className="text-blue-600 flex-shrink-0 w-7 h-7 transition duration-75"
@@ -67,8 +67,8 @@ const Desk_icon = ({ status }) => {
               />
             </g>
         </svg>
-      ) : status === "Reserved (Ops)" ? (
-        // Default SVG content if status doesn't match any of the above
+      ) : status.toLowerCase() === "reserved (ops)" ? (
+        // Default SVG content if status.toLowerCase() doesn't match any of the above
         <svg
           fill="currentColor"
           className="text-purple-500 flex-shrink-0 w-7 h-7 transition duration-75"
@@ -84,7 +84,7 @@ const Desk_icon = ({ status }) => {
               />
             </g>
         </svg>
-      ) : status === "Reserved (Dev)" ? (
+      ) : status.toLowerCase() === "reserved (dev)" ? (
         <svg
           fill="currentColor"
           className="text-[#964B00] flex-shrink-0 w-7 h-7 transition duration-75"

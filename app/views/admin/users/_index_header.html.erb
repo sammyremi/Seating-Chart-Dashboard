@@ -1,0 +1,35 @@
+<% content_for(:title) do %>
+    <%= display_resource_name(page.resource_name)%>
+  <% end %>
+    
+  <header class="main-content__header" style="text-align: center;">
+  <h1 class="main-content__page-title" id="page-title">
+    <%= content_for(:title) %>
+  </h1>
+
+
+      <% if show_search_bar %>
+      <%= render(
+        "search",
+        search_term: search_term,
+        resource_name: display_resource_name(page.resource_name)
+      ) %>
+    <% end %>
+    
+      <div>
+  
+      
+      <% if accessible_action?(new_resource, :new) %>
+      <%= link_to(
+        [:new, namespace, page.resource_path.to_sym],
+        class: "icon-link", # Add a CSS class for styling
+      ) do %>
+        <div>
+          <i class="fas fa-user-plus" style="font-size: 24px; width: 24px; height: 24px;"></i>
+        </div>
+      <% end %>
+    <% end %>
+      </div>
+    
+      
+    </header>

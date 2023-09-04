@@ -1,4 +1,19 @@
-<%= form_tag csv_files_path, multipart: true, style: "text-align: center;" do %>
-  <%= file_field_tag :file, accept: ".csv", style: "margin-bottom: 10px;" %>
-  <%= submit_tag 'Upload File', class: "btn btn-primary" %>
-<% end %>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+  <img src="<%= asset_path('Upload.gif') %>" alt="GIF Image">
+</div>
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+
+  <%= form_tag csv_files_path, multipart: true do %>
+
+    <%= file_field_tag :file, accept: ".csv", style: "margin-top: -50px; margin-left: 100px;"%>
+
+    <div>
+    <%= submit_tag 'Upload File', style: "margin-left: 145px; margin-top: 20px;"%>
+    </div>
+    
+  <% end %>
+
+</div>

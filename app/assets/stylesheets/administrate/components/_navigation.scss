@@ -1,0 +1,45 @@
+$_navigation-link-padding: 0.6em;
+$_navigation-icon-size: 2rem;
+.navigation {
+  flex: 1 0 10rem;
+  padding: $base-spacing;
+  padding-left: 0;
+  border-right-color: $grey-1;
+  border-right: 1px solid $base-border-color;
+}
+
+.navigation__link {
+  background-color: transparent;
+  color: #066da5;
+  display: block;
+  line-height: 1;
+  margin-left: -($_navigation-link-padding);
+  padding: $_navigation-link-padding;
+  transition: background-color $base-duration $base-timing,
+              color $base-duration $base-timing;
+
+  &:not(:last-of-type) {
+    margin-bottom: $small-spacing;
+  }
+  
+
+  &:hover {
+    background-color: #80DEFF;
+    border-radius: 8px;
+    color: #066da5;
+  }
+}
+
+.navigation__icon {
+  fill: $grey-7;
+  height: $_navigation-icon-size;
+  left: $_navigation-icon-size;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: $_navigation-icon-size;
+}
+
+.navigation__link--active {
+  font-weight: $bold-font-weight;
+}

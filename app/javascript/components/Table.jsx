@@ -36,7 +36,7 @@ const Table = ({ data }) => {
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-center"
                 >
                   <div className="flex flex-col justify-center place-items-center">
-                    {status === "Vacant" ? (
+                    {status.toLowerCase() === "vacant" ? (
                       <svg
                         fill="currentColor"
                         className="flex-shrink-0 ml-1 w-7 h-7 text-green-600 transition duration-75 group-hover:text-sky-700"
@@ -51,7 +51,7 @@ const Table = ({ data }) => {
                           />
                         </g>
                       </svg>
-                    ) : status === "Reserved (IT)" ? (
+                    ) : status.toLowerCase() === "reserved (it)" ? (
                       <svg
                       fill="currentColor"
                       className="text-blue-600 flex-shrink-0 w-7 h-7 transition duration-75"
@@ -67,7 +67,7 @@ const Table = ({ data }) => {
                           />
                         </g>
                     </svg>
-                    ) : status === "Reserved (Ops)" ? (
+                    ) : status.toLowerCase() === "reserved (ops)" ? (
                       <svg
                         fill="currentColor"
                         className="text-purple-500 flex-shrink-0 w-7 h-7 transition duration-75"
@@ -85,7 +85,7 @@ const Table = ({ data }) => {
                       </svg>
 
 
-                    ) : status === "Reserved (Dev)" ? (
+                    ) : status.toLowerCase() === "reserved (dev)" ? (
                       <svg
                         fill="currentColor"
                         className="text-[#964B00] flex-shrink-0 w-7 h-7 transition duration-75"
@@ -101,7 +101,7 @@ const Table = ({ data }) => {
                             />
                           </g>
                       </svg>
-                    ) : status === "Occupied" ? (
+                    ) : status.toLowerCase() === "occupied" ? (
                       <svg
                       fill="currentColor"
                       className="text-[#FFA500] flex-shrink-0 w-7 h-7 transition duration-75"
@@ -122,7 +122,7 @@ const Table = ({ data }) => {
                       <svg
                           fill="currentColor"
                           className={`${
-                            status === "Dammaged"
+                            status.toLowerCase() === "dammaged"
                               ? "text-red-600"
                               : "text-red-600"
                           } flex-shrink-0 ml-1 w-7 h-7 transition duration-75 group-hover:text-sky-700`}
@@ -145,15 +145,15 @@ const Table = ({ data }) => {
                 <td className="px-6 py-4 text-slate-50 text-center">
                   <span
                     className={`${
-                      status === "Vacant"
+                      status.toLowerCase() === "vacant"
                         ? "bg-green-600"
-                        : status === "Reserved (IT)"
+                        : status.toLowerCase() === "reserved (it)"
                         ? "bg-blue-600"
-                        : status === "Reserved (Ops)"
+                        : status.toLowerCase() === "Reserved (ops)"
                         ? "bg-purple-400"
-                        : status === "Reserved (Dev)"
+                        : status.toLowerCase() === "reserved (dev)"
                         ? "bg-amber-800"
-                        : status === "Occupied"
+                        : status.toLowerCase() === "occupied"
                         ? "bg-[#FFA500]"
                         : "bg-red-600"
                     } rounded px-2 py-1`}
