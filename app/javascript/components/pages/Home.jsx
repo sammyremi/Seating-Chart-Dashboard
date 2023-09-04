@@ -208,7 +208,7 @@ const Home = () => {
       {
         label: "Damaged",
         data: [, data.floor_2.zones.d.damaged, data.floor_2.zones.e.damaged, data.floor_2.zones.h.damaged, data.floor_2.zones.i.damaged,, ],
-        backgroundColor: "#ffcfcf",
+        backgroundColor: "#dc2626",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
         base: -3,
@@ -216,7 +216,7 @@ const Home = () => {
       {
         label: "Vacant",
         data: [, data.floor_2.zones.d.vacant, data.floor_2.zones.e.vacant, data.floor_2.zones.h.vacant, data.floor_2.zones.i.vacant,, ],
-        backgroundColor: "#b6b5af",
+        backgroundColor: "#4ade80",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
         base: -3,
@@ -224,7 +224,7 @@ const Home = () => {
       {
         label: "Occupied",
         data: [, data.floor_2.zones.d.occupied, data.floor_2.zones.e.occupied, data.floor_2.zones.h.occupied, data.floor_2.zones.i.occupied,, ],
-        backgroundColor: "#79bcff",
+        backgroundColor: "#ffa500",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
         base: -3,
@@ -246,7 +246,7 @@ const Home = () => {
       {
         label: "Damaged",
         data: [data.floor_3.zones.j.damaged, data.floor_3.zones.k.damaged, data.floor_3.zones.l.damaged, data.floor_3.zones.m.damaged, data.floor_3.zones.n.damaged, data.floor_3.zones.q.damaged, data.floor_3.zones.r.damaged],
-        backgroundColor: "#ffcfcf",
+        backgroundColor: "#dc2626",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
         base: -3,
@@ -254,7 +254,7 @@ const Home = () => {
       {
         label: "Vacant",
         data: [data.floor_3.zones.j.vacant, data.floor_3.zones.k.vacant, data.floor_3.zones.l.vacant, data.floor_3.zones.m.vacant, data.floor_3.zones.n.vacant, data.floor_3.zones.q.vacant, data.floor_3.zones.r.vacant],
-        backgroundColor: "#b6b5af",
+        backgroundColor: "#4ade80",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
         base: -3,
@@ -262,7 +262,7 @@ const Home = () => {
       {
         label: "Occupied",
         data: [data.floor_3.zones.j.occupied, data.floor_3.zones.k.occupied, data.floor_3.zones.l.occupied, data.floor_3.zones.m.occupied, data.floor_3.zones.n.occupied, data.floor_3.zones.q.occupied, data.floor_3.zones.r.occupied],
-        backgroundColor: "#79bcff",
+        backgroundColor: "#FFA500",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
         base: -3,
@@ -430,7 +430,7 @@ const Home = () => {
               <div className="flex justify-center gap-2 font-bold text-sky-700">
                 <svg
                   fill="currentColor"
-                  className="flex-shrink-0 w-7 h-7 text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
+                  className="flex-shrink-0 w-7 h-7 text-sky-700 transition duration-75 group-hover:text-sky-700"
                   aria-hidden="true"
                   viewBox="0 -7.72 122.88 122.88"
                   xmlns="http://www.w3.org/2000/svg"
