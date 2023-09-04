@@ -8,112 +8,119 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Bar } from "react-chartjs-2";
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, ChartDataLabels);
+ChartJS.register(
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+  ChartDataLabels
+);
 
 const floor_2_zones = ["d", "e", "h", "i"];
 const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
 
 const Home = () => {
   const [data, setData] = useState({
-    "floor_2": {
-        "occupied": '',
-        "damaged": '',
-        "vacant": '',
-        "reserved": '',
-        "zones": {
-          "d": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "e": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "h": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "i": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-        }
+    floor_2: {
+      occupied: "",
+      damaged: "",
+      vacant: "",
+      reserved: "",
+      zones: {
+        d: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        e: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        h: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        i: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+      },
     },
-    "floor_3": {
-        "occupied": '',
-        "damaged": '',
-        "vacant": '',
-        "reserved": '',
-        "zones": {
-          "j": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "k": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "l": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "m": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "n": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "q": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-          "r": {
-            "total": '',
-            "occupied": '',
-            "damaged": '',
-            "vacant": '',
-            "reserved": '',
-          },
-        }
+    floor_3: {
+      occupied: "",
+      damaged: "",
+      vacant: "",
+      reserved: "",
+      zones: {
+        j: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        k: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        l: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        m: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        n: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        q: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+        r: {
+          total: "",
+          occupied: "",
+          damaged: "",
+          vacant: "",
+          reserved: "",
+        },
+      },
     },
-});
-  const [f2data, setf2Data] = useState([])
-  const [f3data, setf3Data] = useState([])
+  });
+  const [f2data, setf2Data] = useState([]);
+  const [f3data, setf3Data] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -129,33 +136,56 @@ const Home = () => {
           f2fetchedData.push(...zone_data);
 
           // get occupied, vacant, damaged and reserved data in each floor 2 zones
-          let occupied = zone_data.filter((desk) => desk.status.toLowerCase() === 'occupied')
-          let damaged = zone_data.filter((desk) => desk.status.toLowerCase() === 'damaged')
-          let vacant = zone_data.filter((desk) => desk.status.toLowerCase() === 'vacant')
+          let occupied = zone_data.filter(
+            (desk) => desk.status.toLowerCase() === "occupied"
+          );
+          let damaged = zone_data.filter(
+            (desk) => desk.status.toLowerCase() === "damaged"
+          );
+          let vacant = zone_data.filter(
+            (desk) => desk.status.toLowerCase() === "vacant"
+          );
 
           // set floor 2 zones data
-          setData((prevData,) => ({...prevData, 
-            "floor_2": {...prevData.floor_2, 
-              "zones": {...prevData.floor_2.zones, 
-                [floor_2_zones[i]]: {...prevData.floor_2.zones[floor_2_zones[i]], 
-                  "occupied": occupied.length,
-                  "vacant": vacant.length, 
-                  "damaged": damaged.length,
-                  "total": zone_data.length,
-                }}
-            }
-          }))
+          setData((prevData) => ({
+            ...prevData,
+            floor_2: {
+              ...prevData.floor_2,
+              zones: {
+                ...prevData.floor_2.zones,
+                [floor_2_zones[i]]: {
+                  ...prevData.floor_2.zones[floor_2_zones[i]],
+                  occupied: occupied.length,
+                  vacant: vacant.length,
+                  damaged: damaged.length,
+                  total: zone_data.length,
+                },
+              },
+            },
+          }));
         }
         // get occupied, vacant, damaged and reserved data in floor 2
-        let occupied = f2fetchedData.filter((desk) => desk.status.toLowerCase() === 'occupied')
-        let damaged = f2fetchedData.filter((desk) => desk.status.toLowerCase() === 'damaged')
-        let vacant = f2fetchedData.filter((desk) => desk.status.toLowerCase() === 'vacant')
+        let occupied = f2fetchedData.filter(
+          (desk) => desk.status.toLowerCase() === "occupied"
+        );
+        let damaged = f2fetchedData.filter(
+          (desk) => desk.status.toLowerCase() === "damaged"
+        );
+        let vacant = f2fetchedData.filter(
+          (desk) => desk.status.toLowerCase() === "vacant"
+        );
 
         // set floor 2 data
-        setData((prevData) => ({...prevData, 
-          "floor_2": {...prevData.floor_2, "occupied": occupied.length,"vacant": vacant.length, "damaged": damaged.length}
-        }))
-        
+        setData((prevData) => ({
+          ...prevData,
+          floor_2: {
+            ...prevData.floor_2,
+            occupied: occupied.length,
+            vacant: vacant.length,
+            damaged: damaged.length,
+          },
+        }));
+
         // fetch floor 3 data
         for (let i = 0; i < floor_3_zones.length; i++) {
           const response = await fetch(`/zone_${floor_3_zones[i]}s`);
@@ -163,33 +193,56 @@ const Home = () => {
           f3fetchedData.push(...zone_data);
 
           // get occupied, vacant, damaged and reserved data in each floor 3 zones
-          let occupied = zone_data.filter((desk) => desk.status.toLowerCase() === 'occupied')
-          let damaged = zone_data.filter((desk) => desk.status.toLowerCase() === 'damaged')
-          let vacant = zone_data.filter((desk) => desk.status.toLowerCase() === 'vacant')
+          let occupied = zone_data.filter(
+            (desk) => desk.status.toLowerCase() === "occupied"
+          );
+          let damaged = zone_data.filter(
+            (desk) => desk.status.toLowerCase() === "damaged"
+          );
+          let vacant = zone_data.filter(
+            (desk) => desk.status.toLowerCase() === "vacant"
+          );
 
           // set floor 3 zones data
-          setData((prevData,) => ({...prevData, 
-            "floor_3": {...prevData.floor_3, 
-              "zones": {...prevData.floor_3.zones, 
-                [floor_3_zones[i]]: {...prevData.floor_3.zones[floor_3_zones[i]], 
-                  "occupied": occupied.length,
-                  "vacant": vacant.length, 
-                  "damaged": damaged.length,
-                  "total": zone_data.length,
-                }}
-            }
-          }))
+          setData((prevData) => ({
+            ...prevData,
+            floor_3: {
+              ...prevData.floor_3,
+              zones: {
+                ...prevData.floor_3.zones,
+                [floor_3_zones[i]]: {
+                  ...prevData.floor_3.zones[floor_3_zones[i]],
+                  occupied: occupied.length,
+                  vacant: vacant.length,
+                  damaged: damaged.length,
+                  total: zone_data.length,
+                },
+              },
+            },
+          }));
         }
 
         // get occupied, vacant, damaged and reserved data in floor 3
-         occupied = f3fetchedData.filter((desk) => desk.status.toLowerCase() === 'occupied')
-         damaged = f3fetchedData.filter((desk) => desk.status.toLowerCase() === 'damaged')
-         vacant = f3fetchedData.filter((desk) => desk.status.toLowerCase() === 'vacant')
+        occupied = f3fetchedData.filter(
+          (desk) => desk.status.toLowerCase() === "occupied"
+        );
+        damaged = f3fetchedData.filter(
+          (desk) => desk.status.toLowerCase() === "damaged"
+        );
+        vacant = f3fetchedData.filter(
+          (desk) => desk.status.toLowerCase() === "vacant"
+        );
 
         // set floor 3 data
-        setData((prevData) => ({...prevData, 
-          "floor_3": {...prevData.floor_3, "occupied": occupied.length,"vacant": vacant.length, "damaged": damaged.length}
-        }))
+        setData((prevData) => ({
+          ...prevData,
+          floor_3: {
+            ...prevData.floor_3,
+            occupied: occupied.length,
+            vacant: vacant.length,
+            damaged: damaged.length,
+          },
+        }));
 
         setf2Data((prevData) => [...prevData, ...f2fetchedData]);
         setf3Data((prevData) => [...prevData, ...f3fetchedData]);
@@ -204,11 +257,18 @@ const Home = () => {
 
   // Chart data and options
   const floor2data = {
-    labels: ["", "Zone D", "Zone E", "Zone H", "Zone I","", ""],
+    labels: ["", "Zone D", "Zone E", "Zone H", "Zone I", "", ""],
     datasets: [
       {
         label: "Damaged",
-        data: [, data.floor_2.zones.d.damaged, data.floor_2.zones.e.damaged, data.floor_2.zones.h.damaged, data.floor_2.zones.i.damaged,, ],
+        data: [
+          ,
+          data.floor_2.zones.d.damaged,
+          data.floor_2.zones.e.damaged,
+          data.floor_2.zones.h.damaged,
+          data.floor_2.zones.i.damaged,
+          ,
+        ],
         backgroundColor: "#dc2626",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
@@ -216,7 +276,14 @@ const Home = () => {
       },
       {
         label: "Vacant",
-        data: [, data.floor_2.zones.d.vacant, data.floor_2.zones.e.vacant, data.floor_2.zones.h.vacant, data.floor_2.zones.i.vacant,, ],
+        data: [
+          ,
+          data.floor_2.zones.d.vacant,
+          data.floor_2.zones.e.vacant,
+          data.floor_2.zones.h.vacant,
+          data.floor_2.zones.i.vacant,
+          ,
+        ],
         backgroundColor: "#4ade80",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
@@ -224,7 +291,14 @@ const Home = () => {
       },
       {
         label: "Occupied",
-        data: [, data.floor_2.zones.d.occupied, data.floor_2.zones.e.occupied, data.floor_2.zones.h.occupied, data.floor_2.zones.i.occupied,, ],
+        data: [
+          ,
+          data.floor_2.zones.d.occupied,
+          data.floor_2.zones.e.occupied,
+          data.floor_2.zones.h.occupied,
+          data.floor_2.zones.i.occupied,
+          ,
+        ],
         backgroundColor: "#ffa500",
         barPercentage: 1, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
@@ -243,10 +317,17 @@ const Home = () => {
       "Zone R",
     ],
     datasets: [
-     
       {
         label: "Damaged",
-        data: [data.floor_3.zones.j.damaged, data.floor_3.zones.k.damaged, data.floor_3.zones.l.damaged, data.floor_3.zones.m.damaged, data.floor_3.zones.n.damaged, data.floor_3.zones.q.damaged, data.floor_3.zones.r.damaged],
+        data: [
+          data.floor_3.zones.j.damaged,
+          data.floor_3.zones.k.damaged,
+          data.floor_3.zones.l.damaged,
+          data.floor_3.zones.m.damaged,
+          data.floor_3.zones.n.damaged,
+          data.floor_3.zones.q.damaged,
+          data.floor_3.zones.r.damaged,
+        ],
         backgroundColor: "#dc2626",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
@@ -254,7 +335,15 @@ const Home = () => {
       },
       {
         label: "Vacant",
-        data: [data.floor_3.zones.j.vacant, data.floor_3.zones.k.vacant, data.floor_3.zones.l.vacant, data.floor_3.zones.m.vacant, data.floor_3.zones.n.vacant, data.floor_3.zones.q.vacant, data.floor_3.zones.r.vacant],
+        data: [
+          data.floor_3.zones.j.vacant,
+          data.floor_3.zones.k.vacant,
+          data.floor_3.zones.l.vacant,
+          data.floor_3.zones.m.vacant,
+          data.floor_3.zones.n.vacant,
+          data.floor_3.zones.q.vacant,
+          data.floor_3.zones.r.vacant,
+        ],
         backgroundColor: "#4ade80",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
@@ -262,7 +351,15 @@ const Home = () => {
       },
       {
         label: "Occupied",
-        data: [data.floor_3.zones.j.occupied, data.floor_3.zones.k.occupied, data.floor_3.zones.l.occupied, data.floor_3.zones.m.occupied, data.floor_3.zones.n.occupied, data.floor_3.zones.q.occupied, data.floor_3.zones.r.occupied],
+        data: [
+          data.floor_3.zones.j.occupied,
+          data.floor_3.zones.k.occupied,
+          data.floor_3.zones.l.occupied,
+          data.floor_3.zones.m.occupied,
+          data.floor_3.zones.n.occupied,
+          data.floor_3.zones.q.occupied,
+          data.floor_3.zones.r.occupied,
+        ],
         backgroundColor: "#FFA500",
         barPercentage: 1.0, // Set the width of the bars to 100% of the available space
         categoryPercentage: 0.8, // Set the spacing between bars to 0%
@@ -281,14 +378,14 @@ const Home = () => {
           font: {
             size: 13,
           },
-          boxWidth: 20, 
+          boxWidth: 20,
         },
       },
       datalabels: {
         display: true,
-        color: 'black',
-        anchor: 'end',
-        align: 'top',
+        color: "black",
+        anchor: "end",
+        align: "top",
         offset: -6,
       },
     },
@@ -300,7 +397,7 @@ const Home = () => {
       },
       y: {
         min: -3,
-        ticks: { 
+        ticks: {
           display: false,
         },
         grid: {
@@ -311,11 +408,7 @@ const Home = () => {
     maintainAspectRatio: false,
     responsive: true,
     // animation: false,
-
   };
-
-  
-
 
   // if (loading) {
   //   return (
@@ -333,7 +426,7 @@ const Home = () => {
           <p className="text-base">Floor 2</p>
           <div className="flex justify-center gap-x-6 mb-4">
             <Link to={"/workstations/of2"}>
-              <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
+              <div className="flex flex-col place-content-center bg-sky-200 transition ease-in-out delay-150 hover:bg-sky-100 hover:drop-shadow-lg h-12 p-4 rounded w-28 drop-shadow-md">
                 <div className="flex justify-center gap-x-2 font-bold text-sky-700">
                   <svg
                     fill="currentColor"
@@ -353,9 +446,9 @@ const Home = () => {
                 </div>
                 <p className="text-xs">Occupied</p>
               </div>
-            </Link>         
+            </Link>
             <Link to={"/workstations/vf2"}>
-              <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
+              <div className="flex flex-col place-content-center bg-sky-200 transition ease-in-out delay-150 hover:bg-sky-100 hover:drop-shadow-lg  h-12 p-4 rounded w-28 drop-shadow-md">
                 <div className="flex justify-center gap-x-2 font-bold text-sky-700">
                   <svg
                     fill="currentColor"
@@ -375,9 +468,9 @@ const Home = () => {
                 </div>
                 <span className="text-xs">Vacant</span>
               </div>
-            </Link>     
+            </Link>
             <Link to={"/workstations/df2"}>
-              <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
+              <div className="flex flex-col place-content-center bg-sky-200 transition ease-in-out delay-150 hover:bg-sky-100 hover:drop-shadow-lg  h-12 p-4 rounded w-28 drop-shadow-md">
                 <div className="flex justify-center gap-x-2 font-bold text-sky-700">
                   <svg
                     className="flex-shrink-0 ml-2 w-7 h-7 text-sky-700 transition duration-75 group-hover:text-sky-700"
@@ -396,37 +489,49 @@ const Home = () => {
                 <p className="text-xs">Damaged</p>
               </div>
             </Link>
-            
           </div>
         </div>
         <div className="flex gap-x-4">
           {/* Totals */}
-        <div 
-        // className="text-gray-500 mt-1 ml-1 absolute w-20 text-xs top-56"
-        className="w-20 text-xs text-gray-500"
-        >
-          <p className="font-bold mb-2 text-sm">Total</p>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone D</p>
-            <p className="inline-block text-right w-1/4">{data.floor_2.zones.d.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone E</p>
-            <p className="inline-block text-right w-1/4">{data.floor_2.zones.e.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone H</p>
-            <p className="inline-block text-right w-1/4">{data.floor_2.zones.h.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone I</p>
-            <p className="inline-block text-right w-1/4">{data.floor_2.zones.i.total}</p>
-          </article>
-        </div>
-        {/* Barchart */}
-        <div className="basis-10/12">
-          <Bar height={200} width={100} data={floor2data} options={chart_options}></Bar>
-        </div>
+          <div
+            // className="text-gray-500 mt-1 ml-1 absolute w-20 text-xs top-56"
+            className="w-20 text-xs text-gray-500"
+          >
+            <p className="font-bold mb-2 text-sm">Total</p>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone D</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_2.zones.d.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone E</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_2.zones.e.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone H</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_2.zones.h.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone I</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_2.zones.i.total}
+              </p>
+            </article>
+          </div>
+          {/* Barchart */}
+          <div className="basis-10/12">
+            <Bar
+              height={200}
+              width={100}
+              data={floor2data}
+              options={chart_options}
+            ></Bar>
+          </div>
         </div>
       </div>
 
@@ -436,7 +541,7 @@ const Home = () => {
           <p className="text-base">Floor 3</p>
           <div className="flex justify-center gap-x-6 mb-4">
             <Link to={"/workstations/of3"}>
-              <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
+              <div className="flex flex-col place-content-center bg-sky-200 transition ease-in-out delay-150 hover:bg-sky-100 hover:drop-shadow-lg  h-12 p-4 rounded w-28 drop-shadow-md">
                 <div className="flex justify-center gap-2 font-bold text-sky-700">
                   <svg
                     fill="currentColor"
@@ -458,7 +563,7 @@ const Home = () => {
               </div>
             </Link>
             <Link to={"workstations/vf3"}>
-              <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
+              <div className="flex flex-col place-content-center bg-sky-200 transition ease-in-out delay-150 hover:bg-sky-100 hover:drop-shadow-lg  h-12 p-4 rounded w-28 drop-shadow-md">
                 <div className="flex justify-center gap-2 font-bold text-sky-700">
                   <svg
                     fill="currentColor"
@@ -480,7 +585,7 @@ const Home = () => {
               </div>
             </Link>
             <Link to={"workstations/df3"}>
-              <div className="flex flex-col place-content-center bg-sky-200 h-12 p-4 rounded w-28 drop-shadow-md">
+              <div className="flex flex-col place-content-center bg-sky-200 transition ease-in-out delay-150 hover:bg-sky-100 hover:drop-shadow-lg  h-12 p-4 rounded w-28 drop-shadow-md">
                 <div className="flex justify-center gap-2 font-bold text-sky-700">
                   <svg
                     className="flex-shrink-0 ml-2 w-7 h-7 text-sky-700 transition duration-75 group-hover:text-sky-700"
@@ -503,42 +608,60 @@ const Home = () => {
         </div>
         <div className="flex gap-x-4">
           {/* Totals */}
-        <div className="w-20 text-xs text-gray-500">
-          <p className="font-bold mb-2 text-sm">Total</p>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone J</p>
-            <p className="inline-block text-right w-1/4">{data.floor_3.zones.j.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone K</p>
-            <p className="inline-block text-right w-1/4">{data.floor_3.zones.k.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone L</p>
-            <p className="inline-block text-right w-1/4">{data.floor_3.zones.l.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone M</p>
-            <p className="inline-block text-right w-1/4">{data.floor_3.zones.m.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone N</p>
-            <p className="inline-block text-right w-1/4">{data.floor_3.zones.n.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone Q</p>
-            <p className="inline-block text-right w-1/4">{data.floor_3.zones.q.total}</p>
-          </article>
-          <article className="">
-            <p className="inline-block text-left w-3/4">Zone R</p>
-            <p className="inline-block text-right w-1/4">{data.floor_3.zones.r.total}</p>
-          </article>
-        </div>
+          <div className="w-20 text-xs text-gray-500">
+            <p className="font-bold mb-2 text-sm">Total</p>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone J</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_3.zones.j.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone K</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_3.zones.k.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone L</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_3.zones.l.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone M</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_3.zones.m.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone N</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_3.zones.n.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone Q</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_3.zones.q.total}
+              </p>
+            </article>
+            <article className="">
+              <p className="inline-block text-left w-3/4">Zone R</p>
+              <p className="inline-block text-right w-1/4">
+                {data.floor_3.zones.r.total}
+              </p>
+            </article>
+          </div>
           {/* Barchart */}
-        <div className="basis-10/12">
-          <Bar height={200} width={100} data={floor3data} options={chart_options}></Bar>
-        </div>
-        
+          <div className="basis-10/12">
+            <Bar
+              height={200}
+              width={100}
+              data={floor3data}
+              options={chart_options}
+            ></Bar>
+          </div>
         </div>
       </div>
     </div>
