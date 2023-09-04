@@ -1,34 +1,37 @@
 import React from "react";
 import Desk from "../../Desk";
+import { Link } from "react-router-dom";
 
 const J_ZoneChart = ({ data }) => {
   return (
     <div className="border-2 m-2 border-slate-400 rounded w-[376px] my-2 mx-auto">
       <div className="ZoneJ p-2.5 grid grid-cols-6 grid-rows-7 gap-2">
         <div className="zoneR grid rounded-sm place-items-center bg-[#e9f9fd] col-start-1 col-end-3 row-start-1 row-end-8">
-          <div>
-            <p>Zone R</p>
-            <svg
-              fill="#000000"
-              // className="w-7 h-7 text-slate-500"
-              viewBox="0 0 24 24"
-              id="left-arrow"
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon line"
-            >
-              <path
-                id="primary"
-                d="M21,12H3M6,9,3,12l3,3"
-                style={{
-                  fill: "none",
-                  stroke: "rgb(0, 0, 0)",
-                  strokeLinecap: "round",
-                  strokeLinejoin: "round",
-                  strokeWidth: "1.5",
-                }}
-              ></path>
-            </svg>
-          </div>
+          <Link to={"/zones/zone_rs"}>
+            <div>
+              <p>Zone R</p>
+              <svg
+                fill="#000000"
+                // className="w-7 h-7 text-slate-500"
+                viewBox="0 0 24 24"
+                id="left-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon line"
+              >
+                <path
+                  id="primary"
+                  d="M21,12H3M6,9,3,12l3,3"
+                  style={{
+                    fill: "none",
+                    stroke: "rgb(0, 0, 0)",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    strokeWidth: "1.5",
+                  }}
+                ></path>
+              </svg>
+            </div>
+          </Link>
         </div>
         {/* Desk_id: #15-19 */}
         <div className="ocp1 col-start-3 col-end-7 row-start-1 row-end-2 flex flex-row items-center place-content-end">

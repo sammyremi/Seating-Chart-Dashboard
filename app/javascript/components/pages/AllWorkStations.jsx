@@ -44,19 +44,21 @@ const AllWorkStations = () => {
   });
 
   // check for occupied, damaged or vacant from params
-  if(floor[0] === "o"){
-    // setFilters((prevFilters) => ({...prevFilters, occupied: true}));
-    console.log("o");
-  } else if (floor[0] === "v") {
-    // setFilters(() => ({vacant: true}));
-    console.log("v");
-  } else if (floor[0] === "d") {
-    // setFilters(() => ({damaged: true}));
-    console.log("d");
-  }
+  useEffect(() => {
+    if (floor[0] === "o") {
+      setFilters((prevFilters) => ({ ...prevFilters, occupied: true }));
+    } else if (floor[0] === "v") {
+      setFilters((prevFilters) => ({ ...prevFilters, vacant: true }));
+    } else if (floor[0] === "d") {
+      setFilters((prevFilters) => ({ ...prevFilters, damaged: true }));
+    } else {
+      console.log("nothing to show");
+    }
+  }, [floor]);
 
   // check floor zones to be fetched from params
-  const zone_array = floor[2] === "2"? floor_2_zones: floor[2] === "3"? floor_3_zones : zones
+  const zone_array =
+    floor[2] === "2" ? floor_2_zones : floor[2] === "3" ? floor_3_zones : zones;
 
   useEffect(() => {
     const fetchData = async () => {

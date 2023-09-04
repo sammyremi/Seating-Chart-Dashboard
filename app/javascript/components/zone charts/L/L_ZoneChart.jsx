@@ -1,5 +1,6 @@
 import React from "react";
 import Desk from "../../Desk";
+import { Link } from "react-router-dom";
 
 const L_ZoneChart = ({ data }) => {
   return (
@@ -7,29 +8,31 @@ const L_ZoneChart = ({ data }) => {
       <div class="ZoneL border-2 m-2 border-slate-400 rounded p-2 w-[400px] mx-auto my-2 grid grid-cols-5 grid-rows-9 gap-2.5 text-center">
         <div class="zonek rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-10">
           {/* Zone K */}
-          <div>
-            <p>Zone K</p>
-            <svg
-              fill="#000000"
-              className="w-7 h-7 text-slate-500"
-              viewBox="0 0 24 24"
-              id="left-arrow"
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon line"
-            >
-              <path
-                id="primary"
-                d="M21,12H3M6,9,3,12l3,3"
-                style={{
-                  fill: "none",
-                  stroke: "rgb(0, 0, 0)",
-                  strokeLinecap: "round",
-                  strokeLinejoin: "round",
-                  strokeWidth: "1.5",
-                }}
-              ></path>
-            </svg>
-          </div>
+          <Link to={"/zones/zone_ks"}>
+            <div>
+              <p>Zone K</p>
+              <svg
+                fill="#000000"
+                className="w-7 h-7 text-slate-500"
+                viewBox="0 0 24 24"
+                id="left-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon line"
+              >
+                <path
+                  id="primary"
+                  d="M21,12H3M6,9,3,12l3,3"
+                  style={{
+                    fill: "none",
+                    stroke: "rgb(0, 0, 0)",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    strokeWidth: "1.5",
+                  }}
+                ></path>
+              </svg>
+            </div>
+          </Link>
         </div>
         {/* Desk_id: #9-14 */}
         <div class="ocpd1 col-start-2 col-end-4 row-start-1 row-end-3 flex flex-col place-content-center">

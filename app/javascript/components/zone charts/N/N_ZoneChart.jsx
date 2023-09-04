@@ -8,31 +8,31 @@ const N_ZoneChart = ({ data }) => {
       <div class="zoneN border-2 m-2 border-slate-400 rounded p-2 w-[500px] mx-auto my-2 grid grid-cols-7 grid-rows-11 gap-2.5 text-center">
         <div class="zonem rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-3 row-start-1 row-end-12">
           {/* Zone M */}
-          {/* <Link to={"/zones/zone_hs"}> */}
-          <div>
-            <p>Zone M</p>
-            <svg
-              fill="#000000"
-              className="w-7 h-7 text-slate-500"
-              viewBox="0 0 24 24"
-              id="left-arrow"
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon line"
-            >
-              <path
-                id="primary"
-                d="M21,12H3M6,9,3,12l3,3"
-                style={{
-                  fill: "none",
-                  stroke: "rgb(0, 0, 0)",
-                  strokeLinecap: "round",
-                  strokeLinejoin: "round",
-                  strokeWidth: "1.5",
-                }}
-              ></path>
-            </svg>
-          </div>
-          {/* </Link> */}
+          <Link to={"/zones/zone_ms"}>
+            <div>
+              <p>Zone M</p>
+              <svg
+                fill="#000000"
+                className="w-7 h-7 text-slate-500"
+                viewBox="0 0 24 24"
+                id="left-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon line"
+              >
+                <path
+                  id="primary"
+                  d="M21,12H3M6,9,3,12l3,3"
+                  style={{
+                    fill: "none",
+                    stroke: "rgb(0, 0, 0)",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    strokeWidth: "1.5",
+                  }}
+                ></path>
+              </svg>
+            </div>
+          </Link>
         </div>
         {/* Desk_id: #1-10 */}
         <div class="ocpd1  col-start-7 col-end-8 row-start-1 row-end-11 flex flex-col place-items-end">
