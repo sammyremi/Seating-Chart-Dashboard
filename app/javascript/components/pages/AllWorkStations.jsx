@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Table from "../Table";
+import { useParams } from "react-router-dom";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
+const floor_2_zones = ["d", "e", "h", "i"];
+const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
 
 const AllWorkStations = () => {
   const [data, setData] = useState([]);
@@ -10,8 +13,9 @@ const AllWorkStations = () => {
     occupied: false,
     vacant: false,
     damaged: false,
-    filtered: false,
+    // filtered: false,
   });
+  const { floor } = useParams();
 
   const filteredData = data.filter((desk) => {
     // No filters selected, show all
@@ -39,13 +43,28 @@ const AllWorkStations = () => {
     return false; // Exclude the item from filtered data
   });
 
+  // check for occupied, damaged or vacant from params
+  if(floor[0] === "o"){
+    // setFilters((prevFilters) => ({...prevFilters, occupied: true}));
+    console.log("o");
+  } else if (floor[0] === "v") {
+    // setFilters(() => ({vacant: true}));
+    console.log("v");
+  } else if (floor[0] === "d") {
+    // setFilters(() => ({damaged: true}));
+    console.log("d");
+  }
+
+  // check floor zones to be fetched from params
+  const zone_array = floor[2] === "2"? floor_2_zones: floor[2] === "3"? floor_3_zones : zones
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const fetchedData = [];
 
-        for (let i = 0; i < zones.length; i++) {
-          const response = await fetch(`/zone_${zones[i]}s`);
+        for (let i = 0; i < zone_array.length; i++) {
+          const response = await fetch(`/zone_${zone_array[i]}s`);
           const zone_data = await response.json();
           fetchedData.push(...zone_data);
         }

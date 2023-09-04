@@ -8,6 +8,7 @@ import Zone from "./pages/Zone";
 import FloorMap from "./FloorMap";
 import Floor2 from "./pages/Floor2";
 import Floor3 from "./pages/Floor3";
+import Error from "./pages/Error";
 import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,7 +29,7 @@ const App = () => {
     {
       path: "/",
       element: <HomeLayout />,
-      errorElement: <h2>There was an error...</h2>,
+      errorElement: <Error/>,
       children: [
         {
           index: true,
@@ -43,7 +44,7 @@ const App = () => {
           element: <Show current_user={current_user} />,
         },
         {
-          path: "all-workstations",
+          path: "/workstations/:floor",
           element: <AllWorkStations />,
         },
         {
