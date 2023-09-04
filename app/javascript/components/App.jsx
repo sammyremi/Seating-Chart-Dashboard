@@ -44,7 +44,7 @@ const App = () => {
           element: <Show current_user={current_user} />,
         },
         {
-          path: "all-workstations",
+          path: "/workstations/:floor",
           element: <AllWorkStations />,
         },
         {
