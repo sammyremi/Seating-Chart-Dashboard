@@ -9,7 +9,9 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      unless current_user && current_user.admin?
+        redirect_to root_path, alert: "Access denied. You must be an admin to view this page."
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
