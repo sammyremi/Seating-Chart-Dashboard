@@ -317,13 +317,13 @@ const Home = () => {
   
 
 
-  // if (loading) {
-  //   return (
-  //     <div>
-  //       <p>Loading...</p>
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-full py-2">
