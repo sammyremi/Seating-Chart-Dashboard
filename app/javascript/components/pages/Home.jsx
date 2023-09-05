@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../Loading";
 import {
   Chart as ChartJS,
   BarElement,
@@ -183,9 +184,7 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <Loading/>
     );
   }
 

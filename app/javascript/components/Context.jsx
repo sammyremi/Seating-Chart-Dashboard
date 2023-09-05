@@ -11,6 +11,7 @@ const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = (props) => {
+  const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({
     floor_2: {
@@ -252,10 +253,10 @@ const AppContext = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [refresh]);
 
   return (
-    <GlobalContext.Provider value={{ data, setData, loading, setLoading }}>
+    <GlobalContext.Provider value={{ data, setData, loading, setLoading, setRefresh, refresh }}>
       {props.children}
     </GlobalContext.Provider>
   );

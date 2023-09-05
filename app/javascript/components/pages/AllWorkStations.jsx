@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Table from "../Table";
 import { useParams } from "react-router-dom";
+import { useGlobalContext } from "../Context";
+import Loading from "../Loading";
+
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 const floor_2_zones = ["d", "e", "h", "i"];
 const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
 
 const AllWorkStations = () => {
+  const {} = useGlobalContext()
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -82,9 +86,7 @@ const AllWorkStations = () => {
 
   if (loading) {
     return (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <Loading/>
     );
   }
 
