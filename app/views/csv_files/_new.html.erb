@@ -1,19 +1,50 @@
-
 <div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
   <img src="<%= asset_path('Upload.gif') %>" alt="GIF Image">
 </div>
 
-
-<div style="display: flex; justify-content: center; align-items: center;">
-
-  <%= form_tag csv_files_path, multipart: true do %>
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <%= form_tag csv_files_path, multipart: true, id: "csv-upload-form" do %>
 
     <%= file_field_tag :file, accept: ".csv", style: "margin-top: -50px; margin-left: 100px;"%>
 
-    <div>
-    <%= submit_tag 'Upload File', style: "margin-left: 145px; margin-top: 20px;"%>
+    <div id="csv-preview" style="display: none;">
+      <h4>CSV File Preview:</h4>
+      <textarea id="csv-content" rows="10" cols="50" readonly></textarea>
     </div>
-    
-  <% end %>
 
+    <div>
+      <%= submit_tag 'Upload File', style: "margin-left: 145px; margin-top: 20px;"%>
+    </div>
+
+  <% end %>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const csvUploadForm = document.getElementById('csv-upload-form');
+    const fileInput = document.querySelector('input[type="file"]');
+    const csvPreview = document.getElementById('csv-preview');
+    const csvContent = document.getElementById('csv-content');
+
+    fileInput.addEventListener('change', function () {
+      const selectedFile = fileInput.files[0];
+
+      if (selectedFile) {
+        if (selectedFile.name.endsWith('.csv')) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            csvContent.value = e.target.result;
+            csvPreview.style.display = 'block'; // Show the preview
+          };
+
+          reader.readAsText(selectedFile);
+        } else {
+          alert('Please select a CSV file.');
+        }
+      } else {
+        csvPreview.style.display = 'none'; // Hide the preview if no file is selected
+      }
+    });
+  });
+</script>
