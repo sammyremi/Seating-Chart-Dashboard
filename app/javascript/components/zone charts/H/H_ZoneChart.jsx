@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Desk from "../../Desk";
 import { Link } from "react-router-dom";
 
-const H_ZoneChart = ({ data }) => {
+const H_ZoneChart = ({ zone_name }) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const url = `/${zone_name}`;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const zones = await response.json();
+        setData(zones);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [zone_name]);
+
+  if (loading) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
   return (
     <div>
       <div className="border-2 m-2 border-slate-400 rounded p-2 grid grid-cols-10 grid-rows-8 w-[500px] my-2 mx-auto gap-2.5 text-center">

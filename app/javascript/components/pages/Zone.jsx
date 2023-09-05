@@ -55,43 +55,6 @@ const Zone = () => {
   const zone_id_array = zone_name.split("");
   const zone_id = zone_id_array[zone_id_array.length - 2];
 
-  let chartComponent;
-  switch (zone_id.toUpperCase()) {
-    case "D":
-      chartComponent = <D_ZoneChart data={data} />;
-      break;
-    case "E":
-      chartComponent = <E_ZoneChart data={data} />;
-      break;
-    case "H":
-      chartComponent = <H_ZoneChart data={data} />;
-      break;
-    case "I":
-      chartComponent = <I_ZoneChart data={data} />;
-      break;
-    case "J":
-      chartComponent = <J_ZoneChart data={data} />;
-      break;
-    case "K":
-      chartComponent = <K_ZoneChart data={data} />;
-      break;
-    case "L":
-      chartComponent = <L_ZoneChart data={data} />;
-      break;
-    case "M":
-      chartComponent = <M_ZoneChart data={data} />;
-      break;
-    case "N":
-      chartComponent = <N_ZoneChart data={data} />;
-      break;
-    case "Q":
-      chartComponent = <Q_ZoneChart data={data} />;
-      break;
-    case "R":
-      chartComponent = <R_ZoneChart data={data} />;
-      break;
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -104,7 +67,45 @@ const Zone = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [zone_name]);
+
+  let chartComponent;
+  switch (zone_id.toUpperCase()) {
+    case "D":
+      chartComponent = <D_ZoneChart zone_name={zone_name} />;
+      break;
+    case "E":
+      chartComponent = <E_ZoneChart zone_name={zone_name} />;
+      break;
+    case "H":
+      chartComponent = <H_ZoneChart zone_name={zone_name} />;
+      break;
+    case "I":
+      chartComponent = <I_ZoneChart zone_name={zone_name} />;
+      break;
+    case "J":
+      chartComponent = <J_ZoneChart zone_name={zone_name} />;
+      break;
+    case "K":
+      chartComponent = <K_ZoneChart zone_name={zone_name} />;
+      break;
+    case "L":
+      chartComponent = <L_ZoneChart zone_name={zone_name} />;
+      break;
+    case "M":
+      chartComponent = <M_ZoneChart zone_name={zone_name} />;
+      break;
+    case "N":
+      chartComponent = <N_ZoneChart zone_name={zone_name} />;
+      break;
+    case "Q":
+      chartComponent = <Q_ZoneChart zone_name={zone_name} />;
+      break;
+    case "R":
+      chartComponent = <R_ZoneChart zone_name={zone_name} />;
+      break;
+  }
+
   if (loading) {
     return (
       <div>
@@ -117,7 +118,9 @@ const Zone = () => {
       <p className="text-3xl font-bold text-center text-gray-600">
         Zone {zone_id.toUpperCase()}
       </p>
+      {/* show seating chart */}
       <div className="mb-12">{chartComponent}</div>
+
       <div className="flex justify-end text-gray-600">
         <div className="flex flex-col place-items-center">
           <i className=" font-bold">Filter Result</i>
