@@ -23,7 +23,9 @@ ChartJS.register(
 
 const Home = () => {
   const { data, loading } = useGlobalContext();
-  console.log(data);
+  console.log(loading);
+
+
   // Chart data and options
   const floor2data = {
     labels: ["", "Zone D", "Zone E", "Zone H", "Zone I", "", ""],

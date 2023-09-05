@@ -25,7 +25,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         e: {
           total: "",
@@ -33,7 +32,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         h: {
           total: "",
@@ -41,7 +39,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         i: {
           total: "",
@@ -49,7 +46,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
       },
     },
@@ -65,7 +61,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         k: {
           total: "",
@@ -73,7 +68,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         l: {
           total: "",
@@ -81,7 +75,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         m: {
           total: "",
@@ -89,7 +82,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         n: {
           total: "",
@@ -97,7 +89,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         q: {
           total: "",
@@ -105,7 +96,6 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
         r: {
           total: "",
@@ -113,10 +103,22 @@ const AppContext = (props) => {
           damaged: "",
           vacant: "",
           reserved: "",
-          zone_data: [],
         },
       },
     },
+    zone_data: {
+      d: [],
+      e: [],
+      h: [],
+      i: [],
+      j: [],
+      k: [],
+      l: [],
+      m: [],
+      n: [],
+      q: [],
+      r: [],
+    }
   });
 
   useEffect(() => {
@@ -144,7 +146,9 @@ const AppContext = (props) => {
 
           // set floor 2 zones data
           setData((prevData) => ({
-            ...prevData,
+            ...prevData, zone_data: {
+              ...prevData.zone_data, [floor_2_zones[i]]: zone_data,
+            },
             floor_2: {
               ...prevData.floor_2,
               zones: {
@@ -155,7 +159,6 @@ const AppContext = (props) => {
                   vacant: vacant.length,
                   damaged: damaged.length,
                   total: zone_data.length,
-                  zone_data: zone_data,
                 },
               },
             },
@@ -172,7 +175,7 @@ const AppContext = (props) => {
           (desk) => desk.status.toLowerCase() === "vacant"
         );
 
-        // set floor 2 data
+        // set floor 2 data length
         setData((prevData) => ({
           ...prevData,
           floor_2: {
@@ -202,7 +205,9 @@ const AppContext = (props) => {
 
           // set floor 3 zones data
           setData((prevData) => ({
-            ...prevData,
+            ...prevData, zone_data: {
+              ...prevData.zone_data, [floor_3_zones[i]]: zone_data,
+            },
             floor_3: {
               ...prevData.floor_3,
               zones: {
