@@ -12,11 +12,11 @@ import M_ZoneChart from "../zone charts/M/M_ZoneChart";
 import N_ZoneChart from "../zone charts/N/N_ZoneChart";
 import Q_ZoneChart from "../zone charts/Q/Q_ZoneChart";
 import R_ZoneChart from "../zone charts/R/R_ZoneChart";
+import { useGlobalContext } from "../Context";
 
 const Zone = () => {
+  const {data} = useGlobalContext()
   const { zone_name } = useParams();
-  // console.log(zone_name);
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     occupied: false,
@@ -25,7 +25,9 @@ const Zone = () => {
     filtered: false,
   });
 
-  const filteredData = data.filter((desk) => {
+  const zone_data = data.
+
+  const filteredData = zone_data.filter((desk) => {
     // No filters selected, show all
     if (
       !filters.occupied &&
@@ -55,27 +57,27 @@ const Zone = () => {
   const zone_id_array = zone_name.split("");
   const zone_id = zone_id_array[zone_id_array.length - 2];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const zones = await response.json();
-        setData(zones);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [zone_name]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(url);
+  //       const zones = await response.json();
+  //       setData(zones);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [zone_name]);
 
   let chartComponent;
   switch (zone_id.toUpperCase()) {
     case "D":
-      chartComponent = <D_ZoneChart zone_name={zone_name} />;
+      chartComponent = <D_ZoneChart zone_data={zone_data} />;
       break;
     case "E":
-      chartComponent = <E_ZoneChart zone_name={zone_name} />;
+      chartComponent = <E_ZoneChart zone_data={zone_data} />;
       break;
     case "H":
       chartComponent = <H_ZoneChart zone_name={zone_name} />;
@@ -211,7 +213,7 @@ const Zone = () => {
           </fieldset>
         </div>
       </div>
-      <Table data={filteredData} />
+      <Table zone_data={filteredData} />
     </div>
   );
 };
