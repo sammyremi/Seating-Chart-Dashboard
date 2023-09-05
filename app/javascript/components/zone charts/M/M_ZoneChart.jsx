@@ -2,32 +2,8 @@ import React, { useEffect, useState } from "react";
 import Desk from "../../Desk";
 import { Link } from "react-router-dom";
 
-const M_ZoneChart = ({ zone_name }) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const url = `/${zone_name}`;
+const M_ZoneChart = ({ data }) => {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const zones = await response.json();
-        setData(zones);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [zone_name]);
-
-  if (loading) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  }
   return (
     <div>
       <div class="zoneM border-2 m-2 border-slate-400 rounded p-2 w-[500px] mx-auto my-2 grid grid-cols-6 grid-rows-9 gap-2.5 text-center">

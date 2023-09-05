@@ -23,7 +23,7 @@ ChartJS.register(
 
 const Home = () => {
   const { data, loading } = useGlobalContext();
-  console.log(loading);
+  console.log(data);
 
 
   // Chart data and options
