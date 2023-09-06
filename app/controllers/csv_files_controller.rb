@@ -6,6 +6,8 @@ class CsvFilesController < ApplicationController
     end
 
     def create
+        @xy = 0
+        @test = []
 
         # reading file from params
         
@@ -45,6 +47,7 @@ class CsvFilesController < ApplicationController
 
             data_col = ["desk_id", "status", "campaign"]
             zone_code = ["D", "E", "H", "I", "J", "K", "L", "M", "N", "Q", "R"]
+            status_type = ["damaged", "occupied", "vacant", "reserved (it)", "reserved (ops)", "reserved (dev)"]
 
             CSV.foreach(file.path, headers: true) do |row|
 
@@ -53,9 +56,12 @@ class CsvFilesController < ApplicationController
                 db_hash = data.slice(*data_col)
                 data_id = db_hash["desk_id"]
                 case_check = data_id[0]
-
                 # checking for correct format for ID
+                status_confirm = db_hash["status"].downcase
+
                 if !zone_code.include?(data_id[0]) || data_id.length != 5
+                    next
+                elsif !status_type.include?(status_confirm)
                     next
                 else
                     # checking if desk id exist if exist update with the existing
@@ -252,6 +258,7 @@ class CsvFilesController < ApplicationController
                 end
             end
             redirect_to admin_csv_files_path, notice: "File updated to Database"
+
             
         else
 

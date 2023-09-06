@@ -180,6 +180,9 @@ const Home = () => {
     // animation: false,
   };
 
+  
+
+
   if (loading) {
     return <Loading />;
   }
