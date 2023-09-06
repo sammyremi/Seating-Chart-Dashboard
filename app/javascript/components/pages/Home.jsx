@@ -24,8 +24,6 @@ ChartJS.register(
 
 const Home = () => {
   const { data, loading } = useGlobalContext();
-  console.log(data);
-
 
   // Chart data and options
   const floor2data = {
@@ -183,9 +181,7 @@ const Home = () => {
   };
 
   if (loading) {
-    return (
-      <Loading/>
-    );
+    return <Loading />;
   }
 
   return (
