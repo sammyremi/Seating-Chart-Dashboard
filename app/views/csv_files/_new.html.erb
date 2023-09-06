@@ -35,7 +35,7 @@
 
           reader.onload = function (e) {
             csvContent.value = e.target.result;
-            csvPreview.style.display = 'block'; // Show the preview
+            csvPreview.style.display = 'block';
           };
 
           reader.readAsText(selectedFile);
@@ -43,7 +43,7 @@
           alert('Please select a CSV file.');
         }
       } else {
-        csvPreview.style.display = 'none'; // Hide the preview if no file is selected
+        csvPreview.style.display = 'none';
       }
     });
   });
