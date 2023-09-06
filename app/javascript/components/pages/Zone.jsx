@@ -12,12 +12,11 @@ import M_ZoneChart from "../zone charts/M/M_ZoneChart";
 import N_ZoneChart from "../zone charts/N/N_ZoneChart";
 import Q_ZoneChart from "../zone charts/Q/Q_ZoneChart";
 import R_ZoneChart from "../zone charts/R/R_ZoneChart";
+import { useGlobalContext } from "../Context";
 
 const Zone = () => {
+  const {data, loading } = useGlobalContext()
   const { zone_name } = useParams();
-  console.log(zone_name);
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     occupied: false,
     vacant: false,
@@ -25,7 +24,12 @@ const Zone = () => {
     filtered: false,
   });
 
-  const filteredData = data.filter((desk) => {
+  const zone_id_array = zone_name.split("");
+  const zone_id = zone_id_array[zone_id_array.length - 2];
+
+  const zone_data = data.zone_data[zone_id]
+
+  const filteredData = zone_data.filter((desk) => {
     // No filters selected, show all
     if (
       !filters.occupied &&
@@ -51,60 +55,43 @@ const Zone = () => {
     return false; // Exclude the item from filtered data
   });
 
-  const url = `/${zone_name}`;
-  const zone_id_array = zone_name.split("");
-  const zone_id = zone_id_array[zone_id_array.length - 2];
-
   let chartComponent;
   switch (zone_id.toUpperCase()) {
     case "D":
-      chartComponent = <D_ZoneChart data={data} />;
+      chartComponent = <D_ZoneChart data={zone_data} />;
       break;
     case "E":
-      chartComponent = <E_ZoneChart data={data} />;
+      chartComponent = <E_ZoneChart data={zone_data} />;
       break;
     case "H":
-      chartComponent = <H_ZoneChart data={data} />;
+      chartComponent = <H_ZoneChart data={zone_data} />;
       break;
     case "I":
-      chartComponent = <I_ZoneChart data={data} />;
+      chartComponent = <I_ZoneChart data={zone_data} />;
       break;
     case "J":
-      chartComponent = <J_ZoneChart data={data} />;
+      chartComponent = <J_ZoneChart data={zone_data} />;
       break;
     case "K":
-      chartComponent = <K_ZoneChart data={data} />;
+      chartComponent = <K_ZoneChart data={zone_data} />;
       break;
     case "L":
-      chartComponent = <L_ZoneChart data={data} />;
+      chartComponent = <L_ZoneChart data={zone_data} />;
       break;
     case "M":
-      chartComponent = <M_ZoneChart data={data} />;
+      chartComponent = <M_ZoneChart data={zone_data} />;
       break;
     case "N":
-      chartComponent = <N_ZoneChart data={data} />;
+      chartComponent = <N_ZoneChart data={zone_data} />;
       break;
     case "Q":
-      chartComponent = <Q_ZoneChart data={data} />;
+      chartComponent = <Q_ZoneChart data={zone_data} />;
       break;
     case "R":
-      chartComponent = <R_ZoneChart data={data} />;
+      chartComponent = <R_ZoneChart data={zone_data} />;
       break;
   }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const zones = await response.json();
-        setData(zones);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
   if (loading) {
     return (
       <div>
@@ -117,7 +104,9 @@ const Zone = () => {
       <p className="text-3xl font-bold text-center text-gray-600">
         Zone {zone_id.toUpperCase()}
       </p>
+      {/* show seating chart */}
       <div className="mb-12">{chartComponent}</div>
+
       <div className="flex justify-end text-gray-600">
         <div className="flex flex-col place-items-center">
           <i className=" font-bold">Filter Result</i>

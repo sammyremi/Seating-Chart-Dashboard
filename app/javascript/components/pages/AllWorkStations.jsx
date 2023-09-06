@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Table from "../Table";
 import { useParams } from "react-router-dom";
+import { useGlobalContext } from "../Context";
+import Loading from "../Loading";
+
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 const floor_2_zones = ["d", "e", "h", "i"];
 const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
 
 const AllWorkStations = () => {
+  const {} = useGlobalContext()
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -44,19 +48,21 @@ const AllWorkStations = () => {
   });
 
   // check for occupied, damaged or vacant from params
-  if(floor[0] === "o"){
-    // setFilters((prevFilters) => ({...prevFilters, occupied: true}));
-    console.log("o");
-  } else if (floor[0] === "v") {
-    // setFilters(() => ({vacant: true}));
-    console.log("v");
-  } else if (floor[0] === "d") {
-    // setFilters(() => ({damaged: true}));
-    console.log("d");
-  }
+  useEffect(() => {
+    if (floor[0] === "o") {
+      setFilters((prevFilters) => ({ ...prevFilters, occupied: true }));
+    } else if (floor[0] === "v") {
+      setFilters((prevFilters) => ({ ...prevFilters, vacant: true }));
+    } else if (floor[0] === "d") {
+      setFilters((prevFilters) => ({ ...prevFilters, damaged: true }));
+    } else {
+      console.log("nothing to show");
+    }
+  }, [floor]);
 
   // check floor zones to be fetched from params
-  const zone_array = floor[2] === "2"? floor_2_zones: floor[2] === "3"? floor_3_zones : zones
+  const zone_array =
+    floor[2] === "2" ? floor_2_zones : floor[2] === "3" ? floor_3_zones : zones;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -80,15 +86,15 @@ const AllWorkStations = () => {
 
   if (loading) {
     return (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <Loading/>
     );
   }
 
   return (
     <div className="pt-4">
-      <p className="text-center font-bold mb-4">All Workstations</p>
+      <p className="text-center font-bold mb-4">
+        {floor[2] === "2" ? "Floor 2 Workstations": floor[2] === "3" ? "Floor 3 Workstations" : "All Workstations"}
+        </p>
       <div className="absolute top-20 text-center right-4">
         <i className=" font-bold mb-4">Filter Result</i>
         <fieldset className="flex gap-2">

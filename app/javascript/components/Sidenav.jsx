@@ -1,17 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useGlobalContext } from "./Context";
 import { current_user } from "./App";
 
 const Sidenav = () => {
   const [active, setActive] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { loggedIn, setLoggedIn } = useGlobalContext();
 
-  useEffect(() => {
-    if (current_user?.email) {
-      setLoggedIn(true);
-    }
-  }, [loggedIn]);
+  // useEffect(() => {
+  //   if (current_user?.email) {
+  //     setLoggedIn(true);
+  //   }
+  //   // forceUpdate();
+  // }, [loggedIn]);
+  // console.log(current_user);
+  console.log(loggedIn);
 
   return (
     <aside className="fixed top-16 left-0 w-1/6 h-screen" aria-label="Sidebar">
@@ -153,8 +157,9 @@ const Sidenav = () => {
             </a>
           </li>
           <li>
-            <a
-              href={loggedIn ? `/users/sign_out` : `/users/sign_in`}
+            <Link
+              to={loggedIn ? `/sign_out` : `/sign_in`}
+              // href={loggedIn ? `/users/sign_out` : `/users/sign_in`}
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "log" ? "bg-sky-300" : ""
               }`}
@@ -179,7 +184,7 @@ const Sidenav = () => {
               <span className="flex-1 ml-3 whitespace-nowrap">
                 {loggedIn ? `Logout` : `Login`}
               </span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

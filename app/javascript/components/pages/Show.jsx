@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import React from "react";
+import { useGlobalContext } from "../Context";
+import Loading from "../Loading";
 
 const Show = ({ current_user }) => {
+  const {setRefresh, refresh} = useGlobalContext()
   const { zone, id } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,6 +34,7 @@ const Show = ({ current_user }) => {
         },
         body: JSON.stringify(updatedData),
       });
+      setRefresh(!refresh)
       toast.success(`${data.desk_id} updated successfully.`);
     } catch (error) {
       toast.error("Network response was not ok");
@@ -55,11 +59,10 @@ const Show = ({ current_user }) => {
 
   if (loading) {
     return (
-      <div>
-        <p>Loading...</p>
-      </div>
+      <Loading/>
     );
   }
+
 
   return (
     <div>
