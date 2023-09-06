@@ -11,7 +11,8 @@ class UserDashboard < Administrate::BaseDashboard
     id: Field::Number,
     admin: Field::Boolean,
     email: Field::String,
-    encrypted_password: Field::String,
+    password: Field::String,
+    password_confirmation: Field::String,
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
@@ -28,7 +29,8 @@ class UserDashboard < Administrate::BaseDashboard
     id
     admin
     email
-    encrypted_password
+    password
+    password_confirmation
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,7 +39,8 @@ class UserDashboard < Administrate::BaseDashboard
     id
     admin
     email
-    encrypted_password
+    password
+    password_confirmation
     remember_created_at
     reset_password_sent_at
     reset_password_token
@@ -51,10 +54,8 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     admin
     email
-    encrypted_password
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
+    password
+    password_confirmation
   ].freeze
 
   # COLLECTION_FILTERS
