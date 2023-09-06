@@ -12,6 +12,7 @@ export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = (props) => {
   const [refresh, setRefresh] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({
     floor_2: {
@@ -119,7 +120,7 @@ const AppContext = (props) => {
       n: [],
       q: [],
       r: [],
-    }
+    },
   });
 
   useEffect(() => {
@@ -147,8 +148,10 @@ const AppContext = (props) => {
 
           // set floor 2 zones data
           setData((prevData) => ({
-            ...prevData, zone_data: {
-              ...prevData.zone_data, [floor_2_zones[i]]: zone_data,
+            ...prevData,
+            zone_data: {
+              ...prevData.zone_data,
+              [floor_2_zones[i]]: zone_data,
             },
             floor_2: {
               ...prevData.floor_2,
@@ -206,8 +209,10 @@ const AppContext = (props) => {
 
           // set floor 3 zones data
           setData((prevData) => ({
-            ...prevData, zone_data: {
-              ...prevData.zone_data, [floor_3_zones[i]]: zone_data,
+            ...prevData,
+            zone_data: {
+              ...prevData.zone_data,
+              [floor_3_zones[i]]: zone_data,
             },
             floor_3: {
               ...prevData.floor_3,
@@ -256,7 +261,18 @@ const AppContext = (props) => {
   }, [refresh]);
 
   return (
-    <GlobalContext.Provider value={{ data, setData, loading, setLoading, setRefresh, refresh }}>
+    <GlobalContext.Provider
+      value={{
+        data,
+        setData,
+        loading,
+        setLoading,
+        setRefresh,
+        refresh,
+        loggedIn,
+        setLoggedIn,
+      }}
+    >
       {props.children}
     </GlobalContext.Provider>
   );

@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const Signout = () => {
   const navigate = useNavigate();
-  //   const { loggedIn, setLoggedIn } = useGlobalContext();
+  const { loggedIn, setLoggedIn } = useGlobalContext();
   useEffect(() => {
     const signout = () => {
       try {
         fetch("/users/sign_out");
-        // setLoggedIn(false);
+        setLoggedIn(false);
         toast.success("Successfully Logged out");
         navigate("/");
       } catch (error) {

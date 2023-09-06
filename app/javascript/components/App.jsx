@@ -8,6 +8,8 @@ import Zone from "./pages/Zone";
 import FloorMap from "./FloorMap";
 import Floor2 from "./pages/Floor2";
 import Floor3 from "./pages/Floor3";
+import Signin from "./pages/Signin";
+import Signout from "./pages/Signout";
 import Error from "./pages/Error";
 import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
@@ -29,7 +31,7 @@ const App = () => {
     {
       path: "/",
       element: <HomeLayout />,
-      errorElement: <Error/>,
+      errorElement: <Error />,
       children: [
         {
           index: true,
@@ -38,6 +40,14 @@ const App = () => {
         {
           path: "zones",
           element: <Zones />,
+        },
+        {
+          path: "sign_in",
+          element: <Signin />,
+        },
+        {
+          path: "sign_out",
+          element: <Signout />,
         },
         {
           path: "edit/:zone/:id",

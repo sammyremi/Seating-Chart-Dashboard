@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { current_user } from "./App";
+import { useGlobalContext } from "../Context";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
+  const { loggedIn, setLoggedIn } = useGlobalContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
@@ -89,6 +91,7 @@ const Navbar = () => {
               />
             </div>
           </div>
+
           {/* controls search result display right-24*/}
           {query && show ? (
             <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
@@ -139,7 +142,8 @@ const Navbar = () => {
                   />
                   <button
                     type="button"
-                    onClick={(e) => setQuery("")}
+                    // onClick={(e) => setQuery("")}
+                    onClick={setLoggedIn(!loggedIn)}
                     class="absolute inset-y-0 right-0 flex items-center pr-1 bg-sky-200 hover:bg-sky-300 rounded-r-full"
                   >
                     <svg
