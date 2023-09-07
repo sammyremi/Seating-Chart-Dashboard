@@ -43,3 +43,12 @@ $_navigation-icon-size: 2rem;
 .navigation__link--active {
   font-weight: $bold-font-weight;
 }
+
+.page-title-box {
+  color: $action-color;
+  text-align: center;
+  border-radius: 0;
+  height: 60px;
+  margin-bottom: 0;
+  padding: 17px 0;
+}

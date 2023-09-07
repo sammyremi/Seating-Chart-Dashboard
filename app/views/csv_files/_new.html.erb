@@ -1,19 +1,100 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
 
 <div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
   <img src="<%= asset_path('Upload.gif') %>" alt="GIF Image">
 </div>
 
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <%= form_tag csv_files_path, multipart: true, id: "csv-upload-form" do %>
 
-<div style="display: flex; justify-content: center; align-items: center;">
+    <div style="padding-left: 80px; padding-bottom: 10px;">
+    <%= file_field_tag :file, accept: ".csv", style: "margin-left: auto; margin-right: auto; display: block;" %>
+    </div>
 
-  <%= form_tag csv_files_path, multipart: true do %>
-
-    <%= file_field_tag :file, accept: ".csv", style: "margin-top: -50px; margin-left: 100px;"%>
+    <div id="csv-preview" class="hidden mt-4">
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto border-collapse">
+          <thead>
+            <!-- Table headers will be populated dynamically with JavaScript -->
+          </thead>
+          <tbody>
+            <!-- Table data will be populated dynamically with JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <div>
-    <%= submit_tag 'Upload File', style: "margin-left: 145px; margin-top: 20px;"%>
+    <%= submit_tag 'Upload File', style: "margin-left: auto; margin-right: auto; margin-top: 20px; display: block;" %>
     </div>
-    
-  <% end %>
 
+  <% end %>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const csvUploadForm = document.getElementById('csv-upload-form');
+    const fileInput = document.querySelector('input[type="file"]');
+    const csvPreview = document.getElementById('csv-preview');
+    const tableBody = document.querySelector('#csv-preview tbody');
+
+    fileInput.addEventListener('change', function () {
+      const selectedFile = fileInput.files[0];
+
+      if (selectedFile) {
+        if (selectedFile.name.endsWith('.csv')) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            const csvData = e.target.result;
+            
+            // Use PapaParse to parse the CSV data and get headers and rows
+            Papa.parse(csvData, {
+              header: true, // Treat the first row as headers
+              dynamicTyping: true, // Automatically detect data types
+              complete: function (results) {
+                const headers = results.meta.fields; // Get the headers
+                
+                // Populate the table headers with Tailwind CSS classes
+                const headerRow = document.createElement('tr');
+                headers.forEach(header => {
+                  const th = document.createElement('th');
+                  th.textContent = header;
+                  th.className = 'px-4 py-2 bg-gray-200 text-center';
+                  headerRow.appendChild(th);
+                });
+                tableBody.innerHTML = '';
+                tableBody.appendChild(headerRow);
+
+                // Populate the table data rows with Tailwind CSS classes
+                results.data.forEach(row => {
+                  const dataRow = document.createElement('tr');
+                  headers.forEach(header => {
+                    const td = document.createElement('td');
+                    td.textContent = row[header];
+                    td.className = 'px-4 py-2 border text-center';
+                    dataRow.appendChild(td);
+                  });
+                  tableBody.appendChild(dataRow);
+                });
+
+                // Show the table preview
+                csvPreview.style.display = 'block';
+              },
+            });
+          };
+
+          reader.readAsText(selectedFile);
+        } else {
+          alert('Please select a CSV file.');
+          // Hide the preview if an invalid file is selected
+          csvPreview.style.display = 'none';
+        }
+      } else {
+        // Hide the preview if no file is selected
+        csvPreview.style.display = 'none';
+      }
+    });
+  });
+</script>

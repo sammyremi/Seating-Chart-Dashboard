@@ -18,6 +18,7 @@
     align-content: center;
     margin: 0 auto;
     padding: 1rem 2rem;
+    z-index: 1;
   }
   
   .main-content__body--flush {
@@ -45,4 +46,25 @@
     font-size: 1.6em;
     text-align: center;
     margin-left: auto;
+  }
+
+  .main-content__page-tittttle {
+    color: $action-color;
+    font-size: 18px;
+    font-weight: normal;
+    border-radius: 0;
+    text-align: center;
+    margin-right: 8em;
+    margin-left: 25em;
+    height: 60px;
+    margin-bottom: 0;
+    padding: 17px 0;
+  }
+  .page-title-box {
+    color: $action-color;
+    text-align: center;
+    border-radius: 0;
+    height: 60px;
+    margin-bottom: 0;
+    padding: 17px 0;
   }
