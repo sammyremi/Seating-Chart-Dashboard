@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useGlobalContext } from "./Context";
+import { toast } from "react-toastify";
 
 const Sidenav = () => {
   const [active, setActive] = useState("");
@@ -116,14 +117,20 @@ const Sidenav = () => {
               <span className="flex-1 ml-3 whitespace-nowrap">Zones</span>
             </Link>
           </li>
-          <li>
+          {/* show admin tab if user is admin */}
+          <li
+          // className={` ${current_user?.admin ? "block" : "hidden"}`}
+          >
             <a
-              href="/admin"
+              href={current_user?.admin ? "/admin" : "#"}
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "admin" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
                 setActive("admin");
+                if (current_user?.admin === false) {
+                  toast.error("Login as Admin");
+                }
               }}
             >
               <svg
