@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "./Context";
+import logo from "../images/newlogo.png";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
@@ -85,7 +86,8 @@ const Navbar = () => {
             <div className="flex flex-shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="https://www.outsourceglobal.com/logo.png"
+                // src="https://www.outsourceglobal.com/logo.png"
+                src={logo}
                 alt="Your Company"
               />
             </div>
@@ -171,7 +173,7 @@ const Navbar = () => {
             </div>
 
             {/* Profile dropdown */}
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative hidden" ref={dropdownRef}>
               <div>
                 <button
                   type="button"
