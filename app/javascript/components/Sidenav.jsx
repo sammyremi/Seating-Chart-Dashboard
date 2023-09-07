@@ -122,7 +122,7 @@ const Sidenav = () => {
           // className={` ${current_user?.admin ? "block" : "hidden"}`}
           >
             <a
-              href={current_user?.admin ? "/admin" : "#"}
+              href={current_user?.admin ? "/admin" : "/#"}
               className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "admin" ? "bg-sky-300" : ""
               }`}
