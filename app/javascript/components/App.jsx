@@ -14,17 +14,19 @@ import Error from "./pages/Error";
 import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useGlobalContext } from "./Context";
 
-// Access the DOM element with the "app" ID
-const appElement = document.getElementById("app");
+// // Access the DOM element with the "app" ID
+// const appElement = document.getElementById("app");
 
-// Get "current user"
-const user_details = appElement.getAttribute("data-auth");
+// // Get "current user"
+// const user_details = appElement.getAttribute("data-auth");
 
-// convert from JSON to object
-export const current_user = JSON.parse(user_details);
+// // convert from JSON to object
+// export const current_user = JSON.parse(user_details);
 
 const App = () => {
+  const { current_user } = useGlobalContext();
   const [active, setActive] = useState("");
 
   const router = createBrowserRouter([
@@ -42,16 +44,12 @@ const App = () => {
           element: <Zones />,
         },
         {
-          path: "sign_in",
-          element: <Signin />,
-        },
-        {
           path: "sign_out",
           element: <Signout />,
         },
         {
           path: "edit/:zone/:id",
-          element: <Show current_user={current_user} />,
+          element: <Show />,
         },
         {
           path: "/workstations/:floor",

@@ -1,21 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useGlobalContext } from "./Context";
-import { current_user } from "./App";
 
 const Sidenav = () => {
   const [active, setActive] = useState("");
-  const { loggedIn, setLoggedIn } = useGlobalContext();
-
-  // useEffect(() => {
-  //   if (current_user?.email) {
-  //     setLoggedIn(true);
-  //   }
-  //   // forceUpdate();
-  // }, [loggedIn]);
-  // console.log(current_user);
-  console.log(loggedIn);
+  const { current_user } = useGlobalContext();
 
   return (
     <aside className="fixed top-16 left-0 w-1/6 h-screen" aria-label="Sidebar">
@@ -158,9 +148,10 @@ const Sidenav = () => {
           </li>
           <li>
             <Link
-              to={loggedIn ? `/sign_out` : `/sign_in`}
-              // href={loggedIn ? `/users/sign_out` : `/users/sign_in`}
-              className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+              to={"/sign_out"}
+              className={` ${
+                current_user?.admin === undefined ? "hidden" : ""
+              } flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                 active === "log" ? "bg-sky-300" : ""
               }`}
               onClick={() => {
@@ -181,10 +172,37 @@ const Sidenav = () => {
                   />
                 </g>
               </svg>
-              <span className="flex-1 ml-3 whitespace-nowrap">
-                {loggedIn ? `Logout` : `Login`}
-              </span>
+              <span className="flex-1 ml-3 whitespace-nowrap">Logout</span>
             </Link>
+          </li>
+          <li>
+            <a
+              href={"/users/sign_in"}
+              className={` ${
+                current_user?.admin === undefined ? "" : "hidden"
+              } flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+                active === "log" ? "bg-sky-300" : ""
+              }`}
+              onClick={() => {
+                setActive("log");
+              }}
+            >
+              <svg
+                fill="currentColor"
+                className="flex-shrink-0 w-7 h-7 dark:text-sky-700 transition duration-75 dark:text-gray-400 group-hover:text-sky-700 dark:group-hover:text-white"
+                aria-hidden="true"
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    fill="currentColor"
+                    d="M228.576 26.213v207.32h54.848V26.214h-54.848zm-28.518 45.744C108.44 96.58 41 180.215 41 279.605c0 118.74 96.258 215 215 215 118.74 0 215-96.26 215-215 0-99.39-67.44-183.025-159.057-207.647v50.47c64.6 22.994 110.85 84.684 110.85 157.177 0 92.117-74.676 166.794-166.793 166.794-92.118 0-166.794-74.678-166.794-166.795 0-72.494 46.25-134.183 110.852-157.178v-50.47z"
+                  />
+                </g>
+              </svg>
+              <span className="flex-1 ml-3 whitespace-nowrap">Login</span>
+            </a>
           </li>
         </ul>
       </div>
