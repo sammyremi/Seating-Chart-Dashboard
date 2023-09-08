@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useGlobalContext } from "./Context";
 import { toast } from "react-toastify";
 
 const Sidenav = () => {
-  const [active, setActive] = useState("");
-  const { current_user } = useGlobalContext();
+  const { current_user, activeSideNav, setActiveSideNav } = useGlobalContext();
 
   return (
     <div>
@@ -43,10 +41,10 @@ const Sidenav = () => {
               <Link
                 to="/"
                 className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
-                  active === "dashboard" ? "bg-sky-300" : ""
+                  activeSideNav === "dashboard" ? "bg-sky-300" : ""
                 }`}
                 onClick={() => {
-                  setActive("dashboard");
+                  setActiveSideNav("dashboard");
                 }}
               >
                 <svg
@@ -73,10 +71,10 @@ const Sidenav = () => {
               <Link
                 to="/floor_map"
                 className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
-                  active === "floor" ? "bg-sky-300" : ""
+                  activeSideNav === "floor" ? "bg-sky-300" : ""
                 }`}
                 onClick={() => {
-                  setActive("floor");
+                  setActiveSideNav("floor");
                 }}
               >
                 <svg
@@ -121,10 +119,10 @@ const Sidenav = () => {
               <Link
                 to="/zones"
                 className={`flex items-center p-2 lg:pl-4 text-sky-700 xl:rounded-lg hover:bg-sky-100 ${
-                  active === "zones" ? "bg-sky-300" : ""
+                  activeSideNav === "zones" ? "bg-sky-300" : ""
                 }`}
                 onClick={() => {
-                  setActive("zones");
+                  setActiveSideNav("zones");
                 }}
               >
                 <svg
@@ -148,10 +146,10 @@ const Sidenav = () => {
               <a
                 href={current_user?.admin ? "/admin" : "/#"}
                 className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                  active === "admin" ? "bg-sky-300" : ""
+                  activeSideNav === "admin" ? "bg-sky-300" : ""
                 }`}
                 onClick={() => {
-                  setActive("admin");
+                  setActiveSideNav("admin");
                   if (current_user?.admin === false) {
                     toast.error("Login as Admin");
                   }
@@ -183,10 +181,10 @@ const Sidenav = () => {
                 className={` ${
                   current_user?.admin === undefined ? "hidden" : ""
                 } flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                  active === "log" ? "bg-sky-300" : ""
+                  activeSideNav === "log" ? "bg-sky-300" : ""
                 }`}
                 onClick={() => {
-                  setActive("log");
+                  setActiveSideNav("log");
                 }}
               >
                 <svg
@@ -212,10 +210,10 @@ const Sidenav = () => {
                 className={` ${
                   current_user?.admin === undefined ? "" : "hidden"
                 } flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
-                  active === "log" ? "bg-sky-300" : ""
+                  activeSideNav === "log" ? "bg-sky-300" : ""
                 }`}
                 onClick={() => {
-                  setActive("log");
+                  setActiveSideNav("log");
                 }}
               >
                 <svg
