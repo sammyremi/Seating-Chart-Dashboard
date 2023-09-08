@@ -143,15 +143,19 @@ const Sidenav = () => {
               </Link>
             </li>
             <li>
-              <a
-                href={current_user?.admin ? "/admin" : "/#"}
-                className={`flex items-center p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
+              <div
+                className={`flex items-center cursor-pointer p-2 text-sky-700 rounded-lg hover:bg-sky-100 ${
                   activeSideNav === "admin" ? "bg-sky-300" : ""
                 }`}
                 onClick={() => {
                   setActiveSideNav("admin");
-                  if (current_user?.admin === false) {
+                  if (
+                    current_user?.admin === false ||
+                    current_user?.admin === undefined
+                  ) {
                     toast.error("Login as Admin");
+                  } else {
+                    window.location.href = "/admin";
                   }
                 }}
               >
@@ -173,7 +177,7 @@ const Sidenav = () => {
                   </g>
                 </svg>
                 <span className="flex-1 ml-3 whitespace-nowrap">Admin</span>
-              </a>
+              </div>
             </li>
             <li>
               <Link

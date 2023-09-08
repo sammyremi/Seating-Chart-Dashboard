@@ -1,7 +1,14 @@
 import React from "react";
 import ZoneBox from "../ZoneBox";
+import { useGlobalContext } from "../Context";
+import { useEffect } from "react";
 
 const Zones = () => {
+  const { setActiveSideNav } = useGlobalContext();
+  useEffect(() => {
+    setActiveSideNav("zones");
+  }, []);
+
   return (
     <div className="py-4 px-8 mx-auto my-0">
       <p className="text-center font-bold mb-4">Zones</p>
