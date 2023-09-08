@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { MapInteractionCSS } from "react-map-interaction";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 const Floor2 = ({ fl_active }) => {
   const setActive = fl_active[1];

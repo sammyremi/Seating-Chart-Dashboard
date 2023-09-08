@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Desk from "../../Desk";
 import { Link } from "react-router-dom";
 
 const Q_ZoneChart = ({ data }) => {
+
   return (
     <div>
       <div class="ZoneQ border-2 m-2 border-slate-400 rounded p-2 w-[950px] mx-auto my-2 grid grid-cols-23 grid-rows-11 gap-2 text-center">

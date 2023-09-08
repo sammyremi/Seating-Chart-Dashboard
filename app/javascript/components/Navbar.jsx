@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { current_user } from "./App";
+import { useGlobalContext } from "./Context";
+import logo from "../images/newlogo.png";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
+  const { current_user } = useGlobalContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
@@ -84,11 +86,13 @@ const Navbar = () => {
             <div className="flex flex-shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="https://www.outsourceglobal.com/logo.png"
+                // src="https://www.outsourceglobal.com/logo.png"
+                src={logo}
                 alt="Your Company"
               />
             </div>
           </div>
+
           {/* controls search result display right-24*/}
           {query && show ? (
             <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
@@ -109,7 +113,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={
-                        current_user?.email
+                        current_user?.admin
                           ? `/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
                               desk.id
                             }`
@@ -128,27 +132,48 @@ const Navbar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Search bar */}
             <div className="flex mr-16" ref={searchfieldRef}>
-              <form className="mr-2">
-                <input
-                  type="text"
-                  value={query}
-                  onChange={handleSearchChange}
-                  placeholder="Search Desk_ID"
-                  className="px-2.5 py-1 rounded-full border border-sky-200 text-sm focus:outline-none w-44"
-                />
-              
-              <button
-              onClick={(e) => setQuery("")}
-              className="bg-white text-gray-400 px-1.5 py-0 rounded-full focus:outline-none w-6 h-6 text-sm border border-sky-200"
-            >
-              x
-            </button>
-          </form>
-
+              <form class="flex items-center">
+                <div class="relative w-60 outline-sky-700 pl-2 ">
+                  <input
+                    type="text"
+                    value={query}
+                    onChange={handleSearchChange}
+                    placeholder="Search Desk_ID"
+                    class="bg-gray-50 border outline-sky-300 border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-gray-900 text-sm rounded-full block w-full py-1 px-2.5"
+                  />
+                  <button
+                    type="button"
+                    onClick={(e) => setQuery("")}
+                    class="absolute inset-y-0 right-0 flex items-center pr-1 bg-sky-200 hover:bg-sky-300 rounded-r-full"
+                  >
+                    <svg
+                      class="w-7 h-7 text-gray-500 hover:text-gray-900"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 8L16 16"
+                        stroke="#757575"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16 8L8 16"
+                        stroke="#757575"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </form>
             </div>
 
             {/* Profile dropdown */}
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative hidden" ref={dropdownRef}>
               <div>
                 <button
                   type="button"

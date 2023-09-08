@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import React from "react";
+import { useGlobalContext } from "../Context";
+import Loading from "../Loading";
 
-const Show = ({ current_user }) => {
+const Show = () => {
+  const { setRefresh, refresh } = useGlobalContext();
   const { zone, id } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,6 +34,7 @@ const Show = ({ current_user }) => {
         },
         body: JSON.stringify(updatedData),
       });
+      setRefresh(!refresh);
       toast.success(`${data.desk_id} updated successfully.`);
     } catch (error) {
       toast.error("Network response was not ok");
@@ -54,21 +58,29 @@ const Show = ({ current_user }) => {
   }, [id]);
 
   if (loading) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
     <div>
-      <svg 
+      <svg
         onClick={() => {
           navigate(`/zones/${zone_name}s`);
         }}
-        className="cursor-pointer" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-        <path stroke="#00AEEF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 18h3.75a5.25 5.25 0 100-10.5H5M7.5 4L4 7.5 7.5 11"/>
+        className="cursor-pointer"
+        width="30px"
+        height="30px"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+      >
+        <path
+          stroke="#00AEEF"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M11 18h3.75a5.25 5.25 0 100-10.5H5M7.5 4L4 7.5 7.5 11"
+        />
       </svg>
 
       <div
@@ -244,7 +256,6 @@ const Show = ({ current_user }) => {
           >
             Update
           </button>
-          
         </div>
       </form>
     </div>

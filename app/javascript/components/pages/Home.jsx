@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../Loading";
 import {
   Chart as ChartJS,
   BarElement,
@@ -10,6 +11,7 @@ import {
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Bar } from "react-chartjs-2";
+import { useGlobalContext } from "../Context";
 
 ChartJS.register(
   BarElement,
@@ -20,240 +22,8 @@ ChartJS.register(
   ChartDataLabels
 );
 
-const floor_2_zones = ["d", "e", "h", "i"];
-const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
-
 const Home = () => {
-  const [data, setData] = useState({
-    floor_2: {
-      occupied: "",
-      damaged: "",
-      vacant: "",
-      reserved: "",
-      zones: {
-        d: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        e: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        h: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        i: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-      },
-    },
-    floor_3: {
-      occupied: "",
-      damaged: "",
-      vacant: "",
-      reserved: "",
-      zones: {
-        j: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        k: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        l: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        m: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        n: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        q: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-        r: {
-          total: "",
-          occupied: "",
-          damaged: "",
-          vacant: "",
-          reserved: "",
-        },
-      },
-    },
-  });
-  const [f2data, setf2Data] = useState([]);
-  const [f3data, setf3Data] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const f2fetchedData = [];
-        const f3fetchedData = [];
-
-        // fetch floor 2 data
-        for (let i = 0; i < floor_2_zones.length; i++) {
-          const response = await fetch(`/zone_${floor_2_zones[i]}s`);
-          const zone_data = await response.json();
-          f2fetchedData.push(...zone_data);
-
-          // get occupied, vacant, damaged and reserved data in each floor 2 zones
-          let occupied = zone_data.filter(
-            (desk) => desk.status.toLowerCase() === "occupied"
-          );
-          let damaged = zone_data.filter(
-            (desk) => desk.status.toLowerCase() === "damaged"
-          );
-          let vacant = zone_data.filter(
-            (desk) => desk.status.toLowerCase() === "vacant"
-          );
-
-          // set floor 2 zones data
-          setData((prevData) => ({
-            ...prevData,
-            floor_2: {
-              ...prevData.floor_2,
-              zones: {
-                ...prevData.floor_2.zones,
-                [floor_2_zones[i]]: {
-                  ...prevData.floor_2.zones[floor_2_zones[i]],
-                  occupied: occupied.length,
-                  vacant: vacant.length,
-                  damaged: damaged.length,
-                  total: zone_data.length,
-                },
-              },
-            },
-          }));
-        }
-        // get occupied, vacant, damaged and reserved data in floor 2
-        let occupied = f2fetchedData.filter(
-          (desk) => desk.status.toLowerCase() === "occupied"
-        );
-        let damaged = f2fetchedData.filter(
-          (desk) => desk.status.toLowerCase() === "damaged"
-        );
-        let vacant = f2fetchedData.filter(
-          (desk) => desk.status.toLowerCase() === "vacant"
-        );
-
-        // set floor 2 data
-        setData((prevData) => ({
-          ...prevData,
-          floor_2: {
-            ...prevData.floor_2,
-            occupied: occupied.length,
-            vacant: vacant.length,
-            damaged: damaged.length,
-          },
-        }));
-
-        // fetch floor 3 data
-        for (let i = 0; i < floor_3_zones.length; i++) {
-          const response = await fetch(`/zone_${floor_3_zones[i]}s`);
-          const zone_data = await response.json();
-          f3fetchedData.push(...zone_data);
-
-          // get occupied, vacant, damaged and reserved data in each floor 3 zones
-          let occupied = zone_data.filter(
-            (desk) => desk.status.toLowerCase() === "occupied"
-          );
-          let damaged = zone_data.filter(
-            (desk) => desk.status.toLowerCase() === "damaged"
-          );
-          let vacant = zone_data.filter(
-            (desk) => desk.status.toLowerCase() === "vacant"
-          );
-
-          // set floor 3 zones data
-          setData((prevData) => ({
-            ...prevData,
-            floor_3: {
-              ...prevData.floor_3,
-              zones: {
-                ...prevData.floor_3.zones,
-                [floor_3_zones[i]]: {
-                  ...prevData.floor_3.zones[floor_3_zones[i]],
-                  occupied: occupied.length,
-                  vacant: vacant.length,
-                  damaged: damaged.length,
-                  total: zone_data.length,
-                },
-              },
-            },
-          }));
-        }
-
-        // get occupied, vacant, damaged and reserved data in floor 3
-        occupied = f3fetchedData.filter(
-          (desk) => desk.status.toLowerCase() === "occupied"
-        );
-        damaged = f3fetchedData.filter(
-          (desk) => desk.status.toLowerCase() === "damaged"
-        );
-        vacant = f3fetchedData.filter(
-          (desk) => desk.status.toLowerCase() === "vacant"
-        );
-
-        // set floor 3 data
-        setData((prevData) => ({
-          ...prevData,
-          floor_3: {
-            ...prevData.floor_3,
-            occupied: occupied.length,
-            vacant: vacant.length,
-            damaged: damaged.length,
-          },
-        }));
-
-        setf2Data((prevData) => [...prevData, ...f2fetchedData]);
-        setf3Data((prevData) => [...prevData, ...f3fetchedData]);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { data, loading } = useGlobalContext();
 
   // Chart data and options
   const floor2data = {
@@ -410,15 +180,8 @@ const Home = () => {
     // animation: false,
   };
 
-  
-
-
   if (loading) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (

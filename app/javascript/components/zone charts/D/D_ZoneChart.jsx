@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Desk from "../../Desk";
 import { Link } from "react-router-dom";
 
 const D_ZoneChart = ({ data }) => {
+ 
   return (
     <div className="rounded zoneD grid grid-cols-15 grid-rows-11 gap-2 text-center w-[780px] border-2 my-2.5 mx-auto border-slate-400 rounded p-2.5 pb-[24px]">
       {/* Desk_id: #30-40 */}
