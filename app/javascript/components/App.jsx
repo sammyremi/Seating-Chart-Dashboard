@@ -15,6 +15,21 @@ import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+let previousWidth = window.innerWidth;
+let previousHeight = window.innerHeight;
+
+window.onresize = function (event) {
+  if (
+    window.innerWidth < previousWidth ||
+    window.innerHeight < previousHeight
+  ) {
+    console.log("The window size has been reduced.");
+    location.reload();
+  }
+  previousWidth = window.innerWidth;
+  previousHeight = window.innerHeight;
+};
+
 const App = () => {
   const [active, setActive] = useState("");
 
