@@ -5,9 +5,11 @@ class CsvFilesController < ApplicationController
         @zoned = ZoneD.order(:desk_id)
     end
 
+    def show
+
+    end
+
     def create
-        @xy = 0
-        @test = []
 
         # reading file from params
         
@@ -258,7 +260,6 @@ class CsvFilesController < ApplicationController
                 end
             end
             redirect_to admin_csv_files_path, notice: "File updated to Database"
-
             
         else
 
