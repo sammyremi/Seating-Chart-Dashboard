@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { current_user } from "./App";
-import { useGlobalContext } from "../Context";
+// import { useGlobalContext } from "../Context";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
-  const { loggedIn, setLoggedIn } = useGlobalContext();
+  // const { loggedIn, setLoggedIn } = useGlobalContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
@@ -143,7 +143,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     // onClick={(e) => setQuery("")}
-                    onClick={setLoggedIn(!loggedIn)}
+                    // onClick={setLoggedIn(!loggedIn)}
                     class="absolute inset-y-0 right-0 flex items-center pr-1 bg-sky-200 hover:bg-sky-300 rounded-r-full"
                   >
                     <svg
