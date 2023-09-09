@@ -6,7 +6,7 @@ import { useGlobalContext } from "../Context";
 import Loading from "../Loading";
 
 const Show = () => {
-  const { setRefresh, refresh } = useGlobalContext();
+  const { setRefresh, refresh, setActiveSideNav } = useGlobalContext();
   const { zone, id } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,6 +43,7 @@ const Show = () => {
   };
 
   useEffect(() => {
+    setActiveSideNav("zones");
     const fetchData = async () => {
       try {
         const response = await fetch(url);
