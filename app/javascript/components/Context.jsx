@@ -15,6 +15,7 @@ const AppContext = (props) => {
   const [loading, setLoading] = useState(true);
   const [current_user, setCurrent_user] = useState("");
   const [activeSideNav, setActiveSideNav] = useState("");
+  const [showSidebar, setShowSidebar] = useState(false);
   const [data, setData] = useState({
     floor_2: {
       occupied: "",
@@ -289,6 +290,8 @@ const AppContext = (props) => {
         setCurrent_user,
         activeSideNav,
         setActiveSideNav,
+        showSidebar,
+        setShowSidebar,
       }}
     >
       {props.children}

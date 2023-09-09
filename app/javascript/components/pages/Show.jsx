@@ -34,6 +34,7 @@ const Show = () => {
         },
         body: JSON.stringify(updatedData),
       });
+      console.log(JSON.stringify(updatedData));
       setRefresh(!refresh);
       toast.success(`${data.desk_id} updated successfully.`);
     } catch (error) {
@@ -42,6 +43,7 @@ const Show = () => {
     }
   };
 
+  // get desk details
   useEffect(() => {
     setActiveSideNav("zones");
     const fetchData = async () => {
@@ -77,9 +79,9 @@ const Show = () => {
       >
         <path
           stroke="#00AEEF"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
           d="M11 18h3.75a5.25 5.25 0 100-10.5H5M7.5 4L4 7.5 7.5 11"
         />
       </svg>

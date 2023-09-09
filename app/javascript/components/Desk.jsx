@@ -1,10 +1,11 @@
 import React from "react";
 import Desk_icon from "./Desk_icon";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 import { toast } from "react-toastify";
 
 const Desk = ({ data, style }) => {
+  const navigate = useNavigate();
   const { current_user } = useGlobalContext();
   const { status, desk_id, id } = data;
   const first_char = desk_id.charAt(0).toLowerCase();

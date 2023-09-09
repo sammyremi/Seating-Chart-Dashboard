@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const E_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div class="zoneE p-2.5 border-2 border-slate-400 rounded grid grid-cols-9 grid-rows-10 gap-2.5 my-2 mx-auto w-[650px] text-center">
+      <div className="zoneE p-2.5 border-2 border-slate-400 rounded grid grid-cols-9 grid-rows-10 gap-2.5 my-2 mx-auto w-[650px] text-center">
         {/* Desk_id: #44 */}
-        <div class="ocpd1 col-start-3 col-end-4 row-start-1 row-end-2 flex place-content-center">
+        <div className="ocpd1 col-start-3 col-end-4 row-start-1 row-end-2 flex place-content-center">
           <Desk data={data[43]} />
         </div>
         {/* Desk_id: #33-40 */}
-        <div class="ocpd2 col-start-2 col-end-6 row-start-3 row-end-5 flex flex-col place-content-center">
+        <div className="ocpd2 col-start-2 col-end-6 row-start-3 row-end-5 flex flex-col place-content-center">
           <div className="flex flex-row -scale-y-100 place-content-start">
             <Desk data={data[37]} style="-scale-x-100" />
             <Desk data={data[38]} style="-scale-x-100" />
@@ -26,7 +26,7 @@ const E_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #30-32, #41-43 */}
-        <div class="ocpd4 col-start-9 col-end-10 row-start-3 row-end-5 flex flex-col place-content-center">
+        <div className="ocpd4 col-start-9 col-end-10 row-start-3 row-end-5 flex flex-col place-content-center">
           <div className="flex flex-row -scale-y-100 place-content-end">
             <Desk data={data[40]} style="-scale-x-100" />
             <Desk data={data[41]} style="-scale-x-100" />
@@ -39,7 +39,7 @@ const E_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #15-24 */}
-        <div class="ocpd6 col-start-2 col-end-7 row-start-6 row-end-8 flex flex-col place-content-center">
+        <div className="ocpd6 col-start-2 col-end-7 row-start-6 row-end-8 flex flex-col place-content-center">
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[19]} style="-scale-x-100" />
             <Desk data={data[20]} style="-scale-x-100" />
@@ -56,7 +56,7 @@ const E_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #10-14, #25-29  */}
-        <div class="ocpd8 col-start-8 col-end-10 row-start-6 row-end-8 flex flex-col place-content-center">
+        <div className="ocpd8 col-start-8 col-end-10 row-start-6 row-end-8 flex flex-col place-content-center">
           <div className="flex flex-row -scale-y-100 place-content-end">
             <Desk data={data[24]} style="-scale-x-100" />
             <Desk data={data[25]} style="-scale-x-100" />
@@ -73,7 +73,7 @@ const E_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #1-4 */}
-        <div class="ocpd9 col-start-4 col-end-6 row-start-9 row-end-11 flex flex-col place-content-center">
+        <div className="ocpd9 col-start-4 col-end-6 row-start-9 row-end-11 flex flex-col place-content-center">
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[2]} style="-scale-x-100" />
             <Desk data={data[3]} style="-scale-x-100" />
@@ -84,7 +84,7 @@ const E_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #5-9 */}
-        <div class="ocpd11 col-start-8 col-end-10 row-start-9 row-end-10 flex flex-row -scale-y-100 place-content-end">
+        <div className="ocpd11 col-start-8 col-end-10 row-start-9 row-end-10 flex flex-row -scale-y-100 place-content-end">
           <Desk data={data[4]} style="-scale-x-100" />
           <Desk data={data[5]} style="-scale-x-100" />
           <Desk data={data[6]} style="-scale-x-100" />
@@ -97,10 +97,10 @@ const E_ZoneChart = ({ data }) => {
         <div className="restroom2 grid place-content-center ml-[-7px] mb-[-2px] rounded-sm bg-lime-300 col-start-4 col-end-6 row-start-1 row-end-4">
           Restroom 2
         </div>
-        <div class="server grid place-content-center rounded-sm bg-gray-300 col-start-2 col-end-4 row-start-9 row-end-11">
+        <div className="server grid place-content-center rounded-sm bg-gray-300 col-start-2 col-end-4 row-start-9 row-end-11">
           Server
         </div>
-        <div class="ZoneD rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-2 row-end-11 flex flex-row justify-center">
+        <div className="ZoneD rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-2 row-end-11 flex flex-row justify-center">
           <Link to={"/zones/zone_ds"}>
             <div>
               <p>Zone D</p>
@@ -110,7 +110,7 @@ const E_ZoneChart = ({ data }) => {
                 viewBox="0 0 24 24"
                 id="left-arrow"
                 xmlns="http://www.w3.org/2000/svg"
-                class="icon line"
+                // className="icon line"
               >
                 <path
                   id="primary"
@@ -127,7 +127,7 @@ const E_ZoneChart = ({ data }) => {
             </div>
           </Link>
         </div>
-        <div class="Door flex self-end mb-[-10px] col-start-6 col-end-7 row-start-10 row-end-11">
+        <div className="Door flex self-end mb-[-10px] col-start-6 col-end-7 row-start-10 row-end-11">
           <svg
             className="w-7 h-7 text-slate-500"
             fill="#000000"
