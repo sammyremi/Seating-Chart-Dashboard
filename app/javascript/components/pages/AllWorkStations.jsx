@@ -4,20 +4,19 @@ import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../Context";
 import Loading from "../Loading";
 
-
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 const floor_2_zones = ["d", "e", "h", "i"];
 const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
 
 const AllWorkStations = () => {
-  const {} = useGlobalContext()
+  const {} = useGlobalContext();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     occupied: false,
     vacant: false,
     damaged: false,
-    // filtered: false,
+    reserved: false,
   });
   const { floor } = useParams();
 
@@ -56,7 +55,7 @@ const AllWorkStations = () => {
     } else if (floor[0] === "d") {
       setFilters((prevFilters) => ({ ...prevFilters, damaged: true }));
     } else {
-      console.log("nothing to show");
+      console.log("");
     }
   }, [floor]);
 
@@ -85,16 +84,18 @@ const AllWorkStations = () => {
   }, []);
 
   if (loading) {
-    return (
-      <Loading/>
-    );
+    return <Loading />;
   }
 
   return (
     <div className="pt-4">
       <p className="text-center font-bold mb-4">
-        {floor[2] === "2" ? "Floor 2 Workstations": floor[2] === "3" ? "Floor 3 Workstations" : "All Workstations"}
-        </p>
+        {floor[2] === "2"
+          ? "Floor 2 Workstations"
+          : floor[2] === "3"
+          ? "Floor 3 Workstations"
+          : "All Workstations"}
+      </p>
       <div className="absolute top-20 text-center right-4">
         <i className=" font-bold mb-4">Filter Result</i>
         <fieldset className="flex gap-2">

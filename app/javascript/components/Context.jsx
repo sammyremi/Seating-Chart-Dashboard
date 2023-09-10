@@ -13,6 +13,9 @@ export const useGlobalContext = () => useContext(GlobalContext);
 const AppContext = (props) => {
   const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [current_user, setCurrent_user] = useState("");
+  const [activeSideNav, setActiveSideNav] = useState("");
+  const [showSidebar, setShowSidebar] = useState(false);
   const [data, setData] = useState({
     floor_2: {
       occupied: "",
@@ -119,8 +122,23 @@ const AppContext = (props) => {
       n: [],
       q: [],
       r: [],
-    }
+    },
   });
+
+  useEffect(() => {
+    // Access the DOM element with the "app" ID
+    const appElement = document.getElementById("app");
+
+    // Get "current user"
+    const user_details = appElement.getAttribute("data-auth");
+
+    if (user_details !== null) {
+      // convert from JSON to object
+      setCurrent_user(JSON.parse(user_details));
+    } else {
+      console.log("User details is null");
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -147,8 +165,10 @@ const AppContext = (props) => {
 
           // set floor 2 zones data
           setData((prevData) => ({
-            ...prevData, zone_data: {
-              ...prevData.zone_data, [floor_2_zones[i]]: zone_data,
+            ...prevData,
+            zone_data: {
+              ...prevData.zone_data,
+              [floor_2_zones[i]]: zone_data,
             },
             floor_2: {
               ...prevData.floor_2,
@@ -206,8 +226,10 @@ const AppContext = (props) => {
 
           // set floor 3 zones data
           setData((prevData) => ({
-            ...prevData, zone_data: {
-              ...prevData.zone_data, [floor_3_zones[i]]: zone_data,
+            ...prevData,
+            zone_data: {
+              ...prevData.zone_data,
+              [floor_3_zones[i]]: zone_data,
             },
             floor_3: {
               ...prevData.floor_3,
@@ -256,7 +278,22 @@ const AppContext = (props) => {
   }, [refresh]);
 
   return (
-    <GlobalContext.Provider value={{ data, setData, loading, setLoading, setRefresh, refresh }}>
+    <GlobalContext.Provider
+      value={{
+        data,
+        setData,
+        loading,
+        setLoading,
+        setRefresh,
+        refresh,
+        current_user,
+        setCurrent_user,
+        activeSideNav,
+        setActiveSideNav,
+        showSidebar,
+        setShowSidebar,
+      }}
+    >
       {props.children}
     </GlobalContext.Provider>
   );

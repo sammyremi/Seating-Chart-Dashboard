@@ -15,7 +15,7 @@ import R_ZoneChart from "../zone charts/R/R_ZoneChart";
 import { useGlobalContext } from "../Context";
 
 const Zone = () => {
-  const {data, loading } = useGlobalContext()
+  const { data, loading, setActiveSideNav } = useGlobalContext();
   const { zone_name } = useParams();
   const [filters, setFilters] = useState({
     occupied: false,
@@ -27,7 +27,7 @@ const Zone = () => {
   const zone_id_array = zone_name.split("");
   const zone_id = zone_id_array[zone_id_array.length - 2];
 
-  const zone_data = data.zone_data[zone_id]
+  const zone_data = data.zone_data[zone_id];
 
   const filteredData = zone_data.filter((desk) => {
     // No filters selected, show all
@@ -91,6 +91,10 @@ const Zone = () => {
       chartComponent = <R_ZoneChart data={zone_data} />;
       break;
   }
+
+  useEffect(() => {
+    setActiveSideNav("zones");
+  }, []);
 
   if (loading) {
     return (
