@@ -95,7 +95,7 @@ const Navbar = () => {
 
           {/* controls search result display right-24*/}
           {query && show ? (
-            <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
+            <div className="absolute top-12 right-12 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
               {searchData
                 .filter((desk) => {
                   if (query === "") {
