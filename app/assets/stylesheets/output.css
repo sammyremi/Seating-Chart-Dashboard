@@ -837,6 +837,9 @@ video {
 .mt-\[-10px\] {
   margin-top: -10px;
 }
+.ml-40 {
+  margin-left: 10rem;
+}
 .block {
   display: block;
 }
@@ -1620,6 +1623,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-\[\#03b4fa\] {
+  --tw-text-opacity: 1;
+  color: rgb(3 180 250 / var(--tw-text-opacity));
 }
 .opacity-25 {
   opacity: 0.25;

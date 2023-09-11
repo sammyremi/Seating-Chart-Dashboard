@@ -91,8 +91,8 @@ const Navbar = () => {
                 alt="Your Company"
               />
             </div>
-            <div className="ml-20">
-              <h1 className="text-blue-400 font-bold">Global DeskScape</h1>
+            <div className="ml-40">
+              <h1 className="text-[#03b4fa] font-bold text-lg">Global DeskScape</h1>
             </div>
           </div>
 

@@ -147,7 +147,7 @@ const Table = ({ data }) => {
                         ? "bg-green-600"
                         : status.toLowerCase() === "reserved (it)"
                         ? "bg-blue-600"
-                        : status.toLowerCase() === "Reserved (ops)"
+                        : status.toLowerCase() === "reserved (ops)"
                         ? "bg-purple-400"
                         : status.toLowerCase() === "reserved (dev)"
                         ? "bg-amber-800"
