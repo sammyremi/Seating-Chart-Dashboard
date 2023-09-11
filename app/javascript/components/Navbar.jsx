@@ -91,8 +91,12 @@ const Navbar = () => {
                 alt="Your Company"
               />
             </div>
+            <div className="ml-20">
+              <h1 className="text-blue-400 font-bold">Global DeskScape</h1>
+            </div>
           </div>
 
+          
           {/* controls search result display right-24*/}
           {query && show ? (
             <div className="absolute top-12 right-12 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
