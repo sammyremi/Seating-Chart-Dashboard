@@ -91,11 +91,15 @@ const Navbar = () => {
                 alt="Your Company"
               />
             </div>
+            <div className="ml-40">
+              <h1 className="text-[#03b4fa] font-bold text-lg">Global DeskScape</h1>
+            </div>
           </div>
 
+          
           {/* controls search result display right-24*/}
           {query && show ? (
-            <div className="absolute top-12 right-24 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
+            <div className="absolute top-12 right-12 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
               {searchData
                 .filter((desk) => {
                   if (query === "") {
@@ -132,22 +136,22 @@ const Navbar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Search bar */}
             <div className="flex mr-16" ref={searchfieldRef}>
-              <form class="flex items-center">
-                <div class="relative w-60 outline-sky-700 pl-2 ">
+              <form className="flex items-center">
+                <div className="relative w-60 outline-sky-700 pl-2 ">
                   <input
                     type="text"
                     value={query}
                     onChange={handleSearchChange}
                     placeholder="Search Desk_ID"
-                    class="bg-gray-50 border outline-sky-300 border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-gray-900 text-sm rounded-full block w-full py-1 px-2.5"
+                    className="bg-gray-50 border outline-sky-300 border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-gray-900 text-sm rounded-full block w-full py-1 px-2.5"
                   />
                   <button
                     type="button"
                     onClick={(e) => setQuery("")}
-                    class="absolute inset-y-0 right-0 flex items-center pr-1 bg-sky-200 hover:bg-sky-300 rounded-r-full"
+                    className="absolute inset-y-0 right-0 flex items-center pr-1 bg-sky-200 hover:bg-sky-300 rounded-r-full"
                   >
                     <svg
-                      class="w-7 h-7 text-gray-500 hover:text-gray-900"
+                      className="w-7 h-7 text-gray-500 hover:text-gray-900"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -155,16 +159,16 @@ const Navbar = () => {
                       <path
                         d="M8 8L16 16"
                         stroke="#757575"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M16 8L8 16"
                         stroke="#757575"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>

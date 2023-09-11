@@ -25,7 +25,7 @@ class ZoneQsController < ApplicationController
 
   # POST /zone_qs or /zone_qs.json
   def create
-    @zone_q = ZoneQ.new(zone_q_params.except(:id, :desk_id))
+    @zone_q = ZoneQ.new(zone_q_params)
 
     respond_to do |format|
       if @zone_q.save
@@ -41,7 +41,7 @@ class ZoneQsController < ApplicationController
   # PATCH/PUT /zone_qs/1 or /zone_qs/1.json
   def update
     respond_to do |format|
-      if @zone_q.update(zone_q_params)
+      if @zone_q.update(zone_q_params.except(:id, :desk_id))
         format.html { redirect_to zone_q_url(@zone_q), notice: "Zone q was successfully updated." }
         format.json { render :show, status: :ok, location: @zone_q }
       else
