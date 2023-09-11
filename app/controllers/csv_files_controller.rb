@@ -6,8 +6,6 @@ class CsvFilesController < ApplicationController
     end
 
     def create
-        @xy = 0
-        @test = []
 
         # reading file from params
         
