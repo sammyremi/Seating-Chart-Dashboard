@@ -530,8 +530,8 @@ video {
 .right-0 {
   right: 0px;
 }
-.right-24 {
-  right: 6rem;
+.right-12 {
+  right: 3rem;
 }
 .right-4 {
   right: 1rem;
@@ -550,21 +550,6 @@ video {
 }
 .top-56 {
   top: 14rem;
-}
-.right-28 {
-  right: 7rem;
-}
-.right-20 {
-  right: 5rem;
-}
-.right-16 {
-  right: 4rem;
-}
-.right-14 {
-  right: 3.5rem;
-}
-.right-12 {
-  right: 3rem;
 }
 .z-0 {
   z-index: 0;
