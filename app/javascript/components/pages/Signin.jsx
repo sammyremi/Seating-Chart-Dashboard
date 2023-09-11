@@ -1,27 +1,24 @@
-import React from "react";
-import { useEffect } from "react";
-import { useGlobalContext } from "../Context";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+// import React from "react";
+// import { useEffect } from "react";
+// import { toast } from "react-toastify";
+// import { useNavigate } from "react-router-dom";
 
-const Signin = () => {
-  const navigate = useNavigate();
+// const Signin = () => {
+//   const navigate = useNavigate();
 
-  useEffect(() => {
-    const signIn = () => {
-      try {
-        window.location.href = "/users/sign_in";
-        // setLoggedIn(false);
-        // toast.success("Successfully Signed In");
-      } catch (error) {
-        toast.error("Error Signing In");
-        console.log(error);
-      }
-    };
-    signIn();
-  }, []);
+//   useEffect(() => {
+//     const signIn = () => {
+//       try {
+//         window.location.href = "/users/sign_in";
+//       } catch (error) {
+//         toast.error("Error Signing In");
+//         console.log(error);
+//       }
+//     };
+//     signIn();
+//   }, []);
 
-  return <div>Signin</div>;
-};
+//   return <></>;
+// };
 
-export default Signin;
+// export default Signin;

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const K_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div class="Zonek rounded-sm border-2 m-2 border-slate-400 rounded p-2 w-[450px] my-2 mx-auto grid grid-cols-6 grid-rows-9 gap-2.5 text-center">
+      <div className="Zonek rounded-sm border-2 m-2 border-slate-400 rounded p-2 w-[450px] my-2 mx-auto grid grid-cols-6 grid-rows-9 gap-2.5 text-center">
         {/* Desk_id: #1-14 */}
-        <div class="ocpd1 col-start-3 col-end-5 row-start-2 row-end-9 flex justify-center">
+        <div className="ocpd1 col-start-3 col-end-5 row-start-2 row-end-9 flex justify-center">
           {/* occupied1 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -57,7 +57,7 @@ const K_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #15-24 */}
-        <div class="ocpd2 col-start-1 col-end-3 row-start-3 row-end-8 flex justify-center">
+        <div className="ocpd2 col-start-1 col-end-3 row-start-3 row-end-8 flex justify-center">
           {/* occupied2 */}
           <div className="flex flex-col">
             <div className="rotate-90">
@@ -94,10 +94,10 @@ const K_ZoneChart = ({ data }) => {
             </div>
           </div>
         </div>
-        <div class="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-4 col-end-6 row-start-1 row-end-2">
+        <div className="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-4 col-end-6 row-start-1 row-end-2">
           Restroom 1
         </div>
-        <div class="zonel grid place-items-center bg-[#e9f9fd] col-start-5 col-end-7 row-start-2 row-end-9">
+        <div className="zonel grid place-items-center bg-[#e9f9fd] col-start-5 col-end-7 row-start-2 row-end-9">
           {/* Zone L */}
           <Link to={"/zones/zone_ls"}>
             <div>
@@ -137,10 +137,10 @@ const K_ZoneChart = ({ data }) => {
             </div>
           </Link>
         </div>
-        <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-8 row-end-10">
+        <div className="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-8 row-end-10">
           Server
         </div>
-        <div class="Door flex self-end mb-[-10px] col-start-3 col-end-4 row-start-9 row-end-10">
+        <div className="Door flex self-end mb-[-10px] col-start-3 col-end-4 row-start-9 row-end-10">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

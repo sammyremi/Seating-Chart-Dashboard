@@ -12,8 +12,10 @@ export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = (props) => {
   const [refresh, setRefresh] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [current_user, setCurrent_user] = useState("");
+  const [activeSideNav, setActiveSideNav] = useState("");
+  const [showSidebar, setShowSidebar] = useState(false);
   const [data, setData] = useState({
     floor_2: {
       occupied: "",
@@ -122,6 +124,21 @@ const AppContext = (props) => {
       r: [],
     },
   });
+
+  useEffect(() => {
+    // Access the DOM element with the "app" ID
+    const appElement = document.getElementById("app");
+
+    // Get "current user"
+    const user_details = appElement.getAttribute("data-auth");
+
+    if (user_details !== null) {
+      // convert from JSON to object
+      setCurrent_user(JSON.parse(user_details));
+    } else {
+      console.log("User details is null");
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -269,8 +286,12 @@ const AppContext = (props) => {
         setLoading,
         setRefresh,
         refresh,
-        loggedIn,
-        setLoggedIn,
+        current_user,
+        setCurrent_user,
+        activeSideNav,
+        setActiveSideNav,
+        showSidebar,
+        setShowSidebar,
       }}
     >
       {props.children}

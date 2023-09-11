@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { current_user } from "./App";
+import { useGlobalContext } from "./Context";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Table = ({ data }) => {
+  const { current_user } = useGlobalContext();
   const navigate = useNavigate();
   return (
     <div className="relative overflow-x-auto">
@@ -162,7 +163,7 @@ const Table = ({ data }) => {
                 <td
                   className="px-6 py-4 text-sky-700 font-medium text-center"
                   onClick={() => {
-                    if (current_user?.email) {
+                    if (current_user?.admin !== undefined) {
                       navigate(`/edit/zone_${first_char}s/${id}`);
                     } else {
                       toast.error("Login as Admin to Edit");

@@ -15,14 +15,17 @@ import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Access the DOM element with the "app" ID
-const appElement = document.getElementById("app");
+// reload on resize
+let prevWidth = window.innerWidth;
+let prevHeight = window.innerHeight;
 
-// Get "current user"
-const user_details = appElement.getAttribute("data-auth");
-
-// convert from JSON to object
-export const current_user = JSON.parse(user_details);
+window.onresize = function (event) {
+  if (window.innerWidth < prevWidth || window.innerHeight < prevHeight) {
+    location.reload();
+  }
+  prevWidth = window.innerWidth;
+  prevHeight = window.innerHeight;
+};
 
 const App = () => {
   const [active, setActive] = useState("");
@@ -42,16 +45,12 @@ const App = () => {
           element: <Zones />,
         },
         {
-          path: "sign_in",
-          element: <Signin />,
-        },
-        {
           path: "sign_out",
           element: <Signout />,
         },
         {
           path: "edit/:zone/:id",
-          element: <Show current_user={current_user} />,
+          element: <Show />,
         },
         {
           path: "/workstations/:floor",

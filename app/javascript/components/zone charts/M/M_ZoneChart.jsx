@@ -3,11 +3,10 @@ import Desk from "../../Desk";
 import { Link } from "react-router-dom";
 
 const M_ZoneChart = ({ data }) => {
-
   return (
     <div>
-      <div class="zoneM border-2 m-2 border-slate-400 rounded p-2 w-[500px] mx-auto my-2 grid grid-cols-6 grid-rows-9 gap-2.5 text-center">
-        <div class="zonen rounded-sm grid place-items-center bg-[#e9f9fd] col-start-6 col-end-7 row-start-1 row-end-10">
+      <div className="zoneM border-2 m-2 border-slate-400 rounded p-2 w-[500px] mx-auto my-2 grid grid-cols-6 grid-rows-9 gap-2.5 text-center">
+        <div className="zonen rounded-sm grid place-items-center bg-[#e9f9fd] col-start-6 col-end-7 row-start-1 row-end-10">
           {/* Zone N */}
           <Link to={"/zones/zone_ns"}>
             <div>
@@ -47,13 +46,13 @@ const M_ZoneChart = ({ data }) => {
             </div>
           </Link>
         </div>
-        <div class="ocpd1  col-start-4 col-end-6 row-start-1 row-end-2 flex">
+        <div className="ocpd1  col-start-4 col-end-6 row-start-1 row-end-2 flex">
           {/* occupied1
            */}
           <Desk data={data[24]} />
           <Desk data={data[23]} />
         </div>
-        <div class="ocpd2  col-start-1 col-end-6 row-start-3 row-end-5 flex flex-col place-content-center">
+        <div className="ocpd2  col-start-1 col-end-6 row-start-3 row-end-5 flex flex-col place-content-center">
           {/* occupied2 */}
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[18]} style="-scale-x-100" />
@@ -70,7 +69,7 @@ const M_ZoneChart = ({ data }) => {
             <Desk data={data[13]} />
           </div>
         </div>
-        <div class="ocpd3  col-start-1 col-end-6 row-start-6 row-end-8 flex flex-col place-content-center">
+        <div className="ocpd3  col-start-1 col-end-6 row-start-6 row-end-8 flex flex-col place-content-center">
           {/* occupied3 */}
           <div className="flex flex-row -scale-y-100">
             <Desk data={data[8]} style="-scale-x-100" />
@@ -88,19 +87,19 @@ const M_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #1-3 */}
-        <div class="ocpd4 mt-[-10px] col-start-3 col-end-6 row-start-9 row-end-10 flex ">
+        <div className="ocpd4 mt-[-10px] col-start-3 col-end-6 row-start-9 row-end-10 flex ">
           {/* occupied4 */}
           <Desk data={data[0]} />
           <Desk data={data[1]} />
           <Desk data={data[2]} />
         </div>
-        <div class="restroom rounded-sm grid place-content-center bg-lime-300 col-start-1 col-end-3 row-start-1 row-end-2">
+        <div className="restroom rounded-sm grid place-content-center bg-lime-300 col-start-1 col-end-3 row-start-1 row-end-2">
           Restroom
         </div>
-        <div class="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-9 row-end-10">
+        <div className="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-9 row-end-10">
           Server
         </div>
-        <div class="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-9 row-end-10">
+        <div className="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-9 row-end-10">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

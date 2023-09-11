@@ -23,7 +23,12 @@ ChartJS.register(
 );
 
 const Home = () => {
-  const { data, loading } = useGlobalContext();
+  const { data, loading, setActiveSideNav } = useGlobalContext();
+
+  // set active sidebar
+  useEffect(() => {
+    setActiveSideNav("dashboard");
+  }, []);
 
   // Chart data and options
   const floor2data = {
@@ -179,9 +184,6 @@ const Home = () => {
     responsive: true,
     // animation: false,
   };
-
-  
-
 
   if (loading) {
     return <Loading />;
