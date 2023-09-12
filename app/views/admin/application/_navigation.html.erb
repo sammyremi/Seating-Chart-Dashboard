@@ -41,7 +41,7 @@ as defined by the routes in the `admin/` namespace
     <% if accessible_action?(model_from_resource(resource), :index) %>
 
 
-    <div style="padding: 33px;">
+    <div style="padding: 25px;">
           <a href="<%= resource_index_route(resource) %>" class="navigation__link navigation__link--<%= nav_link_state(resource) %>" style="display: flex; align-items: center; text-decoration: none;">
 
           <% if resource == "csv_files" %>
