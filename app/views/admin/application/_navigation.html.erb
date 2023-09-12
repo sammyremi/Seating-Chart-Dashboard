@@ -7,9 +7,40 @@ for all resources in the admin dashboard,
 as defined by the routes in the `admin/` namespace
 %>
 <nav class="navigation">
+
+<%= link_to root_path do %>
+  <div style="text-align: center; margin-bottom: 20px;">
+  <svg width="60" height="60" viewBox="0 0 142 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_dd_103_3)">
+  <rect x="21" y="21" width="100" height="100" rx="36" fill="#CEEFFF"/>
+  </g>
+  <path d="M69.3648 43.4322C69.8322 43.0476 70.4076 42.8389 70.9999 42.8389C71.5921 42.8389 72.1675 43.0476 72.635 43.4322L94.5464 61.4545C95.5073 62.245 96.2847 63.2572 96.8192 64.4139C97.3536 65.5705 97.631 66.8411 97.6302 68.1284V93.5287C97.6302 95.0224 97.069 96.4549 96.0702 97.5111C95.0714 98.5673 93.7167 99.1607 92.3041 99.1607H81.652C80.2394 99.1607 78.8847 98.5673 77.8859 97.5111C76.8871 96.4549 76.3259 95.0224 76.3259 93.5287V76.6327H65.6738V93.5287C65.6738 95.0224 65.1127 96.4549 64.1138 97.5111C63.115 98.5673 61.7603 99.1607 60.3477 99.1607H49.6956C48.2831 99.1607 46.9284 98.5673 45.9295 97.5111C44.9307 96.4549 44.3696 95.0224 44.3696 93.5287V68.1284C44.3696 65.5152 45.5093 63.0597 47.4587 61.4545L69.3648 43.4322V43.4322ZM70.9999 49.2219L50.7236 65.8982C50.4025 66.1622 50.143 66.5005 49.9648 66.8872C49.7866 67.2738 49.6945 67.6984 49.6956 68.1284V93.5287H60.3477V76.6327C60.3477 75.1391 60.9089 73.7065 61.9077 72.6503C62.9065 71.5941 64.2612 71.0008 65.6738 71.0008H76.3259C77.7385 71.0008 79.0932 71.5941 80.092 72.6503C81.0909 73.7065 81.652 75.1391 81.652 76.6327V93.5287H92.3041V68.1284C92.3052 67.6984 92.2131 67.2738 92.0349 66.8872C91.8568 66.5005 91.5972 66.1622 91.2762 65.8982L70.9999 49.2275V49.2219Z" fill="#066DA5"/>
+  <defs>
+  <filter id="filter0_dd_103_3" x="0" y="0" width="142" height="142" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+  <feOffset dx="4" dy="4"/>
+  <feGaussianBlur stdDeviation="8.5"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
+  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_103_3"/>
+  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+  <feOffset dx="-4" dy="-4"/>
+  <feGaussianBlur stdDeviation="8.5"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.916667 0 0 0 0 0.916667 0 0 0 0 0.916667 0 0 0 0.08 0"/>
+  <feBlend mode="normal" in2="effect1_dropShadow_103_3" result="effect2_dropShadow_103_3"/>
+  <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_103_3" result="shape"/>
+  </filter>
+  </defs>
+  </svg>
+  
+  </div>
+<% end %>
+
   <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
 
     <% if accessible_action?(model_from_resource(resource), :index) %>
+
+
     <div style="padding: 20px;">
           <a href="<%= resource_index_route(resource) %>" class="navigation__link navigation__link--<%= nav_link_state(resource) %>" style="display: flex; align-items: center; text-decoration: none;">
 
