@@ -308,6 +308,8 @@ const AppContext = (props) => {
         setActiveSideNav,
         showSidebar,
         setShowSidebar,
+        floor_2_zones,
+        floor_3_zones,
       }}
     >
       {props.children}
