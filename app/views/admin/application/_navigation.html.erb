@@ -9,7 +9,7 @@ as defined by the routes in the `admin/` namespace
 <nav class="navigation">
 
 <%= link_to root_path do %>
-  <div style="text-align: center; margin-bottom: 20px;">
+  <div style="text-align: center; margin-bottom: 0px;">
   <svg width="60" height="60" viewBox="0 0 142 142" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g filter="url(#filter0_dd_103_3)">
   <rect x="21" y="21" width="100" height="100" rx="36" fill="#CEEFFF"/>
@@ -41,7 +41,7 @@ as defined by the routes in the `admin/` namespace
     <% if accessible_action?(model_from_resource(resource), :index) %>
 
 
-    <div style="padding: 25px;">
+    <div style="">
           <a href="<%= resource_index_route(resource) %>" class="navigation__link navigation__link--<%= nav_link_state(resource) %>" style="display: flex; align-items: center; text-decoration: none;">
 
           <% if resource == "csv_files" %>
