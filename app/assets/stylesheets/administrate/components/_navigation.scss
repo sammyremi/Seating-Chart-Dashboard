@@ -11,8 +11,10 @@ $_navigation-icon-size: 2rem;
 .navigation__link {
   background-color: transparent;
   color: #066da5;
+  border-radius: 8px;
   display: block;
-  line-height: 1;
+  width: 140px;
+  line-height: 1.5;
   margin-left: -($_navigation-link-padding);
   padding: $_navigation-link-padding;
   transition: background-color $base-duration $base-timing,
@@ -27,6 +29,8 @@ $_navigation-icon-size: 2rem;
     background-color: #80DEFF;
     border-radius: 8px;
     color: #066da5;
+    width: 140px;
+    
   }
 }
 
