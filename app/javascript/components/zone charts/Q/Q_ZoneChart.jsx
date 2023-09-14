@@ -6,7 +6,7 @@ const Q_ZoneChart = ({ data }) => {
   return (
     <div>
       <div className="ZoneQ border-2 m-2 border-slate-400 rounded p-2 w-[950px] mx-auto my-2 grid grid-cols-23 grid-rows-11 gap-2 text-center">
-        <div className="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-1 col-end-3 row-start-1 row-end-2">
+        <div className="restroom1 rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-1 row-end-2">
           Restroom 1
         </div>
         <div className="ocpd1  col-start-5 col-end-18 row-start-1 row-end-2 flex justify-center">
@@ -23,7 +23,7 @@ const Q_ZoneChart = ({ data }) => {
           <Desk data={data[53]} />
           <Desk data={data[52]} />
         </div>
-        <div className="restroom2 rounded-sm grid place-content-center bg-lime-300 col-start-20 col-end-22 row-start-1 row-end-2">
+        <div className="restroom2 rounded-sm grid place-content-center bg-gray-300 col-start-20 col-end-22 row-start-1 row-end-2">
           Restroom 2
         </div>
         <div className="occupied2  col-start-3 col-end-7 row-start-3 row-end-5 flex flex-col place-content-center">

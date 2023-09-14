@@ -6,7 +6,7 @@ const H_ZoneChart = ({ data }) => {
   return (
     <div>
       <div className="border-2 m-2 border-slate-400 rounded p-2 grid grid-cols-10 grid-rows-8 w-[500px] my-2 mx-auto gap-2.5 text-center">
-        <div className="restroom rounded-sm bg-lime-300 col-start-1 col-end-4 grid place-content-center">
+        <div className="restroom rounded-sm bg-gray-300 col-start-1 col-end-4 grid place-content-center">
           <p>Restroom</p>
         </div>
         {/* Desk_id: #22-30 */}

@@ -107,7 +107,7 @@ const Zone = () => {
   return (
     <div className="">
       <p className="text-2xl font-bold text-center text-gray-600">
-        Floor {floor_3_zones.includes(zone_id) ? "3" : "2"} || Zone
+        Floor {floor_3_zones.includes(zone_id) ? "3" : "2"} || Zone{" "}
         {zone_id.toUpperCase()}
       </p>
       {/* show seating chart */}

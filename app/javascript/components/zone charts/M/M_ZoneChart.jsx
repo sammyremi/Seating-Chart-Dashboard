@@ -93,7 +93,7 @@ const M_ZoneChart = ({ data }) => {
           <Desk data={data[1]} />
           <Desk data={data[2]} />
         </div>
-        <div className="restroom rounded-sm grid place-content-center bg-lime-300 col-start-1 col-end-3 row-start-1 row-end-2">
+        <div className="restroom rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-1 row-end-2">
           Restroom
         </div>
         <div className="server rounded-sm grid place-content-center bg-gray-300 col-start-1 col-end-3 row-start-9 row-end-10">
