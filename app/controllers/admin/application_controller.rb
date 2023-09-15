@@ -13,7 +13,6 @@ module Admin
         redirect_to root_path, alert: "Access denied. You must be an admin to view this page."
       end
     end
-
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.
     # def records_per_page
