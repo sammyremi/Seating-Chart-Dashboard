@@ -15,8 +15,6 @@
 /* Style for the main container */
   .container {
     font-family: Arial, sans-serif;
-    display: absolute;
-    
   }
 
   /* Style for each item div */
@@ -25,6 +23,7 @@
   .dropdown {
     position: relative;
     display: inline-block;
+
   }
   
   .dropdown-content {
@@ -33,11 +32,12 @@
     background-color: #f8fdff;
     min-width: 120px;
     box-shadow: 0 0 16px 0 rgba(5, 152, 166, 0.2);
-    z-index: 1;
+    border-radius: 15px;
+    right: 0;
+    
   }
   
   .dropdown-content a {
-    color: black;
     text-decoration: none;
     display: block;
   }
