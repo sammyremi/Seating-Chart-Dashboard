@@ -8,6 +8,8 @@ class CsvFilesController < ApplicationController
     def create
 
         # reading file from params
+
+        @wrong_file = 1
         
         file = params[:file]
         #checking if file is a csv file 
@@ -24,6 +26,7 @@ class CsvFilesController < ApplicationController
                 db_table.each do |col|
                     if !csv_head.include? col
                         @value = false
+                        @wrong_file = 0
                         break
                     end
                 end
@@ -33,12 +36,9 @@ class CsvFilesController < ApplicationController
                 end
             end
         else
-            redirect_to admin_csv_files_path
+            redirect_to admin_csv_files_path, notice: "Please upload a CSV file"
             
         end
-
-
-        puts "file uplaod success"
 
         # run only if file has success upload
         if @value == true
@@ -255,12 +255,16 @@ class CsvFilesController < ApplicationController
                     end
                 end
             end
-            redirect_to admin_csv_files_path, notice: "File updated to Database"
+            redirect_to admin_csv_files_path, notice: "File Successfully Updated to Database"
 
             
         else
 
-            flash[:notice] = "check your file format"
+            puts "check file column"
+        end
+
+        if @wrong_file == 0
+            redirect_to admin_csv_files_path, notice: "Check CSV Column"
         end
         
     end
