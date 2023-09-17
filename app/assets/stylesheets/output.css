@@ -1051,6 +1051,24 @@ video {
 .w-full {
   width: 100%;
 }
+.w-2\/4 {
+  width: 50%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/6 {
+  width: 50%;
+}
+.w-4\/6 {
+  width: 66.666667%;
+}
 .max-w-xs {
   max-width: 20rem;
 }
@@ -1589,6 +1607,9 @@ video {
 }
 .font-medium {
   font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
 }
 .tracking-wide {
   letter-spacing: 0.025em;

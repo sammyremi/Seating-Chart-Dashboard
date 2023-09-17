@@ -23,7 +23,8 @@ ChartJS.register(
 );
 
 const Home = () => {
-  const { data, loading, setActiveSideNav } = useGlobalContext();
+  const { data, loading, setActiveSideNav, floor_2_zones, floor_3_zones } =
+    useGlobalContext();
 
   // set active sidebar
   useEffect(() => {
@@ -322,30 +323,19 @@ const Home = () => {
             className="w-20 text-xs text-gray-500"
           >
             <p className="font-bold mb-2 text-sm">Total</p>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone D</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_2.zones.d.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone E</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_2.zones.e.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone H</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_2.zones.h.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone I</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_2.zones.i.total}
-              </p>
-            </article>
+            {floor_2_zones.map((zone) => {
+              return (
+                <article key={zone} className="">
+                  <p className="inline-block text-left w-3/4">
+                    Zone{" "}
+                    <span className="font-medium">{zone.toUpperCase()}</span>
+                  </p>
+                  <p className="inline-block text-right w-1/4 font-semibold">
+                    {data.floor_2.zones[zone].total}
+                  </p>
+                </article>
+              );
+            })}
           </div>
           {/* Barchart */}
           <div className="basis-10/12">
@@ -456,48 +446,19 @@ const Home = () => {
           {/* Totals */}
           <div className="w-20 text-xs text-gray-500">
             <p className="font-bold mb-2 text-sm">Total</p>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone J</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_3.zones.j.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone K</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_3.zones.k.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone L</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_3.zones.l.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone M</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_3.zones.m.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone N</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_3.zones.n.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone Q</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_3.zones.q.total}
-              </p>
-            </article>
-            <article className="">
-              <p className="inline-block text-left w-3/4">Zone R</p>
-              <p className="inline-block text-right w-1/4">
-                {data.floor_3.zones.r.total}
-              </p>
-            </article>
+            {floor_3_zones.map((zone) => {
+              return (
+                <article key={zone} className="">
+                  <p className="inline-block text-left w-3/4">
+                    Zone{" "}
+                    <span className="font-medium">{zone.toUpperCase()}</span>
+                  </p>
+                  <p className="inline-block text-right w-1/4 font-semibold">
+                    {data.floor_3.zones[zone].total}
+                  </p>
+                </article>
+              );
+            })}
           </div>
           {/* Barchart */}
           <div className="basis-10/12">
