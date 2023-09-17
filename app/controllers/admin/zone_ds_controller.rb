@@ -40,6 +40,14 @@ module Admin
     #     transform_values { |value| value == "" ? nil : value }
     # end
 
+    def default_sorting_attribute
+      :id
+    end
+    
+    def default_sorting_direction
+      :asc
+    end
+
     # See https://administrate-demo.herokuapp.com/customizing_controller_actions
     # for more information
   end
