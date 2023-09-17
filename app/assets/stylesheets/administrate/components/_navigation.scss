@@ -4,7 +4,6 @@
   padding-left: 0;
   border-right-color: $grey-1;
   border-right: 1px solid $base-border-color;
-  border: none;
 }
 
 .navigation__link--active {
@@ -49,5 +48,11 @@
 
 .dropdown-content .zone-item:hover {
   transform: scale(1.2);
+  transition: transform 0.2s linear;
+}
+
+.items:hover {
+
+  transform: scale(1.1);
   transition: transform 0.2s linear;
 }
