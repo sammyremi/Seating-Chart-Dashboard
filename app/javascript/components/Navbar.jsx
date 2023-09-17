@@ -78,6 +78,10 @@ const Navbar = () => {
     });
   }
 
+  const font = {
+    fontFamily: "'Josefin Sans', sans-serif",
+  };
+
   return (
     <nav className="drop-shadow-md z-40 fixed w-full top-0 bg-[#E9F9FD]">
       <div className="mx-auto sm:px-6 lg:px-10">
@@ -91,12 +95,18 @@ const Navbar = () => {
                 alt="Your Company"
               />
             </div>
-            <div className="ml-40">
-              <h1 className="text-[#03b4fa] font-bold text-lg">Global DeskScape</h1>
+
+            <div className="ml-24">
+              <h1
+                // text-[#03b4fa]
+                style={font}
+                className="text-sky-700 font-bold text-3xl mt-2"
+              >
+                DeskScape
+              </h1>
             </div>
           </div>
 
-          
           {/* controls search result display right-24*/}
           {query && show ? (
             <div className="absolute top-12 right-12 mt-4 mr-4 bg-white rounded-lg w-[230px] max-h-52 overflow-auto flex flex-col">
