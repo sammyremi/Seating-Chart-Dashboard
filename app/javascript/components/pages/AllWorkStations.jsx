@@ -36,9 +36,7 @@ const AllWorkStations = () => {
       (filters.occupied && desk.status === "Occupied") ||
       (filters.vacant && desk.status === "Vacant") ||
       (filters.damaged && desk.status === "Damaged") ||
-      (filters.reserved && desk.status === "Reserved (IT)") ||
-      (filters.reserved && desk.status === "Reserved (Dev)") ||
-      (filters.reserved && desk.status === "Reserved (Ops)")
+      (filters.reserved && desk.status.toLowerCase().includes("reserved"))
     ) {
       return true;
     }
@@ -54,6 +52,8 @@ const AllWorkStations = () => {
       setFilters((prevFilters) => ({ ...prevFilters, vacant: true }));
     } else if (floor[0] === "d") {
       setFilters((prevFilters) => ({ ...prevFilters, damaged: true }));
+    } else if (floor[0] === "r") {
+      setFilters((prevFilters) => ({ ...prevFilters, reserved: true }));
     } else {
       console.log("");
     }

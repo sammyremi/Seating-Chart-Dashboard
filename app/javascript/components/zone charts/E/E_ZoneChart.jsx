@@ -91,10 +91,10 @@ const E_ZoneChart = ({ data }) => {
           <Desk data={data[7]} style="-scale-x-100" />
           <Desk data={data[8]} style="-scale-x-100" />
         </div>
-        <div className="restroom1 grid place-content-center rounded-sm bg-lime-300 col-start-1 col-end-3 row-start-1 row-end-2">
+        <div className="restroom1 grid place-content-center rounded-sm bg-gray-300 col-start-1 col-end-3 row-start-1 row-end-2">
           Restroom 1
         </div>
-        <div className="restroom2 grid place-content-center ml-[-7px] mb-[-2px] rounded-sm bg-lime-300 col-start-4 col-end-6 row-start-1 row-end-4">
+        <div className="restroom2 grid place-content-center ml-[-7px] mb-[-2px] rounded-sm bg-gray-300 col-start-4 col-end-6 row-start-1 row-end-4">
           Restroom 2
         </div>
         <div className="server grid place-content-center rounded-sm bg-gray-300 col-start-2 col-end-4 row-start-9 row-end-11">

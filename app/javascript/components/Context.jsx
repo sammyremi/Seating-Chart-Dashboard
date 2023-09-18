@@ -162,6 +162,9 @@ const AppContext = (props) => {
           let vacant = zone_data.filter(
             (desk) => desk.status.toLowerCase() === "vacant"
           );
+          let reserved = zone_data.filter((desk) =>
+            desk.status.toLowerCase().includes("reserved")
+          );
 
           // set floor 2 zones data
           setData((prevData) => ({
@@ -179,6 +182,7 @@ const AppContext = (props) => {
                   occupied: occupied.length,
                   vacant: vacant.length,
                   damaged: damaged.length,
+                  reserved: reserved.length,
                   total: zone_data.length,
                 },
               },
@@ -195,6 +199,9 @@ const AppContext = (props) => {
         let vacant = f2fetchedData.filter(
           (desk) => desk.status.toLowerCase() === "vacant"
         );
+        let reserved = f2fetchedData.filter((desk) =>
+          desk.status.toLowerCase().includes("reserved")
+        );
 
         // set floor 2 data length
         setData((prevData) => ({
@@ -204,6 +211,7 @@ const AppContext = (props) => {
             occupied: occupied.length,
             vacant: vacant.length,
             damaged: damaged.length,
+            reserved: reserved.length,
           },
         }));
 
@@ -223,6 +231,9 @@ const AppContext = (props) => {
           let vacant = zone_data.filter(
             (desk) => desk.status.toLowerCase() === "vacant"
           );
+          let reserved = zone_data.filter((desk) =>
+            desk.status.toLowerCase().includes("reserved")
+          );
 
           // set floor 3 zones data
           setData((prevData) => ({
@@ -240,6 +251,7 @@ const AppContext = (props) => {
                   occupied: occupied.length,
                   vacant: vacant.length,
                   damaged: damaged.length,
+                  reserved: reserved.length,
                   total: zone_data.length,
                 },
               },
@@ -257,6 +269,9 @@ const AppContext = (props) => {
         vacant = f3fetchedData.filter(
           (desk) => desk.status.toLowerCase() === "vacant"
         );
+        reserved = f3fetchedData.filter((desk) =>
+          desk.status.toLowerCase().includes("reserved")
+        );
 
         // set floor 3 data
         setData((prevData) => ({
@@ -266,6 +281,7 @@ const AppContext = (props) => {
             occupied: occupied.length,
             vacant: vacant.length,
             damaged: damaged.length,
+            reserved: reserved.length,
           },
         }));
         setLoading(false);
@@ -292,6 +308,8 @@ const AppContext = (props) => {
         setActiveSideNav,
         showSidebar,
         setShowSidebar,
+        floor_2_zones,
+        floor_3_zones,
       }}
     >
       {props.children}

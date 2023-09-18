@@ -272,13 +272,13 @@ const I_ZoneChart = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-14 col-end-16 row-start-1 row-end-3">
+        <div className="restroom1 rounded-sm grid place-content-center bg-gray-300 col-start-14 col-end-16 row-start-1 row-end-3">
           Restroom 1
         </div>
         <div className="server rounded-sm grid place-content-center bg-gray-300 col-start-14 col-end-16 row-start-4 row-end-6">
           Server
         </div>
-        <div className="restroom2 rounded-sm grid place-content-center bg-lime-300 col-start-14 col-end-16 row-start-6 row-end-8">
+        <div className="restroom2 rounded-sm grid place-content-center bg-gray-300 col-start-14 col-end-16 row-start-6 row-end-8">
           Restroom 2
         </div>
         <div className="Door flex self-end mb-[-7px] ml-4 col-start-8 col-end-9 row-start-11 row-end-12">

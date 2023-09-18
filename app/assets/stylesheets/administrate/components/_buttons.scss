@@ -24,7 +24,7 @@ input[type="submit"],
   white-space: nowrap;
 
   &:hover {
-    background-color: #80DEFF;
+    background-color: #80deff;
     color: $white;
   }
 
@@ -55,7 +55,6 @@ input[type="submit"],
   border: $base-border;
   border-color: $red;
   color: $red;
-
 
   &:hover {
     background-color: mix($black, $red, 20%);

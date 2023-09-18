@@ -161,7 +161,7 @@ const R_ZoneChart = ({ data }) => {
             </div>
           </Link>
         </div>
-        <div className="restroom rounded-sm grid place-items-center bg-lime-300 col-start-6 col-end-9 mr-2 row-start-1 row-end-2">
+        <div className="restroom rounded-sm grid place-items-center bg-gray-300 col-start-6 col-end-9 mr-2 row-start-1 row-end-2">
           Restroom
         </div>
         <div className="server rounded-sm grid place-items-center bg-gray-300 col-start-3 col-end-5 row-start-1 row-end-3">

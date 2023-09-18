@@ -94,7 +94,7 @@ const K_ZoneChart = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="restroom1 rounded-sm grid place-content-center bg-lime-300 col-start-4 col-end-6 row-start-1 row-end-2">
+        <div className="restroom1 rounded-sm grid place-content-center bg-gray-300 col-start-4 col-end-6 row-start-1 row-end-2">
           Restroom 1
         </div>
         <div className="zonel grid place-items-center bg-[#e9f9fd] col-start-5 col-end-7 row-start-2 row-end-9">

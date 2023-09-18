@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import HomeLayout from "./pages/HomeLayout";
 import AllWorkStations from "./pages/AllWorkStations";
-import Zone from "./pages/Zone";
+import Zone from "./Zone";
 import FloorMap from "./FloorMap";
 import Floor2 from "./pages/Floor2";
 import Floor3 from "./pages/Floor3";

@@ -186,7 +186,7 @@ const N_ZoneChart = ({ data }) => {
             </div>
           </div>
         </div>
-        <div className="restroom rounded-sm grid place-content-center bg-lime-300 col-start-3 col-end-5 row-start-1 row-end-3">
+        <div className="restroom rounded-sm grid place-content-center bg-gray-300 col-start-3 col-end-5 row-start-1 row-end-3">
           Restroom
         </div>
         <div className="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-11 row-end-12">

@@ -120,9 +120,9 @@ const Table = ({ data }) => {
                       <svg
                         fill="currentColor"
                         className={`${
-                          status.toLowerCase() === "dammaged"
+                          status.toLowerCase() === "damaged"
                             ? "text-red-600"
-                            : "text-red-600"
+                            : "text-gray-100"
                         } flex-shrink-0 ml-1 w-7 h-7 transition duration-75 group-hover:text-sky-700`}
                         aria-hidden="true"
                         viewBox="0 -7.72 122.88 122.88"
@@ -153,7 +153,9 @@ const Table = ({ data }) => {
                         ? "bg-amber-800"
                         : status.toLowerCase() === "occupied"
                         ? "bg-[#FFA500]"
-                        : "bg-red-600"
+                        : status.toLowerCase() === "damaged"
+                        ? "bg-red-600"
+                        : "bg-gray-900"
                     } rounded px-2 py-1`}
                   >
                     {status}

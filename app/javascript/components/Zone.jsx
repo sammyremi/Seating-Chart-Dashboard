@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Table from "../Table";
-import D_ZoneChart from "../zone charts/D/D_ZoneChart";
-import E_ZoneChart from "../zone charts/E/E_ZoneChart";
-import H_ZoneChart from "../zone charts/H/H_ZoneChart";
-import I_ZoneChart from "../zone charts/I/I_ZoneChart";
-import J_ZoneChart from "../zone charts/J/J_ZoneChart";
-import K_ZoneChart from "../zone charts/K/K_ZoneChart";
-import L_ZoneChart from "../zone charts/L/L_ZoneChart";
-import M_ZoneChart from "../zone charts/M/M_ZoneChart";
-import N_ZoneChart from "../zone charts/N/N_ZoneChart";
-import Q_ZoneChart from "../zone charts/Q/Q_ZoneChart";
-import R_ZoneChart from "../zone charts/R/R_ZoneChart";
-import { useGlobalContext } from "../Context";
+import Table from "./Table";
+import D_ZoneChart from "./zone charts/D/D_ZoneChart";
+import E_ZoneChart from "./zone charts/E/E_ZoneChart";
+import H_ZoneChart from "./zone charts/H/H_ZoneChart";
+import I_ZoneChart from "./zone charts/I/I_ZoneChart";
+import J_ZoneChart from "./zone charts/J/J_ZoneChart";
+import K_ZoneChart from "./zone charts/K/K_ZoneChart";
+import L_ZoneChart from "./zone charts/L/L_ZoneChart";
+import M_ZoneChart from "./zone charts/M/M_ZoneChart";
+import N_ZoneChart from "./zone charts/N/N_ZoneChart";
+import Q_ZoneChart from "./zone charts/Q/Q_ZoneChart";
+import R_ZoneChart from "./zone charts/R/R_ZoneChart";
+import { useGlobalContext } from "./Context";
 
 const Zone = () => {
-  const { data, loading, setActiveSideNav } = useGlobalContext();
+  const { data, loading, setActiveSideNav, floor_2_zones, floor_3_zones } =
+    useGlobalContext();
   const { zone_name } = useParams();
   const [filters, setFilters] = useState({
     occupied: false,
@@ -105,8 +106,9 @@ const Zone = () => {
   }
   return (
     <div className="">
-      <p className="text-3xl font-bold text-center text-gray-600">
-        Zone {zone_id.toUpperCase()}
+      <p className="text-2xl font-bold text-center text-gray-600">
+        Floor {floor_3_zones.includes(zone_id) ? "3" : "2"} || Zone{" "}
+        {zone_id.toUpperCase()}
       </p>
       {/* show seating chart */}
       <div className="mb-12">{chartComponent}</div>

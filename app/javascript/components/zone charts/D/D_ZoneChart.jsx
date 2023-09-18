@@ -3,9 +3,8 @@ import Desk from "../../Desk";
 import { Link } from "react-router-dom";
 
 const D_ZoneChart = ({ data }) => {
- 
   return (
-    <div className="rounded zoneD grid grid-cols-15 grid-rows-11 gap-2 text-center w-[780px] border-2 my-2.5 mx-auto border-slate-400 rounded p-2.5 pb-[24px]">
+    <div className="zoneD grid grid-cols-15 grid-rows-11 gap-2 text-center w-[780px] border-2 my-2.5 mx-auto border-slate-400 rounded p-2.5 pb-[24px]">
       {/* Desk_id: #30-40 */}
       <div className="occupied  col-start-6 col-end-16 flex place-content-end">
         <Desk data={data[29]} />
@@ -165,7 +164,7 @@ const D_ZoneChart = ({ data }) => {
           <path d="M30 28.75h-2.779v-26.75c-0-0.69-0.56-1.25-1.25-1.25h-19.971c-0.69 0-1.25 0.56-1.25 1.25v0 26.75h-2.75c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h28c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM7.25 28.75v-25.5h17.471v25.5zM21.48 14.84c-0.138-0.057-0.299-0.089-0.467-0.089-0.349 0-0.665 0.141-0.894 0.37l0-0c-0.232 0.222-0.377 0.534-0.379 0.88v0c0.004 0.174 0.041 0.338 0.103 0.489l-0.003-0.009c0.066 0.157 0.161 0.291 0.279 0.4l0.001 0.001c0.219 0.234 0.529 0.38 0.874 0.38 0.002 0 0.005 0 0.007-0h-0c0.174-0.005 0.339-0.041 0.489-0.104l-0.009 0.003c0.3-0.143 0.537-0.379 0.676-0.671l0.004-0.009c0.058-0.142 0.094-0.306 0.1-0.477l0-0.002c-0.002-0.346-0.148-0.658-0.38-0.879l-0-0c-0.109-0.119-0.241-0.214-0.391-0.278l-0.007-0.003z"></path>
         </svg>
       </div>
-      <div className="restroom rounded-sm bg-lime-300 col-start-4 col-end-6 row-start-1 row-end-2 grid place-content-center">
+      <div className="restroom rounded-sm bg-gray-300 col-start-4 col-end-6 row-start-1 row-end-2 grid place-content-center">
         Restroom
       </div>
       <div className="zoneE rounded-sm grid place-items-center mt-2 bg-[#e9f9fd] col-start-14 col-end-16 row-start-9 row-end-12 flex justify-center">
