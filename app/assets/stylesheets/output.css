@@ -377,6 +377,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 img,
 video {
+  
   max-width: 100%;
   height: auto;
 }
@@ -836,9 +837,6 @@ video {
 }
 .ml-4 {
   margin-left: 1rem;
-}
-.ml-40 {
-  margin-left: 10rem;
 }
 .ml-\[-7px\] {
   margin-left: -7px;
@@ -2065,4 +2063,3 @@ video {
     line-height: 1.75rem;
   }
 }
-
