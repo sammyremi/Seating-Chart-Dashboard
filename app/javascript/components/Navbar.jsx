@@ -100,7 +100,7 @@ const Navbar = () => {
               <h1
                 // text-[#03b4fa]
                 style={font}
-                className="text-sky-600 font-bold text-3xl mt-2"
+                className="text-[#066DA5] font-bold text-3xl mt-2"
               >
                 DeskScape
               </h1>
