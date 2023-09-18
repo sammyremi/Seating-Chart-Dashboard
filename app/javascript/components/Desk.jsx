@@ -29,7 +29,7 @@ const Desk = ({ data, style }) => {
       > */}
       <Desk_icon status={status} />
       <p
-        className={`${style} text-xs font-mono text-slate-500 text-center tracking-wide`}
+        className={`${style} text-xs font-sans text-slate-500 text-center tracking-wide`}
       >
         {desk_id}
       </p>

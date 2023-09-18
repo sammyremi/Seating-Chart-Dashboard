@@ -1,69 +1,63 @@
 .main-content {
-    background-color: transparent;
-    border-radius: $base-border-radius;
-    flex: 1 1 100%;
-    padding-bottom: 10vh;
-    min-width: 800px;
-  }
-  
-  .main-content__header,
-  .main-content__body {
-    padding: 1rem 2rem;
-  }
+  background-color: transparent;
+  border-radius: $base-border-radius;
+  flex: 1 1 100%;
+  padding-bottom: 10vh;
+  min-width: 800px;
+}
 
-  .main-content__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    z-index: 1;
-  }
-  
-  .main-content__body--flush {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  
-  .main-content__header {
-    align-items: center;
-    border-bottom: $base-border;
-    display: flex;
-  }
-  
-  .main-content__page-title {
-    font-size: 1.6em;
-    margin-right: auto;
-  }
+.main-content__header,
+.main-content__body {
+  padding: 1rem 2rem;
+}
 
-  .main-content__page-tittle {
-    font-size: 1.6em;
-    text-align: center;
-    margin: 0 auto;
-  }
-  .main-content__page-titttle {
-    font-size: 1.6em;
-    text-align: center;
-    margin-left: auto;
-  }
+.main-content__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  z-index: 1;
+}
 
-  .main-content__page-tittttle {
-    color: $action-color;
-    font-size: 18px;
-    font-weight: normal;
-    border-radius: 0;
-    text-align: center;
-    margin-left: 9em;
-    height: 60px;
-    margin-bottom: 0;
-    padding: 17px 0;
-  }
-  .page-title-box {
-    color: $action-color;
-    text-align: center;
-    border-radius: 0;
-    height: 60px;
-    margin-bottom: 0;
-    padding: 17px 0;
-  }
+.main-content__body--flush {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.main-content__header {
+  align-items: center;
+  border-bottom: $base-border;
+  display: flex;
+}
+
+.main-content__page-title {
+  font-size: 1.6em;
+  margin-right: auto;
+}
+
+.main-content__page-tittle {
+  font-size: 1.6em;
+  text-align: center;
+  margin: 0 auto;
+}
+.main-content__page-titttle {
+  font-size: 1.6em;
+  text-align: center;
+  margin-left: auto;
+}
+
+.main-content__page-tittttle {
+  color: #066da5;
+  font-size: 18px;
+  margin-left: 6rem;
+}
+.page-title-box {
+  color: $action-color;
+  text-align: center;
+  border-radius: 0;
+  height: 60px;
+  margin-bottom: 0;
+  padding: 17px 0;
+}

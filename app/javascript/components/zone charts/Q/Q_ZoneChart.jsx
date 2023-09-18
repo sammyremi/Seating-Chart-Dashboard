@@ -27,12 +27,12 @@ const Q_ZoneChart = ({ data }) => {
           Restroom 2
         </div>
         <div className="occupied2  col-start-3 col-end-7 row-start-3 row-end-5 flex flex-col place-content-center">
-          {/* ocpd2 */}
+          {/* #15-94 */}
           <div className="flex flex-row -scale-y-100">
-            <Desk data={data[18]} style="-scale-x-100" />
-            <Desk data={data[18]} style="-scale-x-100" />
-            <Desk data={data[18]} style="-scale-x-100" />
-            <Desk data={data[18]} style="-scale-x-100" />
+            <Desk data={data[90]} style="-scale-x-100" />
+            <Desk data={data[91]} style="-scale-x-100" />
+            <Desk data={data[92]} style="-scale-x-100" />
+            <Desk data={data[93]} style="-scale-x-100" />
           </div>
           <div className="flex flex-row">
             <Desk data={data[17]} />

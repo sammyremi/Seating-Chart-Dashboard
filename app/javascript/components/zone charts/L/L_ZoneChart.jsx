@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const L_ZoneChart = ({ data }) => {
   return (
     <div>
-      <div className="ZoneL border-2 m-2 border-slate-400 rounded p-2 w-[400px] mx-auto my-2 grid grid-cols-5 grid-rows-9 gap-2.5 text-center">
-        <div className="zonek rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-10">
+      <div className="ZoneL border-2 m-2 border-slate-400 rounded p-2 w-[400px] mx-auto my-2 grid grid-cols-6 grid-rows-11 gap-x-2.5 gap-y-1 text-center">
+        <div className="zonek rounded-sm grid place-items-center bg-[#e9f9fd] col-start-1 col-end-2 row-start-1 row-end-12">
           {/* Zone K */}
           <Link to={"/zones/zone_ks"}>
             <div>
@@ -49,7 +49,7 @@ const L_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #1-8 */}
-        <div className="ocpd2 col-start-5 col-end-6 row-start-2 row-end-10 flex flex-col place-items-end">
+        <div className="ocpd2 col-start-6 col-end-7 row-start-3 row-end-12 mt-4 flex flex-col place-items-end">
           {/* occupied2 */}
           <div className="rotate-90">
             <Desk data={data[7]} />
@@ -108,10 +108,26 @@ const L_ZoneChart = ({ data }) => {
             <Desk data={data[29]} />
           </div>
         </div>
-        <div className="restroom rounded-sm grid place-content-center p-2 text-sm bg-gray-300 col-start-5 col-end-6 row-start-1 row-end-2">
+        {/* Desk_id: #31-38 */}
+        <div className="occupied4 col-start-2 col-end-4 row-start-10 row-end-12 flex flex-col place-content-center">
+          {/* occupied4 */}
+          <div className="flex flex-row -scale-y-100 place-content-start">
+            <Desk data={data[33]} style="-scale-x-100" />
+            <Desk data={data[32]} style="-scale-x-100" />
+            <Desk data={data[31]} style="-scale-x-100" />
+            <Desk data={data[30]} style="-scale-x-100" />
+          </div>
+          <div className="flex flex-row place-content-start">
+            <Desk data={data[34]} />
+            <Desk data={data[35]} />
+            <Desk data={data[36]} />
+            <Desk data={data[37]} />
+          </div>
+        </div>
+        <div className="restroom rounded-sm grid place-content-center p-2 text-sm bg-gray-300 col-start-5 col-end-7 row-start-1 row-end-2">
           <p>Restroom</p>
         </div>
-        <div className="Door flex self-end mb-[-10px] col-start-4 col-end-5 row-start-9 row-end-10">
+        <div className="Door flex self-end mb-[-10px] col-start-5 col-end-6 row-start-11 row-end-12">
           {/* door */}
           <svg
             className="w-7 h-7 text-slate-500"

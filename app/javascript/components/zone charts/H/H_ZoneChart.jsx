@@ -65,7 +65,13 @@ const H_ZoneChart = ({ data }) => {
           </div>
         </div>
         {/* Desk_id: #34-31 */}
-        <div className="ocpd3  col-start-8 col-end-9 row-start-5 row-end-9 flex flex-col place-items-center">
+        <div className="ocpd3  col-start-8 col-end-9 row-start-3 row-end-9 flex flex-col place-items-center">
+          <div className="rotate-90">
+            <Desk data={data[35]} />
+          </div>
+          <div className="rotate-90">
+            <Desk data={data[34]} />
+          </div>
           <div className="rotate-90">
             <Desk data={data[33]} />
           </div>
