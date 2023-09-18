@@ -1581,9 +1581,9 @@ video {
 .tracking-wide {
   letter-spacing: 0.025em;
 }
-.text-\[\#03b4fa\] {
+.text-\[\#066DA5\] {
   --tw-text-opacity: 1;
-  color: rgb(3 180 250 / var(--tw-text-opacity));
+  color: rgb(6 109 165 / var(--tw-text-opacity));
 }
 .text-\[\#964B00\] {
   --tw-text-opacity: 1;
@@ -1629,10 +1629,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
-.text-green-400 {
-  --tw-text-opacity: 1;
-  color: rgb(74 222 128 / var(--tw-text-opacity));
-}
 .text-green-600 {
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity));
@@ -1649,10 +1645,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(56 189 248 / var(--tw-text-opacity));
 }
-.text-sky-600 {
-  --tw-text-opacity: 1;
-  color: rgb(2 132 199 / var(--tw-text-opacity));
-}
 .text-sky-700 {
   --tw-text-opacity: 1;
   color: rgb(3 105 161 / var(--tw-text-opacity));
@@ -1668,10 +1660,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-\[\#066DA5\] {
-  --tw-text-opacity: 1;
-  color: rgb(6 109 165 / var(--tw-text-opacity));
 }
 .opacity-25 {
   opacity: 0.25;
@@ -1736,9 +1724,6 @@ video {
 }
 .delay-150 {
   transition-delay: 150ms;
-}
-.duration-200 {
-  transition-duration: 200ms;
 }
 .duration-500 {
   transition-duration: 500ms;

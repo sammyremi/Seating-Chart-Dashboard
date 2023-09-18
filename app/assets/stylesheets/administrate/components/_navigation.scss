@@ -4,7 +4,7 @@
   padding-left: 0;
   border-right-color: $grey-1;
   border-right: 1px solid $base-border-color;
-  border: none;
+  border: inline-block;
 }
 
 .navigation__link--active {
@@ -22,7 +22,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  border: none;
+  border: inline-block;
 }
 
 .dropdown-content {
@@ -33,7 +33,7 @@
   box-shadow: 0 0 16px 0 rgba(5, 152, 166, 0.2);
   border-radius: 15px;
   right: 0;
-  border: none;
+  border: block;
 }
 
 .dropdown-content a {
