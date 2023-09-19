@@ -1,21 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 import logo from "../images/newlogo.png";
 
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
-  const { current_user } = useGlobalContext();
+  const { current_user, searchedDesk, setSearchedDesk } = useGlobalContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
   const [show, setShow] = useState(false);
   const dropdownRef = useRef(null);
   const searchfieldRef = useRef(null);
+  const { zone_name } = useParams();
+  const [zone_id, setZone_id] = useState("");
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
+    setSearchedDesk(e.target.value);
     setShow(true);
   };
 
@@ -37,6 +40,14 @@ const Navbar = () => {
       setShow(false);
     }
   };
+
+  // get zone id for searched Desk
+  // useEffect(() => {
+  //   if (zone_name !== undefined) {
+  //     const zone_id_array = zone_name?.split("");
+  //     setZone_id(zone_id_array[zone_id_array?.length - 2]);
+  //   }
+  // }, [zone_id]);
 
   useEffect(() => {
     window.addEventListener("click", closeDropdown);
@@ -125,14 +136,21 @@ const Navbar = () => {
                     key={index}
                   >
                     <Link
-                      to={
-                        current_user?.admin
-                          ? `/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
-                              desk.id
-                            }`
-                          : `/zones/zone_${desk.key.charAt(0).toLowerCase()}s`
-                      }
-                      onClick={() => setShow(false)}
+                      to={`/zones/zone_${desk.key.charAt(0).toLowerCase()}s`}
+                      // to={
+                      //   current_user?.admin
+                      //     ? `/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
+                      //         desk.id
+                      //       }`
+                      //     : `/zones/zone_${desk.key.charAt(0).toLowerCase()}s`
+                      // }
+                      onClick={() => {
+                        setShow(false);
+                        setSearchedDesk(desk.value);
+                        setQuery(desk.value);
+                        // if (desk.value[0].toLowerCase() === zone_id) {
+                        // }
+                      }}
                     >
                       <p>{desk.value}</p>
                     </Link>
@@ -156,7 +174,10 @@ const Navbar = () => {
                   />
                   <button
                     type="button"
-                    onClick={(e) => setQuery("")}
+                    onClick={(e) => {
+                      setQuery("");
+                      setSearchedDesk("");
+                    }}
                     className="absolute inset-y-0 right-0 flex items-center pr-1 bg-sky-200 hover:bg-sky-300 rounded-r-full"
                   >
                     <svg

@@ -1,8 +1,12 @@
 import React from "react";
 
-const Desk_icon = ({ status }) => {
+const Desk_icon = ({ status, searchedDesk }) => {
   return (
-    <div className="border-x-2 border-t-2 border-slate-400 pt-1 px-1.5 bg-white">
+    <div
+      className={`border-x-2 border-t-2 border-slate-400 pt-1 px-1.5 ${
+        searchedDesk ? "bg-lime-300 font-bold" : "bg-white"
+      } `}
+    >
       {status.toLowerCase() === "vacant" ? (
         <svg
           fill="currentColor"
