@@ -48,7 +48,7 @@ class CsvFilesController < ApplicationController
 
             data_col = ["desk_id", "status", "campaign", "desk id"]
             zone_code = ["D", "E", "H", "I", "J", "K", "L", "M", "N", "Q", "R"]
-            status_type = ["damaged", "occupied", "vacant", "reserved (it)", "reserved (ops)", "reserved (dev)"]
+            status_type = ["damaged", "occupied", "vacant", "reserved (it)", "reserved (ops)", "reserved (dev)", "reserved it", "reserved dev", "reserved ops"]
 
             CSV.foreach(file.path, headers: true) do |row|
 
