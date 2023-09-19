@@ -25,7 +25,6 @@ const Desk = ({ data, style }) => {
       ) : (
         <Desk_icon status={status} />
       )}
-      {/* <Desk_icon status={status} /> */}
       <p
         className={`${style} text-xs font-sans text-slate-500 text-center tracking-wide`}
       >

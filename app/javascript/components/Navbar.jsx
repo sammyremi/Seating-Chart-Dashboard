@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 import logo from "../images/newlogo.png";
 
@@ -13,8 +13,6 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const dropdownRef = useRef(null);
   const searchfieldRef = useRef(null);
-  const { zone_name } = useParams();
-  const [zone_id, setZone_id] = useState("");
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
@@ -40,14 +38,6 @@ const Navbar = () => {
       setShow(false);
     }
   };
-
-  // get zone id for searched Desk
-  // useEffect(() => {
-  //   if (zone_name !== undefined) {
-  //     const zone_id_array = zone_name?.split("");
-  //     setZone_id(zone_id_array[zone_id_array?.length - 2]);
-  //   }
-  // }, [zone_id]);
 
   useEffect(() => {
     window.addEventListener("click", closeDropdown);
@@ -137,19 +127,10 @@ const Navbar = () => {
                   >
                     <Link
                       to={`/zones/zone_${desk.key.charAt(0).toLowerCase()}s`}
-                      // to={
-                      //   current_user?.admin
-                      //     ? `/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
-                      //         desk.id
-                      //       }`
-                      //     : `/zones/zone_${desk.key.charAt(0).toLowerCase()}s`
-                      // }
                       onClick={() => {
                         setShow(false);
                         setSearchedDesk(desk.value);
                         setQuery(desk.value);
-                        // if (desk.value[0].toLowerCase() === zone_id) {
-                        // }
                       }}
                     >
                       <p>{desk.value}</p>
