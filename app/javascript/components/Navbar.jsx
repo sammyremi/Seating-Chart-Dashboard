@@ -6,7 +6,7 @@ import logo from "../images/newlogo.png";
 const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
-  const { current_user } = useGlobalContext();
+  const { current_user, searchedDesk, setSearchedDesk } = useGlobalContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
@@ -16,6 +16,7 @@ const Navbar = () => {
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
+    setSearchedDesk(e.target.value);
     setShow(true);
   };
 
@@ -125,14 +126,12 @@ const Navbar = () => {
                     key={index}
                   >
                     <Link
-                      to={
-                        current_user?.admin
-                          ? `/edit/zone_${desk.key.charAt(0).toLowerCase()}s/${
-                              desk.id
-                            }`
-                          : `/zones/zone_${desk.key.charAt(0).toLowerCase()}s`
-                      }
-                      onClick={() => setShow(false)}
+                      to={`/zones/zone_${desk.key.charAt(0).toLowerCase()}s`}
+                      onClick={() => {
+                        setShow(false);
+                        setSearchedDesk(desk.value);
+                        setQuery(desk.value);
+                      }}
                     >
                       <p>{desk.value}</p>
                     </Link>
@@ -156,7 +155,10 @@ const Navbar = () => {
                   />
                   <button
                     type="button"
-                    onClick={(e) => setQuery("")}
+                    onClick={(e) => {
+                      setQuery("");
+                      setSearchedDesk("");
+                    }}
                     className="absolute inset-y-0 right-0 flex items-center pr-1 bg-sky-200 hover:bg-sky-300 rounded-r-full"
                   >
                     <svg
