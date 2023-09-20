@@ -21,10 +21,13 @@ class CsvFilesController < ApplicationController
 
                 csv_head = row.headers
         # checking if all field are correctly passed in csv  // else break and notify user error
-                db_table = ["desk_id", "status", "campaign"]
+                db_table = ["desk_id", "status", "campaign", "desk id"]
         
                 db_table.each do |col|
                     if !csv_head.include? col
+                        if col == "desk id" || col == "desk_id"
+                            next
+                        end
                         @value = false
                         @wrong_file = 0
                         break
@@ -43,16 +46,32 @@ class CsvFilesController < ApplicationController
         # run only if file has success upload
         if @value == true
 
-            data_col = ["desk_id", "status", "campaign"]
+            data_col = ["desk_id", "status", "campaign", "desk id"]
             zone_code = ["D", "E", "H", "I", "J", "K", "L", "M", "N", "Q", "R"]
-            status_type = ["damaged", "occupied", "vacant", "reserved (it)", "reserved (ops)", "reserved (dev)"]
+            status_type = ["damaged", "occupied", "vacant", "reserved (it)", "reserved (ops)", "reserved (dev)", "reserved it", "reserved dev", "reserved ops"]
 
             CSV.foreach(file.path, headers: true) do |row|
 
                 # converting data to hash for db input
                 data = row.to_hash
                 db_hash = data.slice(*data_col)
-                data_id = db_hash["desk_id"]
+
+                # checking for both desk_id and desk id in csv 
+                @new_id_1 = db_hash.slice("desk_id")
+                @new_id_2 = db_hash.slice("desk id")
+        
+                if @new_id_1.length > 0
+                    data_id = db_hash["desk_id"]
+                elsif @new_id_2.length > 0
+
+                    # replacing old id if desk id to desk_id
+                    new_id = "desk_id"
+                    old_id = db_hash["desk id"]
+                    db_hash.delete("desk id")
+                    db_hash[new_id] = old_id
+                    data_id = db_hash["desk_id"]
+
+                end
                 case_check = data_id[0]
                 # checking for correct format for ID
                 status_confirm = db_hash["status"].downcase
