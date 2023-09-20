@@ -107,7 +107,7 @@ const Show = () => {
       </div>
 
       <div className="mt-10 mb-2 flex items-center justify-center">
-        <DeskSVG status={data.status} width={32} height={40} />
+        <DeskSVG status={data.status} width={"w-32"} height={"w-40"} />
       </div>
 
       <form>

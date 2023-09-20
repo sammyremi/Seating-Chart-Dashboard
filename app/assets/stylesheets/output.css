@@ -940,9 +940,6 @@ video {
 .h-screen {
   height: 100vh;
 }
-.h-40 {
-  height: 10rem;
-}
 .max-h-52 {
   max-height: 13rem;
 }
@@ -1035,6 +1032,9 @@ video {
 }
 .w-32 {
   width: 8rem;
+}
+.w-40 {
+  width: 10rem;
 }
 .max-w-xs {
   max-width: 20rem;

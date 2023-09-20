@@ -12,8 +12,8 @@ const DeskSVG = ({ status, width, height }) => {
         <svg
           fill="currentColor"
           className={`flex-shrink-0 text-green-600 transition duration-75 
-          ${width !== undefined ? `w-32` : "w-7"} 
-          ${height !== undefined ? `h-40` : "h-7"}
+          ${width !== undefined ? width : "w-7"} 
+          ${height !== undefined ? height : "h-7"}
           `}
           aria-hidden="true"
           viewBox="0 -24.88 122.88 122.88"
@@ -31,8 +31,8 @@ const DeskSVG = ({ status, width, height }) => {
         <svg
           fill="currentColor"
           className={`flex-shrink-0 transition duration-75 
-          ${width !== undefined ? `w-${width}` : "w-7"} ${
-            height !== undefined ? `w-${height}` : "h-7"
+          ${width !== undefined ? width : "w-7"} ${
+            height !== undefined ? height : "h-7"
           }
           ${
             status.toLowerCase() === "occupied"
