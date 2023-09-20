@@ -126,6 +126,10 @@ const AppContext = (props) => {
     },
   });
 
+  const acceptedItReserved = ["reserved (it)", "reserved it"];
+  const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
+  const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
+
   useEffect(() => {
     // Access the DOM element with the "app" ID
     const appElement = document.getElementById("app");
@@ -313,6 +317,9 @@ const AppContext = (props) => {
         floor_3_zones,
         searchedDesk,
         setSearchedDesk,
+        acceptedDevReserved,
+        acceptedItReserved,
+        acceptedOpsReserved,
       }}
     >
       {props.children}

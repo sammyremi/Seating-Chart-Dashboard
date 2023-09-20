@@ -15,8 +15,7 @@ import R_ZoneChart from "./zone charts/R/R_ZoneChart";
 import { useGlobalContext } from "./Context";
 
 const Zone = () => {
-  const { data, loading, setActiveSideNav, floor_2_zones, floor_3_zones } =
-    useGlobalContext();
+  const { data, loading, setActiveSideNav, floor_3_zones } = useGlobalContext();
   const { zone_name } = useParams();
   const [filters, setFilters] = useState({
     occupied: false,
