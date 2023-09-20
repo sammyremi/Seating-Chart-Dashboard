@@ -8,6 +8,11 @@ import DeskSVG from "./DeskSVG";
 const Table = ({ data }) => {
   const { current_user } = useGlobalContext();
   const navigate = useNavigate();
+
+  const acceptedItReserved = ["reserved (it)", "reserved it"];
+  const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
+  const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
+
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500">
@@ -30,6 +35,11 @@ const Table = ({ data }) => {
         <tbody>
           {data.map((desk, index) => {
             const { desk_id, status, campaign, id } = desk;
+            console.log(
+              [status[0].toUpperCase(), ...status.slice(1).toLowerCase()].join(
+                ""
+              )
+            );
             const first_char = desk_id.charAt(0).toLowerCase();
             return (
               <tr key={`${first_char}_${id}`} className="border-b">
@@ -48,11 +58,11 @@ const Table = ({ data }) => {
                     className={`${
                       status.toLowerCase() === "vacant"
                         ? "bg-green-600"
-                        : status.toLowerCase() === "reserved (it)"
+                        : acceptedItReserved.includes(status.toLowerCase())
                         ? "bg-blue-600"
-                        : status.toLowerCase() === "reserved (ops)"
+                        : acceptedOpsReserved.includes(status.toLowerCase())
                         ? "bg-purple-400"
-                        : status.toLowerCase() === "reserved (dev)"
+                        : acceptedDevReserved.includes(status.toLowerCase())
                         ? "bg-amber-800"
                         : status.toLowerCase() === "occupied"
                         ? "bg-[#FFA500]"
@@ -61,7 +71,11 @@ const Table = ({ data }) => {
                         : "bg-gray-900"
                     } rounded px-2 py-1`}
                   >
-                    {status}
+                    {/* capitalize status */}
+                    {[
+                      status[0].toUpperCase(),
+                      ...status.slice(1).toLowerCase(),
+                    ].join("")}
                   </span>
                 </td>
                 <td className="px-6 py-4 text-center">{campaign}</td>

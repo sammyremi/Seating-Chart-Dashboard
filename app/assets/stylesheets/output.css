@@ -1580,6 +1580,9 @@ video {
 .font-semibold {
   font-weight: 600;
 }
+.capitalize {
+  text-transform: capitalize;
+}
 .tracking-wide {
   letter-spacing: 0.025em;
 }

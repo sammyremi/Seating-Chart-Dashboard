@@ -35,10 +35,10 @@ const Q_ZoneChart = ({ data }) => {
             <Desk data={data[93]} style="-scale-x-100" />
           </div>
           <div className="flex flex-row">
-            <Desk data={data[17]} />
-            <Desk data={data[16]} />
-            <Desk data={data[15]} />
-            <Desk data={data[14]} />
+            <Desk data={data[28]} />
+            <Desk data={data[29]} />
+            <Desk data={data[30]} />
+            <Desk data={data[31]} />
           </div>
         </div>
         {/* Desk_id: #52-63 */}

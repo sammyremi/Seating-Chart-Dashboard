@@ -33,9 +33,9 @@ const AllWorkStations = () => {
 
     // Include filtered item in the filtered data
     if (
-      (filters.occupied && desk.status === "Occupied") ||
-      (filters.vacant && desk.status === "Vacant") ||
-      (filters.damaged && desk.status === "Damaged") ||
+      (filters.occupied && desk.status.toLowerCase() === "occupied") ||
+      (filters.vacant && desk.status.toLowerCase() === "vacant") ||
+      (filters.damaged && desk.status.toLowerCase() === "damaged") ||
       (filters.reserved && desk.status.toLowerCase().includes("reserved"))
     ) {
       return true;

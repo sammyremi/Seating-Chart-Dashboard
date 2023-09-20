@@ -2,7 +2,6 @@ import React from "react";
 
 const DeskSVG = ({ status, width, height }) => {
   // width and height from tailwind values e.g 32 and 40
-  console.log(width, height);
   const acceptedItReserved = ["reserved (it)", "reserved it"];
   const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
   const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
