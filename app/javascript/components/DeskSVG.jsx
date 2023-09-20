@@ -1,10 +1,10 @@
 import React from "react";
+import { useGlobalContext } from "./Context";
 
 const DeskSVG = ({ status, width, height }) => {
+  const { acceptedDevReserved, acceptedItReserved, acceptedOpsReserved } =
+    useGlobalContext();
   // width and height from tailwind values e.g 32 and 40
-  const acceptedItReserved = ["reserved (it)", "reserved it"];
-  const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
-  const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
 
   return (
     <div>
@@ -13,7 +13,8 @@ const DeskSVG = ({ status, width, height }) => {
           fill="currentColor"
           className={`flex-shrink-0 text-green-600 transition duration-75 
           ${width !== undefined ? `w-32` : "w-7"} 
-          ${height !== undefined ? `h-40` : "h-7"}`}
+          ${height !== undefined ? `h-40` : "h-7"}
+          `}
           aria-hidden="true"
           viewBox="0 -24.88 122.88 122.88"
           xmlns="http://www.w3.org/2000/svg"
