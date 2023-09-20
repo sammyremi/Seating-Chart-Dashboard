@@ -14,7 +14,7 @@ const Show = () => {
   const url = `/${zone}/${id}.json`;
 
   let zone_name = zone.slice(0, -1);
-  console.log(zone_name.charAt(5));
+  // console.log(zone_name.charAt(5));
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -51,7 +51,7 @@ const Show = () => {
       try {
         const response = await fetch(url);
         const zones = await response.json();
-        // console.log(zones);
+        console.log(zones);
         setData(zones);
         setLoading(false);
       } catch (error) {
@@ -64,6 +64,10 @@ const Show = () => {
   if (loading) {
     return <Loading />;
   }
+
+  const acceptedItReserved = ["reserved (it)", "reserved it"];
+  const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
+  const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
 
   return (
     // back to home
@@ -100,7 +104,7 @@ const Show = () => {
       </div>
 
       <div className="mt-10 mb-2 flex items-center justify-center">
-        <DeskSVG status={data.status} width="32" height="40" />
+        <DeskSVG status={data.status} width={32} height={40} />
       </div>
 
       <form>
@@ -128,7 +132,15 @@ const Show = () => {
           ></label>
           <select
             id="status"
-            value={data.status}
+            value={
+              acceptedItReserved.includes(data.status.toLowerCase())
+                ? "reserved IT"
+                : acceptedOpsReserved.includes(data.status.toLowerCase())
+                ? "reserved Ops"
+                : acceptedDevReserved.includes(data.status.toLowerCase())
+                ? "reserved Dev"
+                : data.status.toLowerCase()
+            }
             onChange={(e) => {
               console.log(e.target.value);
               setData({ ...data, status: e.target.value });
@@ -136,18 +148,18 @@ const Show = () => {
             className="mb-5 bg-gray-50 border border-sky-300 text-gray-500 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-1/3 p-2.5 mx-auto focus:outline-none "
           >
             <option>Select status...</option>
-            <option>Occupied</option>
-            <option>Damaged</option>
-            <option>Vacant</option>
-            <option>Reserved (IT)</option>
-            <option>Reserved (Ops)</option>
-            <option>Reserved (Dev)</option>
+            <option>occupied</option>
+            <option>damaged</option>
+            <option>vacant</option>
+            <option>reserved IT</option>
+            <option>reserved Ops</option>
+            <option>reserved Dev</option>
           </select>
         </div>
         <div>
           <label
             htmlFor="campaign"
-            className="block mb-2 text-sm font-medium text-gray-500 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-500"
           ></label>
           <input
             type="string"

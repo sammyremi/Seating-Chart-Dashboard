@@ -35,11 +35,6 @@ const Table = ({ data }) => {
         <tbody>
           {data.map((desk, index) => {
             const { desk_id, status, campaign, id } = desk;
-            console.log(
-              [status[0].toUpperCase(), ...status.slice(1).toLowerCase()].join(
-                ""
-              )
-            );
             const first_char = desk_id.charAt(0).toLowerCase();
             return (
               <tr key={`${first_char}_${id}`} className="border-b">
