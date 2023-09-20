@@ -2,7 +2,7 @@ class CsvFilesController < ApplicationController
 
 
     def new
-        @zoned = ZoneD.order(:desk_id)
+
     end
 
     def create
