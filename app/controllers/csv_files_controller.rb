@@ -81,205 +81,51 @@ class CsvFilesController < ApplicationController
                 elsif !status_type.include?(status_confirm)
                     next
                 else
-                    # checking if desk id exist if exist update with the existing
-                    case case_check
-                    when "D"
-                        puts db_hash
-                        @zone_d = ZoneD.find_by(desk_id: data_id)
-                        if @zone_d.present?
-                            if @zone_d.update(db_hash)
-                                puts "data present"
-                            else
-                                puts "data did not update"
+
+                    def zone_id_check(db_hash, data_id)
+
+                        @desk_id = data_id
+                        @db_zone_list = [ZoneD, ZoneE, ZoneH, ZoneI, ZoneJ, ZoneK, ZoneL, ZoneM, ZoneN, ZoneQ, ZoneR]
+
+                        # converting class to string to look for last index
+                        @db_zone_list.each do |zone|
+                            con_string = zone.to_s
+
+                            #cross checking both desk ID letter and Class list last letter
+                            if con_string[-1] == @desk_id[0]
+                                index_num = @db_zone_list.index(zone)
+                                @db_zone = @db_zone_list[index_num]
                             end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_d = ZoneD.new(db_hash)
-                            if @zone_d.save
-                                puts "success to db"
+
+                            @db_zone_result = @db_zone.find_by(desk_id: @desk_id)
+                            
+                            if @db_zone_result.present?
+                                if @db_zone_result.update(db_hash)
+                                    puts "data present"
+                                else
+                                    puts "data did not update"
+                                end
                             else
-                                puts "something went wrong"
+                        # if desk id cant be found then create new data and save to db
+                                @db_zone_result = @db_zone.new(db_hash)
+                                if @db_zone_result.save
+                                    puts "success to db"
+                                else
+                                    puts "something went wrong"
+                                end
                             end
+
                         end
-                    when "E"
-                        @zone_e = ZoneE.find_by(desk_id: data_id)
-                        if @zone_e.present?
-                            if @zone_e.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_e = ZoneE.new(db_hash)
-                            if @zone_e.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "H"
-                        @zone_h = ZoneH.find_by(desk_id: data_id)
-                        if @zone_h.present?
-                            if @zone_h.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_h = ZoneH.new(db_hash)
-                            if @zone_h.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "I"
-                        @zone_i = ZoneI.find_by(desk_id: data_id)
-                        if @zone_i.present?
-                            if @zone_i.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_i = ZoneI.new(db_hash)
-                            if @zone_i.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "J"
-                        @zone_j = ZoneJ.find_by(desk_id: data_id)
-                        if @zone_j.present?
-                            if @zone_j.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_j = ZoneJ.new(db_hash)
-                            if @zone_j.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "K"
-                        @zone_k = ZoneK.find_by(desk_id: data_id)
-                        if @zone_k.present?
-                            if @zone_k.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_k = ZoneK.new(db_hash)
-                            if @zone_k.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "L"
-                        @zone_l = ZoneL.find_by(desk_id: data_id)
-                        if @zone_l.present?
-                            if @zone_l.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_l = ZoneL.new(db_hash)
-                            if @zone_l.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "M"
-                        @zone_m = ZoneM.find_by(desk_id: data_id)
-                        if @zone_m.present?
-                            if @zone_m.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_m = ZoneM.new(db_hash)
-                            if @zone_m.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "N"
-                        @zone_n = ZoneN.find_by(desk_id: data_id)
-                        if @zone_n.present?
-                            if @zone_n.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_n = ZoneN.new(db_hash)
-                            if @zone_n.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "Q"
-                        @zone_q = ZoneQ.find_by(desk_id: data_id)
-                        if @zone_q.present?
-                            if @zone_q.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_q = ZoneQ.new(db_hash)
-                            if @zone_q.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
-                    when "R"
-                        @zone_r = ZoneR.find_by(desk_id: data_id)
-                        if @zone_r.present?
-                            if @zone_r.update(db_hash)
-                                puts "updated successfuly"
-                            else
-                                puts "data did not update"
-                            end
-                        else
-                    # if desk id cant be found then create new data and save to db
-                            @zone_r = ZoneR.new(db_hash)
-                            if @zone_r.save
-                                puts "success to db"
-                            else
-                                puts "something went wrong"
-                            end
-                        end
+
+                        
                     end
+                    #calling function to perform task
+                    zone_id_check(db_hash, data_id)
+
                 end
+                    
             end
             redirect_to admin_csv_files_path, notice: "File Successfully Updated to Database"
-
-            
-        else
-
-            puts "check file column"
         end
 
         if @wrong_file == 0
