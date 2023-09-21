@@ -126,6 +126,7 @@ const AppContext = (props) => {
     },
   });
 
+  // reserved types
   const acceptedItReserved = ["reserved (it)", "reserved it"];
   const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
   const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
