@@ -15,7 +15,7 @@ import Show from "./pages/Show";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// reload on resize
+// reload on window resize
 let prevWidth = window.innerWidth;
 let prevHeight = window.innerHeight;
 
