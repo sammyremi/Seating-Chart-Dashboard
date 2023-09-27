@@ -7,7 +7,7 @@ const GlobalContext = createContext();
 const floor_2_zones = ["d", "e", "h", "i"];
 const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
 
-// create custom hookss
+// create custom hooks
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = (props) => {
