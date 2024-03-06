@@ -127,7 +127,9 @@ const AppContext = (props) => {
 
   // floor zones
   const floor_2_zones = ["d", "e", "h", "i"];
+  const floor_2_zones_size = [0, 44, 36, 0];
   const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
+  const floor_3_zones_size = [19, 24, 0, 25, 44, 94, 55];
   const all_zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
   const zones_d = {
     d: [],
@@ -175,6 +177,8 @@ const AppContext = (props) => {
     const fetchData = async () => {
       const f2fetchedData = [];
       const f3fetchedData = [];
+      let f2vacant = 0;
+      let f3vacant = 0;
 
       //get all the zones data
       for (let i = 0; i < all_zones.length; i++) {
@@ -238,7 +242,9 @@ const AppContext = (props) => {
               [floor_2_zones[i]]: {
                 ...prevData.floor_2.zones[floor_2_zones[i]],
                 occupied: occupied.length,
-                vacant: vacant.length,
+                vacant:
+                  floor_2_zones_size[i] -
+                  (occupied.length + damaged.length + reserved.length),
                 damaged: damaged.length,
                 reserved: reserved.length,
                 total: floor_data.length,
@@ -246,9 +252,15 @@ const AppContext = (props) => {
             },
           },
         }));
+        // sum all floor_2 vacant zones
+        f2vacant +=
+          floor_2_zones_size[i] -
+          (occupied.length + damaged.length + reserved.length);
 
         f2fetchedData.push(...floor_data);
       }
+
+      console.log(f2vacant);
 
       // get occupied, vacant, damaged and reserved data in floor 2 zones
       let occupied_2 = f2fetchedData.filter(
@@ -261,11 +273,7 @@ const AppContext = (props) => {
           asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
           "damaged"
       );
-      let vacant_2 = f2fetchedData.filter(
-        (asset) =>
-          asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
-          "vacant"
-      );
+      let vacant_2 = f2vacant;
       let reserved_2 = f2fetchedData.filter((asset) =>
         asset.custom_fields["Workspace-Status"]?.value
           .toLowerCase()
@@ -278,7 +286,7 @@ const AppContext = (props) => {
         floor_2: {
           ...prevData.floor_2,
           occupied: occupied_2.length,
-          vacant: vacant_2.length,
+          vacant: vacant_2,
           damaged: damaged_2.length,
           reserved: reserved_2.length,
         },
@@ -329,7 +337,9 @@ const AppContext = (props) => {
               [floor_3_zones[i]]: {
                 ...prevData.floor_3.zones[floor_3_zones[i]],
                 occupied: occupied.length,
-                vacant: vacant.length,
+                vacant:
+                  floor_3_zones_size[i] -
+                  (occupied.length + damaged.length + reserved.length),
                 damaged: damaged.length,
                 reserved: reserved.length,
                 total: floor_data.length,
@@ -337,6 +347,12 @@ const AppContext = (props) => {
             },
           },
         }));
+
+        // get all floor_3 vacant zones
+        f3vacant +=
+          floor_3_zones_size[i] -
+          (occupied.length + damaged.length + reserved.length);
+
         f3fetchedData.push(...floor_data);
       }
 
@@ -351,11 +367,7 @@ const AppContext = (props) => {
           asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
           "damaged"
       );
-      let vacant_3 = f3fetchedData.filter(
-        (asset) =>
-          asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
-          "vacant"
-      );
+      let vacant_3 = f3vacant;
       let reserved_3 = f3fetchedData.filter((asset) =>
         asset.custom_fields["Workspace-Status"]?.value
           .toLowerCase()
@@ -368,7 +380,7 @@ const AppContext = (props) => {
         floor_3: {
           ...prevData.floor_3,
           occupied: occupied_3.length,
-          vacant: vacant_3.length,
+          vacant: vacant_3,
           damaged: damaged_3.length,
           reserved: reserved_3.length,
         },
