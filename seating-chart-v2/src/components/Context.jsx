@@ -15,7 +15,7 @@ const AppContext = (props) => {
   const [activeSideNav, setActiveSideNav] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
   const [searchedDesk, setSearchedDesk] = useState("");
-  const baseURL = "http://localhost:3000/rows";
+  const baseURL = "http://localhost:4000/rows";
   const [data, setData] = useState({
     floor_2: {
       occupied: "",

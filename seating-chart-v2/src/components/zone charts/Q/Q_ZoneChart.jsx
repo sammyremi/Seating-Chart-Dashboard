@@ -10,17 +10,17 @@ const Q_ZoneChart = ({ data }) => {
         </div>
         <div className="ocpd1  col-start-5 col-end-18 row-start-1 row-end-2 flex justify-center">
           {/* ocpd1 */}
-          <Desk data={data[62]} desk_id="Q0063" />
-          <Desk data={data[61]} desk_id="Q0062" />
-          <Desk data={data[60]} desk_id="Q0061" />
-          <Desk data={data[59]} desk_id="Q0060" />
-          <Desk data={data[58]} desk_id="Q0059" />
-          <Desk data={data[57]} desk_id="Q0058" />
-          <Desk data={data[56]} desk_id="Q0057" />
-          <Desk data={data[55]} desk_id="Q0056" />
-          <Desk data={data[54]} desk_id="Q0055" />
-          <Desk data={data[53]} desk_id="Q0054" />
-          <Desk data={data[52]} desk_id="Q0053" />
+          <Desk data={data} desk_id="Q0063" />
+          <Desk data={data} desk_id="Q0062" />
+          <Desk data={data} desk_id="Q0061" />
+          <Desk data={data} desk_id="Q0060" />
+          <Desk data={data} desk_id="Q0059" />
+          <Desk data={data} desk_id="Q0058" />
+          <Desk data={data} desk_id="Q0057" />
+          <Desk data={data} desk_id="Q0056" />
+          <Desk data={data} desk_id="Q0055" />
+          <Desk data={data} desk_id="Q0054" />
+          <Desk data={data} desk_id="Q0053" />
         </div>
         <div className="restroom2 rounded-sm grid place-content-center bg-gray-300 col-start-20 col-end-22 row-start-1 row-end-2">
           Restroom 2
@@ -28,51 +28,51 @@ const Q_ZoneChart = ({ data }) => {
         <div className="occupied2  col-start-3 col-end-7 row-start-3 row-end-5 flex flex-col place-content-center">
           {/* #15-94 */}
           <div className="flex flex-row -scale-y-100">
-            <Desk data={data[90]} style="-scale-x-100" desk_id="Q0091" />
-            <Desk data={data[91]} style="-scale-x-100" desk_id="Q0092" />
-            <Desk data={data[92]} style="-scale-x-100" desk_id="Q0093" />
-            <Desk data={data[93]} style="-scale-x-100" desk_id="Q0094" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0091" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0092" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0093" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0094" />
           </div>
           <div className="flex flex-row">
-            <Desk data={data[28]} desk_id="Q0029" />
-            <Desk data={data[29]} desk_id="Q0030" />
-            <Desk data={data[30]} desk_id="Q0031" />
-            <Desk data={data[31]} desk_id="Q0032" />
+            <Desk data={data} desk_id="Q0029" />
+            <Desk data={data} desk_id="Q0030" />
+            <Desk data={data} desk_id="Q0031" />
+            <Desk data={data} desk_id="Q0032" />
           </div>
         </div>
         {/* Desk_id: #52-63 */}
         <div className="occupied3  col-start-9 col-end-14 row-start-3 row-end-5 flex flex-col place-content-center">
           <div className="flex flex-row -scale-y-100">
-            <Desk data={data[51]} style="-scale-x-100" desk_id="Q0052" />
-            <Desk data={data[50]} style="-scale-x-100" desk_id="Q0051" />
-            <Desk data={data[49]} style="-scale-x-100" desk_id="Q0050" />
-            <Desk data={data[48]} style="-scale-x-100" desk_id="Q0049" />
-            <Desk data={data[47]} style="-scale-x-100" desk_id="Q0048" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0052" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0051" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0050" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0049" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0048" />
           </div>
           <div className="flex flex-row">
-            <Desk data={data[42]} desk_id="Q0043" />
-            <Desk data={data[43]} desk_id="Q0044" />
-            <Desk data={data[44]} desk_id="Q0045" />
-            <Desk data={data[45]} desk_id="Q0046" />
-            <Desk data={data[46]} desk_id="Q0047" />
+            <Desk data={data} desk_id="Q0043" />
+            <Desk data={data} desk_id="Q0044" />
+            <Desk data={data} desk_id="Q0045" />
+            <Desk data={data} desk_id="Q0046" />
+            <Desk data={data} desk_id="Q0047" />
           </div>
         </div>
         {/* Desk_id: #33-42 */}
         <div className="occupied7  col-start-9 col-end-14 row-start-6 row-end-8 flex flex-col place-content-center">
           {/* ocpd7 */}
           <div className="flex flex-row -scale-y-100">
-            <Desk data={data[41]} style="-scale-x-100" desk_id="Q0042" />
-            <Desk data={data[40]} style="-scale-x-100" desk_id="Q0041" />
-            <Desk data={data[39]} style="-scale-x-100" desk_id="Q0040" />
-            <Desk data={data[38]} style="-scale-x-100" desk_id="Q0039" />
-            <Desk data={data[37]} style="-scale-x-100" desk_id="Q0038" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0042" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0041" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0040" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0039" />
+            <Desk data={data} style="-scale-x-100" desk_id="Q0038" />
           </div>
           <div className="flex flex-row">
-            <Desk data={data[32]} desk_id="Q0033" />
-            <Desk data={data[33]} desk_id="Q0034" />
-            <Desk data={data[34]} desk_id="Q0035" />
-            <Desk data={data[35]} desk_id="Q0036" />
-            <Desk data={data[36]} desk_id="Q0037" />
+            <Desk data={data} desk_id="Q0033" />
+            <Desk data={data} desk_id="Q0034" />
+            <Desk data={data} desk_id="Q0035" />
+            <Desk data={data} desk_id="Q0036" />
+            <Desk data={data} desk_id="Q0037" />
           </div>
         </div>
         {/* Desk_id: #64-71 */}
@@ -80,30 +80,30 @@ const Q_ZoneChart = ({ data }) => {
           {/* ocpd4 */}
           <div className="flex flex-col">
             <div className="rotate-90">
-              <Desk data={data[63]} desk_id="Q0064" />
+              <Desk data={data} desk_id="Q0064" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[64]} desk_id="Q0065" />
+              <Desk data={data} desk_id="Q0065" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[65]} desk_id="Q0066" />
+              <Desk data={data} desk_id="Q0066" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[66]} desk_id="Q0067" />
+              <Desk data={data} desk_id="Q0067" />
             </div>
           </div>
           <div className="flex flex-col">
             <div className="-rotate-90">
-              <Desk data={data[70]} desk_id="Q0071" />
+              <Desk data={data} desk_id="Q0071" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[69]} desk_id="Q0070" />
+              <Desk data={data} desk_id="Q0070" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[68]} desk_id="Q0069" />
+              <Desk data={data} desk_id="Q0069" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[67]} desk_id="Q0068" />
+              <Desk data={data} desk_id="Q0068" />
             </div>
           </div>
         </div>
@@ -112,30 +112,30 @@ const Q_ZoneChart = ({ data }) => {
           {/* ocpd5 */}
           <div className="flex flex-col">
             <div className="rotate-90">
-              <Desk data={data[71]} desk_id="Q0072" />
+              <Desk data={data} desk_id="Q0072" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[72]} desk_id="Q0073" />
+              <Desk data={data} desk_id="Q0073" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[73]} desk_id="Q0074" />
+              <Desk data={data} desk_id="Q0074" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[74]} desk_id="Q0075" />
+              <Desk data={data} desk_id="Q0075" />
             </div>
           </div>
           <div className="flex flex-col">
             <div className="-rotate-90">
-              <Desk data={data[78]} desk_id="Q0079" />
+              <Desk data={data} desk_id="Q0079" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[77]} desk_id="Q0078" />
+              <Desk data={data} desk_id="Q0078" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[76]} desk_id="Q0077" />
+              <Desk data={data} desk_id="Q0077" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[75]} desk_id="Q0076" />
+              <Desk data={data} desk_id="Q0076" />
             </div>
           </div>
         </div>
@@ -143,10 +143,10 @@ const Q_ZoneChart = ({ data }) => {
         <div className="occupied6  col-start-21 col-end-22 row-start-4 row-end-6 flex flex-col place-items-center">
           {/* ocpd6 */}
           <div className="rotate-90">
-            <Desk data={data[79]} desk_id="Q0080" />
+            <Desk data={data} desk_id="Q0080" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[80]} desk_id="Q0081" />
+            <Desk data={data} desk_id="Q0081" />
           </div>
         </div>
         {/* Desk_id: #17-28 */}
@@ -154,42 +154,42 @@ const Q_ZoneChart = ({ data }) => {
           {/* ocpd8 */}
           <div className="flex flex-col">
             <div className="rotate-90">
-              <Desk data={data[27]} desk_id="Q0028" />
+              <Desk data={data} desk_id="Q0028" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[26]} desk_id="Q0027" />
+              <Desk data={data} desk_id="Q0027" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[25]} desk_id="Q0026" />
+              <Desk data={data} desk_id="Q0026" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[24]} desk_id="Q0025" />
+              <Desk data={data} desk_id="Q0025" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[23]} desk_id="Q0024" />
+              <Desk data={data} desk_id="Q0024" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[22]} desk_id="Q0023" />
+              <Desk data={data} desk_id="Q0023" />
             </div>
           </div>
           <div className="flex flex-col">
             <div className="-rotate-90">
-              <Desk data={data[16]} desk_id="Q0017" />
+              <Desk data={data} desk_id="Q0017" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[17]} desk_id="Q0018" />
+              <Desk data={data} desk_id="Q0018" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[18]} desk_id="Q0019" />
+              <Desk data={data} desk_id="Q0019" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[19]} desk_id="Q0020" />
+              <Desk data={data} desk_id="Q0020" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[20]} desk_id="Q0021" />
+              <Desk data={data} desk_id="Q0021" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[21]} desk_id="Q0022" />
+              <Desk data={data} desk_id="Q0022" />
             </div>
           </div>
         </div>
@@ -198,36 +198,36 @@ const Q_ZoneChart = ({ data }) => {
           {/* ocpd9 */}
           <div className="flex flex-col">
             <div className="rotate-90">
-              <Desk data={data[15]} desk_id="Q0016" />
+              <Desk data={data} desk_id="Q0016" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[14]} desk_id="Q0015" />
+              <Desk data={data} desk_id="Q0015" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[13]} desk_id="Q0014" />
+              <Desk data={data} desk_id="Q0014" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[12]} desk_id="Q0013" />
+              <Desk data={data} desk_id="Q0013" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[11]} desk_id="Q0012" />
+              <Desk data={data} desk_id="Q0012" />
             </div>
           </div>
           <div className="flex flex-col">
             <div className="-rotate-90">
-              <Desk data={data[6]} desk_id="Q0007" />
+              <Desk data={data} desk_id="Q0007" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[7]} desk_id="Q0008" />
+              <Desk data={data} desk_id="Q0008" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[8]} desk_id="Q0009" />
+              <Desk data={data} desk_id="Q0009" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[9]} desk_id="Q0010" />
+              <Desk data={data} desk_id="Q0010" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[10]} desk_id="Q0011" />
+              <Desk data={data} desk_id="Q0011" />
             </div>
           </div>
         </div>
@@ -235,22 +235,22 @@ const Q_ZoneChart = ({ data }) => {
         <div className="ocpd10 col-start-6 col-end-8 row-start-6 row-end-12 flex flex-col place-items-center">
           {/* ocpd10 */}
           <div className="rotate-90">
-            <Desk data={data[5]} desk_id="Q0006" />
+            <Desk data={data} desk_id="Q0006" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[4]} desk_id="Q0005" />
+            <Desk data={data} desk_id="Q0005" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[3]} desk_id="Q0004" />
+            <Desk data={data} desk_id="Q0004" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[2]} desk_id="Q0003" />
+            <Desk data={data} desk_id="Q0003" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[1]} desk_id="Q0002" />
+            <Desk data={data} desk_id="Q0002" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[0]} desk_id="Q0001" />
+            <Desk data={data} desk_id="Q0001" />
           </div>
         </div>
         {/* Desk_id: #85-90 */}
@@ -258,24 +258,24 @@ const Q_ZoneChart = ({ data }) => {
           {/* ocpd11 */}
           <div className="flex flex-col">
             <div className="rotate-90">
-              <Desk data={data[87]} desk_id="Q0088" />
+              <Desk data={data} desk_id="Q0088" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[88]} desk_id="Q0089" />
+              <Desk data={data} desk_id="Q0089" />
             </div>
             <div className="rotate-90">
-              <Desk data={data[89]} desk_id="Q0090" />
+              <Desk data={data} desk_id="Q0090" />
             </div>
           </div>
           <div className="flex flex-col">
             <div className="-rotate-90">
-              <Desk data={data[86]} desk_id="Q0087" />
+              <Desk data={data} desk_id="Q0087" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[85]} desk_id="Q0086" />
+              <Desk data={data} desk_id="Q0086" />
             </div>
             <div className="-rotate-90">
-              <Desk data={data[84]} desk_id="Q0085" />
+              <Desk data={data} desk_id="Q0085" />
             </div>
           </div>
         </div>
@@ -283,13 +283,13 @@ const Q_ZoneChart = ({ data }) => {
         <div className="ocpd12  col-start-13 col-end-14 row-start-9 row-end-12 flex flex-col place-items-center">
           {/* ocpd12 */}
           <div className="rotate-90">
-            <Desk data={data[81]} desk_id="Q0082" />
+            <Desk data={data} desk_id="Q0082" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[82]} desk_id="Q0083" />
+            <Desk data={data} desk_id="Q0083" />
           </div>
           <div className="rotate-90">
-            <Desk data={data[83]} desk_id="Q0084" />
+            <Desk data={data} desk_id="Q0084" />
           </div>
         </div>
         <div className="zoner rounded-sm grid place-items-center bg-[#e9f9fd] col-start-14 col-end-22 row-start-9 row-end-12">
