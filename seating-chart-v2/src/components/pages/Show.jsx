@@ -89,8 +89,9 @@ const Show = () => {
         <div>
           <label
             htmlFor="desk_id"
-            className="block text-sm font-medium text-sky-400"
-          ></label>
+            
+            className="block text-sm font-medium text-sky-700 w-1/3 p-3.5 mx-auto h-1.5 pl-0"
+          >Desk ID</label>
           <input
             type="string"
             id="desk_id"
@@ -99,7 +100,7 @@ const Show = () => {
               console.log(e.target.value);
               setData({ ...data, desk_id: e.target.value });
             }}
-            className="mb-5 bg-gray-50 border border-sky-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5 mx-auto focus:outline-none"
+            className="mb-3 mt-2 bg-gray-50 border border-sky-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5 mx-auto focus:outline-none"
             required
           />
         </div>
@@ -107,8 +108,8 @@ const Show = () => {
         <div>
           <label
             htmlFor="status"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          ></label>
+            className="block text-sm font-medium text-sky-700 w-1/3 p-3.5 mx-auto h-1.5 pl-0"
+          >Status</label>
           <input
             type="string"
             id="status"
@@ -117,15 +118,15 @@ const Show = () => {
               console.log(e.target.value);
               setData({ ...data, campaign: e.target.value });
             }}
-            className="mb-5 bg-gray-50 border border-sky-300 text-gray-500 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-1/3 p-2.5 mx-auto focus:outline-none"
+            className="mb-3  mt-2 bg-gray-50 border border-sky-300 text-gray-500 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-1/3 p-2.5 mx-auto focus:outline-none"
             required
           />
         </div>
         <div>
           <label
             htmlFor="campaign"
-            className="block mb-2 text-sm font-medium text-gray-500"
-          ></label>
+            className="block text-sm font-medium text-sky-700 w-1/3 p-3.5 mx-auto h-1.5 pl-0"
+          >Campaign</label>
           <input
             type="string"
             id="campaign"
@@ -134,7 +135,7 @@ const Show = () => {
               console.log(e.target.value);
               setData({ ...data, campaign: e.target.value });
             }}
-            className="mb-5 bg-gray-50 border border-sky-300 text-gray-500 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-1/3 p-2.5 mx-auto focus:outline-none"
+            className="mb-3 mt-2 bg-gray-50 border border-sky-300 text-gray-500 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-1/3 p-2.5 mx-auto focus:outline-none"
             required
           />
         </div>
