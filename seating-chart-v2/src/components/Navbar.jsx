@@ -21,10 +21,6 @@ const Navbar = () => {
     setShow(true);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   const closeDropdown = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsDropdownOpen(false);
@@ -191,8 +187,6 @@ const Navbar = () => {
                 </div>
               </form>
             </div>
-
-            {/* Profile dropdown */}
           </div>
         </div>
       </div>

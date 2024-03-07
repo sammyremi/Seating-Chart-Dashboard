@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../Loading";
 import {
@@ -319,10 +317,7 @@ const Home = () => {
         </div>
         <div className="flex gap-x-4">
           {/* Totals */}
-          <div
-            // className="text-gray-500 mt-1 ml-1 absolute w-20 text-xs top-56"
-            className="w-20 text-xs text-gray-500"
-          >
+          <div className="w-20 text-xs text-gray-500">
             <p className="font-bold mb-2 text-sm">Total</p>
             {floor_2_zones.map((zone) => {
               return (
@@ -338,6 +333,7 @@ const Home = () => {
               );
             })}
           </div>
+
           {/* Barchart */}
           <div className="basis-10/12">
             <Bar
