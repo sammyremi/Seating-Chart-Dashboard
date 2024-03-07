@@ -25,18 +25,8 @@ ChartJS.register(
 );
 
 const Home = () => {
-  const {
-    data,
-    isLoading,
-    isFetching,
-    getData,
-    loading,
-    baseURL,
-    rq_data,
-    setActiveSideNav,
-    floor_2_zones,
-    floor_3_zones,
-  } = useGlobalContext();
+  const { data, isLoading, setActiveSideNav, floor_2_zones, floor_3_zones } =
+    useGlobalContext();
 
   // set active sidebar
   useEffect(() => {
@@ -480,14 +470,6 @@ const Home = () => {
         </div>
       </div>
     </div>
-    // <div>
-    //   {rq_data.map((asset, index) => (
-    //     <p key={index}>
-    //       ID: {asset.id} Status:{" "}
-    //       {asset.custom_fields["Workspace-Status"]?.value}
-    //     </p>
-    //   ))}
-    // </div>
   );
 };
 
