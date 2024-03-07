@@ -38,90 +38,90 @@ const L_ZoneChart = ({ data }) => {
         <div className="ocpd1 col-start-2 col-end-4 row-start-1 row-end-3 flex flex-col place-content-center">
           {/* occupied1 */}
           <div className="flex flex-row -scale-y-100 place-content-start">
-            <Desk data={data[10]} style="-scale-x-100" />
-            <Desk data={data[9]} style="-scale-x-100" />
-            <Desk data={data[8]} style="-scale-x-100" />
+            <Desk data={data} desk_id="L0011" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0010" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0009" style="-scale-x-100" />
           </div>
           <div className="flex flex-row place-content-start">
-            <Desk data={data[11]} />
-            <Desk data={data[12]} />
-            <Desk data={data[13]} />
+            <Desk data={data} desk_id="L0012"/>
+            <Desk data={data} desk_id="L0013"/>
+            <Desk data={data} desk_id="L0014"/>
           </div>
         </div>
         {/* Desk_id: #1-8 */}
         <div className="ocpd2 col-start-6 col-end-7 row-start-3 row-end-12 mt-4 flex flex-col place-items-end">
           {/* occupied2 */}
           <div className="rotate-90">
-            <Desk data={data[7]} />
+            <Desk data={data} desk_id="L0008"/>
           </div>
           <div className="rotate-90">
-            <Desk data={data[6]} />
+            <Desk data={data} desk_id="L0007"/>
           </div>
           <div className="rotate-90">
-            <Desk data={data[5]} />
+            <Desk data={data} desk_id="L0006"/>
           </div>
           <div className="rotate-90">
-            <Desk data={data[4]} />
+            <Desk data={data} desk_id="L0005"/>
           </div>
           <div className="rotate-90">
-            <Desk data={data[3]} />
+            <Desk data={data} desk_id="L0004"/>
           </div>
           <div className="rotate-90">
-            <Desk data={data[2]} />
+            <Desk data={data} desk_id="L0003"/>
           </div>
           <div className="rotate-90">
-            <Desk data={data[1]} />
+            <Desk data={data} desk_id="L0002"/>
           </div>
           <div className="rotate-90">
-            <Desk data={data[0]} />
+            <Desk data={data} desk_id="L0001"/>
           </div>
         </div>
         {/* Desk_id: #15-22 */}
         <div className="occupied3 col-start-2 col-end-4 row-start-4 row-end-6 flex flex-col place-content-center">
           {/* occupied3 */}
           <div className="flex flex-row -scale-y-100 place-content-start">
-            <Desk data={data[17]} style="-scale-x-100" />
-            <Desk data={data[16]} style="-scale-x-100" />
-            <Desk data={data[15]} style="-scale-x-100" />
-            <Desk data={data[14]} style="-scale-x-100" />
+            <Desk data={data} desk_id="L0018" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0017" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0016" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0015" style="-scale-x-100" />
           </div>
           <div className="flex flex-row place-content-start">
-            <Desk data={data[18]} />
-            <Desk data={data[19]} />
-            <Desk data={data[20]} />
-            <Desk data={data[21]} />
+            <Desk data={data} desk_id="L0019"/>
+            <Desk data={data} desk_id="L0020"/>
+            <Desk data={data} desk_id="L0021"/>
+            <Desk data={data} desk_id="L0022"/>
           </div>
         </div>
         {/* Desk_id: #23-30 */}
         <div className="occupied4 col-start-2 col-end-4 row-start-7 row-end-9 flex flex-col place-content-center">
           {/* occupied4 */}
           <div className="flex flex-row -scale-y-100 place-content-start">
-            <Desk data={data[25]} style="-scale-x-100" />
-            <Desk data={data[24]} style="-scale-x-100" />
-            <Desk data={data[23]} style="-scale-x-100" />
-            <Desk data={data[22]} style="-scale-x-100" />
+            <Desk data={data} desk_id="L0026" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0025" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0024" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0023" style="-scale-x-100" />
           </div>
           <div className="flex flex-row place-content-start">
-            <Desk data={data[26]} />
-            <Desk data={data[27]} />
-            <Desk data={data[28]} />
-            <Desk data={data[29]} />
+            <Desk data={data} desk_id="L0027" />
+            <Desk data={data} desk_id="L0028" />
+            <Desk data={data} desk_id="L0029" />
+            <Desk data={data} desk_id="L0030" />
           </div>
         </div>
         {/* Desk_id: #31-38 */}
         <div className="occupied4 col-start-2 col-end-4 row-start-10 row-end-12 flex flex-col place-content-center">
           {/* occupied4 */}
           <div className="flex flex-row -scale-y-100 place-content-start">
-            <Desk data={data[33]} style="-scale-x-100" />
-            <Desk data={data[32]} style="-scale-x-100" />
-            <Desk data={data[31]} style="-scale-x-100" />
-            <Desk data={data[30]} style="-scale-x-100" />
+            <Desk data={data} desk_id="L0034" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0033" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0032" style="-scale-x-100" />
+            <Desk data={data} desk_id="L0031" style="-scale-x-100" />
           </div>
           <div className="flex flex-row place-content-start">
-            <Desk data={data[34]} />
-            <Desk data={data[35]} />
-            <Desk data={data[36]} />
-            <Desk data={data[37]} />
+            <Desk data={data} desk_id="L0035" />
+            <Desk data={data} desk_id="L0036" />
+            <Desk data={data} desk_id="L0037" />
+            <Desk data={data} desk_id="L0038" />
           </div>
         </div>
         <div className="restroom rounded-sm grid place-content-center p-2 text-sm bg-gray-300 col-start-5 col-end-7 row-start-1 row-end-2">
