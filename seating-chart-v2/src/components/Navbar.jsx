@@ -86,7 +86,7 @@ const Navbar = () => {
   }
 
   const font = {
-    fontFamily: "'Josefin Sans', sans-serif",
+    fontFamily: "Josefin Sans",
   };
 
   return (
@@ -101,7 +101,7 @@ const Navbar = () => {
             <div className="ml-24">
               <h1
                 style={font}
-                className="text-[#066DA5] font-bold text-3xl mt-2"
+                className="text-[#066DA5] font-bold text-3xl mt-2 "
               >
                 DeskScape
               </h1>
