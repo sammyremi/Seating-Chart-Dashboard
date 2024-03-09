@@ -159,6 +159,29 @@ const HomeLayout = () => {
         <div className="hidden lg:block lg:basis-1/6 h-auto border-r-2 z-20">
           <Sidenav />
         </div>
+
+        {/* <div
+          className={`${
+            showSidebar
+              ? "opacity-25 fixed top-0 left-0 w-full h-screen bg-slate-800/25 z-[1]"
+              : ""
+          } lg:basis-5/6 min-h-screen pt-20 px-4 z-0 mx-auto my-0`}
+        >
+          <Outlet />
+        </div> */}
+        {/* 
+        <div
+          className={
+            showSidebar
+              ? "fixed top-0 left-0 w-full h-screen bg-slate-800/25 z-[1]"
+              : ""
+          }
+        >
+          <div className="lg:basis-5/6 min-h-screen pt-20 px-4 z-0 mx-auto my-0">
+            <Outlet />
+          </div>
+        </div> */}
+
         <div
           className={`${
             showSidebar ? "opacity-25" : ""
