@@ -7,7 +7,8 @@ const DeskSVG = ({ status, width, height }) => {
 
   return (
     <div>
-      {status?.toLowerCase() === undefined ? (
+      {status?.toLowerCase() == undefined ||
+      status?.toLowerCase() == "vacant" ? (
         <svg
           fill="currentColor"
           className={`flex-shrink-0 text-green-600 transition duration-75 

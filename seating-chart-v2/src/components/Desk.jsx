@@ -13,7 +13,8 @@ const Desk = ({ data, style, desk_id }) => {
 
   const workspace_data = filtered_data[0];
 
-  const data_id = workspace_data?.id;
+  // check if data_id is undefined for vacant workspaces
+  const data_id = workspace_data?.id == undefined ? "000" : workspace_data?.id;
   const status = workspace_data?.custom_fields["Workspace-Status"]?.value;
   const data_desk_id = workspace_data?.custom_fields["Workspace"]?.value;
 
@@ -22,7 +23,7 @@ const Desk = ({ data, style, desk_id }) => {
     <div
       className="desk mb-[-6px] cursor-pointer hover:font-bold"
       onClick={() => {
-        navigate(`/edit/zone_${first_char}s/${data_id}`);
+        navigate(`/zone_${first_char}s/${data_id}/${desk_id}`);
       }}
     >
       {data_desk_id === desk_id && searchedDesk === desk_id ? (

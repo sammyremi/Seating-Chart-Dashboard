@@ -49,7 +49,7 @@ const App = () => {
           element: <Signout />,
         },
         {
-          path: "edit/:zone/:id",
+          path: "/:zone/:id/:desk_id",
           element: <Show />,
         },
         {

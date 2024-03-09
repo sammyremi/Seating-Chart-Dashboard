@@ -6,18 +6,10 @@ import Loading from "../Loading";
 import DeskSVG from "../DeskSVG";
 
 const Show = () => {
-  const { zone, id } = useParams();
+  const { zone, id, desk_id: workspace_id } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {
-    setRefresh,
-    refresh,
-    setActiveSideNav,
-    acceptedDevReserved,
-    acceptedItReserved,
-    acceptedOpsReserved,
-    baseURL,
-  } = useGlobalContext();
+  const { setActiveSideNav, baseURL } = useGlobalContext();
 
   const url = `${baseURL}/${id}`;
 
@@ -37,7 +29,13 @@ const Show = () => {
         setData({ id, desk_id, status, campaign });
         setLoading(false);
       } catch (error) {
+        // id not found; workspace vacant.
         console.log(error);
+        const desk_id = workspace_id;
+        const status = "Vacant";
+        const campaign = undefined;
+        setData({ id, desk_id, status, campaign });
+        setLoading(false);
       }
     };
     fetchData();
@@ -89,9 +87,10 @@ const Show = () => {
         <div>
           <label
             htmlFor="desk_id"
-            
             className="block text-sm font-medium text-sky-700 w-1/3 p-3.5 mx-auto h-1.5 pl-0"
-          >Desk ID</label>
+          >
+            Desk ID
+          </label>
           <input
             type="string"
             id="desk_id"
@@ -109,7 +108,9 @@ const Show = () => {
           <label
             htmlFor="status"
             className="block text-sm font-medium text-sky-700 w-1/3 p-3.5 mx-auto h-1.5 pl-0"
-          >Status</label>
+          >
+            Status
+          </label>
           <input
             type="string"
             id="status"
@@ -126,7 +127,9 @@ const Show = () => {
           <label
             htmlFor="campaign"
             className="block text-sm font-medium text-sky-700 w-1/3 p-3.5 mx-auto h-1.5 pl-0"
-          >Campaign</label>
+          >
+            Campaign
+          </label>
           <input
             type="string"
             id="campaign"
