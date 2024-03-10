@@ -16,7 +16,8 @@ import { useGlobalContext } from "./Context";
 import Pagination from "@mui/material/Pagination";
 
 const Zone = () => {
-  const { data, loading, setActiveSideNav, floor_3_zones } = useGlobalContext();
+  const { data, loading, setActiveSideNav, floor_3_zones, all_zone_size } =
+    useGlobalContext();
   const { zone_name } = useParams();
   const [filters, setFilters] = useState({
     occupied: false,
@@ -30,6 +31,22 @@ const Zone = () => {
   const zone_id = zone_id_array[zone_id_array.length - 2];
 
   const zone_data = data.zone_data[zone_id];
+
+  // get array of occupied desks per zone
+  let occupied_desks = [];
+  for (let i = 0; i < zone_data.length; i++) {
+    occupied_desks.push(zone_data[i].custom_fields["Workspace"].value);
+  }
+
+  // get all desks per zone
+  let all_desks = [];
+  for (let i = 1; i <= all_zone_size[zone_id]; i++) {
+    all_desks.push(zone_id.toUpperCase() + i.toString().padStart(4, "0"));
+  }
+
+  // get vacant desks per zone
+  const occupiedSet = new Set([...occupied_desks]);
+  let vacant_desks = all_desks.filter((desk) => !occupiedSet.has(desk));
 
   const filteredData = zone_data.filter((desk) => {
     // No filters selected, show all

@@ -131,6 +131,19 @@ const AppContext = (props) => {
   const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
   const floor_3_zones_size = [19, 24, 38, 25, 44, 94, 55];
   const all_zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
+  const all_zone_size = {
+    d: 76,
+    e: 44,
+    h: 36,
+    i: 73,
+    j: 19,
+    k: 24,
+    l: 38,
+    m: 25,
+    n: 44,
+    q: 94,
+    r: 55,
+  };
   const zones_d = {
     d: [],
     e: [],
@@ -393,6 +406,7 @@ const AppContext = (props) => {
   return (
     <GlobalContext.Provider
       value={{
+        all_zone_size,
         sorter,
         isLoading,
         isFetching,
