@@ -16,21 +16,27 @@ import { useGlobalContext } from "./Context";
 import Pagination from "@mui/material/Pagination";
 
 const Zone = () => {
-  const { data, loading, setActiveSideNav, floor_3_zones, all_zone_size } =
-    useGlobalContext();
   const { zone_name } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
+  const zone_id_array = zone_name.split("");
+  const zone_id = zone_id_array[zone_id_array.length - 2];
+  const {
+    data,
+    loading,
+    setActiveSideNav,
+    floor_3_zones,
+    all_zone_size,
+    sorter,
+  } = useGlobalContext();
+  const zone_data = data.zone_data[zone_id];
   const [filters, setFilters] = useState({
     occupied: false,
     vacant: false,
     damaged: false,
     filtered: false,
   });
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const zone_id_array = zone_name.split("");
-  const zone_id = zone_id_array[zone_id_array.length - 2];
-
-  const zone_data = data.zone_data[zone_id];
+  console.log(zone_data);
 
   // get array of occupied desks per zone
   let occupied_desks = [];
@@ -48,7 +54,7 @@ const Zone = () => {
   const occupiedSet = new Set([...occupied_desks]);
   let vacant_desks = all_desks.filter((desk) => !occupiedSet.has(desk));
 
-  // change vacant data structure
+  // change vacant array data structure
   const newVacant = vacant_desks.map((desk) => {
     // get desk number
     // const id = desk.split("").pop();
@@ -86,7 +92,8 @@ const Zone = () => {
 
   zone_data.push(...newVacant);
 
-  console.log(zone_data);
+  // sort zone_data
+  sorter(zone_data, "asc");
 
   // filter data
   const filteredData = zone_data.filter((desk) => {

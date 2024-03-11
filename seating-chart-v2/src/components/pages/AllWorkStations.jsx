@@ -6,23 +6,25 @@ import Loading from "../Loading";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
 
-const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
-const floor_2_zones = ["d", "e", "h", "i"];
-const floor_3_zones = ["j", "k", "l", "m", "n", "q", "r"];
-
 const AllWorkStations = () => {
-  const { sorter } = useGlobalContext();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { floor } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
+  const {
+    sorter,
+    all_zones,
+    floor_2_zones,
+    floor_3_zones,
+    baseURL,
+    all_zone_size,
+  } = useGlobalContext();
   const [filters, setFilters] = useState({
     occupied: false,
     vacant: false,
     damaged: false,
     reserved: false,
   });
-  const { floor } = useParams();
-  const [currentPage, setCurrentPage] = useState(1);
-  const baseURL = "http://localhost:4000/rows";
 
   const filteredData = data.filter((asset) => {
     // No filters selected, show all
@@ -73,13 +75,16 @@ const AllWorkStations = () => {
   }, [floor]);
 
   // check floor zones to be fetched from params
-  const zone_array =
-    floor[2] === "2" ? floor_2_zones : floor[2] === "3" ? floor_3_zones : zones;
+  const floor_zone =
+    floor[2] === "2"
+      ? floor_2_zones
+      : floor[2] === "3"
+      ? floor_3_zones
+      : all_zones;
 
   // Pagination Logic
   const itemsPerPage = 8;
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-
   const paginatedData = filteredData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -99,18 +104,77 @@ const AllWorkStations = () => {
         const response = await axios.get(baseURL);
         const response_data = response.data;
 
-        for (let i = 0; i < zone_array.length; i++) {
+        for (let i = 0; i < floor_zone.length; i++) {
           const zone_data = response_data.filter(
             (asset) =>
               asset.custom_fields["Building Zone"]?.value
                 .slice(-1)
-                .toLowerCase() === zone_array[i]
+                .toLowerCase() === floor_zone[i]
           );
+
+          // get array of occupied desks per zone
+          let occupied_desks = [];
+          for (let j = 0; j < zone_data.length; j++) {
+            occupied_desks.push(zone_data[j].custom_fields["Workspace"].value);
+          }
+
+          // get all desks per zone
+          let all_desks = [];
+          const zone_id = floor_zone[i];
+          for (let j = 1; j <= all_zone_size[zone_id]; j++) {
+            all_desks.push(
+              zone_id.toUpperCase() + j.toString().padStart(4, "0")
+            );
+          }
+
+          // get vacant desks per zone
+          const occupiedSet = new Set([...occupied_desks]);
+          let vacant_desks = all_desks.filter((desk) => !occupiedSet.has(desk));
+
+          // change vacant array data structure
+          const newVacant = vacant_desks.map((desk) => {
+            // get desk number
+            // const id = desk.split("").pop();
+            return {
+              key: desk,
+              id: `v${desk}`,
+              custom_fields: {
+                "Building Zone": {
+                  field: "",
+                  value: `Zone ${zone_id.toUpperCase()}`,
+                  field_format: "ANY",
+                  element: "text",
+                },
+                Workspace: {
+                  field: "_snipeit_workspace_4",
+                  value: desk,
+                  field_format: "ANY",
+                  element: "text",
+                },
+                "Workspace-Status": {
+                  field: "_snipeit_workspace_status_18",
+                  value: "Vacant",
+                  field_format: "ANY",
+                  element: "listbox",
+                },
+                Campaign: {
+                  field: "_snipeit_campaign_17",
+                  value: "",
+                  field_format: "ANY",
+                  element: "listbox",
+                },
+              },
+            };
+          });
+
+          // add vacant to zone data
+          zone_data.push(...newVacant);
+
           // sort zone_data
           sorter(zone_data, "asc");
           fetchedData.push(...zone_data);
         }
-        console.log(fetchedData);
+        // console.log(fetchedData);
         setData((prevData) => [...prevData, ...fetchedData]);
         setLoading(false);
       } catch (error) {
