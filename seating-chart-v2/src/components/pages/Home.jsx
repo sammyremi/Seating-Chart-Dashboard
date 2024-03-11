@@ -23,8 +23,15 @@ ChartJS.register(
 );
 
 const Home = () => {
-  const { data, isLoading, setActiveSideNav, floor_2_zones, floor_3_zones } =
-    useGlobalContext();
+  const {
+    data,
+    isLoading,
+    setActiveSideNav,
+    floor_2_zones_size,
+    floor_3_zones_size,
+    floor_2_zones,
+    floor_3_zones,
+  } = useGlobalContext();
 
   // set active sidebar
   useEffect(() => {

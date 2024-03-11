@@ -312,7 +312,7 @@ const AppContext = (props) => {
                 vacant:
                   floor_2_zones_size[i] -
                   (occupied.length + damaged.length + reserved.length),
-                total: floor_data.length,
+                total: floor_2_zones_size[i],
               },
             },
           },
@@ -401,7 +401,7 @@ const AppContext = (props) => {
                 vacant:
                   floor_3_zones_size[i] -
                   (occupied.length + damaged.length + reserved.length),
-                total: floor_data.length,
+                total: floor_3_zones_size[i],
               },
             },
           },
