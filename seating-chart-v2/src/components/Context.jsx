@@ -326,7 +326,7 @@ const AppContext = (props) => {
         f2fetchedData.push(...floor_data);
       }
 
-      // get occupied, vacant, damaged and reserved data in floor 2 zones
+      // get occupied, vacant, damaged and reserved data in all floor 2 zones
       let occupied_2 = f2fetchedData.filter(
         (asset) =>
           asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
