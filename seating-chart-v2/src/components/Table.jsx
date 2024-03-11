@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
 import DeskSVG from "./DeskSVG";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "./Context";
 
 const Table = ({ data }) => {
   const acceptedItReserved = ["reserved (it)", "reserved it"];
   const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
   const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
   const navigate = useNavigate();
+  const { sorter } = useGlobalContext();
+
+  sorter(data, "asc");
 
   return (
     <div className="relative overflow-x-auto">
@@ -25,7 +29,7 @@ const Table = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((desk, index) => {
+          {data.map((desk) => {
             const id = desk.id;
             const status = desk.custom_fields["Workspace-Status"]?.value;
             const campaign = desk.custom_fields["Campaign"]?.value;

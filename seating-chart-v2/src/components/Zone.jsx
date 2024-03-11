@@ -48,6 +48,47 @@ const Zone = () => {
   const occupiedSet = new Set([...occupied_desks]);
   let vacant_desks = all_desks.filter((desk) => !occupiedSet.has(desk));
 
+  // change vacant data structure
+  const newVacant = vacant_desks.map((desk) => {
+    // get desk number
+    // const id = desk.split("").pop();
+    return {
+      key: desk,
+      id: `v${desk}`,
+      custom_fields: {
+        "Building Zone": {
+          field: "",
+          value: `Zone ${zone_id.toUpperCase()}`,
+          field_format: "ANY",
+          element: "text",
+        },
+        Workspace: {
+          field: "_snipeit_workspace_4",
+          value: desk,
+          field_format: "ANY",
+          element: "text",
+        },
+        "Workspace-Status": {
+          field: "_snipeit_workspace_status_18",
+          value: "Vacant",
+          field_format: "ANY",
+          element: "listbox",
+        },
+        Campaign: {
+          field: "_snipeit_campaign_17",
+          value: "",
+          field_format: "ANY",
+          element: "listbox",
+        },
+      },
+    };
+  });
+
+  zone_data.push(...newVacant);
+
+  console.log(zone_data);
+
+  // filter data
   const filteredData = zone_data.filter((desk) => {
     // No filters selected, show all
     if (
@@ -126,7 +167,7 @@ const Zone = () => {
   const itemsPerPage = 8;
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  const paginatedData = filteredData.slice(
+  let paginatedData = filteredData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -163,12 +204,12 @@ const Zone = () => {
                 type="checkbox"
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                 checked={filters.vacant}
-                onChange={() =>
+                onChange={() => {
                   setFilters((prevFilters) => ({
                     ...prevFilters,
                     vacant: !prevFilters.vacant,
-                  }))
-                }
+                  }));
+                }}
               />
               <label
                 htmlFor="checkbox-1"

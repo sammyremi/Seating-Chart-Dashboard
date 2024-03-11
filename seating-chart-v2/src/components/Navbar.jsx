@@ -2,12 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 import logo from "../images/newlogo.png";
-import axios from "axios";
-
-const zones = ["d", "e", "h", "i", "j", "k", "l", "m", "n", "q", "r"];
 
 const Navbar = () => {
-  const { setSearchedDesk, baseURL } = useGlobalContext();
+  const { setSearchedDesk, all_zone_size, all_zones } = useGlobalContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("");
@@ -47,22 +44,17 @@ const Navbar = () => {
 
   // fetch data for search
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       try {
-        const fetchedData = [];
+        let fetchedData = [];
 
-        // fetch data
-        const response = await axios.get(baseURL);
-        const response_data = response.data;
-
-        for (let i = 0; i < zones.length; i++) {
-          const zone_data = response_data.filter(
-            (asset) =>
-              asset.custom_fields["Building Zone"]?.value
-                .slice(-1)
-                .toLowerCase() === zones[i]
-          );
-          fetchedData.push(...zone_data);
+        for (let i = 0; i < all_zones.length; i++) {
+          // get all desks per zone
+          for (let j = 1; j <= all_zone_size[all_zones[i]]; j++) {
+            fetchedData.push(
+              all_zones[i].toUpperCase() + j.toString().padStart(4, "0")
+            );
+          }
         }
         // console.log(fetchedData);
         setData((prevData) => [...prevData, ...fetchedData]);
@@ -78,9 +70,8 @@ const Navbar = () => {
   if (data) {
     data.map((desk) => {
       searchData.push({
-        key: `${desk.custom_fields["Workspace"]?.value.toLowerCase()}`,
-        value: desk.custom_fields["Workspace"]?.value,
-        id: desk?.id,
+        key: desk,
+        value: desk,
       });
     });
   }
