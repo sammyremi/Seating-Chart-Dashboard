@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createContext, useContext } from "react";
 
 const GlobalContext = createContext();
@@ -157,11 +157,12 @@ const AppContext = (props) => {
     q: [],
     r: [],
   };
+  const acceptedItReserved = ["reserved (it)", "reserved it"];
+  const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
+  const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
 
-  // sorter function
+  // sorting function
   const sorter = (array, order) => {
-    let sortedArray = [];
-
     // Custom comparison function for sorting by workspace value
     function compareByWorkspace(a, b) {
       const workspaceA = a.custom_fields.Workspace.value;
@@ -174,15 +175,72 @@ const AppContext = (props) => {
       }
     }
 
-    sortedArray = array.sort(compareByWorkspace);
-
-    // console.log(sortedArray);
+    array.sort(compareByWorkspace);
   };
 
-  const acceptedItReserved = ["reserved (it)", "reserved it"];
-  const acceptedDevReserved = ["reserved (dev)", "reserved dev"];
-  const acceptedOpsReserved = ["reserved (ops)", "reserved ops"];
+  // get vacant workspace function
+  const getVacant = (zone_data, floor_zone, i) => {
+    // get array of occupied desks per zone
+    let occupied_desks = [];
+    for (let j = 0; j < zone_data.length; j++) {
+      occupied_desks.push(zone_data[j].custom_fields["Workspace"].value);
+    }
 
+    // get all desks per zone
+    let all_desks = [];
+    const zone_id = floor_zone[i];
+    for (let j = 1; j <= all_zone_size[zone_id]; j++) {
+      all_desks.push(zone_id.toUpperCase() + j.toString().padStart(4, "0"));
+    }
+
+    // get vacant desks per zone
+    const occupiedSet = new Set([...occupied_desks]);
+    let vacant_desks = all_desks.filter((desk) => !occupiedSet.has(desk));
+
+    // change vacant array data structure
+    const newVacant = vacant_desks.map((desk) => {
+      return {
+        key: desk,
+        id: `v${desk}`,
+        custom_fields: {
+          "Building Zone": {
+            field: "",
+            value: `Zone ${zone_id.toUpperCase()}`,
+            field_format: "ANY",
+            element: "text",
+          },
+          Workspace: {
+            field: "_snipeit_workspace_4",
+            value: desk,
+            field_format: "ANY",
+            element: "text",
+          },
+          "Workspace-Status": {
+            field: "_snipeit_workspace_status_18",
+            value: "Vacant",
+            field_format: "ANY",
+            element: "listbox",
+          },
+          Campaign: {
+            field: "_snipeit_campaign_17",
+            value: "",
+            field_format: "ANY",
+            element: "listbox",
+          },
+        },
+      };
+    });
+
+    // add vacant to zone data
+    zone_data.push(...newVacant);
+
+    // sort zone_data
+    sorter(zone_data, "asc");
+
+    return zone_data;
+  };
+
+  // data fetching function
   const getData = async () => {
     const response = await axios.get(baseURL);
     const response_data = response.data;
@@ -393,6 +451,7 @@ const AppContext = (props) => {
     return response.data;
   };
 
+  // useQuery
   const {
     isLoading,
     isFetching,
@@ -406,6 +465,7 @@ const AppContext = (props) => {
   return (
     <GlobalContext.Provider
       value={{
+        getVacant,
         all_zone_size,
         sorter,
         isLoading,

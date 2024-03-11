@@ -18,6 +18,7 @@ const AllWorkStations = () => {
     floor_3_zones,
     baseURL,
     all_zone_size,
+    getVacant,
   } = useGlobalContext();
   const [filters, setFilters] = useState({
     occupied: false,
@@ -111,70 +112,11 @@ const AllWorkStations = () => {
                 .slice(-1)
                 .toLowerCase() === floor_zone[i]
           );
+          const new_zone_data = getVacant(zone_data, floor_zone, i);
 
-          // get array of occupied desks per zone
-          let occupied_desks = [];
-          for (let j = 0; j < zone_data.length; j++) {
-            occupied_desks.push(zone_data[j].custom_fields["Workspace"].value);
-          }
-
-          // get all desks per zone
-          let all_desks = [];
-          const zone_id = floor_zone[i];
-          for (let j = 1; j <= all_zone_size[zone_id]; j++) {
-            all_desks.push(
-              zone_id.toUpperCase() + j.toString().padStart(4, "0")
-            );
-          }
-
-          // get vacant desks per zone
-          const occupiedSet = new Set([...occupied_desks]);
-          let vacant_desks = all_desks.filter((desk) => !occupiedSet.has(desk));
-
-          // change vacant array data structure
-          const newVacant = vacant_desks.map((desk) => {
-            // get desk number
-            // const id = desk.split("").pop();
-            return {
-              key: desk,
-              id: `v${desk}`,
-              custom_fields: {
-                "Building Zone": {
-                  field: "",
-                  value: `Zone ${zone_id.toUpperCase()}`,
-                  field_format: "ANY",
-                  element: "text",
-                },
-                Workspace: {
-                  field: "_snipeit_workspace_4",
-                  value: desk,
-                  field_format: "ANY",
-                  element: "text",
-                },
-                "Workspace-Status": {
-                  field: "_snipeit_workspace_status_18",
-                  value: "Vacant",
-                  field_format: "ANY",
-                  element: "listbox",
-                },
-                Campaign: {
-                  field: "_snipeit_campaign_17",
-                  value: "",
-                  field_format: "ANY",
-                  element: "listbox",
-                },
-              },
-            };
-          });
-
-          // add vacant to zone data
-          zone_data.push(...newVacant);
-
-          // sort zone_data
-          sorter(zone_data, "asc");
-          fetchedData.push(...zone_data);
+          fetchedData.push(...new_zone_data);
         }
-        // console.log(fetchedData);
+
         setData((prevData) => [...prevData, ...fetchedData]);
         setLoading(false);
       } catch (error) {

@@ -28,6 +28,7 @@ const Zone = () => {
     all_zone_size,
     sorter,
   } = useGlobalContext();
+
   const zone_data = data.zone_data[zone_id];
   const [filters, setFilters] = useState({
     occupied: false,
@@ -35,8 +36,6 @@ const Zone = () => {
     damaged: false,
     filtered: false,
   });
-
-  console.log(zone_data);
 
   // get array of occupied desks per zone
   let occupied_desks = [];
@@ -89,7 +88,7 @@ const Zone = () => {
       },
     };
   });
-
+  // add vacant to zone data
   zone_data.push(...newVacant);
 
   // sort zone_data
