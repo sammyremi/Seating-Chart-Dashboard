@@ -27,10 +27,12 @@ const Desk = ({ data, style, desk_id }) => {
       }}
     >
       {data_desk_id === desk_id && searchedDesk === desk_id ? (
-        <Desk_icon status={status} searchedDesk={true} />
-      ) : (
-        <Desk_icon status={status} />
-      )}
+          <Desk_icon status={status} searchedDesk={true} />
+        ) : desk_id === "J0016" ? (
+          <Desk_icon status="damaged" />
+        ) : (
+          <Desk_icon status={status} />
+        )}
 
       <p
         className={`${style} text-xs font-sans text-slate-500 text-center tracking-wide`}
