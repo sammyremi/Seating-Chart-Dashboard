@@ -57,6 +57,7 @@ const Zone = () => {
   const newVacant = vacant_desks.map((desk) => {
     // get desk number
     // const id = desk.split("").pop();
+    console.log(desk)
     return {
       key: desk,
       id: `v${desk}`,
@@ -75,7 +76,7 @@ const Zone = () => {
         },
         "Workspace-Status": {
           field: "_snipeit_workspace_status_18",
-          value: "Vacant",
+          value: desk === 'J0016' ? 'damaged': "Vacant",
           field_format: "ANY",
           element: "listbox",
         },
