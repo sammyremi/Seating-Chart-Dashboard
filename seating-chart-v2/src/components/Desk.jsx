@@ -15,7 +15,7 @@ const Desk = ({ data, style, desk_id }) => {
 
   // check if data_id is undefined for vacant workspaces
   const data_id = workspace_data?.id == undefined ? "000" : workspace_data?.id;
-  const status = workspace_data?.custom_fields["Workspace-Status"]?.value;
+  const status = workspace_data?.custom_fields["Workspace Status"]?.value;
   const data_desk_id = workspace_data?.custom_fields["Workspace"]?.value;
 
   const first_char = desk_id?.charAt(0).toLowerCase();

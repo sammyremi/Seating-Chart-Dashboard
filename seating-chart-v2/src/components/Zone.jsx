@@ -74,7 +74,7 @@ const Zone = () => {
           field_format: "ANY",
           element: "text",
         },
-        "Workspace-Status": {
+        "Workspace Status": {
           field: "_snipeit_workspace_status_18",
           value: desk === 'J0016' ? 'damaged': "Vacant",
           field_format: "ANY",
@@ -110,16 +110,16 @@ const Zone = () => {
     // Include filtered item in the filtered data
     if (
       (filters.occupied &&
-        desk.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+        desk.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "occupied") ||
       (filters.vacant &&
-        desk.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+        desk.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "vacant") ||
       (filters.damaged &&
-        desk.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+        desk.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "damaged") ||
       (filters.reserved &&
-        desk.custom_fields["Workspace-Status"]?.value
+        desk.custom_fields["Workspace Status"]?.value
           .toLowerCase()
           .includes("reserved"))
     ) {

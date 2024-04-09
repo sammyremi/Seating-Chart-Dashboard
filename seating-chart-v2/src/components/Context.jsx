@@ -215,7 +215,7 @@ const AppContext = (props) => {
             field_format: "ANY",
             element: "text",
           },
-          "Workspace-Status": {
+          "Workspace Status": {
             field: "_snipeit_workspace_status_18",
             value: "Vacant",
             field_format: "ANY",
@@ -286,16 +286,16 @@ const AppContext = (props) => {
         // get occupied, vacant, damaged and reserved data in each floor 2 zone
         let occupied = floor_data.filter(
           (asset) =>
-            asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+            asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
             "occupied"
         );
         let damaged = floor_data.filter(
           (asset) =>
-            asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+            asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
             "damaged"
         );
         let reserved = floor_data.filter((asset) =>
-          asset.custom_fields["Workspace-Status"]?.value
+          asset.custom_fields["Workspace Status"]?.value
             .toLowerCase()
             .includes("reserved")
         );
@@ -340,16 +340,16 @@ const AppContext = (props) => {
       // get occupied, vacant, damaged and reserved data in all floor 2 zones
       let occupied_2 = f2fetchedData.filter(
         (asset) =>
-          asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+          asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "occupied"
       );
       let damaged_2 = f2fetchedData.filter(
         (asset) =>
-          asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+          asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "damaged"
       );
       let reserved_2 = f2fetchedData.filter((asset) =>
-        asset.custom_fields["Workspace-Status"]?.value
+        asset.custom_fields["Workspace Status"]?.value
           .toLowerCase()
           .includes("reserved")
       );
@@ -379,16 +379,16 @@ const AppContext = (props) => {
         // get occupied, vacant, damaged and reserved data in each floor 3 zone
         let occupied = floor_data.filter(
           (asset) =>
-            asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+            asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
             "occupied"
         );
         let damaged = floor_data.filter(
           (asset) =>
-            asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+            asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
             "damaged"
         );
         let reserved = floor_data.filter((asset) =>
-          asset.custom_fields["Workspace-Status"]?.value
+          asset.custom_fields["Workspace Status"]?.value
             .toLowerCase()
             .includes("reserved")
         );
@@ -429,17 +429,17 @@ const AppContext = (props) => {
       // get occupied, vacant, damaged and reserved data in floor 3 zones
       let occupied_3 = f3fetchedData.filter(
         (asset) =>
-          asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+          asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "occupied"
       );
       let damaged_3 = f3fetchedData.filter(
         (asset) =>
-          asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+          asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "damaged"
       );
       let vacant_3 = f3vacant;
       let reserved_3 = f3fetchedData.filter((asset) =>
-        asset.custom_fields["Workspace-Status"]?.value
+        asset.custom_fields["Workspace Status"]?.value
           .toLowerCase()
           .includes("reserved")
       );

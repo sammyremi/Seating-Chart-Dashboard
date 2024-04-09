@@ -30,7 +30,7 @@ const Show = () => {
         const response = await axios.get(url, config);
         console.log(response);
         const desk_id = response.data.custom_fields.Workspace.value;
-        const status = response.data.custom_fields["Workspace-Status"]?.value;
+        const status = response.data.custom_fields["Workspace Status"]?.value;
         const campaign = response.data.custom_fields.Campaign.value;
         setData({ id, desk_id, status, campaign });
         setLoading(false);

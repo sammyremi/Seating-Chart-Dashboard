@@ -41,16 +41,16 @@ const AllWorkStations = () => {
     // Include filtered item in the filtered data
     if (
       (filters.occupied &&
-        asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+        asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "occupied") ||
       (filters.vacant &&
-        asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+        asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "vacant") ||
       (filters.damaged &&
-        asset.custom_fields["Workspace-Status"]?.value.toLowerCase() ===
+        asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "damaged") ||
       (filters.reserved &&
-        asset.custom_fields["Workspace-Status"]?.value
+        asset.custom_fields["Workspace Status"]?.value
           .toLowerCase()
           .includes("reserved"))
     ) {

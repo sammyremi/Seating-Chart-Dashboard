@@ -31,7 +31,7 @@ const Table = ({ data }) => {
         <tbody>
           {data.map((desk) => {
             const id = desk.id;
-            const status = desk.custom_fields["Workspace-Status"]?.value;
+            const status = desk.custom_fields["Workspace Status"]?.value;
             const campaign = desk.custom_fields["Campaign"]?.value;
             const desk_id = desk.custom_fields["Workspace"]?.value;
 
