@@ -7,6 +7,7 @@ const GlobalContext = createContext();
 
 // create custom hook
 export const useGlobalContext = () => useContext(GlobalContext);
+const damaged_desks = ["J0016"];
 
 const AppContext = (props) => {
   const [refresh, setRefresh] = useState(false);
@@ -15,7 +16,7 @@ const AppContext = (props) => {
   const [activeSideNav, setActiveSideNav] = useState("");
   const [showSidebar, setShowSidebar] = useState(false);
   const [searchedDesk, setSearchedDesk] = useState("");
-  const baseURL = "http://it-assets.outsource.ng/api/v1/hardware";
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
   const [data, setData] = useState({
     floor_2: {
       occupied: "",
@@ -193,9 +194,14 @@ const AppContext = (props) => {
       all_desks.push(zone_id.toUpperCase() + j.toString().padStart(4, "0"));
     }
 
+    // get damaged desks per zone
+    const damagedSet = new Set([...damaged_desks]);
+
     // get vacant desks per zone
     const occupiedSet = new Set([...occupied_desks]);
-    let vacant_desks = all_desks.filter((desk) => !occupiedSet.has(desk));
+    let vacant_desks = all_desks.filter(
+      (desk) => !occupiedSet.has(desk) && !damagedSet.has(desk)
+    );
 
     // change vacant array data structure
     const newVacant = vacant_desks.map((desk) => {
@@ -240,21 +246,67 @@ const AppContext = (props) => {
     return zone_data;
   };
 
+  // get damaged workspace function
+  const getDamaged = (new_zone_data, floor_zone, i) => {
+    const zone_id = floor_zone[i];
+
+    // change damaged array data structure
+    const newDamaged = damaged_desks.map((desk) => {
+      return {
+        key: desk,
+        id: `v${desk}`,
+        custom_fields: {
+          "Building Zone": {
+            field: "",
+            value: `Zone ${zone_id.toUpperCase()}`,
+            field_format: "ANY",
+            element: "text",
+          },
+          Workspace: {
+            field: "_snipeit_workspace_4",
+            value: desk,
+            field_format: "ANY",
+            element: "text",
+          },
+          "Workspace Status": {
+            field: "_snipeit_workspace_status_18",
+            value: "Damaged",
+            field_format: "ANY",
+            element: "listbox",
+          },
+          Campaign: {
+            field: "_snipeit_campaign_17",
+            value: "",
+            field_format: "ANY",
+            element: "listbox",
+          },
+        },
+      };
+    });
+
+    // add vacant to zone data
+    new_zone_data.push(...newDamaged);
+
+    sorter(new_zone_data, "asc");
+
+    return new_zone_data;
+  };
+
   // data fetching function
   const getData = async () => {
-    const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMWY4YWI3OTYxZjcxZGU3MDNlM2I1NWZmM2U2MmQyYTYzNDk5OWVlODMzODM2YzJjNDg1N2U4MGIwNDMyYTZkNGIwYjczMWZlYTBlZGE3ZTgiLCJpYXQiOjE3MDg0MzAyMDYuOTA0OTcxLCJuYmYiOjE3MDg0MzAyMDYuOTA0OTczLCJleHAiOjIxODE4MTU4MDYuODc5MjE0LCJzdWIiOiIyMDYiLCJzY29wZXMiOltdfQ.BC2S1QqF_L9m0wv3VJAfH5XsqJ-Ycw01LX01TOj8g8_kqBq6Q9SPMIyH2JrvNTJjnPuVRbsJfjTRLMxr3fKOAzFlb0l_IsHEnZPGMWi2YN5XJY6l6USWRjb1JPmQKEtefsqoskyN5AzbkBQLxHlkel3hHJlkLKwNvhdEjgkCG6Ll23y2Rc9jwT9vb80n5QDj-dCBRd7-4MKjJgUXhU3asIAqPp9ykfolNlwIWSas-iwK3GjQmAVVCsuQrMoeFuOSV5_cstGs2_GW-ManeDpdup7Zf9Qxk-u_yh3SIEqLIWZW_iTy5Txlpp0Sz8PqMXZ_EsirumH3lMxAhbNEO7IFGKfYer-ni6dvW9EkrAn0OX4Rx636wIJ-vamrjo6_snbbPyr4eibfWRPD13pZenMF96Gv3UBD5qJ831HdIMG9kb3kS04PRYI8RTPu0l5rAiyvDe81kMykHOzBhcsMbMWkpVT1mA33ARD3bglKfckvtSV95rcK9bF0bo-nHsPeQt9r5FZ2R1djl9jaS_VXYK0bOpJVdSh7vDwqmIAmU-g13NZJmC92dTE5nrbgFsvZ_hrg6tYfzA5ftzTPh2jHm70C3QbL1gc1q2n2O55ZU7fXAgyVd_CA8KHS2ySbfJkCagdVC4h1NIhm3XfdAxNs0k8Eho2x4aQcujJUm0AjluykDs8"; // Replace "your_token_here" with your actual token
+    const token = import.meta.env.VITE_API_TOKEN;
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     };
-  
+
     const response = await axios.get(baseURL, config);
 
+    // const response = await axios.get(baseURL);
+
     const response_data = response.data.rows;
-
-    console.log(response_data);
-
+    // const response_data = response.data;
 
     const fetchData = async () => {
       const f2fetchedData = [];
@@ -363,7 +415,8 @@ const AppContext = (props) => {
           occupied: occupied_2.length,
           damaged: damaged_2.length,
           reserved: reserved_2.length,
-          vacant: vacant_2,response
+          vacant: vacant_2,
+          response,
         },
       }));
 
@@ -383,9 +436,7 @@ const AppContext = (props) => {
             "occupied"
         );
         let damaged = floor_data.filter(
-          (asset) =>
-            asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
-            "damaged"
+          (asset) => asset.custom_fields["Workspace"]?.value === "J0016"
         );
         let reserved = floor_data.filter((asset) =>
           asset.custom_fields["Workspace Status"]?.value
@@ -432,11 +483,12 @@ const AppContext = (props) => {
           asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
           "occupied"
       );
-      let damaged_3 = f3fetchedData.filter(
-        (asset) =>
-          asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
-          "damaged"
-      );
+      // let damaged_3 = f3fetchedData.filter(
+      //   (asset) =>
+      //     asset.custom_fields["Workspace Status"]?.value.toLowerCase() ===
+      //     "damaged"
+      // );
+      let damaged_3 = ["J0016"];
       let vacant_3 = f3vacant;
       let reserved_3 = f3fetchedData.filter((asset) =>
         asset.custom_fields["Workspace Status"]?.value
@@ -477,6 +529,8 @@ const AppContext = (props) => {
     <GlobalContext.Provider
       value={{
         getVacant,
+        getDamaged,
+        damaged_desks,
         all_zone_size,
         sorter,
         isLoading,
