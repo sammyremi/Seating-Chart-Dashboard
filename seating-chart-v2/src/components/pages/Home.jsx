@@ -120,7 +120,8 @@ const Home = () => {
       {
         label: "Damaged",
         data: [
-          data.floor_3.zones.j.damaged,
+          // data.floor_3.zones.j.damaged,
+          1,
           data.floor_3.zones.k.damaged,
           data.floor_3.zones.l.damaged,
           data.floor_3.zones.m.damaged,

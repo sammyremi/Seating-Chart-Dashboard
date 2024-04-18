@@ -102,21 +102,21 @@ const AllWorkStations = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = import.meta.env.VITE_API_TOKEN;
-        const config = {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        };
+        // const token = import.meta.env.VITE_API_TOKEN;
+        // const config = {
+        //   headers: {
+        //     Authorization: `Bearer ${token}`,
+        //   },
+        // };
 
         const fetchedData = [];
 
         // fetch data
-        const response = await axios.get(baseURL, config);
-        // const response = await axios.get(baseURL);
+        // const response = await axios.get(baseURL, config);
+        // const response_data = response.data.rows;
 
-        const response_data = response.data.rows;
-        // const response_data = response.data;
+        const response = await axios.get(baseURL);
+        const response_data = response.data;
 
         for (let i = 0; i < floor_zone.length; i++) {
           // get data for each zone

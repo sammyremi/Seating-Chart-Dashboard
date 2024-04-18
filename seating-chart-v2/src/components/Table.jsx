@@ -75,7 +75,7 @@ const Table = ({ data }) => {
                   >
                     {/* capitalize status */}
                     {[
-                      status[0].toUpperCase(),
+                      status[0]?.toUpperCase(),
                       ...status.slice(1).toLowerCase(),
                     ].join("")}
                   </span>

@@ -294,19 +294,18 @@ const AppContext = (props) => {
 
   // data fetching function
   const getData = async () => {
-    const token = import.meta.env.VITE_API_TOKEN;
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    // const token = import.meta.env.VITE_API_TOKEN;
+    // const config = {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // };
 
-    const response = await axios.get(baseURL, config);
+    // const response = await axios.get(baseURL, config);
+    // const response_data = response.data.rows;
 
-    // const response = await axios.get(baseURL);
-
-    const response_data = response.data.rows;
-    // const response_data = response.data;
+    const response = await axios.get(baseURL);
+    const response_data = response.data;
 
     const fetchData = async () => {
       const f2fetchedData = [];
